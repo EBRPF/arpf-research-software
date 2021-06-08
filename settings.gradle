@@ -1,2 +1,4 @@
 rootProject.name = 'arpf'
+include 'client'
+include 'server'
 

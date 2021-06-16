@@ -12,6 +12,6 @@
         <RowConstraints maxHeight="Infinity" percentHeight="10"/>
         <RowConstraints maxHeight="Infinity" percentHeight="90"/>
     </rowConstraints>
-    <HBox prefHeight="103.0" prefWidth="632.0" style="-fx-background-color: gray;" GridPane.columnSpan="2147483647"/>
-    <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: blue;" GridPane.rowIndex="1"/>
+    <HBox style="-fx-background-color: gray;" GridPane.columnSpan="2147483647"/>
+    <VBox style="-fx-background-color: blue;" GridPane.rowIndex="1"/>
 </GridPane>

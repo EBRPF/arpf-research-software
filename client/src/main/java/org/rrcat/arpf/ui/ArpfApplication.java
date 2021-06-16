@@ -7,13 +7,19 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class ArpfApplication extends Application {
+    public static final String APPLICATION_TITLE = "A.R.P.F.";
+    public static final int MIN_WIDTH = 1400;
+    public static final int MIN_HEIGHT = 740;
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/layouts/navigation.fxml"));
 
-        Scene scene = new Scene(root, 300, 275);
+        Scene scene = new Scene(root, MIN_WIDTH, MIN_HEIGHT);
+        primaryStage.setMinWidth(MIN_WIDTH);
+        primaryStage.setMinHeight(MIN_HEIGHT);
 
-        primaryStage.setTitle("Arpf");
+        primaryStage.setTitle(APPLICATION_TITLE);
         primaryStage.setScene(scene);
         primaryStage.show();
     }

@@ -1,18 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<GridPane maxHeight="Infinity" maxWidth="Infinity" prefHeight="400.0"
-          prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane maxHeight="Infinity" maxWidth="Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.NavigationController">
     <columnConstraints>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="15"/>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="85"/>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="15" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="85" />
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints maxHeight="Infinity" percentHeight="10"/>
-        <RowConstraints maxHeight="Infinity" percentHeight="90"/>
+        <RowConstraints maxHeight="Infinity" percentHeight="10" />
+        <RowConstraints maxHeight="Infinity" percentHeight="90" />
     </rowConstraints>
-    <HBox style="-fx-background-color: white; -fx-border-color: rgb(47,49,92); -fx-border-width: 2 3 2 3;"
-          GridPane.columnSpan="2147483647"/>
-    <VBox style="-fx-background-color: rgb(226,226,226);" GridPane.rowIndex="1"/>
+    <BorderPane fx:id="top_box" style="-fx-padding: 0 0 0 5; -fx-background-color: white; -fx-border-color: rgb(47,49,92); -fx-border-width: 2 3 2 3;" GridPane.columnSpan="2147483647">
+        <left>
+            <HBox fx:id="headerBox" alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="129.0" BorderPane.alignment="CENTER_LEFT">
+                <ImageView fx:id="logoImage" fitHeight="36.0" fitWidth="36.0">
+                    <Image url="@../assets/images/rrcat_logo.png" />
+                </ImageView>
+            </HBox>
+        </left>
+        <center>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                <Text>
+                    AGRICULTURAL RADIATION PROCESSING FACILITY, INDORE
+                    <font>
+                        <Font name="Times New Roman Bold" size="18.0" />
+                    </font>
+                </Text>
+            </HBox>
+        </center>
+        <right>
+            <VBox prefHeight="36.0" prefWidth="159.0" BorderPane.alignment="CENTER" alignment="CENTER_RIGHT" >
+                <Text>
+                    Monday, May 24, 2021
+                    <font>
+                        <Font name="Times New Roman Bold" size="15.0" />
+                    </font>
+                </Text>
+                <Text>
+                    11:36:56 PM
+                    <font>
+                        <Font name="Times New Roman Bold" size="12.0" />
+                    </font>
+                </Text>
+            </VBox>
+        </right>
+    </BorderPane>
+    <VBox style="-fx-background-color: rgb(226,226,226);" GridPane.rowIndex="1" />
 </GridPane>

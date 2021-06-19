@@ -18,14 +18,14 @@
          <children>
             <ImageView fitHeight="54.0" fitWidth="47.0" layoutX="492.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../img/rrcat_logo.png" />
+                  <Image url="@../assets/images/rrcat_logo.png" />
                </image>
             </ImageView>
             <Text layoutX="128.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AGRICULTURAL RADIATION PROCESSING FACILITY, INDORE" />
             <Text layoutX="199.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RESERACH CUSTOMER SOFTWARE" />
             <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="63.0" layoutY="6.0">
                <image>
-                  <Image url="@../img/dae_logo.png" />
+                  <Image url="@../assets/images/dae_logo.png" />
                </image>
             </ImageView>
          </children>

@@ -3,6 +3,13 @@
 }
 
 .form-title {
+    -fx-font-weight: bold;
     -fx-text-fill: rgb(0, 60, 170);
     -fx-font-size: 20;
+}
+
+.form-button {
+    -fx-text-fill: rgb(0, 50, 150);
+    -fx-background-color: rgb(190, 220, 255);
+    -fx-padding: 5px 10px;
 }

@@ -13,3 +13,8 @@
     -fx-background-color: rgb(190, 220, 255);
     -fx-padding: 5px 10px;
 }
+
+.blue-border {
+    -fx-border-width: 2;
+    -fx-border-color: rgb(100, 100, 100);
+}

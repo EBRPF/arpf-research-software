@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="layouts.CheckOrderStatus">
     <top>
@@ -8,19 +11,34 @@
 
         </HBox>
     </top>
-    <bottom>
-        <VBox alignment="CENTER">
-            
-        </VBox>
+    <center>
         <GridPane>
             <columnConstraints>
-                <ColumnConstraints hgrow="ALWAYS" percentWidth="15" />
-                <ColumnConstraints hgrow="ALWAYS" percentWidth="85" />
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
             </columnConstraints>
             <rowConstraints>
                 <RowConstraints maxHeight="Infinity" percentHeight="10" />
-                <RowConstraints maxHeight="Infinity" percentHeight="90" />
+                <RowConstraints maxHeight="Infinity" percentHeight="30" />
+                <RowConstraints maxHeight="Infinity" percentHeight="20" />
+                <RowConstraints maxHeight="Infinity" percentHeight="40" />
             </rowConstraints>
+            <HBox alignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1">
+                <Text text="Enter Order Number">
+                    Enter Order Number
+                    <font>
+                        <Font name="Times New Roman Bold" size="15.0" />
+                    </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+                </Text>
+                <TextField prefHeight="28.0" prefWidth="233.0" promptText="EBRPF-Research-Order-0001">
+                    <font>
+                        <Font name="Times New Roman Bold" size="15.0" />
+                    </font>
+                </TextField>
+            </HBox>
         </GridPane>
-    </bottom>
+    </center>
 </BorderPane>

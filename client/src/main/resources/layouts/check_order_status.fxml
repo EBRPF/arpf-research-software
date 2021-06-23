@@ -15,7 +15,7 @@
         </HBox>
     </top>
     <center>
-        <GridPane minHeight="350.0" minWidth="600.0" prefHeight="350.0" prefWidth="600.0">
+        <GridPane minHeight="400.0" minWidth="600.0" prefHeight="350.0" prefWidth="600.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="ALWAYS" percentWidth="30" />
                 <ColumnConstraints hgrow="ALWAYS" percentWidth="20" />
@@ -23,24 +23,24 @@
                 <ColumnConstraints hgrow="ALWAYS" percentWidth="20" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints maxHeight="Infinity" percentHeight="10" />
-                <RowConstraints maxHeight="Infinity" percentHeight="20" />
+                <RowConstraints maxHeight="Infinity" percentHeight="11" />
                 <RowConstraints maxHeight="Infinity" percentHeight="18" />
-                <RowConstraints maxHeight="Infinity" percentHeight="13" />
-                <RowConstraints maxHeight="Infinity" percentHeight="13" />
-                <RowConstraints maxHeight="Infinity" percentHeight="13" />
-                <RowConstraints maxHeight="Infinity" percentHeight="13" />
+                <RowConstraints maxHeight="Infinity" percentHeight="15" />
+                <RowConstraints maxHeight="Infinity" percentHeight="14" />
+                <RowConstraints maxHeight="Infinity" percentHeight="14" />
+                <RowConstraints maxHeight="Infinity" percentHeight="14" />
+                <RowConstraints maxHeight="Infinity" percentHeight="14" />
             </rowConstraints>
             <HBox alignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1">
                 <Label styleClass="field-label" text="Enter Order Number :">
-               <font>
-                  <Font size="10.0" />
-               </font>
+                    <font>
+                        <Font size="10.0" />
+                    </font>
                 </Label>
                 <TextField id="orderNumberField" prefHeight="16.0" prefWidth="164.0" promptText="EBRPF-Research-Order-0001">
-               <font>
-                  <Font size="10.0" />
-               </font></TextField>
+                    <font>
+                        <Font size="10.0" />
+                    </font></TextField>
             </HBox>
             <VBox alignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="1">
                 <Label styleClass="field-label" text="Name of Organization / Institutions" textAlignment="CENTER">
@@ -54,17 +54,17 @@
             </VBox>
             <HBox alignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.rowSpan="1">
                 <Label alignment="CENTER" styleClass="field-label" text="Purpose of Irradiation" textAlignment="CENTER" wrapText="true">
-               <HBox.margin>
-                  <Insets right="10.0" />
-               </HBox.margin></Label>
+                    <HBox.margin>
+                        <Insets right="10.0" />
+                    </HBox.margin></Label>
                 <Label text="Mutation Breeding" textAlignment="CENTER" wrapText="true">
                 </Label>
             </HBox>
             <HBox alignment="CENTER" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.rowSpan="1">
                 <Label alignment="CENTER" styleClass="field-label" text="Mode of Irradiation" textAlignment="CENTER" wrapText="true">
-               <HBox.margin>
-                  <Insets right="10.0" />
-               </HBox.margin></Label>
+                    <HBox.margin>
+                        <Insets right="10.0" />
+                    </HBox.margin></Label>
                 <Label text="Electron Mode" textAlignment="CENTER" wrapText="true">
                 </Label>
             </HBox>
@@ -106,8 +106,8 @@
             </Label>
         </GridPane>
     </center>
-   <stylesheets>
-       <URL value="@../styles/font.css" />
-       <URL value="@../styles/form.css" />
-   </stylesheets>
+    <stylesheets>
+        <URL value="@../styles/font.css" />
+        <URL value="@../styles/form.css" />
+    </stylesheets>
 </BorderPane>

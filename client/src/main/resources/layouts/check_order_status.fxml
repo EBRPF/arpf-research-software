@@ -5,7 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="layouts.CheckOrderStatus">
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="layouts.CheckOrderStatus"
+            stylesheets="@../styles/font.css">
     <top>
         <HBox prefHeight="49.0" prefWidth="600.0">
 
@@ -14,31 +16,150 @@
     <center>
         <GridPane>
             <columnConstraints>
-                <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
-                <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="30"/>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="20"/>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="30"/>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="20"/>
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints maxHeight="Infinity" percentHeight="10" />
-                <RowConstraints maxHeight="Infinity" percentHeight="30" />
-                <RowConstraints maxHeight="Infinity" percentHeight="20" />
-                <RowConstraints maxHeight="Infinity" percentHeight="40" />
+                <RowConstraints maxHeight="Infinity" percentHeight="10"/>
+                <RowConstraints maxHeight="Infinity" percentHeight="20"/>
+                <RowConstraints maxHeight="Infinity" percentHeight="15"/>
+                <RowConstraints maxHeight="Infinity" percentHeight="15"/>
+                <RowConstraints maxHeight="Infinity" percentHeight="15"/>
+                <RowConstraints maxHeight="Infinity" percentHeight="15"/>
+                <RowConstraints maxHeight="Infinity" percentHeight="10"/>
             </rowConstraints>
-            <HBox alignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1">
-                <Text text="Enter Order Number">
-                    Enter Order Number
-                    <font>
-                        <Font name="Times New Roman Bold" size="15.0" />
-                    </font>
-               <HBox.margin>
-                  <Insets right="10.0" />
-               </HBox.margin>
-                </Text>
-                <TextField prefHeight="28.0" prefWidth="233.0" promptText="EBRPF-Research-Order-0001">
-                    <font>
-                        <Font name="Times New Roman Bold" size="15.0" />
-                    </font>
-                </TextField>
-            </HBox>
+            <Label styleClass="field-label" text="Enter Order Number" GridPane.columnIndex="0" GridPane.columnSpan="2"
+                   GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.rowSpan="1">
+                <HBox.margin>
+                    <Insets right="10.0"/>
+                </HBox.margin>
+                <GridPane.margin>
+                    <Insets right="10.0"/>
+                </GridPane.margin>
+            </Label>
+            <TextField id="orderNumberField" prefHeight="16.0" prefWidth="164.0" promptText="EBRPF-Research-Order-0001"
+                       GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="LEFT" GridPane.rowIndex="0"
+                       GridPane.rowSpan="1">
+            </TextField>
+            <VBox alignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.halignment="CENTER"
+                  GridPane.rowIndex="1" GridPane.rowSpan="1">
+                <Label styleClass="field-label" text="Name of Organization / Institutions" textAlignment="CENTER">
+                </Label>
+                <Label text="BARC-NABTD" textAlignment="CENTER">
+                </Label>
+                <Label styleClass="field-label" text="Description of Product(s) to be Irradiated"
+                       textAlignment="CENTER">
+                </Label>
+                <Label text="Rice Samples" textAlignment="CENTER">
+                </Label>
+            </VBox>
+            <Label styleClass="field-label" text="Purpose of Irradiation" textAlignment="CENTER" wrapText="true"
+                   GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2"
+                   GridPane.rowSpan="1">
+                <GridPane.margin>
+                    <Insets right="10.0"/>
+                </GridPane.margin>
+            </Label>
+            <Label text="Mutation Breeding" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1"
+                   GridPane.columnSpan="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.rowSpan="1">
+            </Label>
+            <Label styleClass="field-label" text="Mode of Irradiation" textAlignment="CENTER" wrapText="true"
+                   GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2"
+                   GridPane.rowSpan="1">
+                <GridPane.margin>
+                    <Insets right="10.0"/>
+                </GridPane.margin>
+            </Label>
+            <Label text="Electron Mode" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="3"
+                   GridPane.columnSpan="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.rowSpan="1">
+            </Label>
+
+            <Label styleClass="field-label" text="Order Registered and Processed for Further Action"
+                   textAlignment="CENTER" wrapText="true" GridPane.columnIndex="0" GridPane.columnSpan="1"
+                   GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.rowSpan="1">
+                <GridPane.margin>
+                    <Insets right="10.0"/>
+                </GridPane.margin>
+            </Label>
+            <CheckBox GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.halignment="CENTER"
+                      GridPane.rowIndex="3" GridPane.rowSpan="1">
+
+            </CheckBox>
+
+            <Label styleClass="field-label" text="Order Registered and Processed for Further Action"
+                   textAlignment="CENTER" wrapText="true" GridPane.columnIndex="0" GridPane.columnSpan="1"
+                   GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.rowSpan="1">
+                <GridPane.margin>
+                    <Insets right="10.0"/>
+                </GridPane.margin>
+            </Label>
+            <Label text="Electron Mode" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1"
+                   GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.rowSpan="1">
+            </Label>
+            <Label styleClass="field-label" text="Order Registered and Processed for Further Action"
+                   textAlignment="CENTER" wrapText="true" GridPane.columnIndex="0" GridPane.columnSpan="1"
+                   GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.rowSpan="1">
+                <GridPane.margin>
+                    <Insets right="10.0"/>
+                </GridPane.margin>
+            </Label>
+            <Label text="Electron Mode" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1"
+                   GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.rowSpan="1">
+            </Label>
+            <Label styleClass="field-label" text="Order Registered and Processed for Further Action"
+                   textAlignment="CENTER" wrapText="true" GridPane.columnIndex="0" GridPane.columnSpan="1"
+                   GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.rowSpan="1">
+                <GridPane.margin>
+                    <Insets right="10.0"/>
+                </GridPane.margin>
+            </Label>
+            <Label text="Electron Mode" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1"
+                   GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.rowSpan="1">
+            </Label>
+            <Label styleClass="field-label" text="Order Registered and Processed for Further Action"
+                   textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2" GridPane.columnSpan="1"
+                   GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.rowSpan="1">
+                <GridPane.margin>
+                    <Insets right="10.0"/>
+                </GridPane.margin>
+            </Label>
+            <CheckBox GridPane.columnIndex="3" GridPane.columnSpan="1" GridPane.halignment="CENTER"
+                      GridPane.rowIndex="3" GridPane.rowSpan="1">
+
+            </CheckBox>
+
+            <Label styleClass="field-label" text="Order Registered and Processed for Further Action"
+                   textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2" GridPane.columnSpan="1"
+                   GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.rowSpan="1">
+                <GridPane.margin>
+                    <Insets right="10.0"/>
+                </GridPane.margin>
+            </Label>
+            <Label text="Electron Mode" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="3"
+                   GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.rowSpan="1">
+            </Label>
+            <Label styleClass="field-label" text="Order Registered and Processed for Further Action"
+                   textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2" GridPane.columnSpan="1"
+                   GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.rowSpan="1">
+                <GridPane.margin>
+                    <Insets right="10.0"/>
+                </GridPane.margin>
+            </Label>
+            <Label text="Electron Mode" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="3"
+                   GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.rowSpan="1">
+            </Label>
+            <Label styleClass="field-label" text="Order Registered and Processed for Further Action"
+                   textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2" GridPane.columnSpan="1"
+                   GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.rowSpan="1">
+                <GridPane.margin>
+                    <Insets right="10.0"/>
+                </GridPane.margin>
+            </Label>
+            <Label text="Electron Mode" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="3"
+                   GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.rowSpan="1">
+            </Label>
         </GridPane>
     </center>
 </BorderPane>

@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane>
+<GridPane prefHeight="1920.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <columnConstraints>
         <ColumnConstraints hgrow="ALWAYS" percentWidth="16.66" />
         <ColumnConstraints hgrow="ALWAYS" percentWidth="16.66" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="16.66" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="16.66" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="33.33" />
         <ColumnConstraints hgrow="ALWAYS" percentWidth="16.66" />
         <ColumnConstraints hgrow="ALWAYS" percentWidth="16.66" />
     </columnConstraints>
@@ -28,4 +27,19 @@
         <RowConstraints maxHeight="Infinity" percentHeight="2" />
         <RowConstraints maxHeight="Infinity" percentHeight="18" />
     </rowConstraints>
+    <HBox style="-fx-background-color: rgb(190, 220, 255);" GridPane.columnIndex="0" GridPane.columnSpan="5" GridPane.rowIndex="0" GridPane.rowSpan="1" />
+    <ImageView fitHeight="100.0" fitWidth="100.0" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.rowIndex="0" GridPane.rowSpan="1">
+        <Image url="@../assets/images/rrcat_logo.png" />
+      <GridPane.margin>
+         <Insets left="10.0" />
+      </GridPane.margin>
+    </ImageView>
+    <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="0" GridPane.rowSpan="1">
+        <Label styleClass="form-title" text="Agricultural Radiation Processing Facility, Indore" />
+        <Label styleClass="form-title" text="Sample Radiation Processing Report" />
+    </VBox>
+    <stylesheets>
+        <URL value="@../styles/form.css" />
+        <URL value="@../styles/font.css" />
+    </stylesheets>
 </GridPane>

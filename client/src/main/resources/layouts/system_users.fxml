@@ -66,8 +66,18 @@
                 </GridPane.margin>
                 <Label styleClass="field-label" text="Users">
                 </Label>
-                <ScrollPane  VBox.vgrow="ALWAYS">
-
+                <ScrollPane fitToHeight="true" fitToWidth="true" VBox.vgrow="ALWAYS">
+                    <TableView GridPane.hgrow="ALWAYS">
+                        <columns>
+                            <TableColumn text="ID" />
+                            <TableColumn text="Username" />
+                            <TableColumn text="Name" />
+                            <TableColumn text="Row" />
+                        </columns>
+                  <columnResizePolicy>
+                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                  </columnResizePolicy>
+                    </TableView>
                 </ScrollPane>
             </VBox>
         </GridPane>

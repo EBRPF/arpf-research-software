@@ -5,25 +5,20 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane maxHeight="Infinity" maxWidth="Infinity" prefHeight="400.0" prefWidth="600.0"
-          xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-          fx:controller="org.rrcat.arpf.ui.controller.NavigationController">
+<GridPane maxHeight="Infinity" maxWidth="Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.NavigationController">
     <columnConstraints>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="15"/>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="85"/>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="15" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="85" />
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints maxHeight="Infinity" percentHeight="10"/>
-        <RowConstraints maxHeight="Infinity" percentHeight="90"/>
+        <RowConstraints maxHeight="Infinity" percentHeight="10" />
+        <RowConstraints maxHeight="Infinity" percentHeight="90" />
     </rowConstraints>
-    <BorderPane fx:id="top_box"
-                style="-fx-padding: 0 0 0 5; -fx-background-color: white; -fx-border-color: rgb(47,49,92); -fx-border-width: 2 3 2 3;"
-                GridPane.columnSpan="2147483647">
+    <BorderPane fx:id="top_box" style="-fx-padding: 0 0 0 5; -fx-background-color: white; -fx-border-color: rgb(47,49,92); -fx-border-width: 2 3 2 3;" GridPane.columnSpan="2147483647">
         <left>
-            <HBox fx:id="headerBox" alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="129.0"
-                  BorderPane.alignment="CENTER_LEFT">
+            <HBox fx:id="headerBox" alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="129.0" BorderPane.alignment="CENTER_LEFT">
                 <ImageView fx:id="logoImage" fitHeight="36.0" fitWidth="36.0">
-                    <Image url="@../assets/images/rrcat_logo.png"/>
+                    <Image url="@../assets/images/rrcat_logo.png" />
                 </ImageView>
             </HBox>
         </left>
@@ -32,7 +27,7 @@
                 <Text>
                     AGRICULTURAL RADIATION PROCESSING FACILITY, INDORE
                     <font>
-                        <Font name="Times New Roman Bold" size="18.0"/>
+                        <Font name="Times New Roman Bold" size="18.0" />
                     </font>
                 </Text>
             </HBox>
@@ -42,13 +37,13 @@
                 <Text>
                     Monday, May 24, 2021
                     <font>
-                        <Font name="Times New Roman Bold" size="15.0"/>
+                        <Font name="Times New Roman Bold" size="15.0" />
                     </font>
                 </Text>
-                <Text wrappingWidth="50">
+                <Text wrappingWidth="70.0">
                     11:36:56 PM
                     <font>
-                        <Font name="Times New Roman Bold" size="12.0"/>
+                        <Font name="Times New Roman Bold" size="12.0" />
                     </font>
                 </Text>
             </VBox>
@@ -58,86 +53,86 @@
         <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
             Radiation Processing In-Charge Login
             <font>
-                <Font name="Times New Roman Bold" size="15.0"/>
+                <Font name="Times New Roman Bold" size="15.0" />
             </font>
             <VBox.margin>
-                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </VBox.margin>
         </Text>
         <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
             Dashboard
             <font>
-                <Font name="Times New Roman" size="15.0"/>
+                <Font name="Times New Roman" size="15.0" />
             </font>
             <VBox.margin>
-                <Insets bottom="20.0" left="20.0" right="20.0"/>
+                <Insets bottom="20.0" left="20.0" right="20.0" />
             </VBox.margin>
         </Text>
         <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
             New Customer Registration
             <font>
-                <Font name="Times New Roman" size="15.0"/>
+                <Font name="Times New Roman" size="15.0" />
             </font>
             <VBox.margin>
-                <Insets bottom="20.0" left="20.0" right="20.0"/>
+                <Insets bottom="20.0" left="20.0" right="20.0" />
             </VBox.margin>
         </Text>
         <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
             New Order Registration
             <font>
-                <Font name="Times New Roman" size="15.0"/>
+                <Font name="Times New Roman" size="15.0" />
             </font>
             <VBox.margin>
-                <Insets bottom="20.0" left="20.0" right="20.0"/>
+                <Insets bottom="20.0" left="20.0" right="20.0" />
             </VBox.margin>
         </Text>
         <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
             Order Radiation Processing
             <font>
-                <Font name="Times New Roman" size="15.0"/>
+                <Font name="Times New Roman" size="15.0" />
             </font>
             <VBox.margin>
-                <Insets bottom="20.0" left="20.0" right="20.0"/>
+                <Insets bottom="20.0" left="20.0" right="20.0" />
             </VBox.margin>
         </Text>
         <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
             Order Dosimetry
             <font>
-                <Font name="Times New Roman" size="15.0"/>
+                <Font name="Times New Roman" size="15.0" />
             </font>
             <VBox.margin>
-                <Insets bottom="20.0" left="20.0" right="20.0"/>
+                <Insets bottom="20.0" left="20.0" right="20.0" />
             </VBox.margin>
         </Text>
         <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
             Shipping Details
             <font>
-                <Font name="Times New Roman" size="15.0"/>
+                <Font name="Times New Roman" size="15.0" />
             </font>
             <VBox.margin>
-                <Insets bottom="20.0" left="20.0" right="20.0"/>
+                <Insets bottom="20.0" left="20.0" right="20.0" />
             </VBox.margin>
         </Text>
         <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
             Check Order Status
             <font>
-                <Font name="Times New Roman" size="15.0"/>
+                <Font name="Times New Roman" size="15.0" />
             </font>
             <VBox.margin>
-                <Insets bottom="20.0" left="20.0" right="20.0"/>
+                <Insets bottom="20.0" left="20.0" right="20.0" />
             </VBox.margin>
         </Text>
         <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
             Sample Irradiation Report
             <font>
-                <Font name="Times New Roman" size="15.0"/>
+                <Font name="Times New Roman" size="15.0" />
             </font>
             <VBox.margin>
-                <Insets bottom="20.0" left="20.0" right="20.0"/>
+                <Insets bottom="20.0" left="20.0" right="20.0" />
             </VBox.margin>
         </Text>
     </VBox>
-    <StackPane GridPane.rowIndex="1" GridPane.rowSpan="1" GridPane.columnIndex="1" GridPane.columnSpan="1">
-        <fx:include source="check_order_status.fxml"/>
+    <StackPane GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="1" GridPane.rowSpan="1">
+        <fx:include source="system_users.fxml" />
     </StackPane>
 </GridPane>

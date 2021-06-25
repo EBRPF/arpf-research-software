@@ -1,6 +1,6 @@
-.root {
+.root * {
     -fx-font-family: "Times New Roman", "Arial";
-    -fx-font-size: 12px;
+    -fx-font-size: 18px;
 }
 
 .field-label {

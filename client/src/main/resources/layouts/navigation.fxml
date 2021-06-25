@@ -137,4 +137,7 @@
             </VBox.margin>
         </Text>
     </VBox>
+    <StackPane GridPane.rowIndex="1" GridPane.rowSpan="1" GridPane.columnIndex="1" GridPane.columnSpan="1">
+        <fx:include source="check_order_status.fxml"/>
+    </StackPane>
 </GridPane>

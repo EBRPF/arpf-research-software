@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane>
+    <columnConstraints>
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="16.66" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="16.66" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="16.66" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="16.66" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="16.66" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="16.66" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="Infinity" percentHeight="7" />
+        <RowConstraints maxHeight="Infinity" percentHeight="2" />
+        <RowConstraints maxHeight="Infinity" percentHeight="2" />
+        <RowConstraints maxHeight="Infinity" percentHeight="15" />
+        <RowConstraints maxHeight="Infinity" percentHeight="2" />
+        <RowConstraints maxHeight="Infinity" percentHeight="35" />
+        <RowConstraints maxHeight="Infinity" percentHeight="5" />
+        <RowConstraints maxHeight="Infinity" percentHeight="2" />
+        <RowConstraints maxHeight="Infinity" percentHeight="10" />
+        <RowConstraints maxHeight="Infinity" percentHeight="2" />
+        <RowConstraints maxHeight="Infinity" percentHeight="18" />
+    </rowConstraints>
+</GridPane>

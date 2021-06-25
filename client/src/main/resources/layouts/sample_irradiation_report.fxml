@@ -5,7 +5,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <top>
         <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: rgb(190,220,255);">
             <Label styleClass="form-title" text="Sample Irradiation Report">
@@ -27,19 +27,21 @@
                 <RowConstraints maxHeight="Infinity" percentHeight="10" />
                 <RowConstraints maxHeight="Infinity" percentHeight="90" />
             </rowConstraints>
-            <HBox alignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1">
+            <HBox alignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1">
                 <Label styleClass="field-label" text="Enter Order Number" />
                 <ComboBox editable="true" promptText="EBRPF-Research-Order-0005" />
             </HBox>
-            <Button graphicTextGap="1.0" styleClass="form-button" text="Print" GridPane.columnIndex="5" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1">
+            <Button graphicTextGap="1.0" styleClass="form-button" text="Print" GridPane.columnIndex="4" GridPane.columnSpan="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.rowSpan="1">
                 <graphic>
                     <ImageView fitHeight="23.0" fitWidth="22.0">
                         <Image url="@../assets/icons/print.png" />
                     </ImageView>
                 </graphic>
             </Button>
-            <ScrollPane GridPane.halignment="CENTER" GridPane.valignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="1" GridPane.columnIndex="1" GridPane.columnSpan="4">
-
+            <ScrollPane fitToWidth="true" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="1" GridPane.valignment="CENTER">
+                <StackPane>
+                    <fx:include source="processing_report.fxml" />
+                </StackPane>
             </ScrollPane>
         </GridPane>
     </center>

@@ -1,0 +1,16 @@
+.boxed {
+    -fx-border-color: rgb(190, 200, 255);
+    -fx-border-width: 1px;
+}
+
+.box-top {
+    -fx-border-insets: 0px 10px 0px 10px;
+}
+
+.box-bottom {
+    -fx-border-insets: 0px 10px 0px 10px;
+}
+
+.report-label {
+    -fx-text-fill: rgb(190, 200, 255);
+}

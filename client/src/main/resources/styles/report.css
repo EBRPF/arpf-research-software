@@ -7,7 +7,7 @@
 }
 
 .report-label {
-    -fx-text-fill: rgb(190, 200, 255);
+    -fx-text-fill: rgb(30, 100, 250);
 }
 
 .report-separator *.line {

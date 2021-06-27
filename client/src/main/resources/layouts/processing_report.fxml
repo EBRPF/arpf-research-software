@@ -121,6 +121,209 @@
         </VBox>
     </GridPane>
     <Separator styleClass="report-separator" GridPane.columnIndex="0" GridPane.columnSpan="5" GridPane.rowIndex="4" GridPane.rowSpan="1" />
+    <GridPane GridPane.columnIndex="0" GridPane.columnSpan="5" GridPane.rowIndex="5" GridPane.rowSpan="1">
+        <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="45" />
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="55" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="Infinity" percentHeight="10" />
+            <RowConstraints maxHeight="Infinity" percentHeight="90" />
+        </rowConstraints>
+        <Label text="Machine Parameters During Irradiation" styleClass="report-label" GridPane.rowIndex="0" GridPane.rowSpan="1" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.halignment="CENTER" />
+        <Label text="Machine Parameters During Irradiation" styleClass="report-label" GridPane.rowIndex="0" GridPane.rowSpan="1" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.halignment="CENTER" />
+        <GridPane styleClass="report-padding" GridPane.rowIndex="1" GridPane.rowSpan="1" GridPane.columnIndex="0" GridPane.columnSpan="1">
+            <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="100" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+            </rowConstraints>
+            <HBox GridPane.fillWidth = "true" GridPane.rowIndex="0" styleClass="boxed" >
+                <VBox HBox.hgrow="ALWAYS" >
+                    <Label text="Mode of Irradiation"/>
+                </VBox>
+                <Separator orientation="VERTICAL"/>
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label text="30-May-2021"/>
+                </VBox>
+            </HBox>
+            <HBox GridPane.fillWidth = "true" GridPane.rowIndex="1" styleClass="boxed" >
+                <VBox HBox.hgrow="ALWAYS" >
+                    <Label text="Mode of Irradiation"/>
+                </VBox>
+                <Separator orientation="VERTICAL"/>
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label text="30-May-2021"/>
+                </VBox>
+            </HBox>
+            <HBox GridPane.fillWidth = "true" GridPane.rowIndex="2" styleClass="boxed" >
+                <VBox HBox.hgrow="ALWAYS" >
+                    <Label text="Mode of Irradiation"/>
+                </VBox>
+                <Separator orientation="VERTICAL"/>
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label text="30-May-2021"/>
+                </VBox>
+            </HBox>
+            <HBox GridPane.fillWidth = "true" GridPane.rowIndex="3" styleClass="boxed" >
+                <VBox HBox.hgrow="ALWAYS" >
+                    <Label text="Mode of Irradiation"/>
+                </VBox>
+                <Separator orientation="VERTICAL"/>
+                <VBox  HBox.hgrow="ALWAYS">
+                    <Label text="30-May-2021"/>
+                </VBox>
+            </HBox>
+            <HBox GridPane.fillWidth = "true" GridPane.rowIndex="4" styleClass="boxed" >
+                <VBox HBox.hgrow="ALWAYS" >
+                    <Label text="Mode of Irradiation"/>
+                </VBox>
+                <Separator orientation="VERTICAL"/>
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label text="30-May-2021"/>
+                </VBox>
+            </HBox>
+            <HBox GridPane.fillWidth = "true" GridPane.rowIndex="5" styleClass="boxed" >
+                <VBox HBox.hgrow="ALWAYS" >
+                    <Label text="Mode of Irradiation"/>
+                </VBox>
+                <Separator orientation="VERTICAL"/>
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label text="30-May-2021"/>
+                </VBox>
+            </HBox>
+            <HBox GridPane.fillWidth = "true" GridPane.rowIndex="6" GridPane.rowSpan="2" styleClass="boxed" >
+                <VBox HBox.hgrow="ALWAYS" >
+                    <Label text="Mode of Irradiation"/>
+                </VBox>
+                <Separator orientation="VERTICAL"/>
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label text="30-May-2021"/>
+                </VBox>
+            </HBox>
+            <HBox GridPane.fillWidth = "true" GridPane.rowIndex="8" GridPane.rowSpan="2" styleClass="boxed" >
+                <VBox HBox.hgrow="ALWAYS" >
+                    <Label text="Mode of Irradiation"/>
+                </VBox>
+                <Separator orientation="VERTICAL"/>
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label text="30-May-2021"/>
+                </VBox>
+            </HBox>
+            <HBox GridPane.fillWidth = "true" GridPane.rowIndex="10" GridPane.rowSpan="1" styleClass="boxed" >
+                <VBox HBox.hgrow="ALWAYS" >
+                    <Label text="Mode of Irradiation"/>
+                </VBox>
+                <Separator orientation="VERTICAL"/>
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label text="30-May-2021"/>
+                </VBox>
+            </HBox>
+            <HBox GridPane.fillWidth = "true" GridPane.rowIndex="11" GridPane.rowSpan="2" styleClass="boxed" >
+                <VBox HBox.hgrow="ALWAYS" >
+                    <Label text="Mode of Irradiation"/>
+                </VBox>
+                <Separator orientation="VERTICAL"/>
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label text="30-May-2021"/>
+                </VBox>
+            </HBox>
+            <HBox GridPane.fillWidth = "true" GridPane.rowIndex="13" GridPane.rowSpan="2" styleClass="boxed" >
+                <VBox HBox.hgrow="ALWAYS" >
+                    <Label text="Mode of Irradiation"/>
+                </VBox>
+                <Separator orientation="VERTICAL"/>
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label text="30-May-2021"/>
+                </VBox>
+            </HBox>
+        </GridPane>
+        <GridPane styleClass="report-padding" GridPane.rowIndex="1" GridPane.rowSpan="1" GridPane.columnIndex="1" GridPane.columnSpan="1">
+            <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="100" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+            </rowConstraints>
+            <HBox GridPane.fillWidth = "true" GridPane.rowIndex="0" styleClass="boxed" >
+                <VBox HBox.hgrow="ALWAYS" >
+                    <Label text="Mode of Irradiation"/>
+                </VBox>
+                <Separator orientation="VERTICAL"/>
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label text="30-May-2021"/>
+                </VBox>
+            </HBox>
+            <HBox GridPane.fillWidth = "true" GridPane.rowIndex="1" styleClass="boxed" >
+                <VBox HBox.hgrow="ALWAYS" >
+                    <Label text="Mode of Irradiation"/>
+                </VBox>
+                <Separator orientation="VERTICAL"/>
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label text="30-May-2021"/>
+                </VBox>
+            </HBox>
+            <VBox alignment="CENTER" styleClass="boxed"  GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.rowSpan="5">
+                <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                    <Label styleClass="report-label" text="Name of Organization / Institutions" />
+                </HBox>
+                <Separator />
+                <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
+                    <Label text="Name of Organization / Institutions" />
+                </HBox>
+            </VBox>
+            <VBox alignment="CENTER" styleClass="boxed"  GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.rowSpan="8">
+                <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                    <Label styleClass="report-label" text="Name of Organization / Institutions" />
+                </HBox>
+                <Separator />
+                <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
+                    <Label text="Name of Organization / Institutions" />
+                </HBox>
+            </VBox>
+        </GridPane>
+    </GridPane>
+    <Label styleClass="report-padding" text="You are requested to kindly acknowledge the receipt of sample and send the brief report after evaluation of irradiation sample" GridPane.rowIndex="7" GridPane.rowSpan="1" GridPane.columnIndex="0" GridPane.columnSpan="5"/>
+    <BorderPane styleClass="report-padding" GridPane.rowIndex="9" GridPane.rowSpan="1" GridPane.columnIndex="0" GridPane.columnSpan="5">
+        <left>
+            <Label text="Signature of QC Officer"/>
+        </left>
+        <center>
+            <Label text="Signature of Irradiation Activity In-Charge"/>
+        </center>
+        <right>
+            <Label text="Signature of Facility In-Charge"/>
+        </right>
+    </BorderPane>
     <stylesheets>
         <URL value="@../styles/report.css" />
         <URL value="@../styles/form.css" />

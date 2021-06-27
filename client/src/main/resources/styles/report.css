@@ -1,6 +1,7 @@
 .root * {
     -fx-font-family: "Times New Roman", "Arial";
     -fx-font-size: 15px;
+    -fx-wrap-text: true;
 }
 
 .vertical-title-box {
@@ -31,4 +32,14 @@
     -fx-padding: 0 15px;
     -fx-border-insets: 0 15px;
     -fx-background-insets: 0 15px;
+}
+
+.report-title {
+    -fx-font-family: "Times New Roman", "Arial";
+    -fx-font-weight: bold;
+    -fx-text-fill: rgb(0, 60, 170);
+}
+
+.report-title * {
+    -fx-font-size: 20px;
 }

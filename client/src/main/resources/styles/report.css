@@ -1,3 +1,13 @@
+.root * {
+    -fx-font-family: "Times New Roman", "Arial";
+    -fx-font-size: 15px;
+}
+
+.vertical-title-box {
+    -fx-pref-height: 15;
+    -fx-max-height: 20;
+}
+
 .boxed {
     -fx-border-color: rgb(190, 200, 255);
     -fx-border-width: 1px;
@@ -11,7 +21,7 @@
 }
 
 .report-separator *.line {
-    -fx-border-color: blue;
+    -fx-border-color: rgb(0, 60, 170);
     -fx-border-style: solid;
     -fx-border-width: 3px;
     -fx-border-insets: 0 20px;

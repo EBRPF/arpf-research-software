@@ -1,4 +1,4 @@
-package org.rrcat.arpf.entity;
+package org.rrcat.arpf.server.entity;
 
 import java.util.Objects;
 

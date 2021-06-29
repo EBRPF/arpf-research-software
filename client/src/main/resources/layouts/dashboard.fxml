@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: rgb(190,220,255);">
+            <Label styleClass="form-title" text="Dashboard" textFill="#0313c6">
+
+            </Label>
+        </HBox>
+    </top>
+    <stylesheets>
+        <URL value="@../styles/form.css" />
+        <URL value="@../styles/font.css" />
+    </stylesheets>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#44ffab" height="162.0" layoutX="360.0" layoutY="24.0" stroke="TRANSPARENT" strokeType="INSIDE" width="314.0" />
+            <ComboBox layoutX="488.0" layoutY="210.0" prefHeight="32.0" prefWidth="284.0" promptText="ARPF-Reseearch-REG-0001" />
+            <Text fill="#0313c6" layoutX="207.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter Customer Registration Numner">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#21b8ff" height="162.0" layoutX="25.0" layoutY="25.0" stroke="TRANSPARENT" strokeType="INSIDE" width="314.0" />
+            <Text layoutX="66.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Number of Order Processed" wrappingWidth="249.9363555908203">
+               <font>
+                  <Font size="56.0" />
+               </font>
+            </Text>
+            <Text layoutX="273.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15">
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </Text>
+            <Text layoutX="621.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15">
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </Text>
+            <Text layoutX="409.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Number of Order Pending" wrappingWidth="249.9363555908203">
+               <font>
+                  <Font size="56.0" />
+               </font>
+            </Text>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#44ffab" height="162.0" layoutX="694.0" layoutY="24.0" stroke="TRANSPARENT" strokeType="INSIDE" width="296.0" />
+            <Text layoutX="937.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15">
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </Text>
+            <Text layoutX="784.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Customer (Research)" wrappingWidth="204.8349151611328">
+               <font>
+                  <Font size="56.0" />
+               </font>
+            </Text>
+            <TableView layoutX="23.0" layoutY="260.0" prefHeight="418.0" prefWidth="949.0">
+              <columns>
+                <TableColumn prefWidth="42.77761650085449" text="Order Number" />
+                <TableColumn minWidth="0.0" prefWidth="109.22237396240234" text="Name of Institution / Organisation" />
+                  <TableColumn minWidth="0.0" prefWidth="44.61561584472656" text="Type of Organisation" />
+                  <TableColumn minWidth="0.0" prefWidth="56.3843994140625" text="Research Activity Head Name" />
+                  <TableColumn minWidth="0.0" prefWidth="33.187713623046875" text="Product to be Irradiated" />
+                  <TableColumn minWidth="0.0" prefWidth="148.71871948242188" text="Material of Product" />
+                  <TableColumn minWidth="0.0" prefWidth="93.28134155273438" text="Purpose of Irradiation" />
+                  <TableColumn minWidth="0.0" prefWidth="152.84530639648438" text="Mode of Irradiation" />
+                  <TableColumn minWidth="0.0" prefWidth="265.3748474121094" text="Radiation Processing Date" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

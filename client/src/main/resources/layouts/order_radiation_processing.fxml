@@ -212,10 +212,10 @@
                     <Font size="15.0" />
                 </font>
             </Text>
-            <TextField layoutX="940.0" layoutY="178.0" prefHeight="26.0" prefWidth="200.0" />
-            <TextField layoutX="940.0" layoutY="448.0" prefHeight="62.0" prefWidth="200.0" />
-            <TextField layoutX="940.0" layoutY="565.0" prefHeight="26.0" prefWidth="200.0" />
-            <TextField layoutX="940.0" layoutY="523.0" prefHeight="26.0" prefWidth="200.0" />
+            <TextField disable="true" layoutX="940.0" layoutY="178.0" prefHeight="26.0" prefWidth="200.0" />
+            <TextField disable="true" layoutX="940.0" layoutY="448.0" prefHeight="62.0" prefWidth="200.0" />
+            <TextField disable="true" layoutX="940.0" layoutY="565.0" prefHeight="26.0" prefWidth="200.0" />
+            <TextField disable="true" layoutX="940.0" layoutY="523.0" prefHeight="26.0" prefWidth="200.0" />
             <Text fill="#051690" layoutX="1183.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Radiation Processing Request Form" wrappingWidth="175.4803466796875">
                 <font>
                     <Font size="15.0" />
@@ -228,15 +228,15 @@
             </Text>
             <Button layoutX="1333.0" layoutY="525.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Upload Scanned Form" textAlignment="CENTER" textFill="#051690" />
             <Button layoutX="757.0" layoutY="824.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Save Record" textAlignment="CENTER" textFill="#051690" />
-            <AutoCompleteTextField layoutX="940.0" layoutY="101.0" prefHeight="25.0" prefWidth="200.0" />
-            <TextField layoutX="940.0" layoutY="142.0" prefHeight="26.0" prefWidth="200.0" />
-            <DatePicker layoutX="940.0" layoutY="674.0" prefHeight="25.0" prefWidth="200.0" />
+            <AutoCompleteTextField disable="true" layoutX="940.0" layoutY="101.0" prefHeight="25.0" prefWidth="200.0" />
+            <TextField disable="true" layoutX="940.0" layoutY="142.0" prefHeight="26.0" prefWidth="200.0" />
+            <DatePicker disable="true" layoutX="940.0" layoutY="674.0" prefHeight="25.0" prefWidth="200.0" />
             <Text fill="#051690" layoutX="1166.0" layoutY="598.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Facility In-Charge Comments, if any" wrappingWidth="175.1675809511903">
                 <font>
                     <Font size="15.0" />
                 </font>
             </Text>
-            <TextField layoutX="1392.0" layoutY="587.0" prefHeight="65.0" prefWidth="213.0" />
+            <TextField disable="true" editable="false" layoutX="1392.0" layoutY="587.0" prefHeight="65.0" prefWidth="213.0" />
             <Text fill="#051690" layoutX="1166.0" layoutY="673.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Registered and Processed for Further Action" wrappingWidth="175.1675809511903">
                 <font>
                     <Font size="15.0" />
@@ -345,8 +345,8 @@
                 </font>
             </Text>
             <TextField layoutX="360.0" layoutY="722.0" prefHeight="62.0" prefWidth="199.0" />
-            <TextField layoutX="940.0" layoutY="299.0" prefHeight="26.0" prefWidth="200.0" />
-            <TextField layoutX="941.0" layoutY="341.0" prefHeight="26.0" prefWidth="200.0" />
+            <TextField disable="true" layoutX="940.0" layoutY="299.0" prefHeight="26.0" prefWidth="200.0" />
+            <TextField disable="true" layoutX="941.0" layoutY="341.0" prefHeight="26.0" prefWidth="200.0" />
             <Text fill="#051690" layoutX="722.0" layoutY="795.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Irradation Processed" wrappingWidth="175.1675809511903">
                 <font>
                     <Font size="15.0" />
@@ -355,9 +355,9 @@
             <CheckBox layoutX="893.0" layoutY="781.0" mnemonicParsing="false" />
             <View layoutX="892.0" layoutY="875.0" />
             <View depthTest="ENABLE" layoutX="1183.0" layoutY="155.0" prefHeight="359.0" prefWidth="409.0" style="-fx-background-color: BLACK;" />
-            <TextField layoutX="940.0" layoutY="219.0" prefHeight="62.0" prefWidth="200.0" />
-            <TextField layoutX="941.0" layoutY="374.0" prefHeight="62.0" prefWidth="200.0" />
-            <TextField layoutX="941.0" layoutY="604.0" prefHeight="62.0" prefWidth="200.0" />
+            <TextField disable="true" layoutX="940.0" layoutY="219.0" prefHeight="62.0" prefWidth="200.0" />
+            <TextField disable="true" layoutX="941.0" layoutY="374.0" prefHeight="62.0" prefWidth="200.0" />
+            <TextField disable="true" layoutX="941.0" layoutY="604.0" prefHeight="62.0" prefWidth="200.0" />
         </children>
     </AnchorPane>
     <DropdownButton prefHeight="17.0" prefWidth="200.0">

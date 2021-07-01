@@ -1,0 +1,12 @@
+package org.rrcat.arpf.server.auth;
+
+public enum Permission {
+    REGISTER_CUSTOMER,
+    REGISTER_ORDER,
+    ORDER_RADIATION_PROCESSING,
+    ORDER_DOSIMETRY,
+    SHIPPING_DETAILS,
+    CHECK_ORDER_STATUS,
+    SAMPLE_IRRADIATION_REPORT,
+    CREATE_USERS;
+}

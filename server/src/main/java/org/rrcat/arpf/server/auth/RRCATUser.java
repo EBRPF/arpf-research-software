@@ -24,7 +24,15 @@ public final class RRCATUser {
         return uid;
     }
 
-    public void setUid(String uid) {
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(final Long id) {
+        this.id = id;
+    }
+
+    public void setUid(final String uid) {
         this.uid = uid;
     }
 
@@ -32,7 +40,7 @@ public final class RRCATUser {
         return hashedPassword;
     }
 
-    public void setHashedPassword(String hashedPassword) {
+    public void setHashedPassword(final String hashedPassword) {
         this.hashedPassword = hashedPassword;
     }
 
@@ -40,7 +48,7 @@ public final class RRCATUser {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(final Role role) {
         this.role = role;
     }
 

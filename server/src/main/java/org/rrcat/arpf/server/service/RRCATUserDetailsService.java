@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
@@ -21,7 +22,7 @@ public class RRCATUserDetailsService implements UserDetailsService {
     private final UserRepository userRepository;
 
     @Autowired
-    public RRCATUserDetailsService(UserRepository userRepository) {
+    public RRCATUserDetailsService(final UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -34,6 +35,7 @@ public class RRCATUserDetailsService implements UserDetailsService {
         return User.builder()
                 .username(user.getUid())
                 .password(user.getHashedPassword())
+                .disabled(!user.isEnabled())
                 .authorities(
                         user
                         .getRole()

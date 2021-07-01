@@ -17,13 +17,12 @@ public final class SimpleUserDetailsProvider implements UserDetailsProvider {
                 .password(user.getHashedPassword())
                 .disabled(!user.isEnabled())
                 .authorities(
-                        user
-                                .getRole()
-                                .getPermissions()
-                                .stream()
-                                .map(Permission::name)
-                                .map(SimpleGrantedAuthority::new)
-                                .collect(Collectors.toUnmodifiableList())
+                        user.getRole()
+                            .getPermissions()
+                            .stream()
+                            .map(Permission::name)
+                            .map(SimpleGrantedAuthority::new)
+                            .collect(Collectors.toUnmodifiableList())
                 )
                 .build();
     }

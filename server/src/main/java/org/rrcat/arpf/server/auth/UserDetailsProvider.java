@@ -1,8 +1,8 @@
 package org.rrcat.arpf.server.auth;
 
-import org.rrcat.arpf.server.entity.RRCATUser;
+import org.rrcat.arpf.server.entity.RrcatUser;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public interface UserDetailsProvider {
-    UserDetails forUser(final RRCATUser user);
+    UserDetails forUser(final RrcatUser user);
 }

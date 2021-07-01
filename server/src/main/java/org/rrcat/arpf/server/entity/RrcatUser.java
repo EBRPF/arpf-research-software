@@ -11,7 +11,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "users")
-public final class RRCATUser {
+public final class RrcatUser {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_pk")
@@ -78,7 +78,7 @@ public final class RRCATUser {
     public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        final RRCATUser rrcatUser = (RRCATUser) o;
+        final RrcatUser rrcatUser = (RrcatUser) o;
         return Objects.equals(uid, rrcatUser.uid) &&
                 Objects.equals(hashedPassword, rrcatUser.hashedPassword) &&
                 role == rrcatUser.role;

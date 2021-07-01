@@ -1,6 +1,6 @@
 package org.rrcat.arpf.server.auth;
 
-import org.rrcat.arpf.server.entity.RRCATUser;
+import org.rrcat.arpf.server.entity.RrcatUser;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 @Component
 public final class SimpleUserDetailsProvider implements UserDetailsProvider {
     @Override
-    public UserDetails forUser(final RRCATUser user) {
+    public UserDetails forUser(final RrcatUser user) {
         return User.builder()
                 .username(user.getUid())
                 .password(user.getHashedPassword())

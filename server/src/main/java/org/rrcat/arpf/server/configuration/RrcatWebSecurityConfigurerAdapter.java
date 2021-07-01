@@ -16,11 +16,11 @@ import org.springframework.web.filter.GenericFilterBean;
 
 @Configuration
 @EnableWebSecurity
-public class RRCATWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
+public class RrcatWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
 
     private final GenericFilterBean jwtFilter;
 
-    public RRCATWebSecurityConfigurerAdapter(@Qualifier("JwtFilter") final GenericFilterBean jwtFilter) {
+    public RrcatWebSecurityConfigurerAdapter(@Qualifier("JwtFilter") final GenericFilterBean jwtFilter) {
         this.jwtFilter = jwtFilter;
     }
 

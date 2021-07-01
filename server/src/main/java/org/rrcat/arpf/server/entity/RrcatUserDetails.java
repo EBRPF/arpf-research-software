@@ -7,13 +7,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.Collections;
 
-public final class RRCATUserDetails implements UserDetails {
+public final class RrcatUserDetails implements UserDetails {
     private final String username;
     private final String password;
     private final Collection<GrantedAuthority> authorities;
     private final boolean enabled;
 
-    public RRCATUserDetails(final String username, final String password, final Collection<GrantedAuthority> authorities, final boolean enabled) {
+    public RrcatUserDetails(final String username, final String password, final Collection<GrantedAuthority> authorities, final boolean enabled) {
         this.username = username;
         this.password = password;
         this.authorities = Collections.unmodifiableCollection(authorities);

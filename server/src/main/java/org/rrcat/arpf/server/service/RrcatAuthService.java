@@ -25,7 +25,7 @@ public class RrcatAuthService implements AuthService {
     }
 
     @Override
-    public final void register(final RrcatUser user) throws ValidationException {
+    public final void register(final RrcatUser user) {
 
     }
 }

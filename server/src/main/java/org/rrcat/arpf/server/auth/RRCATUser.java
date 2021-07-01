@@ -1,23 +1,31 @@
 package org.rrcat.arpf.server.auth;
 
-import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Transient;
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
+@Table(name = "users")
 public final class RRCATUser {
-    private final String uid;
-    private String hashedPassword;
-    private Role role;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-    public RRCATUser(final String uid, final String hashedPassword, final Role role) {
-        this.uid = uid;
-        this.hashedPassword = hashedPassword;
-        this.role = role;
-    }
+    @Column(name = "uid", unique = true)
+    private String uid;
+
+    @Column(name = "hashed_password")
+    private String hashedPassword;
+
+    @Column(name = "role")
+    private Role role;
 
     public String getUid() {
         return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public String getHashedPassword() {

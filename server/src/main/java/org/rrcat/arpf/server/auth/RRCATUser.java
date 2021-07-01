@@ -12,7 +12,8 @@ import java.util.Objects;
 public final class RRCATUser {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @Column(name = "user_pk")
+    private Integer id;
 
     @Column(name = "uid", unique = true)
     @NotBlank(message = "Uid is mandatory")
@@ -32,11 +33,11 @@ public final class RRCATUser {
         return uid;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(final Long id) {
+    public void setId(final Integer id) {
         this.id = id;
     }
 

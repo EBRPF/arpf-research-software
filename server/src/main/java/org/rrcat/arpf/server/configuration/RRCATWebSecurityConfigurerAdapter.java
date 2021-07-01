@@ -23,8 +23,7 @@ public class RRCATWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdap
     }
 
     @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth)
-            throws Exception {
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
                 .withUser("username")
                 .password(passwordEncoder().encode("password"))

@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.Optional;
 
+@Qualifier("JwtFilter")
 @Component
 public final class JwtAuthenticatingFilter extends GenericFilterBean {
     private static final String AUTHORIZATION_HEADER = "Authorization";

@@ -2,6 +2,9 @@ package org.rrcat.arpf.server.auth;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 @Entity
@@ -12,12 +15,17 @@ public final class RRCATUser {
     private Long id;
 
     @Column(name = "uid", unique = true)
+    @NotBlank(message = "Uid is mandatory")
+    @Size(min = 8, max = 32, message = "Username must be between 8 - 32 characters")
     private String uid;
 
     @Column(name = "hashed_password")
+    @NotBlank(message = "Password is mandatory")
+    @Max(value = 32, message = "Hashed password must be at max 64 characters")
     private String hashedPassword;
 
     @Column(name = "role")
+    @NotBlank(message = "Role is mandatory")
     private Role role;
 
     public String getUid() {

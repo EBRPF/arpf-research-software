@@ -1,6 +1,8 @@
 package org.rrcat.arpf.server.service;
 
 import org.rrcat.arpf.server.auth.RRCATUser;
+import org.rrcat.arpf.server.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -10,13 +12,20 @@ import javax.xml.bind.ValidationException;
 @Transactional
 public class RRCATAuthService implements AuthService {
 
-    @Override
-    public RRCATUser getUserByUid(String uid) {
-        return null;
+    private final UserRepository repository;
+
+    @Autowired
+    public RRCATAuthService(final UserRepository repository) {
+        this.repository = repository;
     }
 
     @Override
-    public void register(RRCATUser user) throws ValidationException {
+    public final RRCATUser getUserByUid(String uid) {
+        return repository.findRRCATUserByUid(uid);
+    }
+
+    @Override
+    public final void register(final RRCATUser user) throws ValidationException {
 
     }
 }

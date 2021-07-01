@@ -1,5 +1,6 @@
 package org.rrcat.arpf.server.service;
 
+import org.rrcat.arpf.server.auth.Permission;
 import org.rrcat.arpf.server.auth.RRCATUser;
 import org.rrcat.arpf.server.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,7 @@ public class RRCATUserDetailsService implements UserDetailsService {
                         .getRole()
                         .getPermissions()
                         .stream()
+                        .map(Permission::name)
                         .map(SimpleGrantedAuthority::new)
                         .collect(Collectors.toUnmodifiableList())
                 )

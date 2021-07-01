@@ -39,7 +39,7 @@
         <Label styleClass="report-title" text="Sample Radiation Processing Report" />
     </VBox>
     <Label styleClass="report-label" text="Order Number" GridPane.columnIndex="0" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="1" />
-    <Label text="EBRPF-Research-Order-0005" GridPane.columnIndex="0" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.rowSpan="1" />
+    <Label text="ARPF-Research-Order-0005" GridPane.columnIndex="0" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.rowSpan="1" />
 
     <GridPane styleClass="report-padding" GridPane.columnIndex="0" GridPane.columnSpan="5" GridPane.rowIndex="3" GridPane.rowSpan="1">
         <columnConstraints>

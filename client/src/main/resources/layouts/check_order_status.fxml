@@ -37,7 +37,7 @@
                         <Font size="10.0" />
                     </font>
                 </Label>
-                <TextField id="orderNumberField" prefHeight="16.0" prefWidth="164.0" promptText="EBRPF-Research-Order-0001">
+                <TextField id="orderNumberField" prefHeight="16.0" prefWidth="164.0" promptText="ARPF-Research-Order-0001">
                     <font>
                         <Font size="10.0" />
                     </font></TextField>

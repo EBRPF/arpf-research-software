@@ -29,7 +29,7 @@
             </rowConstraints>
             <HBox alignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1">
                 <Label styleClass="field-label" text="Enter Order Number" />
-                <ComboBox editable="true" promptText="EBRPF-Research-Order-0005" />
+                <ComboBox editable="true" promptText="ARPF-Research-Order-0005" />
             </HBox>
             <Button graphicTextGap="1.0" styleClass="form-button" text="Print" GridPane.columnIndex="4" GridPane.columnSpan="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.rowSpan="1">
                 <graphic>

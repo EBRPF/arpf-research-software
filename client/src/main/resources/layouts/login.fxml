@@ -40,16 +40,21 @@
             <Text layoutX="282.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOGIN" />
             <TextField fx:id="user" layoutX="255.0" layoutY="119.0" prefHeight="8.0" prefWidth="160.0" promptText="Username" />
             <PasswordField fx:id="password" layoutX="255.0" layoutY="149.0" prefHeight="25.0" prefWidth="160.0" promptText="Password" />
-            <Button layoutX="271.0" layoutY="186.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="56.0" style="-fx-background-color: #7DC3F3#7DC3F3;" text="LOGIN" textFill="#003ba7">
+            <Button layoutX="272.0" layoutY="187.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="56.0" style="-fx-background-color: #7DC3F3#7DC3F3;" text="LOGIN" textFill="#003ba7">
                <font>
                   <Font name="Times New Roman Bold" size="10.0" />
                </font>
             </Button>
             <ImageView fitHeight="40.0" fitWidth="46.0" layoutX="280.0" layoutY="75.0">
                <image>
-                  <Image url="@../../../../Downloads/User_icon_BLACK-01.png" />
+                  <Image url="@../assets/icons/user_icon.png" />
                </image>
             </ImageView>
+            <Text layoutX="266.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot Password ?">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
    </center>

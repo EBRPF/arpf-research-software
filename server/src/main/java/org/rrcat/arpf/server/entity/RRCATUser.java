@@ -31,6 +31,9 @@ public final class RRCATUser {
     @NotBlank(message = "Role is mandatory")
     private Role role;
 
+    @Column(name = "enabled")
+    private boolean enabled;
+
     public String getUid() {
         return uid;
     }
@@ -61,6 +64,14 @@ public final class RRCATUser {
 
     public void setRole(final Role role) {
         this.role = role;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 
     @Override

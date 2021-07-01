@@ -1,5 +1,7 @@
-package org.rrcat.arpf.server.auth;
+package org.rrcat.arpf.server.entity;
 
+
+import org.rrcat.arpf.server.auth.Role;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;

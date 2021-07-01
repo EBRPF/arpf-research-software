@@ -1,6 +1,6 @@
 package org.rrcat.arpf.server.service;
 
-import org.rrcat.arpf.server.auth.RRCATUser;
+import org.rrcat.arpf.server.entity.RRCATUser;
 import org.rrcat.arpf.server.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

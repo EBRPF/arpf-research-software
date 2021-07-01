@@ -1,6 +1,6 @@
 package org.rrcat.arpf.server.service;
 
-import org.rrcat.arpf.server.auth.RRCATUser;
+import org.rrcat.arpf.server.entity.RRCATUser;
 
 import javax.xml.bind.ValidationException;
 

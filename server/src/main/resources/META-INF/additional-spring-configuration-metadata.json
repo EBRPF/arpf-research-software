@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "auth.expiration_seconds",
+      "type": "java.lang.Long",
+      "description": "Description for app.auth.expiration_seconds."
+  }
+] }

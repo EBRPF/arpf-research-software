@@ -3,6 +3,6 @@
     {
       "name": "auth.expiration_seconds",
       "type": "java.lang.Long",
-      "description": "Description for app.auth.expiration_seconds."
+      "description": "Time for expiration of JWT token."
   }
 ] }

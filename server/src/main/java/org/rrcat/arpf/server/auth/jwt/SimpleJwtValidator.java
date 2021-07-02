@@ -23,7 +23,7 @@ public final class SimpleJwtValidator implements JwtValidator {
 
     public Optional<String> getUidIfValid(final String token) {
         try {
-            final var claimsJwt = Jwts.parserBuilder().setSigningKey(keyProvider.getKey()).build().parseClaimsJwt(token);
+            final var claimsJwt = Jwts.parserBuilder().setSigningKey(keyProvider.getKey()).build().parseClaimsJws(token);
             final Claims claims = claimsJwt.getBody();
             return Optional.of(claims.getSubject());
         } catch (final Exception exception) {

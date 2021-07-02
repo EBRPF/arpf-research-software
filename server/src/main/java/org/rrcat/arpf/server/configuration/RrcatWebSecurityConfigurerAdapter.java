@@ -26,13 +26,15 @@ public class RrcatWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdap
 
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
-        http.httpBasic().disable()
+        http.headers().frameOptions().disable()
+            .and()
+            .httpBasic().disable()
             .csrf().disable()
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             .and()
             .authorizeRequests()
-            .antMatchers("/api/**").authenticated()
-            .antMatchers("/authenticate").permitAll()
+            .antMatchers("/api/v1/authenticate").permitAll()
+            .anyRequest().authenticated()
             .and()
             .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
     }

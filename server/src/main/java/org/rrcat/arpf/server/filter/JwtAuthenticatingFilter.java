@@ -8,12 +8,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.filter.GenericFilterBean;
 
 import javax.servlet.FilterChain;
@@ -29,19 +33,17 @@ import java.util.function.Function;
 public final class JwtAuthenticatingFilter extends GenericFilterBean {
     private static final Logger LOGGER = LoggerFactory.getLogger(JwtAuthenticatingFilter.class);
     private static final String AUTHORIZATION_HEADER = "Authorization";
+
     private final JwtValidator validator;
     private final BearerTokenExtractor tokenExtractor;
     private final UserDetailsService detailsService;
-    private final UserRepository repository;
-    private final JwtGenerator generator;
+
 
     @Autowired
-    public JwtAuthenticatingFilter(final JwtValidator validator, final BearerTokenExtractor tokenExtractor, @Qualifier("RrcatDetails") UserDetailsService detailsService, UserRepository repository, JwtGenerator generator) {
+    public JwtAuthenticatingFilter(final JwtValidator validator, final BearerTokenExtractor tokenExtractor, @Qualifier("RrcatDetails") final UserDetailsService detailsService) {
         this.validator = validator;
         this.tokenExtractor = tokenExtractor;
         this.detailsService = detailsService;
-        this.repository = repository;
-        this.generator = generator;
     }
 
     @Override
@@ -56,9 +58,19 @@ public final class JwtAuthenticatingFilter extends GenericFilterBean {
                         .ifPresent(SecurityContextHolder.getContext()::setAuthentication);
             } catch (final Exception exception) {
                 LOGGER.info("Received failed authentication attempt: " + exception.getMessage(), exception.getCause());
+
             }
         }
         chain.doFilter(request, response);
+    }
+
+    @ExceptionHandler({UsernameNotFoundException.class})
+    @ResponseStatus (
+            value = HttpStatus.FORBIDDEN,
+            reason = "Failed to authenticate."
+    )
+    public void handleNonExistentUserLoginAttempt(final UsernameNotFoundException exception) {
+        LOGGER.info("Received valid token from non-existent user: " + exception.getMessage(), exception.getCause());
     }
 
     private static UsernamePasswordAuthenticationToken createAuthToken(final UserDetails details) {

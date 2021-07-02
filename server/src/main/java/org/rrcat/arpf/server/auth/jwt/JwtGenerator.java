@@ -1,5 +1,7 @@
 package org.rrcat.arpf.server.auth.jwt;
 
+import org.rrcat.arpf.server.entity.AuthenticationToken;
+
 public interface JwtGenerator {
-    String generateToken(final String uid);
+    AuthenticationToken generateToken(final String uid, final long expirationSeconds);
 }

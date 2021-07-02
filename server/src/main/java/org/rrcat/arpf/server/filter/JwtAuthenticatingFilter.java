@@ -1,7 +1,9 @@
 package org.rrcat.arpf.server.filter;
 
 import org.rrcat.arpf.server.auth.BearerTokenExtractor;
+import org.rrcat.arpf.server.auth.jwt.JwtGenerator;
 import org.rrcat.arpf.server.auth.jwt.JwtValidator;
+import org.rrcat.arpf.server.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -17,7 +19,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.util.Optional;
+import java.util.function.Function;
 
 @Qualifier("JwtFilter")
 @Component
@@ -26,12 +28,16 @@ public final class JwtAuthenticatingFilter extends GenericFilterBean {
     private final JwtValidator validator;
     private final BearerTokenExtractor tokenExtractor;
     private final UserDetailsService detailsService;
+    private final UserRepository repository;
+    private final JwtGenerator generator;
 
     @Autowired
-    public JwtAuthenticatingFilter(final JwtValidator validator, final BearerTokenExtractor tokenExtractor, @Qualifier("RrcatDetails") UserDetailsService detailsService) {
+    public JwtAuthenticatingFilter(final JwtValidator validator, final BearerTokenExtractor tokenExtractor, @Qualifier("RrcatDetails") UserDetailsService detailsService, UserRepository repository, JwtGenerator generator) {
         this.validator = validator;
         this.tokenExtractor = tokenExtractor;
         this.detailsService = detailsService;
+        this.repository = repository;
+        this.generator = generator;
     }
 
     @Override

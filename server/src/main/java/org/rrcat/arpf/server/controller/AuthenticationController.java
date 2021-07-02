@@ -47,6 +47,6 @@ public final class AuthenticationController {
             value = HttpStatus.FORBIDDEN,
             reason = "Failed to authenticate."
     )
-    public void handleUserNotFound() {
+    public void handleInvalidLoginAttempt() {
     }
 }

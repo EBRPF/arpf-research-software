@@ -8,7 +8,7 @@ import javax.crypto.SecretKey;
 
 @Component
 public class SimpleJwtKeyProvider implements JwtProvider {
-    private final SecretKey key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+    private final SecretKey key = Keys.secretKeyFor(SignatureAlgorithm.HS512);
 
     public SecretKey getKey() {
         return key;

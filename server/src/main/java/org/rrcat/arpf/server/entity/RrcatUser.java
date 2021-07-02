@@ -24,11 +24,10 @@ public final class RrcatUser {
 
     @Column(name = "hashed_password")
     @NotBlank(message = "Password is mandatory")
-    @Max(value = 32, message = "Hashed password must be at max 64 characters")
+    @Size(max = 64, message = "Hashed password must be at max 64 characters")
     private String hashedPassword;
 
     @Column(name = "role")
-    @NotBlank(message = "Role is mandatory")
     private Role role;
 
     @Column(name = "enabled")

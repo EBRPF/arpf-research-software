@@ -1,91 +1,77 @@
 package org.rrcat.arpf.server.entity;
 
-import java.util.Objects;
+import org.rrcat.arpf.server.entity.embedable.Address;
+import org.rrcat.arpf.server.entity.embedable.ContactInfo;
+import org.rrcat.arpf.server.entity.embedable.Organization;
 
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public final class Customer {
-    private final String registrationNumber;
-    private final Organization organization;
-    private final ContactInfo headInfo;
-    private final String officeAddress;
-    private final Location location;
-    private final ContactInfo contactInfo;
-    private final ContactInfo researchOfficerContactInfo;
-    private final String extraInfo;
+    @Id
+    private Integer registrationNo;
 
-    public Customer(String registrationNumber, Organization organization, ContactInfo headInfo, String officeAddress, Location location, ContactInfo contactInfo, ContactInfo researchOfficerContactInfo, String extraInfo) {
-        this.registrationNumber = registrationNumber;
-        this.organization = organization;
-        this.headInfo = headInfo;
-        this.officeAddress = officeAddress;
-        this.location = location;
-        this.contactInfo = contactInfo;
-        this.researchOfficerContactInfo = researchOfficerContactInfo;
-        this.extraInfo = extraInfo;
+    @Embedded
+    private Organization organization;
+
+    @Embedded
+    private ContactInfo researchHeadInfo;
+
+    @Embedded
+    private Address address;
+
+    @Embedded
+    private ContactInfo researchOfficerInfo;
+
+    private String extraInfo;
+
+    public Integer getRegistrationNo() {
+        return registrationNo;
     }
 
-    public String getRegistrationNumber() {
-        return registrationNumber;
+    public void setRegistrationNo(final Integer registrationNo) {
+        this.registrationNo = registrationNo;
     }
 
     public Organization getOrganization() {
         return organization;
     }
 
-    public ContactInfo getHeadInfo() {
-        return headInfo;
+    public void setOrganization(final Organization organization) {
+        this.organization = organization;
     }
 
-    public String getOfficeAddress() {
-        return officeAddress;
+    public ContactInfo getResearchHeadInfo() {
+        return researchHeadInfo;
     }
 
-    public Location getLocation() {
-        return location;
+    public void setResearchHeadInfo(final ContactInfo researchHeadInfo) {
+        this.researchHeadInfo = researchHeadInfo;
     }
 
-    public ContactInfo getContactInfo() {
-        return contactInfo;
+    public Address getAddress() {
+        return address;
     }
 
-    public ContactInfo getResearchOfficerContactInfo() {
-        return researchOfficerContactInfo;
+    public void setAddress(final Address address) {
+        this.address = address;
+    }
+
+    public ContactInfo getResearchOfficerInfo() {
+        return researchOfficerInfo;
+    }
+
+    public void setResearchOfficerInfo(final ContactInfo researchOfficerInfo) {
+        this.researchOfficerInfo = researchOfficerInfo;
     }
 
     public String getExtraInfo() {
         return extraInfo;
     }
 
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "registrationNumber='" + registrationNumber + '\'' +
-                ", organization=" + organization +
-                ", headInfo=" + headInfo +
-                ", officeAddress='" + officeAddress + '\'' +
-                ", location=" + location +
-                ", contactInfo=" + contactInfo +
-                ", researchOfficerContactInfo=" + researchOfficerContactInfo +
-                ", extraInfo='" + extraInfo + '\'' +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Customer customer = (Customer) o;
-        return Objects.equals(registrationNumber, customer.registrationNumber) &&
-                Objects.equals(organization, customer.organization) &&
-                Objects.equals(headInfo, customer.headInfo) &&
-                Objects.equals(officeAddress, customer.officeAddress) &&
-                Objects.equals(location, customer.location) &&
-                Objects.equals(contactInfo, customer.contactInfo) &&
-                Objects.equals(researchOfficerContactInfo, customer.researchOfficerContactInfo) &&
-                Objects.equals(extraInfo, customer.extraInfo);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(registrationNumber, organization, headInfo, officeAddress, location, contactInfo, researchOfficerContactInfo, extraInfo);
+    public void setExtraInfo(final String extraInfo) {
+        this.extraInfo = extraInfo;
     }
 }

@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,11 +34,12 @@ public final class AuthenticationController {
 
     @RequestMapping("/authenticate")
     public @ResponseBody AuthenticationToken authenticate(@RequestBody final LoginRequest loginRequest) {
+        final PasswordEncoder encoder = new BCryptPasswordEncoder();
         final String uid = loginRequest.getUid();
         final String requestedPassword = loginRequest.getHashedPassword();
         final RrcatUser user = repository.findRRCATUserByUid(uid);
         final String expectedPassword = user.getHashedPassword();
-        if (!Objects.equals(expectedPassword, requestedPassword)) {
+        if (!encoder.matches(requestedPassword, expectedPassword)) {
             throw new BadCredentialsException("Invalid password provided.");
         }
         return generator.generateToken(loginRequest.getUid(), authExpirationTime);

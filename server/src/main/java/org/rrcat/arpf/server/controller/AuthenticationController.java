@@ -15,7 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Objects;
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/api/v1")
@@ -23,20 +23,21 @@ public final class AuthenticationController {
     private final long authExpirationTime;
     private final JwtGenerator generator;
     private final UserRepository repository;
+    private final PasswordEncoder encoder;
 
 
     @Autowired
-    public AuthenticationController(@Value("${auth.expiration_seconds}") final long authExpirationTime, final JwtGenerator generator, UserRepository repository) {
+    public AuthenticationController(@Value("${auth.expiration_seconds}") final long authExpirationTime, final JwtGenerator generator, final UserRepository repository, final PasswordEncoder encoder) {
         this.authExpirationTime = authExpirationTime;
         this.generator = generator;
         this.repository = repository;
+        this.encoder = encoder;
     }
 
     @RequestMapping("/authenticate")
-    public @ResponseBody AuthenticationToken authenticate(@RequestBody final LoginRequest loginRequest) {
-        final PasswordEncoder encoder = new BCryptPasswordEncoder();
+    public @ResponseBody AuthenticationToken authenticate(@Valid @RequestBody final LoginRequest loginRequest) {
         final String uid = loginRequest.getUid();
-        final String requestedPassword = loginRequest.getHashedPassword();
+        final String requestedPassword = loginRequest.getPassword();
         final RrcatUser user = repository.findRRCATUserByUid(uid);
         final String expectedPassword = user.getHashedPassword();
         if (!encoder.matches(requestedPassword, expectedPassword)) {

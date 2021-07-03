@@ -1,9 +1,7 @@
 package org.rrcat.arpf.server.filter;
 
 import org.rrcat.arpf.server.auth.BearerTokenExtractor;
-import org.rrcat.arpf.server.auth.jwt.JwtGenerator;
 import org.rrcat.arpf.server.auth.jwt.JwtValidator;
-import org.rrcat.arpf.server.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +13,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.filter.GenericFilterBean;
@@ -26,7 +23,6 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.util.function.Function;
 
 @Qualifier("JwtFilter")
 @Component
@@ -40,7 +36,7 @@ public final class JwtAuthenticatingFilter extends GenericFilterBean {
 
 
     @Autowired
-    public JwtAuthenticatingFilter(final JwtValidator validator, final BearerTokenExtractor tokenExtractor, @Qualifier("RrcatDetails") final UserDetailsService detailsService) {
+    public JwtAuthenticatingFilter(final JwtValidator validator, final BearerTokenExtractor tokenExtractor, @Qualifier("RrcatUDS") final UserDetailsService detailsService) {
         this.validator = validator;
         this.tokenExtractor = tokenExtractor;
         this.detailsService = detailsService;
@@ -58,7 +54,6 @@ public final class JwtAuthenticatingFilter extends GenericFilterBean {
                         .ifPresent(SecurityContextHolder.getContext()::setAuthentication);
             } catch (final Exception exception) {
                 LOGGER.info("Received failed authentication attempt: " + exception.getMessage(), exception.getCause());
-
             }
         }
         chain.doFilter(request, response);

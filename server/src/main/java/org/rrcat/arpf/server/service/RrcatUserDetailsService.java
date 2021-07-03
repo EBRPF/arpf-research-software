@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
-@Qualifier("RrcatDetails")
+@Qualifier("RrcatUDS")
 @Service
 @Transactional
 public class RrcatUserDetailsService implements UserDetailsService {
@@ -27,11 +27,16 @@ public class RrcatUserDetailsService implements UserDetailsService {
     }
 
     @Override
-    public final UserDetails loadUserByUsername(String uid) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String uid) {
         final RrcatUser user = userRepository.findRRCATUserByUid(uid);
         if (user == null) {
             throw new UsernameNotFoundException("User not registered!");
         }
         return detailsProvider.forUser(user);
+    }
+
+    @Override
+    public String toString() {
+        return "RrcatUserDetailsService{}";
     }
 }

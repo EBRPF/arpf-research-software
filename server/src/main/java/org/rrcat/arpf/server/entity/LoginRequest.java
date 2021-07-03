@@ -2,15 +2,22 @@ package org.rrcat.arpf.server.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 public final class LoginRequest {
+    @NotBlank(message = "Uid must not be empty")
+    @Size(min = 8, max = 32, message = "Username must be between 8 - 32 characters")
     private final String uid;
-    private final String hashedPassword;
 
-    public LoginRequest(String uid, String hashedPassword) {
+    @NotBlank(message = "Password must not be empty")
+    @Size(max = 64, message = "Hashed password must be at max 64 characters")
+    private final String password;
+
+    public LoginRequest(String uid, String password) {
         this.uid = uid;
-        this.hashedPassword = hashedPassword;
+        this.password = password;
     }
 
     @JsonProperty("uid")
@@ -19,8 +26,8 @@ public final class LoginRequest {
     }
 
     @JsonProperty("password")
-    public String getHashedPassword() {
-        return hashedPassword;
+    public String getPassword() {
+        return password;
     }
 
     @Override
@@ -29,11 +36,11 @@ public final class LoginRequest {
         if (o == null || getClass() != o.getClass()) return false;
         LoginRequest that = (LoginRequest) o;
         return getUid().equals(that.getUid()) &&
-                getHashedPassword().equals(that.getHashedPassword());
+                getPassword().equals(that.getPassword());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getUid(), getHashedPassword());
+        return Objects.hash(getUid(), getPassword());
     }
 }

@@ -46,15 +46,11 @@ public final class JwtAuthenticatingFilter extends GenericFilterBean {
     public void doFilter(final ServletRequest request, final ServletResponse response, final FilterChain chain) throws IOException, ServletException {
         if (request instanceof HttpServletRequest) {
             final String authValue = ((HttpServletRequest) request).getHeader(AUTHORIZATION_HEADER);
-            try {
-                tokenExtractor.extractToken(authValue)
-                        .flatMap(validator::getUidIfValid)
-                        .map(detailsService::loadUserByUsername)
-                        .map(JwtAuthenticatingFilter::createAuthToken)
-                        .ifPresent(SecurityContextHolder.getContext()::setAuthentication);
-            } catch (final Exception exception) {
-                LOGGER.info("Received failed authentication attempt: " + exception.getMessage(), exception.getCause());
-            }
+            tokenExtractor.extractToken(authValue)
+                    .flatMap(validator::getUidIfValid)
+                    .map(detailsService::loadUserByUsername)
+                    .map(JwtAuthenticatingFilter::createAuthToken)
+                    .ifPresent(SecurityContextHolder.getContext()::setAuthentication);
         }
         chain.doFilter(request, response);
     }

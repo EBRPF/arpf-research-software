@@ -1,4 +1,4 @@
-package org.rrcat.arpf.server.entity;
+package org.rrcat.arpf.server.entity.auth;
 
 
 import org.rrcat.arpf.server.auth.Role;

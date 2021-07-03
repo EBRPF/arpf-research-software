@@ -1,7 +1,7 @@
 package org.rrcat.arpf.server.repository;
 
 import org.rrcat.arpf.server.auth.Role;
-import org.rrcat.arpf.server.entity.RrcatUser;
+import org.rrcat.arpf.server.entity.auth.RrcatUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;

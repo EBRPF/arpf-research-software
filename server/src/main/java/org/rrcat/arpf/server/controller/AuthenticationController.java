@@ -1,16 +1,15 @@
 package org.rrcat.arpf.server.controller;
 
 import org.rrcat.arpf.server.auth.jwt.JwtGenerator;
-import org.rrcat.arpf.server.entity.AuthenticationToken;
-import org.rrcat.arpf.server.entity.LoginRequest;
-import org.rrcat.arpf.server.entity.RrcatUser;
+import org.rrcat.arpf.server.entity.auth.AuthenticationToken;
+import org.rrcat.arpf.server.entity.auth.LoginRequest;
+import org.rrcat.arpf.server.entity.auth.RrcatUser;
 import org.rrcat.arpf.server.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

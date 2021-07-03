@@ -1,7 +1,7 @@
 package org.rrcat.arpf.server.service;
 
 import org.rrcat.arpf.server.auth.UserDetailsProvider;
-import org.rrcat.arpf.server.entity.RrcatUser;
+import org.rrcat.arpf.server.entity.auth.RrcatUser;
 import org.rrcat.arpf.server.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

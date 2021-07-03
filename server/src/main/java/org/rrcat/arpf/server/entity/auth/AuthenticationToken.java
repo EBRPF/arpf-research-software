@@ -1,4 +1,4 @@
-package org.rrcat.arpf.server.entity;
+package org.rrcat.arpf.server.entity.auth;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

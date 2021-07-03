@@ -2,16 +2,12 @@ package org.rrcat.arpf.server.auth.jwt;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import org.rrcat.arpf.server.entity.AuthenticationToken;
+import org.rrcat.arpf.server.entity.auth.AuthenticationToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.Instant;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalUnit;
 import java.util.Date;
 
 @Component

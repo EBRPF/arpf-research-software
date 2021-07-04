@@ -16,6 +16,7 @@ public final class SimpleUserDetailsProvider implements UserDetailsProvider {
                 .username(user.getUid())
                 .password(user.getHashedPassword())
                 .disabled(!user.isEnabled())
+                .roles(user.getRole().name())
                 .authorities(
                         user.getRole()
                             .getPermissions()

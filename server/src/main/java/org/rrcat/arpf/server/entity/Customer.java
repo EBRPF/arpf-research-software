@@ -4,13 +4,14 @@ import org.rrcat.arpf.server.entity.embedable.Address;
 import org.rrcat.arpf.server.entity.embedable.ContactInfo;
 import org.rrcat.arpf.server.entity.embedable.Organization;
 
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 public final class Customer {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "customer_pk")
     private Integer registrationNo;
 
     @Embedded
@@ -26,6 +27,9 @@ public final class Customer {
     private ContactInfo researchOfficerInfo;
 
     private String extraInfo;
+
+    @OneToOne
+    private UploadedImage image;
 
     public Integer getRegistrationNo() {
         return registrationNo;
@@ -73,5 +77,45 @@ public final class Customer {
 
     public void setExtraInfo(final String extraInfo) {
         this.extraInfo = extraInfo;
+    }
+
+    public UploadedImage getImage() {
+        return image;
+    }
+
+    public void setImage(UploadedImage image) {
+        this.image = image;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Customer customer = (Customer) o;
+        return Objects.equals(getRegistrationNo(), customer.getRegistrationNo()) &&
+                Objects.equals(getOrganization(), customer.getOrganization()) &&
+                Objects.equals(getResearchHeadInfo(), customer.getResearchHeadInfo()) &&
+                Objects.equals(getAddress(), customer.getAddress()) &&
+                Objects.equals(getResearchOfficerInfo(), customer.getResearchOfficerInfo()) &&
+                Objects.equals(getExtraInfo(), customer.getExtraInfo()) &&
+                Objects.equals(getImage(), customer.getImage());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getRegistrationNo(), getOrganization(), getResearchHeadInfo(), getAddress(), getResearchOfficerInfo(), getExtraInfo(), getImage());
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "registrationNo=" + registrationNo +
+                ", organization=" + organization +
+                ", researchHeadInfo=" + researchHeadInfo +
+                ", address=" + address +
+                ", researchOfficerInfo=" + researchOfficerInfo +
+                ", extraInfo='" + extraInfo + '\'' +
+                ", image=" + image +
+                '}';
     }
 }

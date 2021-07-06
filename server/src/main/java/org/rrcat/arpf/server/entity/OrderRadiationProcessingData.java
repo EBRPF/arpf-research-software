@@ -6,7 +6,7 @@ import java.util.Objects;
 
 
 @Entity
-public final class OrderRadiationProcessing {
+public final class OrderRadiationProcessingData {
     @Id
     @OneToOne(cascade = CascadeType.ALL)
     @MapsId
@@ -190,7 +190,7 @@ public final class OrderRadiationProcessing {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        OrderRadiationProcessing that = (OrderRadiationProcessing) o;
+        OrderRadiationProcessingData that = (OrderRadiationProcessingData) o;
         return Objects.equals(getOrder(), that.getOrder()) &&
                 Objects.equals(getDosimeterUsed(), that.getDosimeterUsed()) &&
                 Objects.equals(getDosimeterLocation(), that.getDosimeterLocation()) &&

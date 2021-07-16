@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.DropdownButton?>
-<?import com.gluonhq.charm.glisten.mvc.View?>
+<?import com.gluonhq.charm.glisten.control.AutoCompleteTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -21,7 +20,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="Infinity" maxWidth="Infinity" prefHeight="766.0" prefWidth="1364.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.NavigationController">
+<GridPane maxHeight="Infinity" maxWidth="Infinity" prefHeight="1100.0" prefWidth="2015.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.NavigationController">
     <columnConstraints>
         <ColumnConstraints hgrow="ALWAYS" percentWidth="15.0" />
         <ColumnConstraints hgrow="ALWAYS" percentWidth="85.0" />
@@ -30,7 +29,7 @@
         <RowConstraints maxHeight="Infinity" percentHeight="10.0" />
         <RowConstraints maxHeight="Infinity" percentHeight="90.0" />
     </rowConstraints>
-    <BorderPane fx:id="top_box" style="-fx-padding: 0 0 0 5; -fx-background-color: white; -fx-border-color: rgb(47,49,92); -fx-border-width: 2 3 2 3;" GridPane.columnSpan="2147483647">
+    <BorderPane fx:id="top_box" prefHeight="110.0" prefWidth="1891.0" style="-fx-padding: 0 0 0 5; -fx-background-color: white; -fx-border-color: rgb(47,49,92); -fx-border-width: 2 3 2 3;" GridPane.columnSpan="2147483647">
         <left>
             <HBox fx:id="headerBox" alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="129.0" BorderPane.alignment="CENTER_LEFT">
                 <ImageView fx:id="logoImage" fitHeight="62.0" fitWidth="75.0">
@@ -40,7 +39,7 @@
         </left>
         <center>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                <Text>
+                <Text text="ELECTRON BEAM RADIATION PROCESSING FACILITY, INDORE">
                     AGRICULTURAL RADIATION PROCESSING FACILITY, INDORE
                     <font>
                         <Font name="Times New Roman Bold" size="18.0" />
@@ -65,7 +64,7 @@
             </VBox>
         </right>
     </BorderPane>
-    <VBox alignment="TOP_CENTER" style="-fx-background-color: rgb(226,226,226);" GridPane.rowIndex="1">
+    <VBox alignment="TOP_CENTER" prefHeight="908.0" prefWidth="279.0" style="-fx-background-color: rgb(226,226,226);" GridPane.rowIndex="1">
         <Text fill="#051690" text="Facility In-Charge Login" textAlignment="CENTER" wrappingWidth="150">
             Radiation Processing In-Charge Login
             <font>
@@ -147,205 +146,151 @@
                 <Insets bottom="20.0" left="20.0" right="20.0" />
             </VBox.margin>
         </Text>
+      <Text fill="#051690" text="Create New User" textAlignment="CENTER" wrappingWidth="150">
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font>
+      </Text>
     </VBox>
-    <AnchorPane prefHeight="753.0" prefWidth="858.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+    <AnchorPane prefHeight="990.0" prefWidth="1662.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
         <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c3e3ff" height="86.0" layoutY="10.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1804.0" AnchorPane.bottomAnchor="822.0" />
-            <Text fill="#051690" layoutX="585.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Radiation Processing Date">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c3e3ff" height="86.0" layoutX="-3.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1827.0" AnchorPane.bottomAnchor="904.0" />
+            <Text fill="#051690" layoutX="590.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Radiation Processing Date">
                 <font>
                     <Font size="15.0" />
                 </font>
             </Text>
-            <Text fill="#051690" layoutX="585.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Radiation Processing Start Time">
+            <Text fill="#051690" layoutX="590.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Radiation Processing Start Time">
                 <font>
                     <Font size="15.0" />
                 </font>
             </Text>
-            <Text fill="#051690" layoutX="585.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="completion Time">
+            <Text fill="#051690" layoutX="590.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Completion Time">
                 <font>
                     <Font size="15.0" />
                 </font>
             </Text>
-            <Text fill="#051690" layoutX="585.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Beam Energy (Mev) ">
+            <Text fill="#051690" layoutX="590.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Beam Energy (MeV) ">
                 <font>
                     <Font size="15.0" />
                 </font>
             </Text>
-            <Text fill="#051690" layoutX="585.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Beam Current">
+            <Text fill="#051690" layoutX="590.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Beam Current (mA)">
                 <font>
                     <Font size="15.0" />
                 </font>
             </Text>
-            <Text fill="#051690" layoutX="585.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PRR (Hz)">
+            <Text fill="#051690" layoutX="590.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PRR (Hz)">
                 <font>
                     <Font size="15.0" />
                 </font>
             </Text>
-            <Text fill="#051690" layoutX="585.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scan Width (cm)">
+            <Text fill="#051690" layoutX="590.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scan Width (cm)">
                 <font>
                     <Font size="15.0" />
                 </font>
             </Text>
-            <Text fill="#051690" layoutX="587.0" layoutY="425.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scan Current (A) Time (msec)" wrappingWidth="265.8992919921875">
+            <Text fill="#051690" layoutX="590.0" layoutY="460.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scan Current (A) Time (msec)" wrappingWidth="265.8992919921875">
                 <font>
                     <Font size="15.0" />
                 </font>
             </Text>
-            <Text fill="#051690" layoutX="585.0" layoutY="509.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Conveyor Speed">
+            <Text fill="#051690" layoutX="590.0" layoutY="496.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Conveyor Speed">
                 <font>
                     <Font size="15.0" />
                 </font>
             </Text>
-            <Text fill="#051690" layoutX="585.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dose Rate ">
+            <Text fill="#051690" layoutX="590.0" layoutY="534.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dose Rate ">
                 <font>
                     <Font size="15.0" />
                 </font>
             </Text>
-            <Text fill="#051690" layoutX="585.0" layoutY="589.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Source to Surface Distance">
+            <Text fill="#051690" layoutX="590.0" layoutY="570.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Source to Surface Distance">
                 <font>
                     <Font size="15.0" />
                 </font>
             </Text>
-            <Text fill="#051690" layoutX="6.0" layoutY="635.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Receipt">
+            <Text fill="#051690" layoutX="21.0" layoutY="710.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Receipt">
                 <font>
                     <Font size="15.0" />
                 </font>
             </Text>
-            <TextField layoutX="940.0" layoutY="178.0" prefHeight="26.0" prefWidth="200.0" />
-            <TextField layoutX="940.0" layoutY="414.0" prefHeight="62.0" prefWidth="200.0" />
-            <TextField layoutX="940.0" layoutY="531.0" prefHeight="26.0" prefWidth="200.0" />
-            <TextField layoutX="940.0" layoutY="489.0" prefHeight="26.0" prefWidth="200.0" />
-            <Text fill="#051690" layoutX="1300.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dosimetry Data" wrappingWidth="175.4803466796875">
-                <font>
-                    <Font size="15.0" />
-                </font>
-            </Text>
-            <Text fill="#051690" layoutX="434.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Dosimetry" textAlignment="CENTER">
+            <Text fill="#051690" layoutX="774.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Dosimetry" textAlignment="CENTER">
                 <font>
                     <Font name="Times New Roman" size="38.0" />
                 </font>
             </Text>
             <Button layoutX="1384.0" layoutY="493.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Upload Image" textAlignment="CENTER" textFill="#051690" />
-            <Button layoutX="757.0" layoutY="824.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Save Record" textAlignment="CENTER" textFill="#051690" />
-            <TextField layoutX="940.0" layoutY="142.0" prefHeight="26.0" prefWidth="200.0" />
-            <DatePicker layoutX="358.0" layoutY="616.0" prefHeight="25.0" prefWidth="200.0" />
-            <Text fill="#051690" layoutX="4.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Number">
+            <Text fill="#051690" layoutX="20.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Number">
                 <font>
                     <Font size="15.0" />
                 </font>
             </Text>
-            <DropdownButton layoutX="359.0" layoutY="103.0" prefHeight="17.0" prefWidth="200.0">
-                <items>
-                    <MenuItem text="Choice 1" />
-                    <MenuItem text="Choice 2" />
-                    <MenuItem text="Choice 3" />
-                </items>
-            </DropdownButton>
-            <TextField layoutX="940.0" layoutY="265.0" prefHeight="26.0" prefWidth="200.0" />
-            <TextField layoutX="941.0" layoutY="307.0" prefHeight="26.0" prefWidth="200.0" />
-            <Text fill="#051690" layoutX="722.0" layoutY="795.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dosimetry Done" wrappingWidth="175.1675809511903">
+            <Text fill="#051690" layoutX="761.0" layoutY="748.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dosimetry Done" wrappingWidth="129.6419678657279">
                 <font>
                     <Font size="15.0" />
                 </font>
             </Text>
-            <CheckBox layoutX="893.0" layoutY="781.0" mnemonicParsing="false" />
-            <View layoutX="892.0" layoutY="875.0" />
-            <View depthTest="ENABLE" layoutX="1267.0" layoutY="329.0" prefHeight="150.0" prefWidth="388.0" style="-fx-background-color: BLACK;" />
-            <TextField layoutX="941.0" layoutY="340.0" prefHeight="62.0" prefWidth="200.0" />
-         <Text fill="#051690" layoutX="4.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name of Organisation / Institution">
+         <Text fill="#051690" layoutX="20.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name of Organisation / Institution">
             <font>
                <Font size="15.0" />
             </font>
          </Text>
-         <Text fill="#051690" layoutX="4.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description of Products to be Irrdaidated">
+         <Text fill="#051690" layoutX="20.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description of Products to be Irrdaidated">
             <font>
                <Font size="15.0" />
             </font>
          </Text>
-         <Text fill="#051690" layoutX="4.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Material of Product / Sample">
+         <Text fill="#051690" layoutX="20.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Material of Product / Sample">
             <font>
                <Font size="15.0" />
             </font>
          </Text>
-         <Text fill="#051690" layoutX="4.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Detail about the Product / Sample">
+         <Text fill="#051690" layoutX="20.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Detail about the Product / Sample">
             <font>
                <Font size="15.0" />
             </font>
          </Text>
-         <Text fill="#051690" layoutX="4.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Purpose of Irradiation">
+         <Text fill="#051690" layoutX="20.0" layoutY="408.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Purpose of Irradiation">
             <font>
                <Font size="15.0" />
             </font>
          </Text>
-         <Text fill="#051690" layoutX="4.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mode of Irradiation">
+         <Text fill="#051690" layoutX="20.0" layoutY="448.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mode of Irradiation">
             <font>
                <Font size="15.0" />
             </font>
          </Text>
-         <Text fill="#051690" layoutX="4.0" layoutY="428.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Required Dose (xGy)">
+         <Text fill="#051690" layoutX="20.0" layoutY="488.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Required Dose (xGy)">
             <font>
                <Font size="15.0" />
             </font>
          </Text>
-         <Text fill="#051690" layoutX="6.0" layoutY="488.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dosimeter Used" wrappingWidth="265.8992919921875">
+         <Text fill="#051690" layoutX="20.0" layoutY="548.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dosimeter Used" wrappingWidth="265.8992919921875">
             <font>
                <Font size="15.0" />
             </font>
          </Text>
-         <Text fill="#051690" layoutX="6.0" layoutY="543.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dosimeter Location on the Product /Sample">
+         <Text fill="#051690" layoutX="20.0" layoutY="603.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dosimeter Location on the Product /Sample">
             <font>
                <Font size="15.0" />
             </font>
          </Text>
-         <TextField layoutX="359.0" layoutY="207.0" prefHeight="26.0" prefWidth="200.0" />
-         <TextField layoutX="358.0" layoutY="476.0" prefHeight="34.0" prefWidth="200.0" />
-         <TextField layoutX="359.0" layoutY="171.0" prefHeight="26.0" prefWidth="200.0" />
-         <TextField layoutX="359.0" layoutY="248.0" prefHeight="62.0" prefWidth="200.0" />
-         <TextField layoutX="360.0" layoutY="403.0" prefHeight="62.0" prefWidth="200.0" />
-         <TextField layoutX="362.0" layoutY="524.0" prefHeight="62.0" prefWidth="200.0" />
-         <DropdownButton layoutX="359.0" layoutY="329.0" prefHeight="17.0" prefWidth="200.0">
-            <items>
-               <MenuItem text="Choice 1" />
-               <MenuItem text="Choice 2" />
-               <MenuItem text="Choice 3" />
-            </items>
-         </DropdownButton>
-         <DropdownButton layoutX="359.0" layoutY="369.0" prefHeight="17.0" prefWidth="200.0">
-            <items>
-               <MenuItem text="Choice 1" />
-               <MenuItem text="Choice 2" />
-               <MenuItem text="Choice 3" />
-            </items>
-         </DropdownButton>
-         <DropdownButton layoutX="359.0" layoutY="133.0" prefHeight="17.0" prefWidth="200.0">
-            <items>
-               <MenuItem text="Choice 1" />
-               <MenuItem text="Choice 2" />
-               <MenuItem text="Choice 3" />
-            </items>
-         </DropdownButton>
-         <DatePicker layoutX="940.0" layoutY="108.0" prefHeight="25.0" prefWidth="200.0" />
-         <TextField layoutX="941.0" layoutY="223.0" prefHeight="26.0" prefWidth="200.0" />
-         <TextField layoutX="941.0" layoutY="574.0" prefHeight="26.0" prefWidth="200.0" />
-         <Text fill="#051690" layoutX="587.0" layoutY="651.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Other Related Machine Parameters" wrappingWidth="265.8992919921875">
+         <Text fill="#051690" layoutX="590.0" layoutY="608.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Other Related Machine Parameters" wrappingWidth="265.8992919921875">
             <font>
                <Font size="15.0" />
             </font>
          </Text>
-         <TextField layoutX="940.0" layoutY="621.0" prefHeight="62.0" prefWidth="200.0" />
-         <Text fill="#051690" layoutX="587.0" layoutY="720.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Operator Remarls, if any" wrappingWidth="265.8992919921875">
+         <Text fill="#051690" layoutX="590.0" layoutY="673.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Operator Remarks, if any" wrappingWidth="265.8992919921875">
             <font>
                <Font size="15.0" />
             </font>
          </Text>
-         <TextField layoutX="940.0" layoutY="686.0" prefHeight="62.0" prefWidth="200.0" />
-         <Text fill="#051690" layoutX="1267.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Dosimetry Measurement">
+         <Text fill="#051690" layoutX="1136.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Dosimetry Measurement">
             <font>
                <Font size="15.0" />
             </font>
          </Text>
-         <DatePicker layoutX="1492.0" layoutY="128.0" prefHeight="25.0" prefWidth="200.0" />
-         <TextField layoutX="1492.0" layoutY="160.0" prefHeight="62.0" prefWidth="200.0" />
          <Text fill="#051690" layoutX="1315.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Before Irradiation Product / Sample Pictures" wrappingWidth="307.4803466796875">
             <font>
                <Font size="15.0" />
@@ -357,14 +302,51 @@
             </font>
          </Text>
          <Button layoutX="1384.0" layoutY="759.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Upload Image" textAlignment="CENTER" textFill="#051690" />
-         <View depthTest="ENABLE" layoutX="1267.0" layoutY="593.0" prefHeight="150.0" prefWidth="388.0" style="-fx-background-color: BLACK;" />
+         <AutoCompleteTextField layoutX="330.0" layoutY="161.0" prefHeight="25.0" prefWidth="202.0" />
+         <TextField disable="true" layoutX="330.0" layoutY="193.0" prefHeight="25.0" prefWidth="202.0" />
+         <TextField disable="true" layoutX="330.0" layoutY="233.0" prefHeight="25.0" prefWidth="202.0" />
+         <TextField disable="true" layoutX="330.0" layoutY="273.0" prefHeight="25.0" prefWidth="202.0" />
+         <TextField disable="true" layoutX="330.0" layoutY="312.0" prefHeight="65.0" prefWidth="202.0" />
+         <TextField disable="true" layoutX="330.0" layoutY="390.0" prefHeight="25.0" prefWidth="202.0" />
+         <TextField disable="true" layoutX="330.0" layoutY="430.0" prefHeight="25.0" prefWidth="202.0" />
+         <TextField disable="true" layoutX="330.0" layoutY="468.0" prefHeight="49.0" prefWidth="202.0" />
+         <TextField disable="true" layoutX="330.0" layoutY="529.0" prefHeight="25.0" prefWidth="202.0" />
+         <TextField disable="true" layoutX="330.0" layoutY="584.0" prefHeight="93.0" prefWidth="202.0" />
+         <TextField disable="true" layoutX="334.0" layoutY="692.0" prefHeight="25.0" prefWidth="202.0" />
+         <Label layoutX="247.0" layoutY="111.0" text="Order Detail" textFill="#051690">
+            <font>
+               <Font name="Times New Roman" size="26.0" />
+            </font>
+         </Label>
+         <TextField disable="true" layoutX="880.0" layoutY="157.0" prefHeight="25.0" prefWidth="200.0" />
+         <TextField disable="true" layoutX="880.0" layoutY="197.0" prefHeight="25.0" prefWidth="200.0" />
+         <TextField disable="true" layoutX="880.0" layoutY="237.0" prefHeight="25.0" prefWidth="200.0" />
+         <TextField disable="true" layoutX="880.0" layoutY="281.0" prefHeight="25.0" prefWidth="200.0" promptText="MeV" />
+         <TextField disable="true" layoutX="880.0" layoutY="322.0" prefHeight="25.0" prefWidth="200.0" promptText="mA" />
+         <TextField disable="true" layoutX="880.0" layoutY="361.0" prefHeight="25.0" prefWidth="200.0" promptText="Hz" />
+         <TextField disable="true" layoutX="880.0" layoutY="401.0" prefHeight="25.0" prefWidth="200.0" promptText="cm" />
+         <TextField disable="true" layoutX="880.0" layoutY="443.0" prefHeight="25.0" prefWidth="200.0" promptText="A &amp; msec" />
+         <TextField disable="true" layoutX="880.0" layoutY="480.0" prefHeight="25.0" prefWidth="200.0" />
+         <TextField disable="true" layoutX="880.0" layoutY="517.0" prefHeight="25.0" prefWidth="200.0" />
+         <TextField disable="true" layoutX="880.0" layoutY="552.0" prefHeight="25.0" prefWidth="200.0" promptText="cm" />
+         <TextField disable="true" layoutX="880.0" layoutY="590.0" prefHeight="57.0" prefWidth="200.0" />
+         <TextField disable="true" layoutX="880.0" layoutY="656.0" prefHeight="25.0" prefWidth="200.0" />
+         <DatePicker layoutX="1413.0" layoutY="159.0" prefHeight="25.0" prefWidth="203.0" />
+         <TextField layoutX="1413.0" layoutY="193.0" prefHeight="87.0" prefWidth="204.0" />
+         <ImageView fitHeight="150.0" fitWidth="425.0" layoutX="1246.0" layoutY="321.0" pickOnBounds="true" preserveRatio="true" />
+         <ImageView fitHeight="150.0" fitWidth="425.0" layoutX="1224.0" layoutY="595.0" pickOnBounds="true" preserveRatio="true" />
+            <CheckBox layoutX="931.0" layoutY="734.0" mnemonicParsing="false" />
+            <Button layoutX="826.0" layoutY="778.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Save Record" textAlignment="CENTER" textFill="#051690" />
+         <Label layoutX="707.0" layoutY="113.0" text="Radiation Processing Data" textFill="#051690">
+            <font>
+               <Font name="Times New Roman" size="26.0" />
+            </font>
+         </Label>
+         <Label layoutX="1401.0" layoutY="113.0" text="Dosimetry Data" textFill="#051690">
+            <font>
+               <Font name="Times New Roman" size="26.0" />
+            </font>
+         </Label>
         </children>
     </AnchorPane>
-    <DropdownButton prefHeight="17.0" prefWidth="200.0">
-        <items>
-            <MenuItem text="Choice 1" />
-            <MenuItem text="Choice 2" />
-            <MenuItem text="Choice 3" />
-        </items>
-    </DropdownButton>
 </GridPane>

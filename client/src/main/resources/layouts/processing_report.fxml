@@ -1,18 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<GridPane prefHeight="1920.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane prefHeight="1920.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <columnConstraints>
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="16.66" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="16.66" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="14.0" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="19.32" />
         <ColumnConstraints hgrow="ALWAYS" percentWidth="33.33" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="16.66" />
-        <ColumnConstraints hgrow="ALWAYS" percentWidth="16.66" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="19.0" />
+        <ColumnConstraints hgrow="ALWAYS" percentWidth="14.32" />
     </columnConstraints>
     <rowConstraints>
         <RowConstraints maxHeight="Infinity" percentHeight="7" />
@@ -34,12 +42,20 @@
             <Insets left="10.0" />
         </GridPane.margin>
     </ImageView>
-    <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="0" GridPane.rowSpan="1">
-        <Label styleClass="report-title" text="Agricultural Radiation Processing Facility, Indore" />
+    <VBox alignment="CENTER" prefHeight="134.0" prefWidth="758.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="0" GridPane.rowSpan="1">
+        <Label styleClass="report-title" text="Electron Beam Radiation Processing Facility, Indore">
+         <font>
+            <Font size="9.0" />
+         </font></Label>
+      <Label text="Raja Ramanna Centre for Advanced Technology, Department of Atomic Energy" textFill="#003ba7">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
         <Label styleClass="report-title" text="Sample Radiation Processing Report" />
     </VBox>
     <Label styleClass="report-label" text="Order Number" GridPane.columnIndex="0" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="1" />
-    <Label text="ARPF-Research-Order-0005" GridPane.columnIndex="0" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.rowSpan="1" />
+    <Label text="EBRPF-Research-Order-0005" GridPane.columnIndex="0" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.rowSpan="1" />
 
     <GridPane styleClass="report-padding" GridPane.columnIndex="0" GridPane.columnSpan="5" GridPane.rowIndex="3" GridPane.rowSpan="1">
         <columnConstraints>

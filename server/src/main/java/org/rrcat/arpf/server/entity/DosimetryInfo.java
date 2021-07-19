@@ -15,16 +15,21 @@ public final class DosimetryInfo {
     @JoinColumn(name="order_pk")
     private OrderRadiationProcessingData radiationProcessingData;
 
+    @Column("measurement_date")
     private Date measurementDate;
 
+    @Column("measurement")
     private String measurement;
 
     @ManyToOne
+    @Column("before_image")
     private UploadedImage beforeImage;
 
     @ManyToOne
+    @Column("after_image")
     private UploadedImage afterImage;
 
+    @Column("dosimetry_done")
     private boolean dosimetryDone;
 
     public OrderRadiationProcessingData getRadiationProcessingData() {
@@ -33,6 +38,7 @@ public final class DosimetryInfo {
 
     public void setRadiationProcessingData(OrderRadiationProcessingData radiationProcessingData) {
         this.radiationProcessingData = radiationProcessingData;
+        this.registrationNo = radiationProcessingData.getOrder().getRegistrationNo();
     }
 
     public Date getMeasurementDate() {

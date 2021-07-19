@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.Objects;
 
 @Entity
+@Table(name = "dosimetry_info")
 public final class DosimetryInfo {
     @Id
     @OneToOne(cascade = CascadeType.ALL)

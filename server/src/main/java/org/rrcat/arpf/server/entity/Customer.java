@@ -8,6 +8,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Table(name = "customer")
 public final class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -6,11 +6,15 @@ import java.util.Objects;
 
 
 @Entity
+@Table(name = "order_radiation_processing")
 public final class OrderRadiationProcessingData {
+
     @Id
+    @Column(name = "order_pk")
+    private Integer registrationNo;
+
     @OneToOne(cascade = CascadeType.ALL)
-    @MapsId
-    @JoinColumn(name ="order_pk")
+    @JoinColumn(name="order_pk", nullable=true)
     private Order order;
 
     @Column(name = "dosimeter_used")
@@ -64,6 +68,7 @@ public final class OrderRadiationProcessingData {
 
     public void setOrder(Order order) {
         this.order = order;
+        this.registrationNo = order.getRegistrationNo();
     }
 
     public String getDosimeterUsed() {

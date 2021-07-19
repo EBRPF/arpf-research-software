@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.Objects;
 
 @Entity
+@Table(name = "order")
 public final class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

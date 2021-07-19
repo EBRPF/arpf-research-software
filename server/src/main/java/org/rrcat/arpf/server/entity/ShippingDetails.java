@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.Objects;
 
 @Entity
+@Table(name = "shipping_details")
 public final class ShippingDetails {
     @Id
     @OneToOne(cascade = CascadeType.ALL)

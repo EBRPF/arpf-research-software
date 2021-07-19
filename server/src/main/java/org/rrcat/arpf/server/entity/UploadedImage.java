@@ -2,9 +2,11 @@ package org.rrcat.arpf.server.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
 @Entity
+@Table(name = "uploaded_image")
 public final class UploadedImage {
     @Id
     private Integer id;

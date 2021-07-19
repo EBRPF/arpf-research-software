@@ -14,7 +14,7 @@ public final class OrderRadiationProcessingData {
     private Integer registrationNo;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="order_pk", nullable=true)
+    @JoinColumn(name="order_pk")
     private Order order;
 
     @Column(name = "dosimeter_used")

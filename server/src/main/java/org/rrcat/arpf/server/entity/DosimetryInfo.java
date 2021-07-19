@@ -8,9 +8,11 @@ import java.util.Objects;
 @Table(name = "dosimetry_info")
 public final class DosimetryInfo {
     @Id
+    @Column(name = "order_pk")
+    private Integer registrationNo;
+
     @OneToOne(cascade = CascadeType.ALL)
-    @MapsId
-    @JoinColumn(name ="dosimetry_pk")
+    @JoinColumn(name="order_pk")
     private OrderRadiationProcessingData radiationProcessingData;
 
     private Date measurementDate;

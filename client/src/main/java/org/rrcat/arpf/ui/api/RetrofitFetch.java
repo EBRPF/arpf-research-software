@@ -5,8 +5,11 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitFetch {
-  Retrofit.Builder  service= new Retrofit.Builder()
-          .baseUrl("https://")
-          .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().create()));
-  Retrofit retrofit = service.build();
+
+  public static Retrofit fetch() {
+    Retrofit.Builder service = new Retrofit.Builder()
+            .baseUrl(ApiInterface.URL_BASE)
+            .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().create()));
+            return service.build();
+  }
 }

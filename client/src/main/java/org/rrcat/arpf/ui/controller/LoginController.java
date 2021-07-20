@@ -43,10 +43,8 @@ public class LoginController implements Initializable {
     }
 
     private void sendNetworkRequest(RequestLogin requestLogin) {
-        Retrofit.Builder  service= new Retrofit.Builder()
-                .baseUrl(ApiInterface.URL_BASE)
-                .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().create()));
-        Retrofit retrofit = service.build();
+        Retrofit retrofit= new RetrofitFetch().fetch();
+
         UserClient client =retrofit.create(UserClient.class);
       Call<AuthenticationToken> call= client.LoginAccount(requestLogin);
       call.enqueue(new Callback<AuthenticationToken>() {

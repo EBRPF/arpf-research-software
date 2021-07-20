@@ -51,8 +51,8 @@
             <Label layoutX="185.0" layoutY="123.0" text="Username" />
             <Label layoutX="186.0" layoutY="154.0" text="Password" />
             <Text layoutX="282.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOGIN" />
-            <TextField fx:id="user" layoutX="255.0" layoutY="119.0" prefHeight="8.0" prefWidth="160.0" promptText="Username" />
-            <PasswordField fx:id="password" layoutX="255.0" layoutY="149.0" prefHeight="25.0" prefWidth="160.0" promptText="Password" />
+            <TextField id="usernameTextField" fx:id="usernameTextField" layoutX="255.0" layoutY="119.0" prefHeight="8.0" prefWidth="160.0" promptText="Username" text="dsa" />
+            <PasswordField id="passwordTextField" fx:id="passwordTextField" layoutX="255.0" layoutY="149.0" prefHeight="25.0" prefWidth="160.0" promptText="Password" />
             <Button layoutX="272.0" layoutY="187.0" mnemonicParsing="false" onAction="#LoginAction" prefHeight="18.0" prefWidth="56.0" style="-fx-background-color: #7DC3F3#7DC3F3;" text="LOGIN" textFill="#003ba7">
                <font>
                   <Font name="Times New Roman Bold" size="10.0" />

@@ -1,14 +1,13 @@
 package org.rrcat.arpf.server.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 @Table(name = "uploaded_image")
 public final class UploadedImage {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String tag;
     private String name;

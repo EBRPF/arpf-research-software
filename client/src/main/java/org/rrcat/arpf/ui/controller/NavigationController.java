@@ -29,5 +29,7 @@ public final class NavigationController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         logoImage.setFitWidth(70);
         logoImage.setFitHeight(70);
+
     }
+
 }

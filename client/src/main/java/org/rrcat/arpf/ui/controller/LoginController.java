@@ -1,22 +1,19 @@
 package org.rrcat.arpf.ui.controller;
 
-import com.google.gson.GsonBuilder;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import org.rrcat.arpf.ui.api.ApiInterface;
+import org.rrcat.arpf.ui.api.service.ApiInterface;
 import org.rrcat.arpf.ui.api.RetrofitFetch;
-import org.rrcat.arpf.ui.api.service.UserClient;
 import org.rrcat.arpf.ui.entity.RequestLogin;
 import org.rrcat.arpf.ui.entity.auth.AuthenticationToken;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -45,7 +42,7 @@ public class LoginController implements Initializable {
     private void sendNetworkRequest(RequestLogin requestLogin) {
         Retrofit retrofit= new RetrofitFetch().fetch();
 
-        UserClient client =retrofit.create(UserClient.class);
+        ApiInterface client =retrofit.create(ApiInterface.class);
       Call<AuthenticationToken> call= client.LoginAccount(requestLogin);
       call.enqueue(new Callback<AuthenticationToken>() {
           @Override

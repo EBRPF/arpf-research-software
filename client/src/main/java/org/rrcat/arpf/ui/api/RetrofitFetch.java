@@ -1,6 +1,7 @@
 package org.rrcat.arpf.ui.api;
 
 import com.google.gson.GsonBuilder;
+import org.rrcat.arpf.ui.api.service.ApiInterface;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 

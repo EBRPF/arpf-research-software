@@ -219,33 +219,33 @@
                <Font size="15.0" />
             </font>
          </Text>
-         <TextField layoutX="380.0" layoutY="108.0" prefHeight="26.0" prefWidth="200.0" promptText="EBRPF-Research-0001" />
-         <TextField layoutX="380.0" layoutY="137.0" prefHeight="26.0" prefWidth="200.0" promptText="EBRPF-Research-Order-0005" />
-         <TextField disable="true" layoutX="380.0" layoutY="172.0" prefHeight="26.0" prefWidth="200.0" />
-         <TextField layoutX="380.0" layoutY="212.0" prefHeight="26.0" prefWidth="200.0" />
-         <TextField layoutX="380.0" layoutY="248.0" prefHeight="26.0" prefWidth="200.0" />
-         <TextField layoutX="380.0" layoutY="288.0" prefHeight="26.0" prefWidth="200.0" />
-         <ComboBox layoutX="380.0" layoutY="333.0" prefHeight="25.0" prefWidth="200.0" />
-         <ComboBox layoutX="380.0" layoutY="373.0" prefHeight="25.0" prefWidth="200.0" />
-         <TextField layoutX="380.0" layoutY="411.0" prefHeight="26.0" prefWidth="200.0" promptText="xGy" />
-         <TextField layoutX="380.0" layoutY="460.0" prefHeight="62.0" prefWidth="200.0" promptText="L x D x H" />
-         <TextField layoutX="380.0" layoutY="535.0" prefHeight="26.0" prefWidth="200.0" />
-         <TextField layoutX="380.0" layoutY="577.0" prefHeight="26.0" prefWidth="200.0" />
-         <TextField layoutX="380.0" layoutY="616.0" prefHeight="26.0" prefWidth="200.0" />
-         <DatePicker layoutX="380.0" layoutY="666.0" prefHeight="25.0" prefWidth="200.0" />
+         <TextField fx:id="customerRegNo" layoutX="380.0" layoutY="108.0" prefHeight="26.0" prefWidth="200.0" promptText="EBRPF-Research-0001" />
+         <TextField fx:id="OrderNumber" layoutX="380.0" layoutY="137.0" prefHeight="26.0" prefWidth="200.0" promptText="EBRPF-Research-Order-0005" />
+         <TextField fx:id="OrgNameField" disable="true" layoutX="380.0" layoutY="172.0" prefHeight="26.0" prefWidth="200.0" />
+         <TextField fx:id="DescrOfProducts" layoutX="380.0" layoutY="212.0" prefHeight="26.0" prefWidth="200.0" />
+         <TextField fx:id="MaterialOfProduct" layoutX="380.0" layoutY="248.0" prefHeight="26.0" prefWidth="200.0" />
+         <TextField fx:id="DetailOfProduct" layoutX="380.0" layoutY="288.0" prefHeight="26.0" prefWidth="200.0" />
+         <ComboBox fx:id="PuposeOfIrrad" layoutX="380.0" layoutY="333.0" prefHeight="25.0" prefWidth="200.0" />
+         <ComboBox fx:id="ModeOfIrrad" layoutX="380.0" layoutY="373.0" prefHeight="25.0" prefWidth="200.0" />
+         <TextField fx:id="RequiredDose" layoutX="380.0" layoutY="411.0" prefHeight="26.0" prefWidth="200.0" promptText="xGy" />
+         <TextField fx:id="DimenOfProduct" layoutX="380.0" layoutY="460.0" prefHeight="62.0" prefWidth="200.0" promptText="L x D x H" />
+         <TextField fx:id="WeightOfProduct" layoutX="380.0" layoutY="535.0" prefHeight="26.0" prefWidth="200.0" />
+         <TextField fx:id="TotalSampleBoxes" layoutX="380.0" layoutY="577.0" prefHeight="26.0" prefWidth="200.0" />
+         <TextField fx:id="AnyOrderInfo" layoutX="380.0" layoutY="616.0" prefHeight="26.0" prefWidth="200.0" />
+         <DatePicker fx:id="DateOfOrder" layoutX="380.0" layoutY="666.0" prefHeight="25.0" prefWidth="200.0" />
          <Text fill="#051690" layoutX="596.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Radiation Processing Request Form" wrappingWidth="175.4803466796875">
             <font>
                <Font size="15.0" />
             </font>
          </Text>
-         <ImageView fitHeight="420.0" fitWidth="372.0" layoutX="757.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" />
+         <ImageView fx:id="RequestForm" fitHeight="420.0" fitWidth="372.0" layoutX="757.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" />
          <Button layoutX="885.0" layoutY="546.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Upload Scanned Image" textAlignment="CENTER" textFill="#051690" />
          <Text fill="#051690" layoutX="596.0" layoutY="598.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Facility In-Charge Comments, if any" wrappingWidth="175.1675809511903">
             <font>
                <Font size="15.0" />
             </font>
          </Text>
-         <TextField layoutX="822.0" layoutY="587.0" prefHeight="65.0" prefWidth="300.0" />
+         <TextField fx:id="FIComments" layoutX="822.0" layoutY="587.0" prefHeight="65.0" prefWidth="300.0" />
          <Text fill="#051690" layoutX="434.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Order Registration" textAlignment="CENTER">
             <font>
                <Font name="Times New Roman" size="38.0" />
@@ -256,7 +256,7 @@
                <Font size="15.0" />
             </font>
          </Text>
-         <CheckBox layoutX="822.0" layoutY="678.0" mnemonicParsing="false" />
+         <CheckBox fx:id="OrderConfirmCB" layoutX="822.0" layoutY="678.0" mnemonicParsing="false" />
          <Button layoutX="914.0" layoutY="700.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Save Record" textAlignment="CENTER" textFill="#051690" />
       </children>
    </AnchorPane>

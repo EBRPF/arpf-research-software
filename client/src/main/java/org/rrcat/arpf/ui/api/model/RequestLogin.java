@@ -1,4 +1,4 @@
-package org.rrcat.arpf.ui.entity;
+package org.rrcat.arpf.ui.api.model;
 
 public class RequestLogin {
 

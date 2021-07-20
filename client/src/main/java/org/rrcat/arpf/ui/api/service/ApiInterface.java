@@ -1,12 +1,10 @@
 package org.rrcat.arpf.ui.api.service;
 
 
-import org.rrcat.arpf.ui.entity.RequestLogin;
+import org.rrcat.arpf.ui.api.model.RequestLogin;
 import org.rrcat.arpf.ui.entity.auth.AuthenticationToken;
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.Header;
-import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 public interface ApiInterface {

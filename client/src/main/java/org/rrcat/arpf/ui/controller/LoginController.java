@@ -8,7 +8,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.rrcat.arpf.ui.api.service.ApiInterface;
 import org.rrcat.arpf.ui.api.RetrofitFetch;
-import org.rrcat.arpf.ui.entity.RequestLogin;
+import org.rrcat.arpf.ui.api.model.RequestLogin;
 import org.rrcat.arpf.ui.entity.auth.AuthenticationToken;
 import retrofit2.Call;
 import retrofit2.Callback;

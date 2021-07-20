@@ -45,10 +45,4 @@ public class RrcatWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdap
         return new BCryptPasswordEncoder();
     }
 
-    @Bean(name = "multipartResolver")
-    public CommonsMultipartResolver multipartResolver() {
-        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
-        multipartResolver.setMaxUploadSize(500000000);
-        return multipartResolver;
-    }
 }

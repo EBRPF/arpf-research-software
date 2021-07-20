@@ -12,24 +12,22 @@ public final class DosimetryInfo {
     private Integer registrationNo;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="order_pk")
+    @JoinColumn(name = "order_pk")
     private OrderRadiationProcessingData radiationProcessingData;
 
-    @Column("measurement_date")
+    @Column(name = "measurement_date")
     private Date measurementDate;
 
-    @Column("measurement")
+    @Column(name = "measurement")
     private String measurement;
 
     @ManyToOne
-    @Column("before_image")
     private UploadedImage beforeImage;
 
     @ManyToOne
-    @Column("after_image")
     private UploadedImage afterImage;
 
-    @Column("dosimetry_done")
+    @Column(name = "dosimetry_done")
     private boolean dosimetryDone;
 
     public OrderRadiationProcessingData getRadiationProcessingData() {
@@ -86,13 +84,17 @@ public final class DosimetryInfo {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         DosimetryInfo that = (DosimetryInfo) o;
-        return isDosimetryDone() == that.isDosimetryDone() && Objects.equals(getRadiationProcessingData(), that.getRadiationProcessingData()) && Objects.equals(getMeasurementDate(), that.getMeasurementDate()) && Objects.equals(getMeasurement(), that.getMeasurement()) && Objects.equals(getBeforeImage(), that.getBeforeImage()) && Objects.equals(getAfterImage(), that.getAfterImage());
+        return isDosimetryDone() == that.isDosimetryDone() &&
+                Objects.equals(registrationNo, that.registrationNo) &&
+                Objects.equals(getRadiationProcessingData(), that.getRadiationProcessingData()) &&
+                Objects.equals(getMeasurementDate(), that.getMeasurementDate()) &&
+                Objects.equals(getMeasurement(), that.getMeasurement()) &&
+                Objects.equals(getBeforeImage(), that.getBeforeImage()) &&
+                Objects.equals(getAfterImage(), that.getAfterImage());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getRadiationProcessingData(), getMeasurementDate(), getMeasurement(), getBeforeImage(), getAfterImage(), isDosimetryDone());
+        return Objects.hash(registrationNo, getRadiationProcessingData(), getMeasurementDate(), getMeasurement(), getBeforeImage(), getAfterImage(), isDosimetryDone());
     }
-
-
 }

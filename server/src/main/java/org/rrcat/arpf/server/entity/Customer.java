@@ -5,6 +5,7 @@ import org.rrcat.arpf.server.entity.embedable.ContactInfo;
 import org.rrcat.arpf.server.entity.embedable.Organization;
 
 import javax.persistence.*;
+import javax.validation.OverridesAttribute;
 import java.util.Objects;
 
 @Entity
@@ -16,17 +17,32 @@ public final class Customer {
     private Integer registrationNo;
 
     @Embedded
+    @Column(name = "organization")
     private Organization organization;
 
     @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "name", column = @Column(name = "research_head_name")),
+            @AttributeOverride(name = "mobileNo", column = @Column(name = "research_head_mobile")),
+            @AttributeOverride(name = "email", column = @Column(name = "research_head_email"))
+    })
+    @Column(name = "research_head_info")
     private ContactInfo researchHeadInfo;
 
     @Embedded
+    @Column(name = "address")
     private Address address;
 
     @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "name", column = @Column(name = "research_officer_name")),
+            @AttributeOverride(name = "mobileNo", column = @Column(name = "research_officer_mobile")),
+            @AttributeOverride(name = "email", column = @Column(name = "research_officer_email"))
+    })
+    @Column(name = "research_officer_info")
     private ContactInfo researchOfficerInfo;
 
+    @Column(name = "extra_info")
     private String extraInfo;
 
     @OneToOne

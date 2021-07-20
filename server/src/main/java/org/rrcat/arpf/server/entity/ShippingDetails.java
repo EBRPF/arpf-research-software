@@ -10,18 +10,23 @@ import java.util.Objects;
 @Table(name = "shipping_details")
 public final class ShippingDetails {
     @Id
-    @OneToOne(cascade = CascadeType.ALL)
-    @MapsId
-    @JoinColumn(name ="shipping_pk")
-    private Order order;
+    @Column(name = "order_pk")
+    private Integer registrationNo;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="order_pk")
+    private DosimetryInfo dosimetryInfo;
+
+    @Column(name = "shipping_date")
     private Date shippingDate;
 
+    @Column(name = "shipping_medium")
     private String shippingMedium;
 
     @Embedded
     private Address shippingAddress;
 
+    @Column(name = "shipped_packets")
     private Integer shippedPackets;
 
     @ManyToOne
@@ -30,12 +35,13 @@ public final class ShippingDetails {
     @ManyToOne
     private UploadedImage dosimetryReportImage;
 
-    public Order getOrder() {
-        return order;
+    public DosimetryInfo getDosimetryInfo() {
+        return dosimetryInfo;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setDosimetryInfo(DosimetryInfo dosimetryInfo) {
+        this.dosimetryInfo = dosimetryInfo;
+        this.registrationNo = dosimetryInfo.getRadiationProcessingData().getOrder().getRegistrationNo();
     }
 
     public Date getShippingDate() {
@@ -91,11 +97,11 @@ public final class ShippingDetails {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ShippingDetails that = (ShippingDetails) o;
-        return Objects.equals(getOrder(), that.getOrder()) && Objects.equals(getShippingDate(), that.getShippingDate()) && Objects.equals(getShippingMedium(), that.getShippingMedium()) && Objects.equals(getShippingAddress(), that.getShippingAddress()) && Objects.equals(getShippedPackets(), that.getShippedPackets()) && Objects.equals(getGatePassImage(), that.getGatePassImage()) && Objects.equals(getDosimetryReportImage(), that.getDosimetryReportImage());
+        return Objects.equals(getDosimetryInfo(), that.getDosimetryInfo()) && Objects.equals(getShippingDate(), that.getShippingDate()) && Objects.equals(getShippingMedium(), that.getShippingMedium()) && Objects.equals(getShippingAddress(), that.getShippingAddress()) && Objects.equals(getShippedPackets(), that.getShippedPackets()) && Objects.equals(getGatePassImage(), that.getGatePassImage()) && Objects.equals(getDosimetryReportImage(), that.getDosimetryReportImage());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getOrder(), getShippingDate(), getShippingMedium(), getShippingAddress(), getShippedPackets(), getGatePassImage(), getDosimetryReportImage());
+        return Objects.hash(getDosimetryInfo(), getShippingDate(), getShippingMedium(), getShippingAddress(), getShippedPackets(), getGatePassImage(), getDosimetryReportImage());
     }
 }

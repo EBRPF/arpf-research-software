@@ -3,6 +3,7 @@ package org.rrcat.arpf.ui.controller;
 import com.gluonhq.charm.glisten.control.AutoCompleteTextField;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -11,13 +12,37 @@ import javafx.scene.image.ImageView;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class RadiationProcessingController  implements Initializable {
+public class OrderDosimetryController implements Initializable {
+
+
+    //Order Detail
+
+
     @FXML
     private AutoCompleteTextField<String> OrderNumber;
+    @FXML
+    private TextField OrgNameField;
+    @FXML
+    private TextField DescrOfProducts;
+    @FXML
+    private TextField MaterialOfProduct;
+    @FXML
+    private TextField DetailOfProduct;
+    @FXML
+    private ComboBox<String> PurposeOfIrrad;
+    @FXML
+    private ComboBox<String> ModeOfIrrad;
+    @FXML
+    private TextField RequiredDose;
     @FXML
     private TextField DosimeterUsed;
     @FXML
     private TextField DosimeterLocation;
+    @FXML
+    private DatePicker DateOfOrder;
+
+    //Radiation Processing Data
+
     @FXML
     private DatePicker RadProcessDate;
     @FXML
@@ -44,38 +69,25 @@ public class RadiationProcessingController  implements Initializable {
     private TextField OtherMacParameters;
     @FXML
     private TextField OperatorRemarks;
-    @FXML
-    private TextField OrgNameField;
-    @FXML
-    private TextField DescrOfProducts;
-    @FXML
-    private TextField MaterialOfProduct;
-    @FXML
-    private TextField DetailOfProduct;
-    @FXML
-    private ComboBox<String> PurposeOfIrrad;
-    @FXML
-    private ComboBox<String> ModeOfIrrad;
-    @FXML
-    private TextField RequireDose;
-    @FXML
-    private TextField DimenOfProduct;
-    @FXML
-    private TextField WeightOfProduct;
-    @FXML
-    private TextField TotalSampleBoxes;
-    @FXML
-    private TextField AnyOrderInfo;
-    @FXML
-    private DatePicker DateOfOrder;
-    @FXML
-    private ImageView RequestForm;
-    @FXML
-    private TextField FIComments;
-    @FXML
-    private TextField OrderConfirmCB;
 
+    //Dosimetry Data
 
+    @FXML
+    private DatePicker DosimetryDate;
+    @FXML
+    private TextField DosimetryResult;
+
+    //Before Irradiation Image
+    @FXML
+    private ImageView BeforeIrradImage;
+
+    //After Irradiation Image
+    @FXML
+    private ImageView AfterIrradImage;
+
+    //DosimetryDone CheckBox
+    @FXML
+    private CheckBox DosimetryDoneCB;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

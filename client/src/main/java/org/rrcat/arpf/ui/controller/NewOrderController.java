@@ -29,7 +29,7 @@ public class NewOrderController implements Initializable {
     @FXML
     private ComboBox<String> ModeOfIrrad;
     @FXML
-    private TextField RequireDose;
+    private TextField RequiredDose;
     @FXML
     private TextField DimenOfProduct;
     @FXML

@@ -347,7 +347,7 @@
             <Button layoutX="1333.0" layoutY="525.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Upload Scanned Form" textAlignment="CENTER" textFill="#051690" />
          <TextField fx:id="FIComments" disable="true" layoutX="1358.0" layoutY="585.0" prefHeight="66.0" prefWidth="223.0" />
          <CheckBox fx:id="OrderConfirmCB" disable="true" layoutX="1362.0" layoutY="679.0" mnemonicParsing="false" />
-         <CheckBox layoutX="893.0" layoutY="782.0" mnemonicParsing="false" />
+         <CheckBox fx:id="IrradiationProcessedCB" layoutX="893.0" layoutY="782.0" mnemonicParsing="false" />
         </children>
     </AnchorPane>
     <DropdownButton prefHeight="17.0" prefWidth="200.0">

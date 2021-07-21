@@ -3,6 +3,7 @@ package org.rrcat.arpf.ui.controller;
 import com.gluonhq.charm.glisten.control.AutoCompleteTextField;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -73,7 +74,9 @@ public class RadiationProcessingController  implements Initializable {
     @FXML
     private TextField FIComments;
     @FXML
-    private TextField OrderConfirmCB;
+    private CheckBox OrderConfirmCB;
+    @FXML
+    private CheckBox IrradiationProcessedCB;
 
 
 

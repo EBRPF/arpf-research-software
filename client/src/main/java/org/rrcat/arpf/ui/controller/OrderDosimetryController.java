@@ -16,8 +16,6 @@ public class OrderDosimetryController implements Initializable {
 
 
     //Order Detail
-
-
     @FXML
     private AutoCompleteTextField<String> OrderNumber;
     @FXML
@@ -42,7 +40,6 @@ public class OrderDosimetryController implements Initializable {
     private DatePicker DateOfOrder;
 
     //Radiation Processing Data
-
     @FXML
     private DatePicker RadProcessDate;
     @FXML
@@ -71,7 +68,6 @@ public class OrderDosimetryController implements Initializable {
     private TextField OperatorRemarks;
 
     //Dosimetry Data
-
     @FXML
     private DatePicker DosimetryDate;
     @FXML

@@ -338,6 +338,11 @@
                <Font name="Times New Roman" size="26.0" />
             </font>
          </Label>
+         <Text fill="#051690" layoutX="1136.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dosimetry Results">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Text>
         </children>
     </AnchorPane>
 </GridPane>

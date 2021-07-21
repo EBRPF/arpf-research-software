@@ -147,7 +147,7 @@
             <RowConstraints maxHeight="Infinity" percentHeight="90" />
         </rowConstraints>
         <Label styleClass="report-label" text="Machine Parameters During Irradiation" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1" />
-        <Label styleClass="report-label" text="Machine Parameters During Irradiation" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1" />
+        <Label styleClass="report-label" text="Dosimetric Measurement Results" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1" />
         <GridPane styleClass="report-padding" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.rowIndex="1" GridPane.rowSpan="1">
             <columnConstraints>
                 <ColumnConstraints hgrow="ALWAYS" percentWidth="100" />
@@ -171,7 +171,7 @@
             </rowConstraints>
             <HBox styleClass="boxed" GridPane.fillWidth="true" GridPane.rowIndex="0">
                 <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
-                    <Label styleClass="report-label" text="Mode of Irradiation" />
+                    <Label styleClass="report-label" text="Date of Irradiation" />
                 </VBox>
                 <Separator orientation="VERTICAL" />
                 <VBox HBox.hgrow="ALWAYS">

@@ -77,15 +77,6 @@
             </VBox.margin>
         </Text>
         <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
-            Dashboard
-            <font>
-                <Font name="Times New Roman" size="15.0" />
-            </font>
-            <VBox.margin>
-                <Insets bottom="20.0" left="20.0" right="20.0" />
-            </VBox.margin>
-        </Text>
-        <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
             New Customer Registration
             <font>
                 <Font name="Times New Roman" size="15.0" />
@@ -233,30 +224,30 @@
                <Font size="15.0" />
             </font>
          </Text>
-         <AutoCompleteTextField layoutX="330.0" layoutY="101.0" prefWidth="200.0" />
-         <TextField layoutX="330.0" layoutY="136.0" prefWidth="200.0" />
-         <TextField layoutX="330.0" layoutY="172.0" prefHeight="53.0" prefWidth="200.0" />
-         <TextField layoutX="330.0" layoutY="232.0" prefWidth="200.0" />
-         <DatePicker layoutX="330.0" layoutY="273.0" prefWidth="200.0" />
-         <TextField layoutX="330.0" layoutY="313.0" prefWidth="200.0" />
-         <TextField layoutX="330.0" layoutY="353.0" prefWidth="200.0" />
-         <TextField layoutX="330.0" layoutY="392.0" prefWidth="200.0" />
-         <ComboBox layoutX="330.0" layoutY="433.0" prefWidth="200.0" />
-         <TextField layoutX="330.0" layoutY="473.0" prefWidth="200.0" />
-         <TextField layoutX="330.0" layoutY="514.0" prefWidth="200.0" />
-         <ImageView fitHeight="266.0" fitWidth="441.0" layoutX="792.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+         <AutoCompleteTextField fx:id="OrderNumber" layoutX="330.0" layoutY="101.0" prefWidth="200.0" />
+         <TextField fx:id="OrgNameField" layoutX="330.0" layoutY="136.0" prefWidth="200.0" />
+         <TextField fx:id="DescrOfProducts" layoutX="330.0" layoutY="172.0" prefHeight="53.0" prefWidth="200.0" />
+         <TextField fx:id="TotalSampleBoxes" layoutX="330.0" layoutY="232.0" prefWidth="200.0" />
+         <DatePicker fx:id="ShippedDate" layoutX="330.0" layoutY="273.0" prefWidth="200.0" />
+         <TextField fx:id="ShippedName" layoutX="330.0" layoutY="313.0" prefWidth="200.0" />
+         <TextField fx:id="ShippedAddress" layoutX="330.0" layoutY="353.0" prefWidth="200.0" />
+         <TextField fx:id="ShippedCity" layoutX="330.0" layoutY="392.0" prefWidth="200.0" />
+         <ComboBox fx:id="ShippedState" layoutX="330.0" layoutY="433.0" prefWidth="200.0" />
+         <TextField fx:id="ShippedPostalCode" layoutX="330.0" layoutY="473.0" prefWidth="200.0" />
+         <TextField fx:id="TotalProdShipped" layoutX="330.0" layoutY="514.0" prefWidth="200.0" />
+         <ImageView fx:id="ScannedGatePass" fitHeight="266.0" fitWidth="441.0" layoutX="792.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
             <effect>
                <Reflection />
             </effect>
          </ImageView>
             <Button layoutX="954.0" layoutY="403.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Upload Scanned Pass" textAlignment="CENTER" textFill="#051690" />
-         <ImageView fitHeight="266.0" fitWidth="441.0" layoutX="808.0" layoutY="497.0" pickOnBounds="true" preserveRatio="true">
+         <ImageView fx:id="DosimetryReport" fitHeight="266.0" fitWidth="441.0" layoutX="808.0" layoutY="497.0" pickOnBounds="true" preserveRatio="true">
             <effect>
                <Reflection />
             </effect>
          </ImageView>
          <Button layoutX="970.0" layoutY="792.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Upload Scanned Report" textAlignment="CENTER" textFill="#051690" />
-         <CheckBox mnemonicParsing="false" />
+         <CheckBox fx:id="ShippingDoneCB" layoutX="330.0" layoutY="569.0" mnemonicParsing="false" />
         </children>
     </AnchorPane>
 </GridPane>

@@ -17,11 +17,11 @@ import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/api/v1/")
-public final class CustomerRegistrationController {
+public final class CustomerController {
     private final CustomerRepository repository;
     private final UploadedImageRepository imageRepository;
 
-    public CustomerRegistrationController(final CustomerRepository repository, final UploadedImageRepository imageRepository) {
+    public CustomerController(final CustomerRepository repository, final UploadedImageRepository imageRepository) {
         this.repository = repository;
         this.imageRepository = imageRepository;
     }

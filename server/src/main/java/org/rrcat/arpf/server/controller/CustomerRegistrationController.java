@@ -1,14 +1,8 @@
 package org.rrcat.arpf.server.controller;
 
-import org.dae.arpf.dto.AddressDTO;
-import org.dae.arpf.dto.ContactInfoDTO;
 import org.dae.arpf.dto.CustomerDTO;
-import org.dae.arpf.dto.OrganizationDTO;
 import org.rrcat.arpf.server.entity.Customer;
 import org.rrcat.arpf.server.entity.UploadedImage;
-import org.rrcat.arpf.server.entity.embedable.Address;
-import org.rrcat.arpf.server.entity.embedable.ContactInfo;
-import org.rrcat.arpf.server.entity.embedable.Organization;
 import org.rrcat.arpf.server.repository.CustomerRepository;
 import org.rrcat.arpf.server.repository.UploadedImageRepository;
 import org.springframework.http.ResponseEntity;

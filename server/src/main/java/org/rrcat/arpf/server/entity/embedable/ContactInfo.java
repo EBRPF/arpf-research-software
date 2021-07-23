@@ -1,5 +1,8 @@
 package org.rrcat.arpf.server.entity.embedable;
 
+import org.dae.arpf.dto.AddressDTO;
+import org.dae.arpf.dto.ContactInfoDTO;
+
 import javax.persistence.Embeddable;
 import java.util.Objects;
 
@@ -55,5 +58,13 @@ public final class ContactInfo {
                 ", mobileNo='" + mobileNo + '\'' +
                 ", email='" + email + '\'' +
                 '}';
+    }
+
+    public static ContactInfo fromDTO(final ContactInfoDTO dto) {
+        final ContactInfo contactInfo = new ContactInfo();
+        contactInfo.setEmail(dto.getEmail());
+        contactInfo.setMobileNo(dto.getMobileNo());
+        contactInfo.setName(dto.getName());
+        return contactInfo;
     }
 }

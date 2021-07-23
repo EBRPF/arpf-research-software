@@ -1,5 +1,6 @@
 package org.rrcat.arpf.server.entity;
 
+import org.dae.arpf.dto.CustomerDTO;
 import org.rrcat.arpf.server.entity.embedable.Address;
 import org.rrcat.arpf.server.entity.embedable.ContactInfo;
 import org.rrcat.arpf.server.entity.embedable.Organization;
@@ -134,5 +135,16 @@ public final class Customer {
                 ", extraInfo='" + extraInfo + '\'' +
                 ", image=" + image +
                 '}';
+    }
+
+    public static Customer fromDTO(final CustomerDTO dto, final UploadedImage image) {
+        final Customer customer = new Customer();
+        customer.setRegistrationNo(dto.getRegistrationNo());
+        customer.setAddress(Address.fromDTO(dto.getAddress()));
+        customer.setExtraInfo(dto.getExtraInfo());
+        customer.setImage(image);
+        customer.setResearchHeadInfo(ContactInfo.fromDTO(dto.getResearchHeadInfo()));
+        customer.setResearchOfficerInfo(ContactInfo.fromDTO(dto.getResearchOfficerInfo()));
+        return customer;
     }
 }

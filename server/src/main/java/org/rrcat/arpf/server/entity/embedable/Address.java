@@ -1,5 +1,9 @@
 package org.rrcat.arpf.server.entity.embedable;
 
+import org.dae.arpf.dto.AddressDTO;
+import org.dae.arpf.dto.CustomerDTO;
+import org.rrcat.arpf.server.entity.Customer;
+
 import javax.persistence.Embeddable;
 import java.util.Objects;
 
@@ -77,5 +81,15 @@ public final class Address {
                 ", pinCode='" + pinCode + '\'' +
                 ", phone='" + phone + '\'' +
                 '}';
+    }
+
+    public static Address fromDTO(final AddressDTO dto) {
+        final Address address = new Address();
+        address.setState(dto.getState());
+        address.setAddressText(dto.getAddressText());
+        address.setCity(dto.getCity());
+        address.setPhone(dto.getPhone());
+        address.setPinCode(dto.getPinCode());
+        return address;
     }
 }

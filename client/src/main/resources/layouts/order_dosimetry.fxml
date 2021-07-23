@@ -75,15 +75,6 @@
             </VBox.margin>
         </Text>
         <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
-            Dashboard
-            <font>
-                <Font name="Times New Roman" size="15.0" />
-            </font>
-            <VBox.margin>
-                <Insets bottom="20.0" left="20.0" right="20.0" />
-            </VBox.margin>
-        </Text>
-        <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
             New Customer Registration
             <font>
                 <Font name="Times New Roman" size="15.0" />
@@ -302,40 +293,40 @@
             </font>
          </Text>
          <Button layoutX="1384.0" layoutY="759.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Upload Image" textAlignment="CENTER" textFill="#051690" />
-         <AutoCompleteTextField layoutX="330.0" layoutY="161.0" prefHeight="25.0" prefWidth="202.0" />
-         <TextField disable="true" layoutX="330.0" layoutY="193.0" prefHeight="25.0" prefWidth="202.0" />
-         <TextField disable="true" layoutX="330.0" layoutY="233.0" prefHeight="25.0" prefWidth="202.0" />
-         <TextField disable="true" layoutX="330.0" layoutY="273.0" prefHeight="25.0" prefWidth="202.0" />
-         <TextField disable="true" layoutX="330.0" layoutY="312.0" prefHeight="65.0" prefWidth="202.0" />
-         <TextField disable="true" layoutX="330.0" layoutY="390.0" prefHeight="25.0" prefWidth="202.0" />
-         <TextField disable="true" layoutX="330.0" layoutY="430.0" prefHeight="25.0" prefWidth="202.0" />
-         <TextField disable="true" layoutX="330.0" layoutY="468.0" prefHeight="49.0" prefWidth="202.0" />
-         <TextField disable="true" layoutX="330.0" layoutY="529.0" prefHeight="25.0" prefWidth="202.0" />
-         <TextField disable="true" layoutX="330.0" layoutY="584.0" prefHeight="93.0" prefWidth="202.0" />
-         <TextField disable="true" layoutX="334.0" layoutY="692.0" prefHeight="25.0" prefWidth="202.0" />
+         <AutoCompleteTextField fx:id="OrderNumber" layoutX="330.0" layoutY="161.0" prefHeight="25.0" prefWidth="202.0" />
+         <TextField fx:id="OrgNameField" disable="true" layoutX="330.0" layoutY="193.0" prefHeight="25.0" prefWidth="202.0" />
+         <TextField fx:id="DescrOfProducts" disable="true" layoutX="330.0" layoutY="233.0" prefHeight="25.0" prefWidth="202.0" />
+         <TextField fx:id="MaterialOfProduct" disable="true" layoutX="330.0" layoutY="273.0" prefHeight="25.0" prefWidth="202.0" />
+         <TextField fx:id="DetailOfProduct" disable="true" layoutX="330.0" layoutY="312.0" prefHeight="65.0" prefWidth="202.0" />
+         <TextField fx:id="PurposeOfIrrad" disable="true" layoutX="330.0" layoutY="390.0" prefHeight="25.0" prefWidth="202.0" />
+         <TextField fx:id="ModeOfIrrad" disable="true" layoutX="330.0" layoutY="430.0" prefHeight="25.0" prefWidth="202.0" />
+         <TextField fx:id="RequiredDose" disable="true" layoutX="330.0" layoutY="468.0" prefHeight="49.0" prefWidth="202.0" />
+         <TextField fx:id="DosimeterUsed" disable="true" layoutX="330.0" layoutY="529.0" prefHeight="25.0" prefWidth="202.0" />
+         <TextField fx:id="DosimeterLocation" disable="true" layoutX="330.0" layoutY="584.0" prefHeight="93.0" prefWidth="202.0" />
+         <TextField fx:id="DateOfOrder" disable="true" layoutX="330.0" layoutY="692.0" prefHeight="25.0" prefWidth="202.0" />
          <Label layoutX="247.0" layoutY="111.0" text="Order Detail" textFill="#051690">
             <font>
                <Font name="Times New Roman" size="26.0" />
             </font>
          </Label>
-         <TextField disable="true" layoutX="880.0" layoutY="157.0" prefHeight="25.0" prefWidth="200.0" />
-         <TextField disable="true" layoutX="880.0" layoutY="197.0" prefHeight="25.0" prefWidth="200.0" />
-         <TextField disable="true" layoutX="880.0" layoutY="237.0" prefHeight="25.0" prefWidth="200.0" />
-         <TextField disable="true" layoutX="880.0" layoutY="281.0" prefHeight="25.0" prefWidth="200.0" promptText="MeV" />
-         <TextField disable="true" layoutX="880.0" layoutY="322.0" prefHeight="25.0" prefWidth="200.0" promptText="mA" />
-         <TextField disable="true" layoutX="880.0" layoutY="361.0" prefHeight="25.0" prefWidth="200.0" promptText="Hz" />
-         <TextField disable="true" layoutX="880.0" layoutY="401.0" prefHeight="25.0" prefWidth="200.0" promptText="cm" />
-         <TextField disable="true" layoutX="880.0" layoutY="443.0" prefHeight="25.0" prefWidth="200.0" promptText="A &amp; msec" />
-         <TextField disable="true" layoutX="880.0" layoutY="480.0" prefHeight="25.0" prefWidth="200.0" />
-         <TextField disable="true" layoutX="880.0" layoutY="517.0" prefHeight="25.0" prefWidth="200.0" />
-         <TextField disable="true" layoutX="880.0" layoutY="552.0" prefHeight="25.0" prefWidth="200.0" promptText="cm" />
-         <TextField disable="true" layoutX="880.0" layoutY="590.0" prefHeight="57.0" prefWidth="200.0" />
-         <TextField disable="true" layoutX="880.0" layoutY="656.0" prefHeight="25.0" prefWidth="200.0" />
-         <DatePicker layoutX="1413.0" layoutY="159.0" prefHeight="25.0" prefWidth="203.0" />
-         <TextField layoutX="1413.0" layoutY="193.0" prefHeight="87.0" prefWidth="204.0" />
-         <ImageView fitHeight="150.0" fitWidth="425.0" layoutX="1246.0" layoutY="321.0" pickOnBounds="true" preserveRatio="true" />
-         <ImageView fitHeight="150.0" fitWidth="425.0" layoutX="1224.0" layoutY="595.0" pickOnBounds="true" preserveRatio="true" />
-            <CheckBox layoutX="931.0" layoutY="734.0" mnemonicParsing="false" />
+         <DatePicker fx:id="RadProcessDate" disable="true" layoutX="880.0" layoutY="161.0" prefHeight="25.0" prefWidth="200.0" />
+         <TextField fx:id="RadStartTime" disable="true" layoutX="880.0" layoutY="197.0" prefHeight="25.0" prefWidth="200.0" />
+         <TextField fx:id="CompletionTime" disable="true" layoutX="880.0" layoutY="237.0" prefHeight="25.0" prefWidth="200.0" />
+         <TextField fx:id="BeamEnergy" disable="true" layoutX="880.0" layoutY="281.0" prefHeight="25.0" prefWidth="200.0" promptText="MeV" />
+         <TextField fx:id="BeamCurrent" disable="true" layoutX="880.0" layoutY="322.0" prefHeight="25.0" prefWidth="200.0" promptText="mA" />
+         <TextField fx:id="PRR" disable="true" layoutX="880.0" layoutY="361.0" prefHeight="25.0" prefWidth="200.0" promptText="Hz" />
+         <TextField fx:id="ScanWidth" disable="true" layoutX="880.0" layoutY="401.0" prefHeight="25.0" prefWidth="200.0" promptText="cm" />
+         <TextField fx:id="ScanCurrentTime" disable="true" layoutX="880.0" layoutY="443.0" prefHeight="25.0" prefWidth="200.0" promptText="A &amp; msec" />
+         <TextField fx:id="ConveyorSpeed" disable="true" layoutX="880.0" layoutY="480.0" prefHeight="25.0" prefWidth="200.0" />
+         <TextField fx:id="DoseRate" disable="true" layoutX="880.0" layoutY="517.0" prefHeight="25.0" prefWidth="200.0" />
+         <TextField fx:id="StoSDistance" disable="true" layoutX="880.0" layoutY="552.0" prefHeight="25.0" prefWidth="200.0" promptText="cm" />
+         <TextField fx:id="OtherMacParameters" disable="true" layoutX="880.0" layoutY="590.0" prefHeight="57.0" prefWidth="200.0" />
+         <TextField fx:id="OperatorRemarks" disable="true" layoutX="880.0" layoutY="656.0" prefHeight="25.0" prefWidth="200.0" />
+         <DatePicker fx:id="DosimetryDate" layoutX="1413.0" layoutY="159.0" prefHeight="25.0" prefWidth="203.0" />
+         <TextField fx:id="DosimetryResult" layoutX="1413.0" layoutY="193.0" prefHeight="87.0" prefWidth="204.0" />
+         <ImageView fx:id="BeforeIrradImage" fitHeight="150.0" fitWidth="425.0" layoutX="1246.0" layoutY="321.0" pickOnBounds="true" preserveRatio="true" />
+         <ImageView fx:id="AfterIrradImage" fitHeight="150.0" fitWidth="425.0" layoutX="1224.0" layoutY="595.0" pickOnBounds="true" preserveRatio="true" />
+            <CheckBox fx:id="DosimetryDoneCB" layoutX="931.0" layoutY="734.0" mnemonicParsing="false" />
             <Button layoutX="826.0" layoutY="778.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Save Record" textAlignment="CENTER" textFill="#051690" />
          <Label layoutX="707.0" layoutY="113.0" text="Radiation Processing Data" textFill="#051690">
             <font>
@@ -347,6 +338,11 @@
                <Font name="Times New Roman" size="26.0" />
             </font>
          </Label>
+         <Text fill="#051690" layoutX="1136.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dosimetry Results">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Text>
         </children>
     </AnchorPane>
 </GridPane>

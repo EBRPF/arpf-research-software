@@ -55,7 +55,7 @@
         <Label styleClass="report-title" text="Sample Radiation Processing Report" />
     </VBox>
     <Label styleClass="report-label" text="Order Number" GridPane.columnIndex="0" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="1" />
-    <Label text="EBRPF-Research-Order-0005" GridPane.columnIndex="0" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.rowSpan="1" />
+    <Label fx:id="OrderNumber" text="EBRPF-Research-Order-0005" GridPane.columnIndex="0" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.rowSpan="1" />
 
     <GridPane styleClass="report-padding" GridPane.columnIndex="0" GridPane.columnSpan="5" GridPane.rowIndex="3" GridPane.rowSpan="1">
         <columnConstraints>
@@ -77,7 +77,7 @@
             </HBox>
             <Separator />
             <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
-                <Label text="BARC - Food Technology Division (FTD)" />
+                <Label fx:id="OrgNameField" text="BARC - Food Technology Division (FTD)" />
             </HBox>
         </VBox>
 
@@ -87,7 +87,7 @@
             </HBox>
             <Separator />
             <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
-                <Label text="26-May-2021" />
+                <Label fx:id="DateOfOrder" text="26-May-2021" />
             </HBox>
         </VBox>
         <VBox alignment="CENTER" styleClass="boxed" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="1">
@@ -96,7 +96,7 @@
             </HBox>
             <Separator />
             <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
-                <Label text="Garlic Powder" />
+                <Label fx:id="DescrOfProducts" text="Garlic Powder" />
             </HBox>
         </VBox>
         <VBox alignment="CENTER" styleClass="boxed" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="1">
@@ -105,7 +105,7 @@
             </HBox>
             <Separator />
             <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
-                <Label text="Different type of Garlic Powder (Dehydrated)" />
+                <Label fx:id="DetailOfProduct" text="Different type of Garlic Powder (Dehydrated)" />
             </HBox>
         </VBox>
         <VBox alignment="CENTER" styleClass="boxed" GridPane.columnIndex="5" GridPane.columnSpan="1" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="1">
@@ -114,7 +114,7 @@
             </HBox>
             <Separator />
             <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
-                <Label text="Microbial Decontamination" />
+                <Label fx:id="PurposeOfIrrad" text="Microbial Decontamination" />
             </HBox>
         </VBox>
         <VBox alignment="CENTER" styleClass="boxed" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.rowSpan="1">
@@ -123,7 +123,7 @@
             </HBox>
             <Separator />
             <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
-                <Label text="Electron Mode" />
+                <Label fx:id="ModeOfirrad" text="Electron Mode" />
             </HBox>
         </VBox>
         <VBox alignment="CENTER" styleClass="boxed" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.rowSpan="1">
@@ -132,7 +132,7 @@
             </HBox>
             <Separator />
             <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
-                <Label text="5.0, 7.5, 10.0, 12.5" />
+                <Label fx:id="RequiredDose" text="5.0, 7.5, 10.0, 12.5" />
             </HBox>
         </VBox>
     </GridPane>
@@ -147,7 +147,7 @@
             <RowConstraints maxHeight="Infinity" percentHeight="90" />
         </rowConstraints>
         <Label styleClass="report-label" text="Machine Parameters During Irradiation" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1" />
-        <Label styleClass="report-label" text="Machine Parameters During Irradiation" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1" />
+        <Label styleClass="report-label" text="Dosimetric Measurement Results" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1" />
         <GridPane styleClass="report-padding" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.rowIndex="1" GridPane.rowSpan="1">
             <columnConstraints>
                 <ColumnConstraints hgrow="ALWAYS" percentWidth="100" />
@@ -171,11 +171,11 @@
             </rowConstraints>
             <HBox styleClass="boxed" GridPane.fillWidth="true" GridPane.rowIndex="0">
                 <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
-                    <Label styleClass="report-label" text="Mode of Irradiation" />
+                    <Label styleClass="report-label" text="Date of Irradiation" />
                 </VBox>
                 <Separator orientation="VERTICAL" />
                 <VBox HBox.hgrow="ALWAYS">
-                    <Label text="30-May-2021" />
+                    <Label fx:id="RadProcessDate" text="30-May-2021" />
                 </VBox>
             </HBox>
             <HBox styleClass="boxed" GridPane.fillWidth="true" GridPane.rowIndex="1">
@@ -184,7 +184,7 @@
                 </VBox>
                 <Separator orientation="VERTICAL" />
                 <VBox HBox.hgrow="ALWAYS">
-                    <Label text="9.30" />
+                    <Label fx:id="BeamEnergy" text="9.30" />
                 </VBox>
             </HBox>
             <HBox styleClass="boxed" GridPane.fillWidth="true" GridPane.rowIndex="2">
@@ -193,7 +193,7 @@
                 </VBox>
                 <Separator orientation="VERTICAL" />
                 <VBox HBox.hgrow="ALWAYS">
-                    <Label text="280.00" />
+                    <Label fx:id="BeamCurrent" text="280.00" />
                 </VBox>
             </HBox>
             <HBox styleClass="boxed" GridPane.fillWidth="true" GridPane.rowIndex="3">
@@ -202,7 +202,7 @@
                 </VBox>
                 <Separator orientation="VERTICAL" />
                 <VBox HBox.hgrow="ALWAYS">
-                    <Label text="220.00" />
+                    <Label fx:id="PRR" text="220.00" />
                 </VBox>
             </HBox>
             <HBox styleClass="boxed" GridPane.fillWidth="true" GridPane.rowIndex="4">
@@ -211,7 +211,7 @@
                 </VBox>
                 <Separator orientation="VERTICAL" />
                 <VBox HBox.hgrow="ALWAYS">
-                    <Label text="45.00" />
+                    <Label fx:id="ScanWidth" text="45.00" />
                 </VBox>
             </HBox>
             <HBox styleClass="boxed" GridPane.fillWidth="true" GridPane.rowIndex="5">
@@ -220,7 +220,7 @@
                 </VBox>
                 <Separator orientation="VERTICAL" />
                 <VBox HBox.hgrow="ALWAYS">
-                    <Label text="6.0 &amp; 400" />
+                    <Label fx:id="ScanCurrentTime" text="6.0 &amp; 400" />
                 </VBox>
             </HBox>
             <HBox styleClass="boxed" GridPane.fillWidth="true" GridPane.rowIndex="6" GridPane.rowSpan="2">
@@ -229,7 +229,7 @@
                 </VBox>
                 <Separator orientation="VERTICAL" />
                 <VBox HBox.hgrow="ALWAYS">
-                    <Label text="2" />
+                    <Label fx:id="ConveyorSpeed" text="2" />
                 </VBox>
             </HBox>
             <HBox styleClass="boxed" GridPane.fillWidth="true" GridPane.rowIndex="8" GridPane.rowSpan="2">
@@ -238,7 +238,7 @@
                 </VBox>
                 <Separator orientation="VERTICAL" />
                 <VBox HBox.hgrow="ALWAYS">
-                    <Label text="30-May-2021" />
+                    <Label fx:id="DoseRate" text="30-May-2021" />
                 </VBox>
             </HBox>
             <HBox styleClass="boxed" GridPane.fillWidth="true" GridPane.rowIndex="10" GridPane.rowSpan="1">
@@ -247,7 +247,7 @@
                 </VBox>
                 <Separator orientation="VERTICAL" />
                 <VBox HBox.hgrow="ALWAYS">
-                    <Label text="45.00" />
+                    <Label fx:id="StoSDistance" text="45.00" />
                 </VBox>
             </HBox>
             <HBox styleClass="boxed" GridPane.fillWidth="true" GridPane.rowIndex="11" GridPane.rowSpan="2">
@@ -257,6 +257,7 @@
                 <Separator orientation="VERTICAL" />
                 <VBox HBox.hgrow="ALWAYS">
                     <Label />
+               <Label fx:id="OtherMacParameters" text="Other Parameters" />
                 </VBox>
             </HBox>
             <HBox styleClass="boxed" GridPane.fillWidth="true" GridPane.rowIndex="13" GridPane.rowSpan="2">
@@ -266,6 +267,7 @@
                 <Separator orientation="VERTICAL" />
                 <VBox HBox.hgrow="ALWAYS">
                     <Label />
+               <Label fx:id="OperatorRemarks" text="Operator Remarks" />
                 </VBox>
             </HBox>
         </GridPane>
@@ -296,16 +298,16 @@
                 </VBox>
                 <Separator orientation="VERTICAL" />
                 <VBox HBox.hgrow="ALWAYS">
-                    <Label text="30-May-2021" />
+                    <Label fx:id="DosimetryDate" text="30-May-2021" />
                 </VBox>
             </HBox>
             <HBox styleClass="boxed" GridPane.fillWidth="true" GridPane.rowIndex="1">
                 <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
-                    <Label styleClass="report-label" text="Dosimetry Used" />
+                    <Label styleClass="report-label" text="Dosimeter Used" />
                 </VBox>
                 <Separator orientation="VERTICAL" />
                 <VBox HBox.hgrow="ALWAYS">
-                    <Label text="30-May-2021" />
+                    <Label fx:id="DosimeterUsed" text="Lorem" />
                 </VBox>
             </HBox>
             <VBox alignment="CENTER" styleClass="boxed" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.rowSpan="5">
@@ -314,7 +316,7 @@
                 </HBox>
                 <Separator />
                 <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
-                    <Label text="Front and Middle of Packet" />
+                    <Label fx:id="DosimeterLocation" text="Front and Middle of Packet" />
                 </HBox>
             </VBox>
             <VBox alignment="CENTER" styleClass="boxed" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.rowSpan="8">
@@ -323,7 +325,7 @@
                 </HBox>
                 <Separator />
                 <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
-                    <Label text="T-5.0 (M-5.1)" />
+                    <Label fx:id="DosimetryResult" text="T-5.0 (M-5.1)" />
                 </HBox>
             </VBox>
         </GridPane>

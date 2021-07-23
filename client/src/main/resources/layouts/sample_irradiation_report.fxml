@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 
-<BorderPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <top>
         <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: rgb(190,220,255);">
             <Label styleClass="form-title" text="Sample Irradiation Report">
@@ -29,7 +38,7 @@
             </rowConstraints>
             <HBox alignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1">
                 <Label styleClass="field-label" text="Enter Order Number" />
-                <ComboBox editable="true" promptText="ARPF-Research-Order-0005" />
+                <ComboBox fx:id="OrderNumber" editable="true" promptText="EBRPF-Research-Order-0005" />
             </HBox>
             <Button graphicTextGap="1.0" styleClass="form-button" text="Print" GridPane.columnIndex="4" GridPane.columnSpan="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.rowSpan="1">
                 <graphic>

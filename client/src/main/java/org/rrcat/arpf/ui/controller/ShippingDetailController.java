@@ -3,6 +3,7 @@ package org.rrcat.arpf.ui.controller;
 import com.gluonhq.charm.glisten.control.AutoCompleteTextField;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -11,41 +12,39 @@ import javafx.scene.image.ImageView;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class NewOrderController implements Initializable {
+public class ShippingDetailController implements Initializable {
     @FXML
-    private AutoCompleteTextField<String> customerRegNo;
-    @FXML
-    private TextField OrderNumber;
+    private AutoCompleteTextField<String> OrderNumber;
     @FXML
     private TextField OrgNameField;
     @FXML
     private TextField DescrOfProducts;
     @FXML
-    private TextField MaterialOfProduct;
-    @FXML
-    private TextField DetailOfProduct;
-    @FXML
-    private ComboBox<String> PurposeOfIrrad;
-    @FXML
-    private ComboBox<String> ModeOfIrrad;
-    @FXML
-    private TextField RequiredDose;
-    @FXML
-    private TextField DimenOfProduct;
-    @FXML
-    private TextField WeightOfProduct;
-    @FXML
     private TextField TotalSampleBoxes;
     @FXML
-    private TextField AnyOrderInfo;
+    private DatePicker ShippedDate;
     @FXML
-    private DatePicker DateOfOrder;
+    private TextField ShippedName;
     @FXML
-    private ImageView RequestForm;
+    private TextField ShippedAddress;
     @FXML
-    private TextField FIComments;
+    private TextField ShipCity;
     @FXML
-    private TextField OrderConfirmCB;
+    private ComboBox<String> ShipState;
+    @FXML
+    private TextField ShipPostalCode;
+    @FXML
+    private TextField TotalProdShipped;
+    @FXML
+    private ImageView ScannedGatePass;
+    @FXML
+    private ImageView DosimetryReport;
+    @FXML
+    private CheckBox ShippingDoneCB;
+
+
+
+
 
 
     @Override

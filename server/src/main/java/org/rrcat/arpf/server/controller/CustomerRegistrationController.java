@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.URI;
+import java.util.Collection;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/api/v1/")
@@ -45,45 +47,15 @@ public final class CustomerRegistrationController {
 
     @GetMapping("/customer/fetch/{registrationId}")
     @ResponseBody
-    public CustomerDTO fetchCustomer(@PathVariable final Integer registrationNo) {
-        final Customer customer = Objects.requireNonNull(repository.findCustomerByRegistrationNo(registrationNo), "Customer must already have been registered");
-        final Address address = customer.getAddress();
-        final Organization organization = customer.getOrganization();
-        final ContactInfo researchHead = customer.getResearchHeadInfo();
-        final ContactInfo researchOfficer = customer.getResearchOfficerInfo();
-        return CustomerDTO.builder()
-                .registrationNo(customer.getRegistrationNo())
-                .address(
-                        AddressDTO.builder()
-                                .addressText(address.getAddressText())
-                                .city(address.getCity())
-                                .phone(address.getPhone())
-                                .pinCode(address.getPinCode())
-                                .state(address.getState())
-                                .build()
-                )
-                .extraInfo(customer.getExtraInfo())
-                .imageKey(customer.getImage().getId())
-                .organization(
-                        OrganizationDTO.builder()
-                                .name(organization.getName())
-                                .type(organization.getType())
-                                .build()
-                )
-                .researchHeadInfo(
-                        ContactInfoDTO.builder()
-                                .email(researchHead.getEmail())
-                                .mobileNo(researchHead.getMobileNo())
-                                .email(researchHead.getName())
-                                .build()
-                )
-                .researchOfficerInfo(
-                        ContactInfoDTO.builder()
-                                .email(researchOfficer.getEmail())
-                                .mobileNo(researchOfficer.getMobileNo())
-                                .email(researchOfficer.getName())
-                                .build()
-                )
-                .build();
+    public CustomerDTO fetchCustomer(@PathVariable final Integer registrationId) {
+        final Customer customer = Objects.requireNonNull(repository.findCustomerByRegistrationNo(registrationId), "Customer must already have been registered");
+        return Customer.toDTO(customer);
+    }
+
+    @GetMapping("/customer/search/{registrationId}")
+    @ResponseBody
+    public Collection<CustomerDTO> fetchCustomer(@PathVariable final String registrationId) {
+        final Collection<Customer> customer = repository.findCustomersByRegistrationNoFuzzy(registrationId);
+        return customer.stream().map(Customer::toDTO).collect(Collectors.toSet());
     }
 }

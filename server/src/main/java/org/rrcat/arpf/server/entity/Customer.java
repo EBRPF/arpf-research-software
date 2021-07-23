@@ -1,6 +1,9 @@
 package org.rrcat.arpf.server.entity;
 
+import org.dae.arpf.dto.AddressDTO;
+import org.dae.arpf.dto.ContactInfoDTO;
 import org.dae.arpf.dto.CustomerDTO;
+import org.dae.arpf.dto.OrganizationDTO;
 import org.rrcat.arpf.server.entity.embedable.Address;
 import org.rrcat.arpf.server.entity.embedable.ContactInfo;
 import org.rrcat.arpf.server.entity.embedable.Organization;
@@ -135,6 +138,48 @@ public final class Customer {
                 ", extraInfo='" + extraInfo + '\'' +
                 ", image=" + image +
                 '}';
+    }
+
+    public static CustomerDTO toDTO(final Customer customer) {
+        if (customer == null) return null;
+        final Address address = customer.getAddress();
+        final Organization organization = customer.getOrganization();
+        final ContactInfo researchHead = customer.getResearchHeadInfo();
+        final ContactInfo researchOfficer = customer.getResearchOfficerInfo();
+        return CustomerDTO.builder()
+                .registrationNo(customer.getRegistrationNo())
+                .address(
+                        AddressDTO.builder()
+                                .addressText(address.getAddressText())
+                                .city(address.getCity())
+                                .phone(address.getPhone())
+                                .pinCode(address.getPinCode())
+                                .state(address.getState())
+                                .build()
+                )
+                .extraInfo(customer.getExtraInfo())
+                .imageKey(customer.getImage().getId())
+                .organization(
+                        OrganizationDTO.builder()
+                                .name(organization.getName())
+                                .type(organization.getType())
+                                .build()
+                )
+                .researchHeadInfo(
+                        ContactInfoDTO.builder()
+                                .email(researchHead.getEmail())
+                                .mobileNo(researchHead.getMobileNo())
+                                .email(researchHead.getName())
+                                .build()
+                )
+                .researchOfficerInfo(
+                        ContactInfoDTO.builder()
+                                .email(researchOfficer.getEmail())
+                                .mobileNo(researchOfficer.getMobileNo())
+                                .email(researchOfficer.getName())
+                                .build()
+                )
+                .build();
     }
 
     public static Customer fromDTO(final CustomerDTO dto, final UploadedImage image) {

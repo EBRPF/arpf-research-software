@@ -62,9 +62,9 @@ public final class ContactInfo {
 
     public static ContactInfo fromDTO(final ContactInfoDTO dto) {
         final ContactInfo contactInfo = new ContactInfo();
-        contactInfo.setEmail(dto.getEmail());
-        contactInfo.setMobileNo(dto.getMobileNo());
-        contactInfo.setName(dto.getName());
+        contactInfo.setEmail(dto.email());
+        contactInfo.setMobileNo(dto.mobileNo());
+        contactInfo.setName(dto.name());
         return contactInfo;
     }
 }

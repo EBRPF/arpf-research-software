@@ -1,9 +1,6 @@
 package org.rrcat.arpf.server.entity;
 
-import org.dae.arpf.dto.AddressDTO;
-import org.dae.arpf.dto.ContactInfoDTO;
-import org.dae.arpf.dto.CustomerDTO;
-import org.dae.arpf.dto.OrganizationDTO;
+import org.dae.arpf.dto.*;
 import org.rrcat.arpf.server.entity.embedable.Address;
 import org.rrcat.arpf.server.entity.embedable.ContactInfo;
 import org.rrcat.arpf.server.entity.embedable.Organization;
@@ -146,10 +143,10 @@ public final class Customer {
         final Organization organization = customer.getOrganization();
         final ContactInfo researchHead = customer.getResearchHeadInfo();
         final ContactInfo researchOfficer = customer.getResearchOfficerInfo();
-        return CustomerDTO.builder()
+        return CustomerDTOBuilder.builder()
                 .registrationNo(customer.getRegistrationNo())
                 .address(
-                        AddressDTO.builder()
+                        AddressDTOBuilder.builder()
                                 .addressText(address.getAddressText())
                                 .city(address.getCity())
                                 .phone(address.getPhone())
@@ -160,20 +157,20 @@ public final class Customer {
                 .extraInfo(customer.getExtraInfo())
                 .imageKey(customer.getImage().getId())
                 .organization(
-                        OrganizationDTO.builder()
+                        OrganizationDTOBuilder.builder()
                                 .name(organization.getName())
                                 .type(organization.getType())
                                 .build()
                 )
                 .researchHeadInfo(
-                        ContactInfoDTO.builder()
+                        ContactInfoDTOBuilder.builder()
                                 .email(researchHead.getEmail())
                                 .mobileNo(researchHead.getMobileNo())
                                 .email(researchHead.getName())
                                 .build()
                 )
                 .researchOfficerInfo(
-                        ContactInfoDTO.builder()
+                        ContactInfoDTOBuilder.builder()
                                 .email(researchOfficer.getEmail())
                                 .mobileNo(researchOfficer.getMobileNo())
                                 .email(researchOfficer.getName())
@@ -184,12 +181,12 @@ public final class Customer {
 
     public static Customer fromDTO(final CustomerDTO dto, final UploadedImage image) {
         final Customer customer = new Customer();
-        customer.setRegistrationNo(dto.getRegistrationNo());
-        customer.setAddress(Address.fromDTO(dto.getAddress()));
-        customer.setExtraInfo(dto.getExtraInfo());
+        customer.setRegistrationNo(dto.registrationNo());
+        customer.setAddress(Address.fromDTO(dto.address()));
+        customer.setExtraInfo(dto.extraInfo());
         customer.setImage(image);
-        customer.setResearchHeadInfo(ContactInfo.fromDTO(dto.getResearchHeadInfo()));
-        customer.setResearchOfficerInfo(ContactInfo.fromDTO(dto.getResearchOfficerInfo()));
+        customer.setResearchHeadInfo(ContactInfo.fromDTO(dto.researchHeadInfo()));
+        customer.setResearchOfficerInfo(ContactInfo.fromDTO(dto.researchOfficerInfo()));
         return customer;
     }
 }

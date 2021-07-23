@@ -10,6 +10,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.hibernate.validator:hibernate-validator:6.0.13.Final'
+    annotationProcessor 'io.soabase.record-builder:record-builder-processor:22'
+    compileOnly 'io.soabase.record-builder:record-builder-core:22'
     testImplementation group: 'junit', name: 'junit', version: '4.12'
 }

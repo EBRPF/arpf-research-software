@@ -85,11 +85,11 @@ public final class Address {
 
     public static Address fromDTO(final AddressDTO dto) {
         final Address address = new Address();
-        address.setState(dto.getState());
-        address.setAddressText(dto.getAddressText());
-        address.setCity(dto.getCity());
-        address.setPhone(dto.getPhone());
-        address.setPinCode(dto.getPinCode());
+        address.setState(dto.state());
+        address.setAddressText(dto.addressText());
+        address.setCity(dto.city());
+        address.setPhone(dto.phone());
+        address.setPinCode(dto.pinCode());
         return address;
     }
 }

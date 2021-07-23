@@ -1,5 +1,10 @@
 package org.rrcat.arpf.server.entity;
 
+import org.dae.arpf.dto.CustomerDTO;
+import org.dae.arpf.dto.OrderDTO;
+import org.rrcat.arpf.server.entity.embedable.Address;
+import org.rrcat.arpf.server.entity.embedable.ContactInfo;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
@@ -212,5 +217,13 @@ public final class Order {
     @Override
     public int hashCode() {
         return Objects.hash(getRegistrationNo(), getCustomer(), getProductDescription(), getProductMaterial(), getProductDetails(), getIrradiationPurpose(), getIrradiationMode(), getRequiredDose(), getProductDimensions(), getProductWeight(), getProductCount(), getExtraInfo(), getReceiptDate(), getImage(), getComments(), isRegistered());
+    }
+
+    public static Order fromDTO(final OrderDTO dto, final UploadedImage image) {
+        final Order order = new Order();
+        order.setRegistrationNo(dto.registrationNo());
+        order.setComments(dto.comments());
+        order.set
+        return order;
     }
 }

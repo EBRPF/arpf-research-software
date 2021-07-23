@@ -16,7 +16,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Controller
-@RequestMapping("/api/v1/")
+@RequestMapping("/api/v1/customer")
 public final class CustomerController {
     private final CustomerRepository repository;
     private final UploadedImageRepository imageRepository;
@@ -26,27 +26,27 @@ public final class CustomerController {
         this.imageRepository = imageRepository;
     }
 
-    @PostMapping("/customer/register")
+    @PostMapping("/register")
     @ResponseBody
     public ResponseEntity<Void> registerCustomer(@RequestBody final CustomerDTO customerDTO, final HttpServletRequest request) {
-        final Customer preRegistered = repository.findCustomerByRegistrationNo(customerDTO.getRegistrationNo());
+        final Customer preRegistered = repository.findCustomerByRegistrationNo(customerDTO.registrationNo());
         if (preRegistered != null) {
             throw new IllegalArgumentException("Customer with given registration number already registered");
         }
-        final Integer key = Objects.requireNonNull(customerDTO.getImageKey(), "Image key must not be null");
+        final Integer key = Objects.requireNonNull(customerDTO.imageKey(), "Image key must not be null");
         final UploadedImage image = Objects.requireNonNull(imageRepository.findUploadedImageById(key), "Image must already be uploaded");
         final Customer customer = repository.save(Customer.fromDTO(customerDTO, image));
         return ResponseEntity.created(URI.create(request.getRequestURI()).resolve("../fetch/" + customer.getRegistrationNo())).build();
     }
 
-    @GetMapping("/customer/fetch/{registrationId}")
+    @GetMapping("/fetch/{registrationId}")
     @ResponseBody
     public CustomerDTO fetchCustomer(@PathVariable final Integer registrationId) {
         final Customer customer = Objects.requireNonNull(repository.findCustomerByRegistrationNo(registrationId), "Customer must already have been registered");
         return Customer.toDTO(customer);
     }
 
-    @GetMapping("/customer/search/{registrationId}")
+    @GetMapping("/search/{registrationId}")
     @ResponseBody
     public Collection<CustomerDTO> fetchCustomer(@PathVariable final String registrationId) {
         final Collection<Customer> customer = repository.findCustomersByRegistrationNoFuzzy(registrationId);

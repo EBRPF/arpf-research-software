@@ -1,5 +1,13 @@
 package org.rrcat.arpf.server.entity;
 
+import org.dae.arpf.dto.OrderDTO;
+import org.dae.arpf.dto.OrderDTOBuilder;
+import org.dae.arpf.dto.OrderRadiationProcessingDTO;
+import org.dae.arpf.dto.OrderRadiationProcessingDTOBuilder;
+import org.rrcat.arpf.server.repository.CustomerRepository;
+import org.rrcat.arpf.server.repository.OrderRepository;
+import org.rrcat.arpf.server.repository.UploadedImageRepository;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
@@ -217,5 +225,45 @@ public final class OrderRadiationProcessingData {
     @Override
     public int hashCode() {
         return Objects.hash(getOrder(), getDosimeterUsed(), getDosimeterLocation(), getProcessingDate(), getStartTime(), getEndTime(), getBeamEnergy(), getBeamCurrent(), getPRR(), getScanWidth(), getScanCurrentAndTime(), getConveyorSpeed(), getDoseRate(), getSourceToSurfaceDimension(), getRelatedMachineParams(), getOperatorRemarks());
+    }
+
+    public static OrderRadiationProcessingDTO toDTO(final OrderRadiationProcessingData order) {
+        if (order == null) return null;
+        return OrderRadiationProcessingDTOBuilder.builder()
+                .registrationNo(order.getOrder().getRegistrationNo())
+                .beamCurrent(order.getBeamCurrent())
+                .beamEnergy(order.getBeamEnergy())
+                .dosimeterUsed(order.getDosimeterUsed())
+                .dosimeterLocation(order.getDosimeterLocation())
+                .conveyorSpeed(order.getConveyorSpeed())
+                .doseRate(order.getDoseRate())
+                .endTime(order.getEndTime())
+                .operatorRemarks(order.getOperatorRemarks())
+                .relatedMachineParams(order.getRelatedMachineParams())
+                .scanCurrentAndTime(order.getScanCurrentAndTime())
+                .sourceToSurfaceDimension(order.getSourceToSurfaceDimension())
+                .processingDate(order.getProcessingDate())
+                .PRR(order.getPRR())
+                .scanWidth(order.getScanWidth())
+                .startTime(order.getStartTime())
+                .build();
+    }
+
+    public static OrderRadiationProcessingData fromDTO(final OrderRadiationProcessingDTO dto, final OrderRepository orderRepository, final UploadedImageRepository imageRepository) {
+        final OrderRadiationProcessingData orp = new OrderRadiationProcessingData();
+        final Order order = orderRepository.findOrderByRegistrationNo(dto.registrationNo());
+        orp.setOrder(order);
+        orp.setBeamCurrent(dto.beamCurrent());
+        orp.setBeamEnergy(dto.beamEnergy());
+        orp.setProcessingDate(dto.processingDate());
+        orp.setDoseRate(dto.doseRate());
+        orp.setConveyorSpeed(dto.conveyorSpeed());
+        orp.setEndTime(dto.endTime());
+        orp.setConveyorSpeed(dto.conveyorSpeed());
+        orp.setDosimeterLocation(dto.dosimeterLocation());
+        orp.setDosimeterUsed(dto.dosimeterUsed());
+        orp.setOperatorRemarks(dto.operatorRemarks());
+        orp.setStartTime(dto.startTime());
+        return orp;
     }
 }

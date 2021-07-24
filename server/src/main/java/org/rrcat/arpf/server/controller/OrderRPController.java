@@ -2,7 +2,6 @@ package org.rrcat.arpf.server.controller;
 
 import org.dae.arpf.dto.OrderDTO;
 import org.rrcat.arpf.server.entity.Order;
-import org.rrcat.arpf.server.entity.UploadedImage;
 import org.rrcat.arpf.server.repository.CustomerRepository;
 import org.rrcat.arpf.server.repository.OrderRepository;
 import org.rrcat.arpf.server.repository.UploadedImageRepository;
@@ -16,15 +15,14 @@ import java.net.URI;
 import java.util.Objects;
 
 @Controller
-@RequestMapping("/api/v1/order")
-public final class OrderController {
-
+@RequestMapping("/api/v1/order/rp")
+public final class OrderRPController {
     private final OrderRepository orderRepository;
     private final CustomerRepository customerRepository;
     private final UploadedImageRepository imageRepository;
 
     @Autowired
-    public OrderController(final OrderRepository orderRepository, CustomerRepository customerRepository, final UploadedImageRepository imageRepository) {
+    public OrderRPController(final OrderRepository orderRepository, CustomerRepository customerRepository, final UploadedImageRepository imageRepository) {
         this.orderRepository = orderRepository;
         this.customerRepository = customerRepository;
         this.imageRepository = imageRepository;
@@ -32,7 +30,7 @@ public final class OrderController {
 
     @PostMapping("/register")
     @ResponseBody
-    public ResponseEntity<Void> registerOrder(@RequestBody final OrderDTO orderDTO, final HttpServletRequest request) {
+    public ResponseEntity<Void> registerORP(@RequestBody final OrderDTO orderDTO, final HttpServletRequest request) {
         final Order preRegistered = orderRepository.findOrderByRegistrationNo(orderDTO.registrationNo());
         if (preRegistered != null) {
             throw new IllegalArgumentException("Order with given registration number already registered");
@@ -43,7 +41,7 @@ public final class OrderController {
 
     @GetMapping("/fetch/{registrationId}")
     @ResponseBody
-    public OrderDTO fetchOrder(@PathVariable final Integer registrationId) {
+    public OrderDTO fetchORP(@PathVariable final Integer registrationId) {
         final Order preRegistered = orderRepository.findOrderByRegistrationNo(registrationId);
         final OrderDTO dto = Order.toDTO(preRegistered);
         return Objects.requireNonNull(dto, "fetched Order must exist!");

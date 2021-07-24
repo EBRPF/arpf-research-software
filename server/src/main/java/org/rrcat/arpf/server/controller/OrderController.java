@@ -9,10 +9,7 @@ import org.rrcat.arpf.server.repository.UploadedImageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.URI;
@@ -42,5 +39,13 @@ public final class OrderController {
         }
         final Order customer = orderRepository.save(Order.fromDTO(orderDTO, customerRepository, imageRepository));
         return ResponseEntity.created(URI.create(request.getRequestURI()).resolve("../fetch/" + customer.getRegistrationNo())).build();
+    }
+
+    @GetMapping("/fetch/{registrationId}")
+    @ResponseBody
+    public OrderDTO fetchOrder(@PathVariable final Integer registrationId) {
+        final Order preRegistered = orderRepository.findOrderByRegistrationNo(registrationId);
+        final OrderDTO dto = Order.toDTO(preRegistered);
+        return Objects.requireNonNull(dto, "fetched Order must exist!");
     }
 }

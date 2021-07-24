@@ -1,6 +1,9 @@
 package org.rrcat.arpf.server.entity;
 
-import org.dae.arpf.dto.OrderDTO;
+import org.dae.arpf.dto.*;
+import org.rrcat.arpf.server.entity.embedable.Address;
+import org.rrcat.arpf.server.entity.embedable.ContactInfo;
+import org.rrcat.arpf.server.entity.embedable.Organization;
 import org.rrcat.arpf.server.repository.CustomerRepository;
 import org.rrcat.arpf.server.repository.UploadedImageRepository;
 
@@ -216,6 +219,24 @@ public final class Order {
     @Override
     public int hashCode() {
         return Objects.hash(getRegistrationNo(), getCustomer(), getProductDescription(), getProductMaterial(), getProductDetails(), getIrradiationPurpose(), getIrradiationMode(), getRequiredDose(), getProductDimensions(), getProductWeight(), getProductCount(), getExtraInfo(), getReceiptDate(), getImage(), getComments(), isRegistered());
+    }
+
+    public static OrderDTO toDTO(final Order order) {
+        if (order == null) return null;
+        return OrderDTOBuilder.builder()
+                .registrationNo(order.getRegistrationNo())
+                .extraInfo(order.getExtraInfo())
+                .comments(order.getComments())
+                .customerId(order.getCustomer().getRegistrationNo())
+                .irradiationMode(order.getIrradiationMode())
+                .irradiationPurpose(order.getIrradiationPurpose())
+                .productDescription(order.getProductDescription())
+                .productCount(order.getProductCount())
+                .productMaterial(order.getProductMaterial())
+                .productWeight(order.getProductWeight())
+                .receiptDate(order.getReceiptDate())
+                .registered(order.isRegistered())
+                .build();
     }
 
     public static Order fromDTO(final OrderDTO dto, final CustomerRepository customerRepository, final UploadedImageRepository imageRepository) {

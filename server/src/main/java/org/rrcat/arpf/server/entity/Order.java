@@ -1,9 +1,8 @@
 package org.rrcat.arpf.server.entity;
 
-import org.dae.arpf.dto.CustomerDTO;
 import org.dae.arpf.dto.OrderDTO;
-import org.rrcat.arpf.server.entity.embedable.Address;
-import org.rrcat.arpf.server.entity.embedable.ContactInfo;
+import org.rrcat.arpf.server.repository.CustomerRepository;
+import org.rrcat.arpf.server.repository.UploadedImageRepository;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -219,11 +218,24 @@ public final class Order {
         return Objects.hash(getRegistrationNo(), getCustomer(), getProductDescription(), getProductMaterial(), getProductDetails(), getIrradiationPurpose(), getIrradiationMode(), getRequiredDose(), getProductDimensions(), getProductWeight(), getProductCount(), getExtraInfo(), getReceiptDate(), getImage(), getComments(), isRegistered());
     }
 
-    public static Order fromDTO(final OrderDTO dto, final UploadedImage image) {
+    public static Order fromDTO(final OrderDTO dto, final CustomerRepository customerRepository, final UploadedImageRepository imageRepository) {
         final Order order = new Order();
         order.setRegistrationNo(dto.registrationNo());
         order.setComments(dto.comments());
-        order.set
+        final Customer customer = customerRepository.findCustomerByRegistrationNo(dto.customerId());
+        order.setCustomer(Objects.requireNonNull(customer, "Requires existing customer"));
+        final UploadedImage image = imageRepository.findUploadedImageById(dto.imageKey());
+        order.setImage(Objects.requireNonNull(image, "Requires existing uploaded image"));
+        order.setExtraInfo(dto.extraInfo());
+        order.setIrradiationMode(dto.irradiationMode());
+        order.setIrradiationPurpose(dto.irradiationPurpose());
+        order.setProductCount(dto.productCount());
+        order.setProductDescription(dto.productDescription());
+        order.setProductDetails(dto.productDetails());
+        order.setProductDimensions(dto.productDimensions());
+        order.setRequiredDose(dto.requiredDose());
+        order.setReceiptDate(dto.receiptDate());
+        order.setProductWeight(dto.productWeight());
         return order;
     }
 }

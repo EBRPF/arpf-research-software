@@ -1,11 +1,14 @@
 package org.rrcat.arpf.server.entity.auth;
 
 
+import org.dae.arpf.dto.UserDTO;
 import org.rrcat.arpf.server.auth.Role;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.Locale;
 import java.util.Objects;
 
 @Entity
@@ -85,5 +88,14 @@ public final class RrcatUser {
     @Override
     public int hashCode() {
         return Objects.hash(uid, hashedPassword, role);
+    }
+
+    public static RrcatUser fromDTO(final UserDTO userDTO, final PasswordEncoder encoder) {
+        final RrcatUser user = new RrcatUser();
+        user.setUid(userDTO.uid());
+        user.setHashedPassword(encoder.encode(userDTO.password()));
+        user.setRole(Role.valueOf(userDTO.role().toUpperCase(Locale.ROOT)));
+        user.setEnabled(userDTO.enabled());
+        return user;
     }
 }

@@ -249,7 +249,7 @@ public final class OrderRadiationProcessingData {
                 .build();
     }
 
-    public static OrderRadiationProcessingData fromDTO(final OrderRadiationProcessingDTO dto, final OrderRepository orderRepository, final UploadedImageRepository imageRepository) {
+    public static OrderRadiationProcessingData fromDTO(final OrderRadiationProcessingDTO dto, final OrderRepository orderRepository) {
         final OrderRadiationProcessingData orp = new OrderRadiationProcessingData();
         final Order order = orderRepository.findOrderByRegistrationNo(dto.registrationNo());
         orp.setOrder(order);

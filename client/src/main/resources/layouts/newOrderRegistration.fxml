@@ -19,7 +19,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="Infinity" maxWidth="Infinity" prefHeight="766.0" prefWidth="1364.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.NewOrderController">
+<GridPane maxHeight="Infinity" maxWidth="Infinity" prefHeight="766.0" prefWidth="1364.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.NavigationController">
     <columnConstraints>
         <ColumnConstraints hgrow="ALWAYS" percentWidth="15" />
         <ColumnConstraints hgrow="ALWAYS" percentWidth="85" />
@@ -215,13 +215,13 @@
                <Font size="15.0" />
             </font>
          </Text>
-         <TextField fx:id="customerRegNo" disable="true" layoutX="380.0" layoutY="108.0" prefHeight="26.0" prefWidth="200.0" promptText="EBRPF-Research-0001" />
+         <TextField fx:id="customerRegNo" layoutX="380.0" layoutY="108.0" prefHeight="26.0" prefWidth="200.0" promptText="EBRPF-Research-0001" />
          <TextField fx:id="OrderNumber" layoutX="380.0" layoutY="137.0" prefHeight="26.0" prefWidth="200.0" promptText="EBRPF-Research-Order-0005" />
          <TextField fx:id="OrgNameField" disable="true" layoutX="380.0" layoutY="172.0" prefHeight="26.0" prefWidth="200.0" />
          <TextField fx:id="DescrOfProducts" layoutX="380.0" layoutY="212.0" prefHeight="26.0" prefWidth="200.0" />
          <TextField fx:id="MaterialOfProduct" layoutX="380.0" layoutY="248.0" prefHeight="26.0" prefWidth="200.0" />
          <TextField fx:id="DetailOfProduct" layoutX="380.0" layoutY="288.0" prefHeight="26.0" prefWidth="200.0" />
-         <ComboBox fx:id="PuposeOfIrrad" layoutX="380.0" layoutY="333.0" prefHeight="25.0" prefWidth="200.0" />
+         <TextField fx:id="PurposeOfIrrad" layoutX="380.0" layoutY="332.0" prefHeight="26.0" prefWidth="200.0" />
          <ComboBox fx:id="ModeOfIrrad" layoutX="380.0" layoutY="373.0" prefHeight="25.0" prefWidth="200.0" />
          <TextField fx:id="RequiredDose" layoutX="380.0" layoutY="411.0" prefHeight="26.0" prefWidth="200.0" promptText="xGy" />
          <TextField fx:id="DimenOfProduct" layoutX="380.0" layoutY="460.0" prefHeight="62.0" prefWidth="200.0" promptText="L x D x H" />

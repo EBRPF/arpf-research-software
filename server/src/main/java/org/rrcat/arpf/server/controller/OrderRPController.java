@@ -36,9 +36,9 @@ public final class OrderRPController {
     @PostMapping("/register")
     @ResponseBody
     public ResponseEntity<Void> registerORP(@RequestBody final OrderRadiationProcessingDTO orderDTO, final HttpServletRequest request) {
-        final OrderRadiationProcessingData preRegistered = orderRPRepository.findOrderByRegistrationNo(orderDTO.registrationNo());
+        final OrderRadiationProcessingData preRegistered = orderRPRepository.findOrderRadiationProcessingDataByRegistrationNo(orderDTO.registrationNo());
         if (preRegistered != null) {
-            throw new IllegalArgumentException("Order with given registration number already registered");
+            throw new IllegalArgumentException("OrderRadiationProcessingData with given registration number already registered");
         }
         final OrderRadiationProcessingData data = orderRPRepository.save(OrderRadiationProcessingData.fromDTO(orderDTO, orderRepository));
         return ResponseEntity.created(URI.create(request.getRequestURI()).resolve("../fetch/" + orderDTO.registrationNo())).build();
@@ -47,7 +47,7 @@ public final class OrderRPController {
     @GetMapping("/fetch/{registrationId}")
     @ResponseBody
     public OrderRadiationProcessingDTO fetchORP(@PathVariable final Integer registrationId) {
-        final OrderRadiationProcessingData preRegistered = orderRPRepository.findOrderByRegistrationNo(registrationId);
+        final OrderRadiationProcessingData preRegistered = orderRPRepository.findOrderRadiationProcessingDataByRegistrationNo(registrationId);
         final OrderRadiationProcessingDTO dto = OrderRadiationProcessingData.toDTO(preRegistered);
         return Objects.requireNonNull(dto, "fetched Order must exist!");
     }

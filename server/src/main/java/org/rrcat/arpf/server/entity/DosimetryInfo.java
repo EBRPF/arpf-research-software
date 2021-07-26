@@ -1,5 +1,13 @@
 package org.rrcat.arpf.server.entity;
 
+import org.dae.arpf.dto.DosimetryDTO;
+import org.dae.arpf.dto.DosimetryDTOBuilder;
+import org.dae.arpf.dto.OrderDTO;
+import org.dae.arpf.dto.OrderDTOBuilder;
+import org.rrcat.arpf.server.repository.CustomerRepository;
+import org.rrcat.arpf.server.repository.OrderRPRepository;
+import org.rrcat.arpf.server.repository.UploadedImageRepository;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
@@ -27,8 +35,6 @@ public final class DosimetryInfo {
     @ManyToOne
     private UploadedImage afterImage;
 
-    @Column(name = "dosimetry_done")
-    private boolean dosimetryDone;
 
     public OrderRadiationProcessingData getRadiationProcessingData() {
         return radiationProcessingData;
@@ -71,21 +77,13 @@ public final class DosimetryInfo {
         this.afterImage = afterImage;
     }
 
-    public boolean isDosimetryDone() {
-        return dosimetryDone;
-    }
-
-    public void setDosimetryDone(boolean dosimetryDone) {
-        this.dosimetryDone = dosimetryDone;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         DosimetryInfo that = (DosimetryInfo) o;
-        return isDosimetryDone() == that.isDosimetryDone() &&
-                Objects.equals(registrationNo, that.registrationNo) &&
+        return Objects.equals(registrationNo, that.registrationNo) &&
                 Objects.equals(getRadiationProcessingData(), that.getRadiationProcessingData()) &&
                 Objects.equals(getMeasurementDate(), that.getMeasurementDate()) &&
                 Objects.equals(getMeasurement(), that.getMeasurement()) &&
@@ -95,6 +93,27 @@ public final class DosimetryInfo {
 
     @Override
     public int hashCode() {
-        return Objects.hash(registrationNo, getRadiationProcessingData(), getMeasurementDate(), getMeasurement(), getBeforeImage(), getAfterImage(), isDosimetryDone());
+        return Objects.hash(registrationNo, getRadiationProcessingData(), getMeasurementDate(), getMeasurement(), getBeforeImage(), getAfterImage());
+    }
+
+    public static DosimetryDTO toDTO(final DosimetryInfo info) {
+        if (info == null) return null;
+        return DosimetryDTOBuilder.builder()
+                .registrationNo(info.getRadiationProcessingData().getOrder().getRegistrationNo())
+                .measurement(info.getMeasurement())
+                .measurementDate(info.getMeasurementDate())
+                .beforeImageKey(info.getBeforeImage().getId())
+                .afterImageKey(info.getAfterImage().getId())
+                .build();
+    }
+
+    public static DosimetryInfo fromDTO(final DosimetryDTO dto, final OrderRPRepository rpRepository, final UploadedImageRepository imageRepository) {
+        final DosimetryInfo order = new DosimetryInfo();
+        order.setRadiationProcessingData(rpRepository.findOrderRadiationProcessingDataByRegistrationNo(dto.registrationNo()));
+        order.setMeasurement(dto.measurement());
+        order.setMeasurementDate(dto.measurementDate());
+        order.setBeforeImage(imageRepository.findUploadedImageById(dto.beforeImageKey()));
+        order.setAfterImage(imageRepository.findUploadedImageById(dto.afterImageKey()));
+        return order;
     }
 }

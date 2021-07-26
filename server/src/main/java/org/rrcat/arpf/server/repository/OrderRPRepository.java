@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.Collection;
 
 public interface OrderRPRepository extends JpaRepository<OrderRadiationProcessingData, Long> {
-    OrderRadiationProcessingData findOrderByRegistrationNo(final Integer registrationNo);
+    OrderRadiationProcessingData findOrderRadiationProcessingDataByRegistrationNo(final Integer registrationNo);
     @Query("FROM OrderRadiationProcessingData WHERE concat(registrationNo, '') LIKE :registrationNo%")
-    Collection<OrderRadiationProcessingData> findOrderByRegistrationNoFuzzy(final String registrationNo);
+    Collection<OrderRadiationProcessingData> findOrderRadiationProcessingDataByRegistrationNoFuzzy(final String registrationNo);
 }

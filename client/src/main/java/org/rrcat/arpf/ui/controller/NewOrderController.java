@@ -63,6 +63,9 @@ public class NewOrderController implements Initializable {
         OrderNumber.setText("EBRPF-Research-Order-");
         OrderReg orderReg = new OrderReg();
 
+        //Name of Organisation
+        OrgNameField.setText(orderReg.getCustomerRegistrationNo());
+
         ObservableList<String> modeOptions =
                 FXCollections.observableArrayList(
                         "Electron Mode",
@@ -92,8 +95,6 @@ public class NewOrderController implements Initializable {
                 orderReg.setCustomerRegistrationNo(customerRegNo.getText().trim());
                 //Order Number Registration
                 orderReg.setOrderNumber(OrderNumber.getText().trim());
-                //Name of Organisation
-                OrgNameField.setText(orderReg.getCustomerRegistrationNo());
                 //Description of Products
                 orderReg.setDescrOfProducts(DescrOfProducts.getText().trim());
                 //Material of Products

@@ -98,8 +98,9 @@ public class CustomerRegController implements Initializable {
                 customerReg.setResearchHeadName(ResearchHeadName.getText().trim());
 
                 //Research Activity Head Mobile Number "fxid: ResearchMobileNo"
-                //if (Integer.parseInt(ResearchMobileNo.getText().trim())==10)
-                  //  customerReg.setResearchMobileNo(Integer.parseInt(ResearchMobileNo.getText().trim()));
+
+                if (ResearchMobileNo.getText().length()==10)
+                    customerReg.setResearchMobileNo(ResearchMobileNo.getText());
 
                 //Research Activity Head Email ID "fxid: ResearchEmail"
 
@@ -110,8 +111,9 @@ public class CustomerRegController implements Initializable {
 
                 //Office Address "fxid: OfficeAddress"
                 customerReg.setOfficeAddress(OfficeAddress.getText().trim());
-
+                System.out.println(customerReg);
                 System.out.println(customerRegNo.getText());
+
             }
         });
 

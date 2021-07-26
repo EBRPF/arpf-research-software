@@ -1,12 +1,14 @@
 package org.rrcat.arpf.ui.api.model;
 
+
+
 public class CustomerReg {
 
     String customerRegistrationNo;
     String nameOfOrganisation;
     String researchHeadName;
     String researchEmailId;
-    Integer researchMobileNo;
+    String researchMobileNo;
     String officeAddress;
 
     public String getOfficeAddress() {
@@ -25,16 +27,13 @@ public class CustomerReg {
         this.researchEmailId = researchEmailId;
     }
 
-
-
-    public Integer getResearchMobileNo() {
+    public String getResearchMobileNo() {
         return researchMobileNo;
     }
 
-    public void setResearchMobileNo(Integer researchMobileNo) {
+    public void setResearchMobileNo(String researchMobileNo) {
         this.researchMobileNo = researchMobileNo;
     }
-
 
     public String getResearchHeadName() {
         return researchHeadName;

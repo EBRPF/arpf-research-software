@@ -22,15 +22,11 @@ import java.util.Objects;
 public final class OrderRPController {
     private final OrderRepository orderRepository;
     private final OrderRPRepository orderRPRepository;
-    private final CustomerRepository customerRepository;
-    private final UploadedImageRepository imageRepository;
 
     @Autowired
-    public OrderRPController(OrderRepository orderRepository, final OrderRPRepository orderRPRepository, CustomerRepository customerRepository, final UploadedImageRepository imageRepository) {
+    public OrderRPController(OrderRepository orderRepository, final OrderRPRepository orderRPRepository) {
         this.orderRepository = orderRepository;
         this.orderRPRepository = orderRPRepository;
-        this.customerRepository = customerRepository;
-        this.imageRepository = imageRepository;
     }
 
     @PostMapping("/register")

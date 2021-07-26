@@ -145,15 +145,7 @@ public final class Customer {
         final ContactInfo researchOfficer = customer.getResearchOfficerInfo();
         return CustomerDTOBuilder.builder()
                 .registrationNo(customer.getRegistrationNo())
-                .address(
-                        AddressDTOBuilder.builder()
-                                .addressText(address.getAddressText())
-                                .city(address.getCity())
-                                .phone(address.getPhone())
-                                .pinCode(address.getPinCode())
-                                .state(address.getState())
-                                .build()
-                )
+                .address(Address.toDTO(address))
                 .extraInfo(customer.getExtraInfo())
                 .imageKey(customer.getImage().getId())
                 .organization(

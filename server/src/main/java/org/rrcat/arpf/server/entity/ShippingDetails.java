@@ -1,6 +1,13 @@
 package org.rrcat.arpf.server.entity;
 
+import org.dae.arpf.dto.DosimetryDTO;
+import org.dae.arpf.dto.DosimetryDTOBuilder;
+import org.dae.arpf.dto.ShippingDetailsDTO;
+import org.dae.arpf.dto.ShippingDetailsDTOBuilder;
 import org.rrcat.arpf.server.entity.embedable.Address;
+import org.rrcat.arpf.server.repository.DosimetryRepository;
+import org.rrcat.arpf.server.repository.OrderRPRepository;
+import org.rrcat.arpf.server.repository.UploadedImageRepository;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -103,5 +110,30 @@ public final class ShippingDetails {
     @Override
     public int hashCode() {
         return Objects.hash(getDosimetryInfo(), getShippingDate(), getShippingMedium(), getShippingAddress(), getShippedPackets(), getGatePassImage(), getDosimetryReportImage());
+    }
+
+    public static ShippingDetailsDTO toDTO(final ShippingDetails info) {
+        if (info == null) return null;
+        return ShippingDetailsDTOBuilder.builder()
+                .registrationNo(info.getDosimetryInfo().getRadiationProcessingData().getOrder().getRegistrationNo())
+                .shippingAddress(Address.toDTO(info.getShippingAddress()))
+                .shippingDate(info.getShippingDate())
+                .shippedPackets(info.getShippedPackets())
+                .shippingMedium(info.getShippingMedium())
+                .gatePassImageKey(info.getGatePassImage().getId())
+                .dosimetryReportImageKey(info.getDosimetryReportImage().getId())
+                .build();
+    }
+
+    public static ShippingDetails fromDTO(final ShippingDetailsDTO dto, final DosimetryRepository dosimetryRepository, final UploadedImageRepository imageRepository) {
+        final ShippingDetails details = new ShippingDetails();
+        details.setDosimetryInfo(dosimetryRepository.findDosimetryInfoByRegistrationNo(dto.registrationNo()));
+        details.setShippingDate(dto.shippingDate());
+        details.setShippingMedium(dto.shippingMedium());
+        details.setShippedPackets(dto.shippedPackets());
+        details.setShippingAddress(Address.fromDTO(dto.shippingAddress()));
+        details.setDosimetryReportImage(imageRepository.findUploadedImageById(dto.dosimetryReportImageKey()));
+        details.setGatePassImage(imageRepository.findUploadedImageById(dto.gatePassImageKey()));
+        return details;
     }
 }

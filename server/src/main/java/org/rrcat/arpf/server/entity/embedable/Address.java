@@ -1,6 +1,7 @@
 package org.rrcat.arpf.server.entity.embedable;
 
 import org.dae.arpf.dto.AddressDTO;
+import org.dae.arpf.dto.AddressDTOBuilder;
 import org.dae.arpf.dto.CustomerDTO;
 import org.rrcat.arpf.server.entity.Customer;
 
@@ -91,5 +92,15 @@ public final class Address {
         address.setPhone(dto.phone());
         address.setPinCode(dto.pinCode());
         return address;
+    }
+
+    public static AddressDTO toDTO(final Address address) {
+        return AddressDTOBuilder.builder()
+                .addressText(address.getAddressText())
+                .city(address.getCity())
+                .phone(address.getPhone())
+                .pinCode(address.getPinCode())
+                .state(address.getState())
+                .build();
     }
 }

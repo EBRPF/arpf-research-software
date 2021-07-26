@@ -18,9 +18,7 @@ import retrofit2.Retrofit;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LoginController implements Initializable {
-    @FXML
-    private Button loginBtn;
+public final class LoginController implements Initializable {
     @FXML
     private TextField usernameTextField;
     @FXML
@@ -28,14 +26,12 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        usernameTextField.setText("Administrator");
-        passwordTextField.setText("Lo5PofeWw8@r");
+
     }
 
     @FXML
-    private void LoginAction(ActionEvent event) {
-
-        RequestLogin requestLogin = new RequestLogin(usernameTextField.getText().toString().trim(),
+    private void onClickLogin(final ActionEvent event) {
+        final RequestLogin requestLogin = new RequestLogin(usernameTextField.getText().toString().trim(),
                 passwordTextField.getText().toString().trim());
         sendNetworkRequest(requestLogin);
     }

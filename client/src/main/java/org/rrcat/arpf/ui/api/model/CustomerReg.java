@@ -10,6 +10,69 @@ public class CustomerReg {
     String researchEmailId;
     String researchMobileNo;
     String officeAddress;
+    String researchCity;
+    String pinCode;
+    String orgMobileNumber;
+    String orgEmail;
+    String scientistName;
+    String scientistMobileNo;
+    String anyOtherInfo;
+
+    public String getPinCode() {
+        return pinCode;
+    }
+
+    public void setPinCode(String pinCode) {
+        this.pinCode = pinCode;
+    }
+
+    public String getOrgMobileNumber() {
+        return orgMobileNumber;
+    }
+
+    public void setOrgMobileNumber(String orgMobileNumber) {
+        this.orgMobileNumber = orgMobileNumber;
+    }
+
+    public String getOrgEmail() {
+        return orgEmail;
+    }
+
+    public void setOrgEmail(String orgEmail) {
+        this.orgEmail = orgEmail;
+    }
+
+    public String getScientistName() {
+        return scientistName;
+    }
+
+    public void setScientistName(String scientistName) {
+        this.scientistName = scientistName;
+    }
+
+    public String getScientistMobileNo() {
+        return scientistMobileNo;
+    }
+
+    public void setScientistMobileNo(String scientistMobileNo) {
+        this.scientistMobileNo = scientistMobileNo;
+    }
+
+    public String getAnyOtherInfo() {
+        return anyOtherInfo;
+    }
+
+    public void setAnyOtherInfo(String anyOtherInfo) {
+        this.anyOtherInfo = anyOtherInfo;
+    }
+
+    public String getResearchCity() {
+        return researchCity;
+    }
+
+    public void setResearchCity(String researchCity) {
+        this.researchCity = researchCity;
+    }
 
     public String getOfficeAddress() {
         return officeAddress;

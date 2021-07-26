@@ -63,18 +63,70 @@ public class CustomerRegController implements Initializable {
         customerRegNo.setText("EBRPF-Research-");
         CustomerReg customerReg = new CustomerReg();
         //Institute Type Combo Box
-        ObservableList<String> options =
+        ObservableList<String> instituteOptions =
                 FXCollections.observableArrayList(
-                        "Option 1",
-                        "Option 2",
-                        "Option 3"
+                        "Government",
+                        "Private",
+                        "PSUs",
+                        "Semi Private",
+                        "Research Institute",
+                        "Research University"
                 );
         InstituteType.setEditable(true);
-        InstituteType.setItems(options);
+        InstituteType.setItems(instituteOptions);
         InstituteType.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+
                 System.out.println(InstituteType.getValue());
+            }
+        });
+        ObservableList<String> stateOptions =
+                FXCollections.observableArrayList(
+                        "Andhra Pradesh",
+                        "Andaman and Nicobar Islands",
+                        "Arunachal Pradesh",
+                        "Assam",
+                        "Bihar",
+                        "Chhattisgarh",
+                        "Chandigarh",
+                        "Dadra & Nagar Haveli",
+                        "Daman and Diu",
+                        "Delhi",
+                        "Goa",
+                        "Gujarat",
+                        "Haryana",
+                        "Himachal Pradesh",
+                        "Jammu and Kashmir",
+                        "Jharkhand",
+                        "Karnataka",
+                        "Kerala",
+                        "Ladakh",
+                        "Lakshadweep",
+                        "Madhya Pradesh",
+                        "Maharashtra",
+                        "Manipur",
+                        "Meghalaya",
+                        "Mizoram",
+                        "Nagaland",
+                        "Odisha",
+                        "Punjab",
+                        "Puducherry",
+                        "Rajasthan",
+                        "Sikkim",
+                        "Tamil Nadu",
+                        "Telangana",
+                        "Tripura",
+                        "Uttar Pradesh",
+                        "Uttarakhand",
+                        "West Bengal"
+                );
+        ResearchState.setEditable(true);
+        ResearchState.setItems(stateOptions);
+        ResearchState.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println(ResearchState.getValue());
             }
         });
 
@@ -83,6 +135,7 @@ public class CustomerRegController implements Initializable {
         SaveRecord_Customer.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                //Customer Registration Number
                 System.out.println(customerRegNo.getText());
                 customerReg.setCustomerRegistrationNo(customerRegNo.getText().trim());
 
@@ -98,9 +151,8 @@ public class CustomerRegController implements Initializable {
                 customerReg.setResearchHeadName(ResearchHeadName.getText().trim());
 
                 //Research Activity Head Mobile Number "fxid: ResearchMobileNo"
-
-                if (ResearchMobileNo.getText().length()==10)
-                    customerReg.setResearchMobileNo(ResearchMobileNo.getText());
+                //if (Integer.parseInt(ResearchMobileNo.getText().trim())==10)
+                //  customerReg.setResearchMobileNo(Integer.parseInt(ResearchMobileNo.getText().trim()));
 
                 //Research Activity Head Email ID "fxid: ResearchEmail"
 
@@ -111,9 +163,39 @@ public class CustomerRegController implements Initializable {
 
                 //Office Address "fxid: OfficeAddress"
                 customerReg.setOfficeAddress(OfficeAddress.getText().trim());
-                System.out.println(customerReg);
-                System.out.println(customerRegNo.getText());
 
+                //City "fxid: ResearchCity"
+                customerReg.setResearchCity(ResearchCity.getText().trim());
+
+                //Pin Code "fxid: ResearchPinCode"
+                customerReg.setPinCode(ResearchPinCode.getText().trim());
+
+                //Phone Number "fxid: PhoneNoField"
+                customerReg.setOrgMobileNumber(PhoneNoField.getText().trim());
+
+                //Email "fxid: EmailField"
+                if (validate(ResearchEmail.getText().trim())==true)
+                    customerReg.setOrgEmail(EmailField.getText().trim());
+                else
+                    System.out.println("Please enter valid Email ID");
+
+                //Scientist Name "fxid: ScientistName"
+                customerReg.setScientistName(ScientistName.getText().trim());
+
+                //Scientist Mobile No "fxid: ScientistMobNo"
+                //limit to 10 digits
+                customerReg.setScientistName(ScientistMobNo.getText().trim());
+
+                //Any Other Information "fxid: AnyOtherInfo"
+                customerReg.setAnyOtherInfo(AnyOtherInfo.getText().trim());
+
+                //Registration Filled Scanned Form Copy "fxid:RegistrationScannedImg"
+
+
+
+
+
+                System.out.println(customerRegNo.getText());
             }
         });
 

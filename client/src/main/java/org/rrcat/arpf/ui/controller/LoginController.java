@@ -25,36 +25,37 @@ public class LoginController implements Initializable {
     private TextField usernameTextField;
     @FXML
     private PasswordField passwordTextField;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-            usernameTextField.setText("Administrator");
-            passwordTextField.setText("Lo5PofeWw8@r");
+        usernameTextField.setText("Administrator");
+        passwordTextField.setText("Lo5PofeWw8@r");
     }
-    @FXML
-    private void LoginAction(ActionEvent event)
-    {
 
-        RequestLogin requestLogin =new RequestLogin(usernameTextField.getText().toString().trim(),
-                                                    passwordTextField.getText().toString().trim() );
+    @FXML
+    private void LoginAction(ActionEvent event) {
+
+        RequestLogin requestLogin = new RequestLogin(usernameTextField.getText().toString().trim(),
+                passwordTextField.getText().toString().trim());
         sendNetworkRequest(requestLogin);
     }
 
     private void sendNetworkRequest(RequestLogin requestLogin) {
-        Retrofit retrofit= new RetrofitFetch().fetch();
+        Retrofit retrofit = new RetrofitFetch().fetch();
 
-        ApiInterface client =retrofit.create(ApiInterface.class);
-      Call<AuthenticationToken> call= client.LoginAccount(requestLogin);
-      call.enqueue(new Callback<AuthenticationToken>() {
-          @Override
-          public void onResponse(Call<AuthenticationToken> call, Response<AuthenticationToken> response) {
-              System.out.println("here"+response.body().getExpirationSeconds());
-          }
+        ApiInterface client = retrofit.create(ApiInterface.class);
+        Call<AuthenticationToken> call = client.LoginAccount(requestLogin);
+        call.enqueue(new Callback<AuthenticationToken>() {
+            @Override
+            public void onResponse(Call<AuthenticationToken> call, Response<AuthenticationToken> response) {
+                System.out.println("here" + response.body().getExpirationSeconds());
+            }
 
-          @Override
-          public void onFailure(Call<AuthenticationToken> call, Throwable t) {
+            @Override
+            public void onFailure(Call<AuthenticationToken> call, Throwable t) {
 
-          }
+            }
 
-      });
+        });
     }
 }

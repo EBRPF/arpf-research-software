@@ -30,7 +30,7 @@ public final class DosimetryController {
 
     @PostMapping("/register")
     @ResponseBody
-    public ResponseEntity<Void> registerOrder(@RequestBody final DosimetryDTO dto, final HttpServletRequest request) {
+    public ResponseEntity<Void> registerDosimetry(@RequestBody final DosimetryDTO dto, final HttpServletRequest request) {
         final DosimetryInfo preRegistered = dosimetryRepository.findDosimetryInfoByRegistrationNo(dto.registrationNo());
         if (preRegistered != null) {
             throw new IllegalArgumentException("DosimetryInfo with given registration number already registered");
@@ -41,7 +41,7 @@ public final class DosimetryController {
 
     @GetMapping("/fetch/{registrationId}")
     @ResponseBody
-    public DosimetryDTO fetchOrder(@PathVariable final Integer registrationId) {
+    public DosimetryDTO fetchDosimetry(@PathVariable final Integer registrationId) {
         final DosimetryInfo preRegistered = dosimetryRepository.findDosimetryInfoByRegistrationNo(registrationId);
         final DosimetryDTO dto = DosimetryInfo.toDTO(preRegistered);
         return Objects.requireNonNull(dto, "fetched Order must exist!");

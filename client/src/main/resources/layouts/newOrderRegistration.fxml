@@ -74,15 +74,6 @@
          </VBox.margin>
         </Text>
         <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
-            Dashboard
-            <font>
-                <Font name="Times New Roman" size="15.0" />
-            </font>
-         <VBox.margin>
-            <Insets bottom="20.0" left="20.0" right="20.0" />
-         </VBox.margin>
-        </Text>
-        <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
             New Customer Registration
             <font>
                 <Font name="Times New Roman" size="15.0" />
@@ -145,6 +136,11 @@
             <Insets bottom="20.0" left="20.0" right="20.0" />
          </VBox.margin>
         </Text>
+      <Text fill="#051690" text="Create New User" textAlignment="CENTER" wrappingWidth="150">
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font>
+      </Text>
     </VBox>
    <AnchorPane prefHeight="605.0" prefWidth="1159.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
       <children>
@@ -225,7 +221,7 @@
          <TextField fx:id="DescrOfProducts" layoutX="380.0" layoutY="212.0" prefHeight="26.0" prefWidth="200.0" />
          <TextField fx:id="MaterialOfProduct" layoutX="380.0" layoutY="248.0" prefHeight="26.0" prefWidth="200.0" />
          <TextField fx:id="DetailOfProduct" layoutX="380.0" layoutY="288.0" prefHeight="26.0" prefWidth="200.0" />
-         <ComboBox fx:id="PuposeOfIrrad" layoutX="380.0" layoutY="333.0" prefHeight="25.0" prefWidth="200.0" />
+         <TextField fx:id="PurposeOfIrrad" layoutX="380.0" layoutY="332.0" prefHeight="26.0" prefWidth="200.0" />
          <ComboBox fx:id="ModeOfIrrad" layoutX="380.0" layoutY="373.0" prefHeight="25.0" prefWidth="200.0" />
          <TextField fx:id="RequiredDose" layoutX="380.0" layoutY="411.0" prefHeight="26.0" prefWidth="200.0" promptText="xGy" />
          <TextField fx:id="DimenOfProduct" layoutX="380.0" layoutY="460.0" prefHeight="62.0" prefWidth="200.0" promptText="L x D x H" />
@@ -239,7 +235,7 @@
             </font>
          </Text>
          <ImageView fx:id="RequestForm" fitHeight="420.0" fitWidth="372.0" layoutX="757.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" />
-         <Button layoutX="885.0" layoutY="546.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Upload Scanned Image" textAlignment="CENTER" textFill="#051690" />
+         <Button fx:id="UploadForm_OrderUploadForm_Order" layoutX="885.0" layoutY="546.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Upload Scanned Image" textAlignment="CENTER" textFill="#051690" />
          <Text fill="#051690" layoutX="596.0" layoutY="598.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Facility In-Charge Comments, if any" wrappingWidth="175.1675809511903">
             <font>
                <Font size="15.0" />
@@ -257,7 +253,7 @@
             </font>
          </Text>
          <CheckBox fx:id="OrderConfirmCB" layoutX="822.0" layoutY="678.0" mnemonicParsing="false" />
-         <Button layoutX="914.0" layoutY="700.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Save Record" textAlignment="CENTER" textFill="#051690" />
+         <Button fx:id="SaveRecord_Order" layoutX="914.0" layoutY="700.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Save Record" textAlignment="CENTER" textFill="#051690" />
       </children>
    </AnchorPane>
 </GridPane>

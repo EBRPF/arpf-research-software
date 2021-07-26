@@ -19,7 +19,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="Infinity" maxWidth="Infinity" prefHeight="766.0" prefWidth="1364.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.NavigationController">
+<GridPane maxHeight="Infinity" maxWidth="Infinity" prefHeight="766.0" prefWidth="1364.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.NewOrderController">
     <columnConstraints>
         <ColumnConstraints hgrow="ALWAYS" percentWidth="15" />
         <ColumnConstraints hgrow="ALWAYS" percentWidth="85" />
@@ -71,15 +71,6 @@
             </font>
          <VBox.margin>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-         </VBox.margin>
-        </Text>
-        <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
-            Dashboard
-            <font>
-                <Font name="Times New Roman" size="15.0" />
-            </font>
-         <VBox.margin>
-            <Insets bottom="20.0" left="20.0" right="20.0" />
          </VBox.margin>
         </Text>
         <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
@@ -145,6 +136,11 @@
             <Insets bottom="20.0" left="20.0" right="20.0" />
          </VBox.margin>
         </Text>
+      <Text fill="#051690" text="Create New User" textAlignment="CENTER" wrappingWidth="150">
+         <font>
+            <Font name="Times New Roman" size="15.0" />
+         </font>
+      </Text>
     </VBox>
    <AnchorPane prefHeight="605.0" prefWidth="1159.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
       <children>
@@ -219,7 +215,7 @@
                <Font size="15.0" />
             </font>
          </Text>
-         <TextField fx:id="customerRegNo" layoutX="380.0" layoutY="108.0" prefHeight="26.0" prefWidth="200.0" promptText="EBRPF-Research-0001" />
+         <TextField fx:id="customerRegNo" disable="true" layoutX="380.0" layoutY="108.0" prefHeight="26.0" prefWidth="200.0" promptText="EBRPF-Research-0001" />
          <TextField fx:id="OrderNumber" layoutX="380.0" layoutY="137.0" prefHeight="26.0" prefWidth="200.0" promptText="EBRPF-Research-Order-0005" />
          <TextField fx:id="OrgNameField" disable="true" layoutX="380.0" layoutY="172.0" prefHeight="26.0" prefWidth="200.0" />
          <TextField fx:id="DescrOfProducts" layoutX="380.0" layoutY="212.0" prefHeight="26.0" prefWidth="200.0" />
@@ -239,7 +235,7 @@
             </font>
          </Text>
          <ImageView fx:id="RequestForm" fitHeight="420.0" fitWidth="372.0" layoutX="757.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" />
-         <Button layoutX="885.0" layoutY="546.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Upload Scanned Image" textAlignment="CENTER" textFill="#051690" />
+         <Button fx:id="UploadForm_OrderUploadForm_Order" layoutX="885.0" layoutY="546.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Upload Scanned Image" textAlignment="CENTER" textFill="#051690" />
          <Text fill="#051690" layoutX="596.0" layoutY="598.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Facility In-Charge Comments, if any" wrappingWidth="175.1675809511903">
             <font>
                <Font size="15.0" />
@@ -257,7 +253,7 @@
             </font>
          </Text>
          <CheckBox fx:id="OrderConfirmCB" layoutX="822.0" layoutY="678.0" mnemonicParsing="false" />
-         <Button layoutX="914.0" layoutY="700.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Save Record" textAlignment="CENTER" textFill="#051690" />
+         <Button fx:id="SaveRecord_Order" layoutX="914.0" layoutY="700.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Save Record" textAlignment="CENTER" textFill="#051690" />
       </children>
    </AnchorPane>
 </GridPane>

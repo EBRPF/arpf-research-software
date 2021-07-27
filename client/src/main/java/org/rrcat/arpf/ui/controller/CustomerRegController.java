@@ -140,6 +140,16 @@ public class CustomerRegController implements Initializable {
 
         });
 
+        //Upload Image
+        UploadRegScanned.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                //Upload Registration Filled Form Scanned Copy
+            }
+        });
+
+
+
 
         //Save Record
         SaveRecord_Customer.setOnAction(new EventHandler<ActionEvent>() {

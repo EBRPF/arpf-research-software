@@ -5,6 +5,16 @@ package org.rrcat.arpf.ui.api.model;
 public class CustomerReg {
 
     String customerRegistrationNo;
+    String orderNumber;
+
+    public String getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(String orderNumber) {
+        this.orderNumber = orderNumber;
+    }
+
     String nameOfOrganisation;
     String researchHeadName;
     String researchEmailId;

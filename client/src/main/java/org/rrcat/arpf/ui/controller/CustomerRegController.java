@@ -12,7 +12,16 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import okio.Options;
+import org.dae.arpf.dto.*;
+import org.rrcat.arpf.ui.Helper;
+import org.rrcat.arpf.ui.api.RetrofitFetch;
 import org.rrcat.arpf.ui.api.model.CustomerReg;
+import org.rrcat.arpf.ui.api.service.ApiInterface;
+import org.rrcat.arpf.ui.entity.auth.AuthenticationToken;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -128,6 +137,7 @@ public class CustomerRegController implements Initializable {
             public void handle(ActionEvent event) {
                 System.out.println(ResearchState.getValue());
             }
+
         });
 
 
@@ -190,25 +200,42 @@ public class CustomerRegController implements Initializable {
                 customerReg.setAnyOtherInfo(AnyOtherInfo.getText().trim());
 
                 //Registration Filled Scanned Form Copy "fxid:RegistrationScannedImg"
-
-
-
-
-
                 System.out.println(customerRegNo.getText());
+                OrganizationDTO organizationDTO =new OrganizationDTO(customerReg.getNameOfOrganisation(), InstituteType.getValue());
+                ContactInfoDTO contactInfoDTO =new ContactInfoDTO(customerReg.getScientistName(), customerReg.getOrgMobileNumber(), customerReg.getResearchEmailId());
+                AddressDTO addressDTO =new AddressDTO(customerReg.getOfficeAddress(), customerReg.getResearchCity(), ResearchState.getValue().trim(), customerReg.getPinCode(), customerReg.getOrgMobileNumber());
+               CustomerDTO customerDTO =new CustomerDTO(12,organizationDTO,contactInfoDTO,addressDTO,contactInfoDTO, customerReg.getAnyOtherInfo(), 121);
+                sendNetworkRequest(customerDTO);
             }
         });
 
-
     }
-
-
     public static final Pattern VALID_EMAIL_ADDRESS_REGEX =
             Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
     public static boolean validate(String emailStr) {
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
         return matcher.find();
+    }
+    private void sendNetworkRequest(CustomerDTO customerDTO) {
+        Retrofit retrofit= new RetrofitFetch().fetch();
+
+        ApiInterface client =retrofit.create(ApiInterface.class);
+        Call<CustomerDTO> call= client.RegisterUser(Helper.TOKEN,customerDTO);
+        call.enqueue(new Callback<CustomerDTO>() {
+
+
+            @Override
+            public void onResponse(Call<CustomerDTO> call, Response<CustomerDTO> response) {
+                System.out.println(response);
+            }
+
+            @Override
+            public void onFailure(Call<CustomerDTO> call, Throwable t) {
+
+            }
+        });
+
     }
 
 }

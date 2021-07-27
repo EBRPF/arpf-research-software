@@ -31,7 +31,6 @@ public class AuthenticationToken {
         return getExpirationSeconds() == that.getExpirationSeconds() &&
                 getToken().equals(that.getToken());
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(getToken(), getExpirationSeconds());

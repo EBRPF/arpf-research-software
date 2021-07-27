@@ -34,8 +34,8 @@
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                 <Text text="ELECTRON BEAM RADIATION PROCESSING FACILITY, INDORE">
                     AGRICULTURAL RADIATION PROCESSING FACILITY, INDORE
-                    <font>
-                        <Font name="Times New Roman Bold" size="18.0" />
+                     <font>
+                         <Font name="Times New Roman Bold" size="18.0" />
                     </font>
                 </Text>
             </HBox>

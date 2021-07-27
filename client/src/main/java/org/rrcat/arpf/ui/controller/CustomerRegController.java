@@ -234,7 +234,6 @@ public class CustomerRegController implements Initializable {
         Call<CustomerDTO> call= client.RegisterUser(Helper.TOKEN,customerDTO);
         call.enqueue(new Callback<CustomerDTO>() {
 
-
             @Override
             public void onResponse(Call<CustomerDTO> call, Response<CustomerDTO> response) {
                 System.out.println(response);

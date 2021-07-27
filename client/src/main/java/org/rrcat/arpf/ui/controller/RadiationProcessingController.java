@@ -92,7 +92,7 @@ public class RadiationProcessingController  implements Initializable {
 
     //Data Retrieval
         //Name of Organisation
-        OrgNameField.setText(radiationProcessing.getCustomerRegistrationNo());
+        OrgNameField.setText(radiationProcessing.getNameOfOrganisation());
         //Description of Products
         DescrOfProducts.setText(radiationProcessing.getDescrOfProducts());
         //Material of Products

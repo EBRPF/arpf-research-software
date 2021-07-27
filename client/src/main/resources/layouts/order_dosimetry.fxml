@@ -143,7 +143,7 @@
          </font>
       </Text>
     </VBox>
-    <AnchorPane prefHeight="990.0" prefWidth="1662.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+    <AnchorPane disable="true" prefHeight="990.0" prefWidth="1662.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
         <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c3e3ff" height="86.0" layoutX="-3.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1827.0" AnchorPane.bottomAnchor="904.0" />
             <Text fill="#051690" layoutX="590.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Radiation Processing Date">
@@ -211,7 +211,7 @@
                     <Font name="Times New Roman" size="38.0" />
                 </font>
             </Text>
-            <Button layoutX="1384.0" layoutY="493.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Upload Image" textAlignment="CENTER" textFill="#051690" />
+            <Button fx:id="BeforeImgBtn" layoutX="1384.0" layoutY="493.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Upload Image" textAlignment="CENTER" textFill="#051690" />
             <Text fill="#051690" layoutX="20.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Number">
                 <font>
                     <Font size="15.0" />
@@ -292,7 +292,7 @@
                <Font size="15.0" />
             </font>
          </Text>
-         <Button layoutX="1384.0" layoutY="759.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Upload Image" textAlignment="CENTER" textFill="#051690" />
+         <Button fx:id="AfterImgBtn" layoutX="1384.0" layoutY="759.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Upload Image" textAlignment="CENTER" textFill="#051690" />
          <AutoCompleteTextField fx:id="OrderNumber" layoutX="330.0" layoutY="161.0" prefHeight="25.0" prefWidth="202.0" />
          <TextField fx:id="OrgNameField" disable="true" layoutX="330.0" layoutY="193.0" prefHeight="25.0" prefWidth="202.0" />
          <TextField fx:id="DescrOfProducts" disable="true" layoutX="330.0" layoutY="233.0" prefHeight="25.0" prefWidth="202.0" />
@@ -303,12 +303,12 @@
          <TextField fx:id="RequiredDose" disable="true" layoutX="330.0" layoutY="468.0" prefHeight="49.0" prefWidth="202.0" />
          <TextField fx:id="DosimeterUsed" disable="true" layoutX="330.0" layoutY="529.0" prefHeight="25.0" prefWidth="202.0" />
          <TextField fx:id="DosimeterLocation" disable="true" layoutX="330.0" layoutY="584.0" prefHeight="93.0" prefWidth="202.0" />
-         <TextField fx:id="DateOfOrder" disable="true" layoutX="330.0" layoutY="692.0" prefHeight="25.0" prefWidth="202.0" />
          <Label layoutX="247.0" layoutY="111.0" text="Order Detail" textFill="#051690">
             <font>
                <Font name="Times New Roman" size="26.0" />
             </font>
          </Label>
+         <DatePicker layoutX="330.0" layoutY="690.0" prefWidth="202.0" />
          <DatePicker fx:id="RadProcessDate" disable="true" layoutX="880.0" layoutY="161.0" prefHeight="25.0" prefWidth="200.0" />
          <TextField fx:id="RadStartTime" disable="true" layoutX="880.0" layoutY="197.0" prefHeight="25.0" prefWidth="200.0" />
          <TextField fx:id="CompletionTime" disable="true" layoutX="880.0" layoutY="237.0" prefHeight="25.0" prefWidth="200.0" />

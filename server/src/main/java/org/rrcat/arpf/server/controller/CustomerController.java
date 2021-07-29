@@ -48,7 +48,7 @@ public final class CustomerController {
 
     @GetMapping("/search/{registrationId}")
     @ResponseBody
-    public Collection<CustomerDTO> fetchCustomer(@PathVariable final String registrationId) {
+    public Collection<CustomerDTO> searchCustomer(@PathVariable final String registrationId) {
         final Collection<Customer> customer = repository.findCustomersByRegistrationNoFuzzy(registrationId);
         return customer.stream().map(Customer::toDTO).collect(Collectors.toSet());
     }

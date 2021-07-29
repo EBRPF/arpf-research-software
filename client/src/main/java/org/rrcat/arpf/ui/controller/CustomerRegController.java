@@ -1,8 +1,5 @@
 package org.rrcat.arpf.ui.controller;
 
-import com.gluonhq.charm.glisten.control.AutoCompleteTextField;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -11,13 +8,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import okio.Options;
+import javafx.stage.FileChooser;
 import org.dae.arpf.dto.*;
 import org.rrcat.arpf.ui.Helper;
 import org.rrcat.arpf.ui.api.RetrofitFetch;
-import org.rrcat.arpf.ui.api.model.CustomerReg;
-import org.rrcat.arpf.ui.api.service.ApiInterface;
-import org.rrcat.arpf.ui.entity.auth.AuthenticationToken;
+import org.rrcat.arpf.ui.api.schema.CustomerApi;
+import org.rrcat.arpf.ui.api.schema.UploadApi;
+import org.rrcat.arpf.ui.constants.CustomerFormData;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -32,127 +29,64 @@ public class CustomerRegController implements Initializable {
     @FXML
     private TextField customerRegNo;
     @FXML
-    private TextField OrgNameField;
+    private TextField orgNameField;
     @FXML
-    private ComboBox<String> InstituteType;
+    private ComboBox<String> instituteType;
     @FXML
-    private TextField ResearchHeadName;
+    private TextField researchHeadName;
     @FXML
-    private TextField ResearchMobileNo;
+    private TextField researchMobileNo;
     @FXML
-    private TextField ResearchEmail;
+    private TextField researchEmail;
     @FXML
-    private TextField OfficeAddress;
+    private TextField officeAddress;
     @FXML
-    private TextField ResearchCity;
+    private TextField researchCity;
     @FXML
-    private ComboBox<String> ResearchState;
+    private ComboBox<String> researchState;
     @FXML
-    private TextField ResearchPinCode;
+    private TextField researchPinCode;
     @FXML
-    private TextField PhoneNoField;
+    private TextField phoneNoField;
     @FXML
-    private TextField EmailField;
+    private TextField emailField;
     @FXML
-    private  TextField ScientistName;
+    private  TextField scientistName;
     @FXML
-    private TextField ScientistMobNo;
+    private TextField scientistMobNo;
     @FXML
-    private TextField AnyOtherInfo;
+    private TextField anyOtherInfo;
     @FXML
-    private ImageView RegistrationScannedImg;
+    private ImageView registrationScannedImg;
     @FXML
-    private Button UploadRegScanned;
+    private Button uploadRegScanned;
     @FXML
-    private Button SaveRecord_Customer;
+    private Button saveRecordCustomer;
+
+    private final CustomerDTOBuilder customerViewModel = CustomerDTOBuilder.builder();
+
+    private final Retrofit authenticatedRetrofit;
+    private final UploadApi uploadApi;
+    private final CustomerApi customerApi;
+
+    public CustomerRegController(final Retrofit authenticatedRetrofit, final UploadApi uploadApi, final CustomerApi customerApi) {
+        this.authenticatedRetrofit = authenticatedRetrofit;
+        this.uploadApi = uploadApi;
+        this.customerApi = customerApi;
+    }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(final URL location, final ResourceBundle resources) {
         //Customer Registration Number
         customerRegNo.setText("EBRPF-Research-");
-        CustomerReg customerReg = new CustomerReg();
         //Institute Type Combo Box
-        ObservableList<String> instituteOptions =
-                FXCollections.observableArrayList(
-                        "Government",
-                        "Private",
-                        "PSUs",
-                        "Semi Private",
-                        "Research Institute",
-                        "Research University"
-                );
-        InstituteType.setEditable(true);
-        InstituteType.setItems(instituteOptions);
-        InstituteType.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-
-                System.out.println(InstituteType.getValue());
-            }
-        });
-        ObservableList<String> stateOptions =
-                FXCollections.observableArrayList(
-                        "Andhra Pradesh",
-                        "Andaman and Nicobar Islands",
-                        "Arunachal Pradesh",
-                        "Assam",
-                        "Bihar",
-                        "Chhattisgarh",
-                        "Chandigarh",
-                        "Dadra & Nagar Haveli",
-                        "Daman and Diu",
-                        "Delhi",
-                        "Goa",
-                        "Gujarat",
-                        "Haryana",
-                        "Himachal Pradesh",
-                        "Jammu and Kashmir",
-                        "Jharkhand",
-                        "Karnataka",
-                        "Kerala",
-                        "Ladakh",
-                        "Lakshadweep",
-                        "Madhya Pradesh",
-                        "Maharashtra",
-                        "Manipur",
-                        "Meghalaya",
-                        "Mizoram",
-                        "Nagaland",
-                        "Odisha",
-                        "Punjab",
-                        "Puducherry",
-                        "Rajasthan",
-                        "Sikkim",
-                        "Tamil Nadu",
-                        "Telangana",
-                        "Tripura",
-                        "Uttar Pradesh",
-                        "Uttarakhand",
-                        "West Bengal"
-                );
-        ResearchState.setEditable(true);
-        ResearchState.setItems(stateOptions);
-        ResearchState.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println(ResearchState.getValue());
-            }
-
-        });
-
-        //Upload Image
-        UploadRegScanned.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                //Upload Registration Filled Form Scanned Copy
-            }
-        });
-
-
-
+        instituteType.setEditable(true);
+        instituteType.setItems(CustomerFormData.INSTITUTE_TYPES);
+        researchState.setEditable(true);
+        researchState.setItems(CustomerFormData.STATES);
 
         //Save Record
-        SaveRecord_Customer.setOnAction(new EventHandler<ActionEvent>() {
+        saveRecordCustomer.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 //Customer Registration Number
@@ -160,15 +94,15 @@ public class CustomerRegController implements Initializable {
                 customerReg.setCustomerRegistrationNo(customerRegNo.getText().trim());
 
                 //Name Of Organisation "fxid : OrgNameField"
-                customerReg.setNameOfOrganisation(OrgNameField.getText().trim());
+                customerReg.setNameOfOrganisation(orgNameField.getText().trim());
 
                 //Name Of Organisation "fxid : OrgNameField"
-                customerReg.setNameOfOrganisation(OrgNameField.getText().trim());
+                customerReg.setNameOfOrganisation(orgNameField.getText().trim());
 
 
 
                 //Research Activity Head Name "fxid: ResearchHeadName"
-                customerReg.setResearchHeadName(ResearchHeadName.getText().trim());
+                customerReg.setResearchHeadName(researchHeadName.getText().trim());
 
                 //Research Activity Head Mobile Number "fxid: ResearchMobileNo"
                 //if (Integer.parseInt(ResearchMobileNo.getText().trim())==10)
@@ -176,44 +110,44 @@ public class CustomerRegController implements Initializable {
 
                 //Research Activity Head Email ID "fxid: ResearchEmail"
 
-                if (validate(ResearchEmail.getText().trim())==true)
-                    customerReg.setResearchEmailId(ResearchEmail.getText().trim());
+                if (validate(researchEmail.getText().trim())==true)
+                    customerReg.setResearchEmailId(researchEmail.getText().trim());
                 else
                     System.out.println("Please enter valid Email ID");
 
                 //Office Address "fxid: OfficeAddress"
-                customerReg.setOfficeAddress(OfficeAddress.getText().trim());
+                customerReg.setOfficeAddress(officeAddress.getText().trim());
 
                 //City "fxid: ResearchCity"
-                customerReg.setResearchCity(ResearchCity.getText().trim());
+                customerReg.setResearchCity(researchCity.getText().trim());
 
                 //Pin Code "fxid: ResearchPinCode"
-                customerReg.setPinCode(ResearchPinCode.getText().trim());
+                customerReg.setPinCode(researchPinCode.getText().trim());
 
                 //Phone Number "fxid: PhoneNoField"
-                customerReg.setOrgMobileNumber(PhoneNoField.getText().trim());
+                customerReg.setOrgMobileNumber(phoneNoField.getText().trim());
 
                 //Email "fxid: EmailField"
-                if (validate(ResearchEmail.getText().trim())==true)
-                    customerReg.setOrgEmail(EmailField.getText().trim());
+                if (validate(researchEmail.getText().trim())==true)
+                    customerReg.setOrgEmail(emailField.getText().trim());
                 else
                     System.out.println("Please enter valid Email ID");
 
                 //Scientist Name "fxid: ScientistName"
-                customerReg.setScientistName(ScientistName.getText().trim());
+                customerReg.setScientistName(scientistName.getText().trim());
 
                 //Scientist Mobile No "fxid: ScientistMobNo"
                 //limit to 10 digits
-                customerReg.setScientistName(ScientistMobNo.getText().trim());
+                customerReg.setScientistName(scientistMobNo.getText().trim());
 
                 //Any Other Information "fxid: AnyOtherInfo"
-                customerReg.setAnyOtherInfo(AnyOtherInfo.getText().trim());
+                customerReg.setAnyOtherInfo(anyOtherInfo.getText().trim());
 
                 //Registration Filled Scanned Form Copy "fxid:RegistrationScannedImg"
                 System.out.println(customerRegNo.getText());
-                OrganizationDTO organizationDTO =new OrganizationDTO(customerReg.getNameOfOrganisation(), InstituteType.getValue());
+                OrganizationDTO organizationDTO =new OrganizationDTO(customerReg.getNameOfOrganisation(), instituteType.getValue());
                 ContactInfoDTO contactInfoDTO =new ContactInfoDTO(customerReg.getScientistName(), customerReg.getOrgMobileNumber(), customerReg.getResearchEmailId());
-                AddressDTO addressDTO =new AddressDTO(customerReg.getOfficeAddress(), customerReg.getResearchCity(), ResearchState.getValue().trim(), customerReg.getPinCode(), customerReg.getOrgMobileNumber());
+                AddressDTO addressDTO =new AddressDTO(customerReg.getOfficeAddress(), customerReg.getResearchCity(), researchState.getValue().trim(), customerReg.getPinCode(), customerReg.getOrgMobileNumber());
                CustomerDTO customerDTO =new CustomerDTO(12,organizationDTO,contactInfoDTO,addressDTO,contactInfoDTO, customerReg.getAnyOtherInfo(), 121);
                 sendNetworkRequest(customerDTO);
             }
@@ -245,6 +179,13 @@ public class CustomerRegController implements Initializable {
             }
         });
 
+    }
+
+    @FXML
+    private void onClickUpload() {
+        final FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Upload Image");
+        fileChooser.showOpenDialog(uploadRegScanned.getScene().getWindow());
     }
 
 }

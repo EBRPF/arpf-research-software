@@ -2,9 +2,6 @@ package org.rrcat.arpf.server.entity;
 
 import org.dae.arpf.dto.DosimetryDTO;
 import org.dae.arpf.dto.DosimetryDTOBuilder;
-import org.dae.arpf.dto.OrderDTO;
-import org.dae.arpf.dto.OrderDTOBuilder;
-import org.rrcat.arpf.server.repository.CustomerRepository;
 import org.rrcat.arpf.server.repository.OrderRPRepository;
 import org.rrcat.arpf.server.repository.UploadedImageRepository;
 

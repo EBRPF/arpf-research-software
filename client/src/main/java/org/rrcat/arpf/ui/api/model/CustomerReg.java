@@ -100,13 +100,8 @@ public class CustomerReg {
         this.researchEmailId = researchEmailId;
     }
 
-    public String getResearchMobileNo() {
-        return researchMobileNo;
-    }
 
-    public void setResearchMobileNo(String researchMobileNo) {
-        this.researchMobileNo = researchMobileNo;
-    }
+
 
     public String getResearchHeadName() {
         return researchHeadName;

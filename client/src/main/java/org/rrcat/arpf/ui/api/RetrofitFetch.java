@@ -12,5 +12,8 @@ public class RetrofitFetch {
             .baseUrl(ApiInterface.URL_BASE)
             .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().create()));
             return service.build();
+
+
+
   }
 }

@@ -67,7 +67,7 @@
     <VBox alignment="TOP_CENTER" style="-fx-background-color: rgb(226,226,226);" GridPane.rowIndex="1">
         <Text fill="#051690" text="Facility In-Charge Login" textAlignment="CENTER" wrappingWidth="150">
             Radiation Processing In-Charge Login
-            <font>
+                  <font>
                 <Font name="Times New Roman Bold" size="15.0" />
             </font>
             <VBox.margin>
@@ -76,7 +76,7 @@
         </Text>
         <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
             New Customer Registration
-            <font>
+                  <font>
                 <Font name="Times New Roman" size="15.0" />
             </font>
             <VBox.margin>
@@ -85,7 +85,7 @@
         </Text>
         <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
             New Order Registration
-            <font>
+                  <font>
                 <Font name="Times New Roman" size="15.0" />
             </font>
             <VBox.margin>
@@ -94,7 +94,7 @@
         </Text>
         <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
             Order Radiation Processing
-            <font>
+                  <font>
                 <Font name="Times New Roman" size="15.0" />
             </font>
             <VBox.margin>
@@ -103,7 +103,7 @@
         </Text>
         <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
             Order Dosimetry
-            <font>
+                  <font>
                 <Font name="Times New Roman" size="15.0" />
             </font>
             <VBox.margin>
@@ -112,7 +112,7 @@
         </Text>
         <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
             Shipping Details
-            <font>
+                  <font>
                 <Font name="Times New Roman" size="15.0" />
             </font>
             <VBox.margin>
@@ -121,7 +121,7 @@
         </Text>
         <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
             Check Order Status
-            <font>
+                  <font>
                 <Font name="Times New Roman" size="15.0" />
             </font>
             <VBox.margin>
@@ -130,7 +130,7 @@
         </Text>
         <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
             Sample Irradiation Report
-            <font>
+                  <font>
                 <Font name="Times New Roman" size="15.0" />
             </font>
             <VBox.margin>
@@ -220,7 +220,7 @@
                     <Font name="Times New Roman" size="38.0" />
                 </font>
             </Text>
-            <Button layoutX="757.0" layoutY="824.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Save Record" textAlignment="CENTER" textFill="#051690" />
+            <Button fx:id="SaveRecord_ORP" layoutX="757.0" layoutY="824.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Save Record" textAlignment="CENTER" textFill="#051690" />
             <AutoCompleteTextField fx:id="OrderNumber" disable="true" layoutX="940.0" layoutY="101.0" prefHeight="25.0" prefWidth="200.0" />
             <TextField fx:id="DescrOfProducts" disable="true" layoutX="940.0" layoutY="142.0" prefHeight="26.0" prefWidth="200.0" />
             <DatePicker fx:id="DateOfOrder" disable="true" layoutX="940.0" layoutY="674.0" prefHeight="25.0" prefWidth="200.0" />

@@ -10,20 +10,21 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public final class RetrofitFactory {
+    private static final String BASE_URL = "http://localhost:8080/";
     private RetrofitFactory() {
 
     }
 
     public static Retrofit create() {
         return new Retrofit.Builder()
-                .baseUrl(ApiInterface.URL_BASE)
+                .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().create()))
                 .build();
     }
 
     public static Retrofit createAuthenticating(final LoginRequestDTO dto, final Authenticator authenticator) {
         return new Retrofit.Builder()
-                .baseUrl(ApiInterface.URL_BASE)
+                .baseUrl(BASE_URL)
                 .client(createAuthenticatingClient(authenticator))
                 .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().create()))
                 .build();

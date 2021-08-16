@@ -1,6 +1,6 @@
 package org.rrcat.arpf.ui.api.schema;
 
-import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import org.dae.arpf.dto.UploadedImageDTO;
 import retrofit2.Call;
 import retrofit2.http.Multipart;
@@ -11,5 +11,5 @@ import retrofit2.http.Path;
 public interface UploadApi {
     @Multipart
     @POST("/upload/{dir}")
-    Call<UploadedImageDTO> upload(@Path("dir") final String dir, @Part MultipartBody.Part filePart);
+    Call<UploadedImageDTO> upload(@Path("dir") final String dir, @Part("file") RequestBody filePart);
 }

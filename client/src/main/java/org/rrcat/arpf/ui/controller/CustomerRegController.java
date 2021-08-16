@@ -9,17 +9,24 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import org.dae.arpf.dto.*;
 import org.rrcat.arpf.ui.Helper;
 import org.rrcat.arpf.ui.api.RetrofitFetch;
 import org.rrcat.arpf.ui.api.schema.CustomerApi;
 import org.rrcat.arpf.ui.api.schema.UploadApi;
 import org.rrcat.arpf.ui.constants.CustomerFormData;
+import org.rrcat.arpf.ui.constants.UploadDirectory;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.http.Multipart;
+import retrofit2.http.Part;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
@@ -51,7 +58,7 @@ public class CustomerRegController implements Initializable {
     @FXML
     private TextField emailField;
     @FXML
-    private  TextField scientistName;
+    private TextField scientistName;
     @FXML
     private TextField scientistMobNo;
     @FXML
@@ -62,6 +69,8 @@ public class CustomerRegController implements Initializable {
     private Button uploadRegScanned;
     @FXML
     private Button saveRecordCustomer;
+
+    private UploadedImageDTO currentUploadedImage;
 
     private final CustomerDTOBuilder customerViewModel = CustomerDTOBuilder.builder();
 
@@ -77,83 +86,13 @@ public class CustomerRegController implements Initializable {
 
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
-        //Customer Registration Number
         customerRegNo.setText("EBRPF-Research-");
-        //Institute Type Combo Box
         instituteType.setEditable(true);
         instituteType.setItems(CustomerFormData.INSTITUTE_TYPES);
         researchState.setEditable(true);
         researchState.setItems(CustomerFormData.STATES);
-
-        //Save Record
-        saveRecordCustomer.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                //Customer Registration Number
-                System.out.println(customerRegNo.getText());
-                customerReg.setCustomerRegistrationNo(customerRegNo.getText().trim());
-
-                //Name Of Organisation "fxid : OrgNameField"
-                customerReg.setNameOfOrganisation(orgNameField.getText().trim());
-
-                //Name Of Organisation "fxid : OrgNameField"
-                customerReg.setNameOfOrganisation(orgNameField.getText().trim());
-
-
-
-                //Research Activity Head Name "fxid: ResearchHeadName"
-                customerReg.setResearchHeadName(researchHeadName.getText().trim());
-
-                //Research Activity Head Mobile Number "fxid: ResearchMobileNo"
-                //if (Integer.parseInt(ResearchMobileNo.getText().trim())==10)
-                //  customerReg.setResearchMobileNo(Integer.parseInt(ResearchMobileNo.getText().trim()));
-
-                //Research Activity Head Email ID "fxid: ResearchEmail"
-
-                if (validate(researchEmail.getText().trim())==true)
-                    customerReg.setResearchEmailId(researchEmail.getText().trim());
-                else
-                    System.out.println("Please enter valid Email ID");
-
-                //Office Address "fxid: OfficeAddress"
-                customerReg.setOfficeAddress(officeAddress.getText().trim());
-
-                //City "fxid: ResearchCity"
-                customerReg.setResearchCity(researchCity.getText().trim());
-
-                //Pin Code "fxid: ResearchPinCode"
-                customerReg.setPinCode(researchPinCode.getText().trim());
-
-                //Phone Number "fxid: PhoneNoField"
-                customerReg.setOrgMobileNumber(phoneNoField.getText().trim());
-
-                //Email "fxid: EmailField"
-                if (validate(researchEmail.getText().trim())==true)
-                    customerReg.setOrgEmail(emailField.getText().trim());
-                else
-                    System.out.println("Please enter valid Email ID");
-
-                //Scientist Name "fxid: ScientistName"
-                customerReg.setScientistName(scientistName.getText().trim());
-
-                //Scientist Mobile No "fxid: ScientistMobNo"
-                //limit to 10 digits
-                customerReg.setScientistName(scientistMobNo.getText().trim());
-
-                //Any Other Information "fxid: AnyOtherInfo"
-                customerReg.setAnyOtherInfo(anyOtherInfo.getText().trim());
-
-                //Registration Filled Scanned Form Copy "fxid:RegistrationScannedImg"
-                System.out.println(customerRegNo.getText());
-                OrganizationDTO organizationDTO =new OrganizationDTO(customerReg.getNameOfOrganisation(), instituteType.getValue());
-                ContactInfoDTO contactInfoDTO =new ContactInfoDTO(customerReg.getScientistName(), customerReg.getOrgMobileNumber(), customerReg.getResearchEmailId());
-                AddressDTO addressDTO =new AddressDTO(customerReg.getOfficeAddress(), customerReg.getResearchCity(), researchState.getValue().trim(), customerReg.getPinCode(), customerReg.getOrgMobileNumber());
-               CustomerDTO customerDTO =new CustomerDTO(12,organizationDTO,contactInfoDTO,addressDTO,contactInfoDTO, customerReg.getAnyOtherInfo(), 121);
-                sendNetworkRequest(customerDTO);
-            }
-        });
-
     }
+
     public static final Pattern VALID_EMAIL_ADDRESS_REGEX =
             Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
@@ -161,31 +100,27 @@ public class CustomerRegController implements Initializable {
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
         return matcher.find();
     }
-    private void sendNetworkRequest(CustomerDTO customerDTO) {
-        Retrofit retrofit= new RetrofitFetch().fetch();
 
-        ApiInterface client =retrofit.create(ApiInterface.class);
-        Call<CustomerDTO> call= client.RegisterUser(Helper.TOKEN,customerDTO);
-        call.enqueue(new Callback<CustomerDTO>() {
+    @FXML
+    private void onClickUpload() throws IOException {
+        final FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Upload Image");
+        final File selectedFile = fileChooser.showOpenDialog(uploadRegScanned.getScene().getWindow());
+        if (selectedFile == null) {
+            return;
+        }
+        final RequestBody fileBody = MultipartBody.create(MultipartBody.FORM, selectedFile);
 
-            @Override
-            public void onResponse(Call<CustomerDTO> call, Response<CustomerDTO> response) {
-                System.out.println(response);
-            }
+        final Call<UploadedImageDTO> uploadCall = uploadApi.upload(UploadDirectory.REGISTRATION, fileBody);
 
-            @Override
-            public void onFailure(Call<CustomerDTO> call, Throwable t) {
-
-            }
-        });
-
+        final Response<UploadedImageDTO> response = uploadCall.execute();
+        final UploadedImageDTO imageDTO = response.body();
+        this.currentUploadedImage = imageDTO;
     }
 
     @FXML
-    private void onClickUpload() {
-        final FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Upload Image");
-        fileChooser.showOpenDialog(uploadRegScanned.getScene().getWindow());
+    private void onClickSubmit() throws IOException{
+
     }
 
 }

@@ -13,6 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import java.net.URL?>
 <GridPane maxHeight="Infinity" maxWidth="Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.NavigationController">
     <columnConstraints>
         <ColumnConstraints hgrow="ALWAYS" percentWidth="15" />
@@ -143,4 +144,7 @@
     <StackPane GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="1" GridPane.rowSpan="1">
         <fx:include source="newCustomerRegistration.fxml" />
     </StackPane>
+    <stylesheets>
+        <URL value="@../styles/font.css" />
+    </stylesheets>
 </GridPane>

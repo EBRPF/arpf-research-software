@@ -1,6 +1,8 @@
 package org.rrcat.arpf.ui.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.base.Functions;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,14 +14,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import okhttp3.Authenticator;
 import org.dae.arpf.dto.AuthenticationTokenDTO;
 import org.dae.arpf.dto.LoginRequestDTO;
 import org.dae.arpf.dto.LoginRequestDTOBuilder;
 import org.rrcat.arpf.ui.api.RetrofitFactory;
+import org.rrcat.arpf.ui.api.auth.JwtAuthenticator;
 import org.rrcat.arpf.ui.api.schema.AuthenticationApi;
+import org.rrcat.arpf.ui.di.AuthenticationModule;
 import retrofit2.Call;
 import retrofit2.Response;
-import retrofit2.converter.jackson.JacksonConverterFactory;
 
 import java.io.IOException;
 import java.net.URL;
@@ -47,51 +51,33 @@ public class LoginController implements Initializable {
                 .uid(usernameTextField.getText())
                 .password(passwordTextField.getText())
                 .build();
-        ObjectMapper objectMapper = new ObjectMapper();
-        System.out.println(objectMapper.writeValueAsString(dto));
-
-        final Call<AuthenticationTokenDTO> tokenDTOCall = api.authenticate(dto);
-        final Response<AuthenticationTokenDTO> response = tokenDTOCall.execute();
+        final Response<AuthenticationTokenDTO> response = authenticate(dto);
         final AuthenticationTokenDTO tokenDTO = response.body();
-        System.out.println(tokenDTO);
-        if (tokenDTO == null) {
-            // TODO Proper error message
-            return;
+        if (tokenDTO != null && response.code() == 200) {
+            onAuthenticated(dto);
+        } else {
+            // Failed login
         }
 
     }
 
-    private void loadSceneAndSendMessage()  {
+    private Response<AuthenticationTokenDTO> authenticate(final LoginRequestDTO dto) {
+        final Call<AuthenticationTokenDTO> tokenDTOCall = api.authenticate(dto);
         try {
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    //Load second scene
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/newCustomerRegistration.fxml"));
-                    Parent root = null;
-                    try {
-                        root = loader.load();
-                        Stage stage = (Stage) usernameTextField.getScene().getWindow();
-                        // do what you have to do
-                        stage.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
-                    //Get controller of scene2
-                    CustomerRegController scene2Controller = loader.getController();
-                    //Pass whatever data you want. You can have multiple method calls here
-
-                    //Show scene 2 in new window
-                    Stage stage = new Stage();
-                    stage.setScene(new Scene(root));
-                    stage.setTitle("Second Window");
-                    stage.show();
-                }
-            });
-
-        } finally {
-
+            return tokenDTOCall.execute();
+        } catch (final IOException e) {
+            e.printStackTrace();
         }
+        return null;
+    }
+
+    private void onAuthenticated(final LoginRequestDTO dto) throws IOException {
+        final FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/navigation.fxml"));
+        final Authenticator authenticator = new JwtAuthenticator(dto, Functions.compose(Response<AuthenticationTokenDTO>::body, this::authenticate));
+        final AuthenticationModule module = new AuthenticationModule(authenticator, loader);
+        final Injector injector = Guice.createInjector(module);
+        loader.setControllerFactory(injector::getInstance);
+        final Stage stage = (Stage) usernameTextField.getScene().getWindow();
+        stage.setScene(new Scene(loader.load()));
     }
 }

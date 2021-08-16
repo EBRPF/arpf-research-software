@@ -18,6 +18,7 @@ import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
+import javax.inject.Inject;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -65,12 +66,11 @@ public class CustomerRegController implements Initializable {
 
     private UploadedImageDTO currentUploadedImage;
 
-    private final Retrofit authenticatedRetrofit;
     private final UploadApi uploadApi;
     private final CustomerApi customerApi;
 
-    public CustomerRegController(final Retrofit authenticatedRetrofit, final UploadApi uploadApi, final CustomerApi customerApi) {
-        this.authenticatedRetrofit = authenticatedRetrofit;
+    @Inject
+    public CustomerRegController(final UploadApi uploadApi, final CustomerApi customerApi) {
         this.uploadApi = uploadApi;
         this.customerApi = customerApi;
     }

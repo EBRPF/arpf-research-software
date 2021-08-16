@@ -141,6 +141,6 @@
         </Text>
     </VBox>
     <StackPane GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="1" GridPane.rowSpan="1">
-        <fx:include source="sample_irradiation_report.fxml" />
+        <fx:include source="newCustomerRegistration.fxml" />
     </StackPane>
 </GridPane>

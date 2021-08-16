@@ -1,10 +1,13 @@
 package org.dae.arpf.dto;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import io.soabase.recordbuilder.core.RecordBuilder;
 
-import java.util.Objects;
 
 @RecordBuilder
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
+@JsonSerialize
 public final record AddressDTO(
         String addressText,
         String city,

@@ -8,6 +8,7 @@ public record CustomerDTO(
         OrganizationDTO organization,
         ContactInfoDTO researchHeadInfo,
         AddressDTO address,
+        String email,
         ContactInfoDTO researchOfficerInfo,
         String extraInfo,
         Integer imageKey

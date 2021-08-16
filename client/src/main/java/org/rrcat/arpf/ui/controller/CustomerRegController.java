@@ -1,7 +1,5 @@
 package org.rrcat.arpf.ui.controller;
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -12,18 +10,13 @@ import javafx.stage.FileChooser;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import org.dae.arpf.dto.*;
-import org.rrcat.arpf.ui.Helper;
-import org.rrcat.arpf.ui.api.RetrofitFetch;
 import org.rrcat.arpf.ui.api.schema.CustomerApi;
 import org.rrcat.arpf.ui.api.schema.UploadApi;
 import org.rrcat.arpf.ui.constants.CustomerFormData;
 import org.rrcat.arpf.ui.constants.UploadDirectory;
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.http.Multipart;
-import retrofit2.http.Part;
 
 import java.io.File;
 import java.io.IOException;
@@ -36,33 +29,33 @@ public class CustomerRegController implements Initializable {
     @FXML
     private TextField customerRegNo;
     @FXML
-    private TextField orgNameField;
+    private TextField organizationName;
     @FXML
     private ComboBox<String> instituteType;
     @FXML
     private TextField researchHeadName;
     @FXML
-    private TextField researchMobileNo;
+    private TextField researchHeadMobileNo;
     @FXML
-    private TextField researchEmail;
+    private TextField researchHeadEmail;
     @FXML
     private TextField officeAddress;
     @FXML
-    private TextField researchCity;
+    private TextField addressCity;
     @FXML
-    private ComboBox<String> researchState;
+    private ComboBox<String> addressState;
     @FXML
-    private TextField researchPinCode;
+    private TextField addressPinCode;
     @FXML
-    private TextField phoneNoField;
+    private TextField phoneNo;
     @FXML
-    private TextField emailField;
+    private TextField email;
     @FXML
-    private TextField scientistName;
+    private TextField researchOfficerName;
     @FXML
-    private TextField scientistMobNo;
+    private TextField researchOfficerMobNo;
     @FXML
-    private TextField anyOtherInfo;
+    private TextField extraInfo;
     @FXML
     private ImageView registrationScannedImg;
     @FXML
@@ -71,8 +64,6 @@ public class CustomerRegController implements Initializable {
     private Button saveRecordCustomer;
 
     private UploadedImageDTO currentUploadedImage;
-
-    private final CustomerDTOBuilder customerViewModel = CustomerDTOBuilder.builder();
 
     private final Retrofit authenticatedRetrofit;
     private final UploadApi uploadApi;
@@ -89,14 +80,14 @@ public class CustomerRegController implements Initializable {
         customerRegNo.setText("EBRPF-Research-");
         instituteType.setEditable(true);
         instituteType.setItems(CustomerFormData.INSTITUTE_TYPES);
-        researchState.setEditable(true);
-        researchState.setItems(CustomerFormData.STATES);
+        addressState.setEditable(true);
+        addressState.setItems(CustomerFormData.STATES);
     }
 
     public static final Pattern VALID_EMAIL_ADDRESS_REGEX =
             Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
-    public static boolean validate(String emailStr) {
+    public static boolean validate(final String emailStr) {
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
         return matcher.find();
     }
@@ -107,6 +98,7 @@ public class CustomerRegController implements Initializable {
         fileChooser.setTitle("Upload Image");
         final File selectedFile = fileChooser.showOpenDialog(uploadRegScanned.getScene().getWindow());
         if (selectedFile == null) {
+            // TODO:: Proper error message
             return;
         }
         final RequestBody fileBody = MultipartBody.create(MultipartBody.FORM, selectedFile);
@@ -120,7 +112,51 @@ public class CustomerRegController implements Initializable {
 
     @FXML
     private void onClickSubmit() throws IOException{
-
+        if (this.currentUploadedImage == null) {
+            // TODO:: Proper error message
+            return;
+        }
+        final CustomerDTO dto =
+                CustomerDTOBuilder.builder()
+                .address(
+                        AddressDTOBuilder.builder()
+                        .addressText(officeAddress.getText())
+                        .city(addressCity.getText())
+                        .state(addressState.getValue())
+                        .phone(phoneNo.getText())
+                        .pinCode(addressPinCode.getText())
+                        .build()
+                )
+                .researchOfficerInfo(
+                        ContactInfoDTOBuilder.builder()
+                        .name(researchOfficerName.getText())
+                        .mobileNo(researchHeadMobileNo.getText())
+                        .build()
+                )
+                .email(email.getText())
+                .researchHeadInfo(
+                        ContactInfoDTOBuilder.builder()
+                        .name(researchHeadName.getText())
+                        .mobileNo(researchHeadMobileNo.getText())
+                        .email(researchHeadEmail.getText())
+                        .build()
+                )
+                .extraInfo(extraInfo.getText())
+                .imageKey(currentUploadedImage.id())
+                .organization(
+                        OrganizationDTOBuilder.builder()
+                        .type(instituteType.getValue())
+                        .name(organizationName.getText())
+                        .build()
+                )
+                .registrationNo(Integer.parseInt(customerRegNo.getText().replace("EBRPF-Research-", "")))
+                .build();
+        Response<Void> response = customerApi.register(dto);
+        if (response.code() == 201) {
+            System.out.println("Registered");
+        } else {
+            System.out.println("Failed to register");
+        }
     }
 
 }

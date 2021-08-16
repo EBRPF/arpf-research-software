@@ -217,20 +217,20 @@
                <Font size="20.0" />
             </font>
          </Text>
-         <TextField fx:id="orgNameField" layoutX="350.0" layoutY="129.0" prefHeight="26.0" prefWidth="200.0" />
+         <TextField fx:id="organizationName" layoutX="350.0" layoutY="129.0" prefHeight="26.0" prefWidth="200.0" />
          <ComboBox fx:id="instituteType" layoutX="350.0" layoutY="170.0" prefHeight="25.0" prefWidth="201.0" />
          <TextField fx:id="researchHeadName" layoutX="350.0" layoutY="207.0" prefHeight="26.0" prefWidth="200.0" />
-         <TextField fx:id="researchMobileNo" layoutX="350.0" layoutY="247.0" prefHeight="26.0" prefWidth="200.0" />
-         <TextField fx:id="researchEmail" layoutX="350.0" layoutY="286.0" prefHeight="26.0" prefWidth="200.0" />
+         <TextField fx:id="researchHeadMobileNo" layoutX="350.0" layoutY="247.0" prefHeight="26.0" prefWidth="200.0" />
+         <TextField fx:id="researchHeadEmail" layoutX="350.0" layoutY="286.0" prefHeight="26.0" prefWidth="200.0" />
          <TextField fx:id="officeAddress" layoutX="350.0" layoutY="326.0" prefHeight="72.0" prefWidth="200.0" />
-         <TextField fx:id="researchCity" layoutX="349.0" layoutY="412.0" prefHeight="26.0" prefWidth="200.0" />
-         <ComboBox fx:id="researchState" layoutX="349.0" layoutY="453.0" prefHeight="25.0" prefWidth="201.0" />
-         <TextField fx:id="researchPinCode" layoutX="350.0" layoutY="494.0" prefHeight="26.0" prefWidth="200.0" />
-         <TextField fx:id="phoneNoField" layoutX="350.0" layoutY="535.0" prefHeight="26.0" prefWidth="200.0" />
-         <TextField fx:id="emailField" layoutX="350.0" layoutY="573.0" prefHeight="26.0" prefWidth="200.0" />
-         <TextField fx:id="scientistName" layoutX="350.0" layoutY="613.0" prefHeight="26.0" prefWidth="200.0" />
-         <TextField fx:id="scientistMobNo" layoutX="350.0" layoutY="653.0" prefHeight="26.0" prefWidth="200.0" />
-         <TextField fx:id="anyOtherInfo" layoutX="350.0" layoutY="687.0" prefHeight="26.0" prefWidth="200.0" />
+         <TextField fx:id="addressCity" layoutX="349.0" layoutY="412.0" prefHeight="26.0" prefWidth="200.0" />
+         <ComboBox fx:id="addressState" layoutX="349.0" layoutY="453.0" prefHeight="25.0" prefWidth="201.0" />
+         <TextField fx:id="addressPinCode" layoutX="350.0" layoutY="494.0" prefHeight="26.0" prefWidth="200.0" />
+         <TextField fx:id="phoneNo" layoutX="350.0" layoutY="535.0" prefHeight="26.0" prefWidth="200.0" />
+         <TextField fx:id="email" layoutX="350.0" layoutY="573.0" prefHeight="26.0" prefWidth="200.0" />
+         <TextField fx:id="researchOfficerName" layoutX="350.0" layoutY="613.0" prefHeight="26.0" prefWidth="200.0" />
+         <TextField fx:id="researchOfficerMobNo" layoutX="350.0" layoutY="653.0" prefHeight="26.0" prefWidth="200.0" />
+         <TextField fx:id="extraInfo" layoutX="350.0" layoutY="687.0" prefHeight="26.0" prefWidth="200.0" />
          <ImageView fx:id="registrationScannedImg" fitHeight="413.0" fitWidth="340.0" layoutX="791.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true" />
          <Text fill="#051690" layoutX="596.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration Filled Form Scanned Copy, if any" wrappingWidth="175.4803466796875">
             <font>

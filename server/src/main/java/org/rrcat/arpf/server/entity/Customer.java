@@ -7,6 +7,7 @@ import org.rrcat.arpf.server.entity.embedable.Organization;
 
 import javax.persistence.*;
 import javax.validation.OverridesAttribute;
+import javax.validation.constraints.Email;
 import java.util.Objects;
 
 @Entity
@@ -33,6 +34,10 @@ public final class Customer {
     @Embedded
     @Column(name = "address")
     private Address address;
+
+    @Email
+    @Column(name = "email")
+    private String email;
 
     @Embedded
     @AttributeOverrides({
@@ -81,6 +86,14 @@ public final class Customer {
         this.address = address;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(final String email) {
+        this.email = email;
+    }
+
     public ContactInfo getResearchOfficerInfo() {
         return researchOfficerInfo;
     }
@@ -101,12 +114,12 @@ public final class Customer {
         return image;
     }
 
-    public void setImage(UploadedImage image) {
+    public void setImage(final UploadedImage image) {
         this.image = image;
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
@@ -168,6 +181,7 @@ public final class Customer {
                                 .email(researchOfficer.getName())
                                 .build()
                 )
+                .email(customer.getEmail())
                 .build();
     }
 
@@ -179,6 +193,7 @@ public final class Customer {
         customer.setImage(image);
         customer.setResearchHeadInfo(ContactInfo.fromDTO(dto.researchHeadInfo()));
         customer.setResearchOfficerInfo(ContactInfo.fromDTO(dto.researchOfficerInfo()));
+        customer.setEmail(dto.email());
         return customer;
     }
 }

@@ -6,6 +6,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
+<?import com.gluonhq.charm.glisten.control.ProgressBar?>
+<?import com.gluonhq.charm.glisten.control.ProgressIndicator?>
 <GridPane maxHeight="Infinity" maxWidth="Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.LoginController">
     <columnConstraints>
         <ColumnConstraints hgrow="ALWAYS" percentWidth="30" />
@@ -87,5 +89,8 @@
             <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
          </padding>
         </JFXButton>
+    </VBox>
+    <VBox visible="false" alignment="CENTER" GridPane.columnIndex="1" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.rowIndex="1">
+        <ProgressIndicator fx:id="loginIndicator"/>
     </VBox>
 </GridPane>

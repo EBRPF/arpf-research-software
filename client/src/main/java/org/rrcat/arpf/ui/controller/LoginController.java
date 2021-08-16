@@ -3,6 +3,7 @@ package org.rrcat.arpf.ui.controller;
 import com.google.common.base.Functions;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 import okhttp3.Authenticator;
 import org.dae.arpf.dto.AuthenticationTokenDTO;
 import org.dae.arpf.dto.LoginRequestDTO;
@@ -31,6 +33,8 @@ public class LoginController implements Initializable {
     private TextField username;
     @FXML
     private PasswordField password;
+    @FXML
+    private ProgressIndicator loginIndicator;
 
     private AuthenticationApi api;
 
@@ -46,24 +50,32 @@ public class LoginController implements Initializable {
                 .uid(username.getText())
                 .password(password.getText())
                 .build();
-        final Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Please wait");
-        alert.setContentText("Attempting to login...");
-        alert.showAndWait();
         username.getParent().setDisable(true);
+        loginIndicator.getParent().setVisible(true);
         CompletableFuture.supplyAsync(() -> authenticate(dto)).thenAccept((response) -> {
-            alert.notify();
-            alert.close();
-            final AuthenticationTokenDTO tokenDTO = response.body();
-            if (tokenDTO != null && response.code() == 200) {
-                try {
-                    onAuthenticated(dto);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            try {
+                Thread.sleep(1000); // UX
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            if (response.code() == 200 && response.body() != null) {
+                Platform.runLater(() -> {
+                    try {
+                        onAuthenticated(dto);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
             } else {
                 // Failed login
             }
+            loginIndicator.getParent().setVisible(false);
+            username.getParent().setDisable(false);
+        }).exceptionally(throwable -> {
+            throwable.printStackTrace();
+            loginIndicator.setVisible(false);
+            username.getParent().setDisable(false);
+            return null;
         });
     }
 

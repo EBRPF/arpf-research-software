@@ -78,7 +78,7 @@ public class CustomerRegController implements Initializable {
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
         customerRegNo.setText("EBRPF-Research-");
-        instituteType.setEditable(true);
+        instituteType.setEditable(false);
         instituteType.setItems(CustomerFormData.INSTITUTE_TYPES);
         addressState.setEditable(true);
         addressState.setItems(CustomerFormData.STATES);

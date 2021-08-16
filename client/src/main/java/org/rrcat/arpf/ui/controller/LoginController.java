@@ -1,5 +1,6 @@
 package org.rrcat.arpf.ui.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,16 +12,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.rrcat.arpf.ui.ArpfApplication;
-import org.rrcat.arpf.ui.Helper;
-import org.rrcat.arpf.ui.api.service.ApiInterface;
-import org.rrcat.arpf.ui.api.RetrofitFetch;
-import org.rrcat.arpf.ui.api.model.RequestLogin;
-import org.rrcat.arpf.ui.entity.auth.AuthenticationToken;
+import org.dae.arpf.dto.AuthenticationTokenDTO;
+import org.dae.arpf.dto.LoginRequestDTO;
+import org.dae.arpf.dto.LoginRequestDTOBuilder;
+import org.rrcat.arpf.ui.api.RetrofitFactory;
+import org.rrcat.arpf.ui.api.schema.AuthenticationApi;
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
+import retrofit2.converter.jackson.JacksonConverterFactory;
 
 import java.io.IOException;
 import java.net.URL;
@@ -33,43 +32,33 @@ public class LoginController implements Initializable {
     private TextField usernameTextField;
     @FXML
     private PasswordField passwordTextField;
+
+    private AuthenticationApi api;
+
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-            usernameTextField.setText("Administrator");
-            passwordTextField.setText("Lo5PofeWw8@r");
+    public void initialize(final URL location, final ResourceBundle resources) {
+        this.api = RetrofitFactory.create().create(AuthenticationApi.class);
+        usernameTextField.setText("Administrator");
+        passwordTextField.setText("Lo5PofeWw8@r");
     }
     @FXML
-    private void LoginAction(ActionEvent event)
-    {
+    private void onClickLogin(final ActionEvent event) throws IOException {
+        final LoginRequestDTO dto = LoginRequestDTOBuilder.builder()
+                .uid(usernameTextField.getText())
+                .password(passwordTextField.getText())
+                .build();
+        ObjectMapper objectMapper = new ObjectMapper();
+        System.out.println(objectMapper.writeValueAsString(dto));
 
-        RequestLogin requestLogin =new RequestLogin(usernameTextField.getText().toString().trim(),
-                                                    passwordTextField.getText().toString().trim() );
-        sendNetworkRequest(requestLogin);
-    }
+        final Call<AuthenticationTokenDTO> tokenDTOCall = api.authenticate(dto);
+        final Response<AuthenticationTokenDTO> response = tokenDTOCall.execute();
+        final AuthenticationTokenDTO tokenDTO = response.body();
+        System.out.println(tokenDTO);
+        if (tokenDTO == null) {
+            // TODO Proper error message
+            return;
+        }
 
-    private void sendNetworkRequest(RequestLogin requestLogin) {
-        Retrofit retrofit= new RetrofitFetch().fetch();
-
-        ApiInterface client =retrofit.create(ApiInterface.class);
-      Call<AuthenticationToken> call= client.LoginAccount(requestLogin);
-      call.enqueue(new Callback<AuthenticationToken>() {
-          @Override
-          public void onResponse(Call<AuthenticationToken> call, Response<AuthenticationToken> response) {
-         Helper.TOKEN= response.body().getToken();
-
-                  System.out.println("From controller");
-
-
-             loadSceneAndSendMessage();
-
-          }
-
-          @Override
-          public void onFailure(Call<AuthenticationToken> call, Throwable t) {
-
-          }
-
-      });
     }
 
     private void loadSceneAndSendMessage()  {

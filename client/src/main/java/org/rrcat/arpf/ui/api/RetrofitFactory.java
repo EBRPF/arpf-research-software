@@ -4,9 +4,8 @@ import com.google.gson.GsonBuilder;
 import okhttp3.Authenticator;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
-import org.dae.arpf.dto.LoginRequestDTO;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.jackson.JacksonConverterFactory;
 
 public final class RetrofitFactory {
     private static final String BASE_URL = "http://localhost:8080/";
@@ -17,15 +16,15 @@ public final class RetrofitFactory {
     public static Retrofit create() {
         return new Retrofit.Builder()
                 .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().create()))
+                .addConverterFactory(JacksonConverterFactory.create())
                 .build();
     }
 
-    public static Retrofit createAuthenticating(final LoginRequestDTO dto, final Authenticator authenticator) {
+    public static Retrofit createAuthenticating(final Authenticator authenticator) {
         return new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .client(createAuthenticatingClient(authenticator))
-                .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().create()))
+                .addConverterFactory(JacksonConverterFactory.create())
                 .build();
     }
 

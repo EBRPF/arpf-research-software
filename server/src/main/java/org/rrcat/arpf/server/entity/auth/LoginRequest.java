@@ -1,11 +1,13 @@
 package org.rrcat.arpf.server.entity.auth;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.Objects;
 
+@JsonDeserialize
 public final class LoginRequest {
     @NotBlank(message = "Uid must not be empty")
     @Size(min = 8, max = 32, message = "Username must be between 8 - 32 characters")

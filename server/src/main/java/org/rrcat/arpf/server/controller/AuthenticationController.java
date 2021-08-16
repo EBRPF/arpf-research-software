@@ -35,8 +35,8 @@ public final class AuthenticationController {
         this.encoder = encoder;
     }
 
-    @RequestMapping("/authenticate")
-    public @ResponseBody AuthenticationToken authenticate(@Valid @RequestBody final LoginRequest loginRequest) {
+    @PostMapping("/authenticate")
+    public @ResponseBody AuthenticationToken authenticate(@RequestBody final LoginRequest loginRequest) {
         final String uid = loginRequest.getUid();
         final String requestedPassword = loginRequest.getPassword();
         final RrcatUser user = repository.findRRCATUserByUid(uid);

@@ -12,5 +12,6 @@ repositories {
 dependencies {
     annotationProcessor 'io.soabase.record-builder:record-builder-processor:22'
     compileOnly 'io.soabase.record-builder:record-builder-core:22'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.3'
     testImplementation group: 'junit', name: 'junit', version: '4.12'
 }

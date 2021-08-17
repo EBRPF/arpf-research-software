@@ -2,6 +2,7 @@ package org.rrcat.arpf.ui.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -99,21 +100,45 @@ public class CustomerRegController implements Initializable {
         fileChooser.setTitle("Upload Image");
         final File selectedFile = fileChooser.showOpenDialog(uploadRegScanned.getScene().getWindow());
         if (selectedFile == null) {
-            // TODO:: Proper error message
+            final Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Upload File");
+            alert.setHeaderText("Invalid file selected!");
+            alert.setContentText("Received null value as selected file. Please try again");
+            alert.show();
             return;
         }
         final RequestBody fileBody =  RequestBody.create(MediaType.parse("image/*"), selectedFile);
         final MultipartBody.Part part = MultipartBody.Part.createFormData("file", selectedFile.getName(), fileBody);
         final Call<UploadedImageDTO> uploadCall = uploadApi.upload(UploadDirectory.REGISTRATION, part);
-        final Response<UploadedImageDTO> response = uploadCall.execute();
-        final UploadedImageDTO imageDTO = response.body();
-        this.currentUploadedImage = imageDTO;
+        try {
+            final Response<UploadedImageDTO> response = uploadCall.execute();
+            final UploadedImageDTO imageDTO = response.body();
+            this.currentUploadedImage = imageDTO;
+            if (imageDTO == null) {
+                final Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Upload File");
+                alert.setHeaderText("Failed to upload file");
+                alert.setContentText("Upload failed. Kindly try again/contact system administrator");
+                alert.show();
+            }
+        } catch (final Exception exception) {
+            final Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Upload File");
+            alert.setHeaderText("Failed to upload file");
+            alert.setContentText("Upload failed (" + exception.getMessage() + "). Kindly try again/contact system administrator");
+            alert.show();
+            exception.printStackTrace();
+        }
     }
 
     @FXML
     private void onClickSubmit() throws IOException{
         if (this.currentUploadedImage == null) {
-            // TODO:: Proper error message
+            final Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Submit Failed");
+            alert.setHeaderText("Image not selected.");
+            alert.setContentText("Kindly select an image to be uploaded. Try again after selecting an image.");
+            alert.show();
             return;
         }
         final CustomerDTO dto =

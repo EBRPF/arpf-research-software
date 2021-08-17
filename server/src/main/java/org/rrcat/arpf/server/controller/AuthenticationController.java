@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-// https://ip:port/api/v1/authenticate
 
 @Controller
 @RequestMapping("/api/v1")

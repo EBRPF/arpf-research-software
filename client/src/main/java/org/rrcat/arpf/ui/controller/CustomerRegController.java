@@ -7,6 +7,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
+import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import org.dae.arpf.dto.*;
@@ -101,10 +102,9 @@ public class CustomerRegController implements Initializable {
             // TODO:: Proper error message
             return;
         }
-        final RequestBody fileBody = MultipartBody.create(MultipartBody.FORM, selectedFile);
-
-        final Call<UploadedImageDTO> uploadCall = uploadApi.upload(UploadDirectory.REGISTRATION, fileBody);
-
+        final RequestBody fileBody =  RequestBody.create(MediaType.parse("image/*"), selectedFile);
+        final MultipartBody.Part part = MultipartBody.Part.createFormData("file", selectedFile.getName(), fileBody);
+        final Call<UploadedImageDTO> uploadCall = uploadApi.upload(UploadDirectory.REGISTRATION, part);
         final Response<UploadedImageDTO> response = uploadCall.execute();
         final UploadedImageDTO imageDTO = response.body();
         this.currentUploadedImage = imageDTO;

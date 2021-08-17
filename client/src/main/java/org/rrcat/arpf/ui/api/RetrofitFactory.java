@@ -30,12 +30,12 @@ public final class RetrofitFactory {
 
     private static OkHttpClient createAuthenticatingClient(final Authenticator authenticator) {
         return new OkHttpClient.Builder()
+                .authenticator(authenticator)
                 .addInterceptor(chain -> {
                     final Request.Builder requestBuilder = chain.request().newBuilder();
-                    requestBuilder.addHeader("Accept", "application/json");
+                    requestBuilder.addHeader("Accept", "*/*");
                     final Request request = requestBuilder.build();
                     return chain.proceed(request);
-                })
-                .authenticator(authenticator).build();
+                }).build();
     }
 }

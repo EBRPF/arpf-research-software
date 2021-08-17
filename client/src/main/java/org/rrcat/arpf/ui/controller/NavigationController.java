@@ -15,7 +15,6 @@ import java.util.ResourceBundle;
 
 public final class NavigationController implements Initializable {
     @FXML
-    
     private HBox headerBox;
     @FXML
 

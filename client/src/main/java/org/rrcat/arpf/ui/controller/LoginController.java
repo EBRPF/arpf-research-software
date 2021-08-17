@@ -73,7 +73,7 @@ public class LoginController implements Initializable {
             username.getParent().setDisable(false);
         }).exceptionally(throwable -> {
             throwable.printStackTrace();
-            loginIndicator.setVisible(false);
+            loginIndicator.getParent().setVisible(false);
             username.getParent().setDisable(false);
             return null;
         });

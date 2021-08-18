@@ -18,7 +18,6 @@ import org.rrcat.arpf.ui.constants.CustomerFormData;
 import org.rrcat.arpf.ui.constants.UploadDirectory;
 import retrofit2.Call;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 import javax.inject.Inject;
 import java.io.File;
@@ -176,11 +175,28 @@ public class CustomerRegController implements Initializable {
                 )
                 .registrationNo(Integer.parseInt(customerRegNo.getText().replace("EBRPF-Research-", "")))
                 .build();
-        Response<Void> response = customerApi.register(dto);
-        if (response.code() == 201) {
-            System.out.println("Registered");
-        } else {
-            System.out.println("Failed to register");
+        try {
+            final Response<Void> response = customerApi.register(dto);
+            final Alert alert;
+            if (response.code() == 201) {
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Customer Registration");
+                alert.setHeaderText("Customer has been successfully registered.");
+                alert.setContentText(null);
+            } else {
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Customer Registration");
+                alert.setHeaderText("Customer registration attempt failed.");
+                alert.setContentText("Response: "+response.code() + " Message:" + response.message() + " Body:" + response.body());
+            }
+            alert.show();
+        } catch (final Exception exception) {
+            exception.printStackTrace();
+            final Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Customer Registration");
+            alert.setHeaderText("Customer registration attempt failed.");
+            alert.setContentText("Exception: " + exception.getClass().getName() + " " + exception.getMessage());
+            alert.show();
         }
     }
 

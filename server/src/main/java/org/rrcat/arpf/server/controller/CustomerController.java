@@ -28,7 +28,7 @@ public final class CustomerController {
 
     @PostMapping("/register")
     @ResponseBody
-    public ResponseEntity<Void> registerCustomer(@RequestBody final CustomerDTO customerDTO, final HttpServletRequest request) {
+    public ResponseEntity<CustomerDTO> registerCustomer(@RequestBody final CustomerDTO customerDTO, final HttpServletRequest request) {
         final Customer preRegistered = repository.findCustomerByRegistrationNo(customerDTO.registrationNo());
         if (preRegistered != null) {
             throw new IllegalArgumentException("Customer with given registration number already registered");
@@ -36,7 +36,7 @@ public final class CustomerController {
         final Integer key = Objects.requireNonNull(customerDTO.imageKey(), "Image key must not be null");
         final UploadedImage image = Objects.requireNonNull(imageRepository.findUploadedImageById(key), "Image must already be uploaded");
         final Customer customer = repository.save(Customer.fromDTO(customerDTO, image));
-        return ResponseEntity.created(URI.create(request.getRequestURI()).resolve("../fetch/" + customer.getRegistrationNo())).build();
+        return ResponseEntity.created(URI.create(request.getRequestURI()).resolve("../fetch/" + customer.getRegistrationNo())).body(Customer.toDTO(customer));
     }
 
     @GetMapping("/fetch/{registrationId}")

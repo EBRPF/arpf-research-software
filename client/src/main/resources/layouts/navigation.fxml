@@ -142,7 +142,7 @@
         </Text>
     </VBox>
     <StackPane GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="1" GridPane.rowSpan="1">
-        <fx:include source="newCustomerRegistration.fxml" />
+        <fx:include source="customer_registration.fxml" />
     </StackPane>
     <stylesheets>
         <URL value="@../styles/font.css" />

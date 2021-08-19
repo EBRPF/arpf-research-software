@@ -2,11 +2,10 @@ package org.rrcat.arpf.ui.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
 import javafx.stage.FileChooser;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -21,6 +20,7 @@ import retrofit2.Response;
 
 import javax.inject.Inject;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,7 +29,7 @@ import java.util.regex.Pattern;
 
 public class CustomerRegController implements Initializable {
     @FXML
-    private TextField customerRegNo;
+    private Label customerRegNo;
     @FXML
     private TextField organizationName;
     @FXML
@@ -61,6 +61,8 @@ public class CustomerRegController implements Initializable {
     @FXML
     private ImageView registrationScannedImg;
     @FXML
+    private StackPane imageOuterPane;
+    @FXML
     private Button uploadRegScanned;
     @FXML
     private Button saveRecordCustomer;
@@ -78,11 +80,12 @@ public class CustomerRegController implements Initializable {
 
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
-        customerRegNo.setText("EBRPF-Research-");
         instituteType.setEditable(false);
         instituteType.setItems(CustomerFormData.INSTITUTE_TYPES);
         addressState.setEditable(true);
         addressState.setItems(CustomerFormData.STATES);
+        registrationScannedImg.setPreserveRatio(true);
+        registrationScannedImg.fitWidthProperty().bind(imageOuterPane.widthProperty());
     }
 
     public static final Pattern VALID_EMAIL_ADDRESS_REGEX =
@@ -119,6 +122,9 @@ public class CustomerRegController implements Initializable {
                 alert.setHeaderText("Failed to upload file");
                 alert.setContentText("Upload failed. Kindly try again/contact system administrator");
                 alert.show();
+                registrationScannedImg.setImage(null);
+            } else {
+                registrationScannedImg.setImage(new Image(new FileInputStream(selectedFile)));
             }
         } catch (final Exception exception) {
             final Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -126,12 +132,14 @@ public class CustomerRegController implements Initializable {
             alert.setHeaderText("Failed to upload file");
             alert.setContentText("Upload failed (" + exception.getMessage() + "). Kindly try again/contact system administrator");
             alert.show();
+            registrationScannedImg.setImage(null);
+            this.currentUploadedImage = null;
             exception.printStackTrace();
         }
     }
 
     @FXML
-    private void onClickSubmit() throws IOException{
+    private void onClickSubmit() throws IOException {
         if (this.currentUploadedImage == null) {
             final Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Submit Failed");
@@ -139,6 +147,22 @@ public class CustomerRegController implements Initializable {
             alert.setContentText("Kindly select an image to be uploaded. Try again after selecting an image.");
             alert.show();
             return;
+        }
+        final Integer regNumber;
+        if (!customerRegNo.getText().isEmpty()) {
+            try {
+                regNumber = Integer.parseInt(customerRegNo.getText());
+            } catch (final NumberFormatException exception) {
+                final Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Submit Failed");
+                alert.setHeaderText("Invalid registration number.");
+                alert.setContentText(exception.getMessage());
+                alert.show();
+                exception.printStackTrace();
+                return;
+            }
+        } else {
+            regNumber = null;
         }
         final CustomerDTO dto =
                 CustomerDTOBuilder.builder()
@@ -154,7 +178,7 @@ public class CustomerRegController implements Initializable {
                 .researchOfficerInfo(
                         ContactInfoDTOBuilder.builder()
                         .name(researchOfficerName.getText())
-                        .mobileNo(researchHeadMobileNo.getText())
+                        .mobileNo(researchOfficerMobNo.getText())
                         .build()
                 )
                 .email(email.getText())
@@ -173,16 +197,17 @@ public class CustomerRegController implements Initializable {
                         .name(organizationName.getText())
                         .build()
                 )
-                .registrationNo(Integer.parseInt(customerRegNo.getText().replace("EBRPF-Research-", "")))
                 .build();
         try {
-            final Response<Void> response = customerApi.register(dto);
+            final Call<CustomerDTO> call = customerApi.register(dto);
+            final Response<CustomerDTO> response = call.execute();
             final Alert alert;
-            if (response.code() == 201) {
+            if (response.code() == 201 && response.body() != null) {
                 alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Customer Registration");
-                alert.setHeaderText("Customer has been successfully registered.");
+                alert.setHeaderText("Customer has been successfully registered with ID: " + response.body().registrationNo());
                 alert.setContentText(null);
+
             } else {
                 alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Customer Registration");

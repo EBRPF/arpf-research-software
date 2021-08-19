@@ -1,0 +1,16 @@
+package org.rrcat.arpf.ui.api.schema;
+
+import retrofit2.Call;
+import retrofit2.http.Body;
+import retrofit2.http.GET;
+import retrofit2.http.POST;
+import retrofit2.http.Path;
+
+public interface DosimetryApi {
+    @POST("/api/v1/dosimetry/register")
+    Call<Void> registerDosimetry(@Body final DosimetryDTO dto);
+
+    @GET("/api/v1/dosimetry/fetch/{registrationId}")
+    Call<DosimetryDTO> fetchDosimetry(@Path("registrationId") final String registrationId);
+
+}

@@ -5,13 +5,14 @@ import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 import java.util.Collection;
 
 public interface CustomerApi {
-    @GET("/api/v1/authenticate")
-    Response<Void>  register(@Body final CustomerDTO dto);
+    @POST("/api/v1/customer/register")
+    Call<CustomerDTO>  register(@Body final CustomerDTO dto);
 
     @GET("/fetch/{registrationId}")
     Call<CustomerDTO> fetchCustomer(@Path("registrationId") final int registrationNo);

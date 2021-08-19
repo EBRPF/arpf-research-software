@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.CustomerRegController">
+    <top>
+        <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: rgb(190,220,255);">
+            <Label styleClass="form-title" text="Customer Registration">
+
+            </Label>
+        </HBox>
+    </top>
+    <center>
+        <GridPane>
+            <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="20.0" />
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="25.0" />
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="20.0" />
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="35.0" />
+            <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="Infinity" percentHeight="6.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="16.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.0" />
+            </rowConstraints>
+
+            <Label text="Registration Number" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <Label fx:id="customerRegNo"  GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+            <Label text="Name of Organization/Institute" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <JFXTextField fx:id="organizationName" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+            <Label text="Type of Organization" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <JFXComboBox fx:id="instituteType" maxWidth="Infinity" promptText="Select one..." GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+            <Label text="Research Activity Head Name" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+            <JFXTextField fx:id="researchHeadName" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+            <Label text="Research Activity Head Mobile No." wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+            <JFXTextField fx:id="researchHeadMobileNo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+            <Label text="Research Activity Head Email" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+            <JFXTextField fx:id="researchHeadEmail" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+            <Label text="Office Address" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+            <JFXTextField fx:id="officeAddress" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+            <Label text="City" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+            <JFXTextField fx:id="addressCity" maxHeight="Infinity" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.fillWidth="true" GridPane.rowIndex="7" />
+
+            <Label text="State" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+            <JFXComboBox fx:id="addressState" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="8" />
+
+            <Label text="Pin Code" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="9" />
+            <JFXTextField fx:id="addressPinCode" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="9" />
+
+            <Label text="Phone no." wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="10" />
+            <JFXTextField fx:id="phoneNo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="10" />
+
+            <Label text="Email" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="11" />
+            <JFXTextField fx:id="email" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="11" />
+
+            <Label text="Research Officer/Scientist name" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="12" />
+            <JFXTextField fx:id="researchOfficerName" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="12" />
+
+            <Label text="Research Officer/Scientist mobile no." wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="13" />
+            <JFXTextField fx:id="researchOfficerMobNo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="13" />
+
+            <Label text="Any other information" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="14" />
+            <JFXTextField fx:id="extraInfo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="14" />
+
+            <Label text="Registration Filled Form Scan Copy, If any" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="0" GridPane.rowSpan="2">
+            <GridPane.margin>
+               <Insets left="10.0" />
+            </GridPane.margin></Label>
+            <StackPane fx:id="imageOuterPane" style="-fx-border-color: black;" GridPane.columnIndex="3" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.rowIndex="0" GridPane.rowSpan="9">
+                <ScrollPane>
+                    <ImageView fx:id="registrationScannedImg">
+                    </ImageView>
+                </ScrollPane>
+                <GridPane.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </GridPane.margin>
+            </StackPane>
+
+            <JFXButton fx:id="uploadRegScanned" onAction="#onClickUpload" style="-fx-background-color: rgb(190,220,255);" text="Upload Image" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="10" />
+
+            <JFXButton fx:id="saveRecordCustomer" onAction="#onClickSubmit" style="-fx-background-color: rgb(190,220,255);" text="Submit" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="12" />
+
+
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+            <BorderPane.margin>
+                <Insets />
+            </BorderPane.margin>
+        </GridPane>
+    </center>
+    <stylesheets>
+        <URL value="@../styles/form.css" />
+        <URL value="@../styles/font.css" />
+    </stylesheets>
+</BorderPane>

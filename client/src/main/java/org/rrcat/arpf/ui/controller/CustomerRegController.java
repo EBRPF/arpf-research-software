@@ -102,13 +102,13 @@ public final class CustomerRegController implements Initializable {
     @FXML
     private void onClickUpload() throws IOException {
         CompletableFuture.supplyAsync(uploadFileSupplier)
-        .thenApply((file) -> {
-            final UploadedImageDTO dto = uploadService.upload(file);
-            onUploadFileSuccessfully(file);
-            return dto;
-        })
-        .thenAccept(this.currentUploadedImageReference::set)
-        .exceptionally(this::onUploadFileFailure);
+                .thenApply((file) -> {
+                    final UploadedImageDTO dto = uploadService.upload(file);
+                    onUploadFileSuccessfully(file);
+                    return dto;
+                })
+                .thenAccept(this.currentUploadedImageReference::set)
+                .exceptionally(this::onUploadFileFailure);
     }
 
     @FXML
@@ -123,38 +123,38 @@ public final class CustomerRegController implements Initializable {
         }
         final CustomerDTO dto =
                 CustomerDTOBuilder.builder()
-                .address(
-                        AddressDTOBuilder.builder()
-                        .addressText(officeAddress.getText())
-                        .city(addressCity.getText())
-                        .state(addressState.getValue())
-                        .phone(phoneNo.getText())
-                        .pinCode(addressPinCode.getText())
-                        .build()
-                )
-                .researchOfficerInfo(
-                        ContactInfoDTOBuilder.builder()
-                        .name(researchOfficerName.getText())
-                        .mobileNo(researchOfficerMobNo.getText())
-                        .build()
-                )
-                .email(email.getText())
-                .researchHeadInfo(
-                        ContactInfoDTOBuilder.builder()
-                        .name(researchHeadName.getText())
-                        .mobileNo(researchHeadMobileNo.getText())
-                        .email(researchHeadEmail.getText())
-                        .build()
-                )
-                .extraInfo(extraInfo.getText())
-                .imageKey(currentUploadedImageReference.get().id())
-                .organization(
-                        OrganizationDTOBuilder.builder()
-                        .type(instituteType.getValue())
-                        .name(organizationName.getText())
-                        .build()
-                )
-                .build();
+                        .address(
+                                AddressDTOBuilder.builder()
+                                        .addressText(officeAddress.getText())
+                                        .city(addressCity.getText())
+                                        .state(addressState.getValue())
+                                        .phone(phoneNo.getText())
+                                        .pinCode(addressPinCode.getText())
+                                        .build()
+                        )
+                        .researchOfficerInfo(
+                                ContactInfoDTOBuilder.builder()
+                                        .name(researchOfficerName.getText())
+                                        .mobileNo(researchOfficerMobNo.getText())
+                                        .build()
+                        )
+                        .email(email.getText())
+                        .researchHeadInfo(
+                                ContactInfoDTOBuilder.builder()
+                                        .name(researchHeadName.getText())
+                                        .mobileNo(researchHeadMobileNo.getText())
+                                        .email(researchHeadEmail.getText())
+                                        .build()
+                        )
+                        .extraInfo(extraInfo.getText())
+                        .imageKey(currentUploadedImageReference.get().id())
+                        .organization(
+                                OrganizationDTOBuilder.builder()
+                                        .type(instituteType.getValue())
+                                        .name(organizationName.getText())
+                                        .build()
+                        )
+                        .build();
         try {
             final Call<CustomerDTO> call = customerApi.register(dto);
             final Response<CustomerDTO> response = call.execute();
@@ -169,7 +169,7 @@ public final class CustomerRegController implements Initializable {
                 alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Customer Registration");
                 alert.setHeaderText("Customer registration attempt failed.");
-                alert.setContentText("Response: "+response.code() + " Message:" + response.message() + " Body:" + response.body());
+                alert.setContentText("Response: " + response.code() + " Message:" + response.message() + " Body:" + response.body());
             }
             alert.show();
         } catch (final Exception exception) {

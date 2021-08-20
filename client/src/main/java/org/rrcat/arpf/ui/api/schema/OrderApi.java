@@ -9,7 +9,7 @@ import retrofit2.http.Path;
 
 public interface OrderApi {
     @POST("/api/v1/order/register")
-    Call<Void> registerOrder(@Body final OrderDTO dto);
+    Call<OrderDTO> registerOrder(@Body final OrderDTO dto);
 
     @GET("/api/v1/order/fetch/{registrationId}")
     Call<OrderDTO> fetchOrder(@Path("registrationId") final String registrationId);

@@ -1,5 +1,6 @@
 package org.rrcat.arpf.ui.api.schema;
 
+import org.dae.arpf.dto.UserDTO;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;

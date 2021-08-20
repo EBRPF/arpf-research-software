@@ -78,9 +78,7 @@ public class CustomerRegController implements Initializable {
 
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
-        instituteType.setEditable(false);
         instituteType.setItems(CustomerFormData.INSTITUTE_TYPES);
-        addressState.setEditable(true);
         addressState.setItems(CustomerFormData.STATES);
         registrationScannedImg.setPreserveRatio(true);
         registrationScannedImg.fitWidthProperty().bind(imageOuterPane.widthProperty());

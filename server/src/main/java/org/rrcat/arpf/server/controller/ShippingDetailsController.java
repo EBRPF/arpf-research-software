@@ -30,7 +30,7 @@ public final class ShippingDetailsController {
 
     @PostMapping("/register")
     @ResponseBody
-    public ResponseEntity<Void> registerORP(@RequestBody final ShippingDetailsDTO orderDTO, final HttpServletRequest request) {
+    public ResponseEntity<Void> registerShippingDetails(@RequestBody final ShippingDetailsDTO orderDTO, final HttpServletRequest request) {
         final ShippingDetails preRegistered = detailsRepository.findShippingDetailsByRegistrationNo(orderDTO.registrationNo());
         if (preRegistered != null) {
             throw new IllegalArgumentException("OrderRadiationProcessingData with given registration number already registered");
@@ -41,7 +41,7 @@ public final class ShippingDetailsController {
 
     @GetMapping("/fetch/{registrationId}")
     @ResponseBody
-    public ShippingDetailsDTO fetchORP(@PathVariable final Integer registrationId) {
+    public ShippingDetailsDTO fetchShippingDetails(@PathVariable final Integer registrationId) {
         final ShippingDetails preRegistered = detailsRepository.findShippingDetailsByRegistrationNo(registrationId);
         final ShippingDetailsDTO dto = ShippingDetails.toDTO(preRegistered);
         return Objects.requireNonNull(dto, "fetched ShippingDetails must exist!");

@@ -18,9 +18,9 @@
     <center>
         <GridPane>
             <columnConstraints>
-                <ColumnConstraints hgrow="ALWAYS" percentWidth="20.0" />
                 <ColumnConstraints hgrow="ALWAYS" percentWidth="25.0" />
-                <ColumnConstraints hgrow="ALWAYS" percentWidth="20.0" />
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="25.0" />
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="15.0" />
                 <ColumnConstraints hgrow="ALWAYS" percentWidth="35.0" />
             <ColumnConstraints />
             </columnConstraints>
@@ -81,13 +81,13 @@
             <Label text="Research Officer/Scientist name" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="12" />
             <JFXTextField fx:id="researchOfficerName" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="12" />
 
-            <Label text="Research Officer/Scientist mobile no." wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="13" />
+            <Label text="Research Officer/Scientist mobile no." wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="13" GridPane.fillHeight="true" GridPane.fillWidth="true" />
             <JFXTextField fx:id="researchOfficerMobNo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="13" />
 
             <Label text="Any other information" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="14" />
             <JFXTextField fx:id="extraInfo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="14" />
 
-            <Label text="Registration Filled Form Scan Copy, If any" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="0" GridPane.rowSpan="2">
+            <Label text="Registration Filled Form Scan Copy, If any" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
             <GridPane.margin>
                <Insets left="10.0" />
             </GridPane.margin></Label>

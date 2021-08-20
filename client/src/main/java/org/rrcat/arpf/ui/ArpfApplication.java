@@ -18,6 +18,8 @@ public class ArpfApplication extends Application {
         Scene scene = new Scene(root, MIN_WIDTH, MIN_HEIGHT);
         primaryStage.setMinWidth(MIN_WIDTH);
         primaryStage.setMinHeight(MIN_HEIGHT);
+        primaryStage.setWidth(MIN_WIDTH);
+        primaryStage.setHeight(MIN_HEIGHT);
 
         primaryStage.setTitle(APPLICATION_TITLE);
         primaryStage.setScene(scene);

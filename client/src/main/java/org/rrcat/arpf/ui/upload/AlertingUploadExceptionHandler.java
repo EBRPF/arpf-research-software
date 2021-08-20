@@ -6,14 +6,14 @@ import javax.inject.Inject;
 import javax.swing.text.html.ImageView;
 import java.util.function.Consumer;
 
-public class AlertingUploadExceptionHandler implements Consumer<Exception> {
+public class AlertingUploadExceptionHandler implements Consumer<Throwable> {
 
     @Inject
     public AlertingUploadExceptionHandler() {
     }
 
     @Override
-    public void accept(final Exception exception) {
+    public void accept(final Throwable exception) {
         final Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Upload File");
         alert.setHeaderText("Failed to upload file");

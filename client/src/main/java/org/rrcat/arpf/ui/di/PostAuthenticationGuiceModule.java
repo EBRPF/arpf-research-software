@@ -1,6 +1,7 @@
 package org.rrcat.arpf.ui.di;
 
 import com.google.inject.AbstractModule;
+import com.google.inject.TypeLiteral;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Window;
@@ -8,6 +9,7 @@ import okhttp3.Authenticator;
 import org.dae.arpf.dto.AuthenticationTokenDTO;
 import org.rrcat.arpf.ui.api.RetrofitFactory;
 import org.rrcat.arpf.ui.api.schema.CustomerApi;
+import org.rrcat.arpf.ui.api.schema.OrderApi;
 import org.rrcat.arpf.ui.api.schema.UploadApi;
 import org.rrcat.arpf.ui.di.annotations.AlertingExceptionConsumer;
 import org.rrcat.arpf.ui.di.annotations.ImageFileSupplier;
@@ -35,12 +37,13 @@ public final class PostAuthenticationGuiceModule extends AbstractModule {
 
     @Override
     protected void configure() {
-        bind(Consumer.class).annotatedWith(AlertingExceptionConsumer.class).to(AlertingUploadExceptionHandler.class);
-        bind(Supplier.class).annotatedWith(ImageFileSupplier.class).to(UploadFileSupplier.class);
         bind(Window.class).toInstance(window);
+        bind(new TypeLiteral<Consumer<Throwable>>(){}).annotatedWith(AlertingExceptionConsumer.class).to(AlertingUploadExceptionHandler.class);
+        bind(new TypeLiteral<Supplier<File>>(){}).annotatedWith(ImageFileSupplier.class).to(UploadFileSupplier.class);
         bind(FXMLLoader.class).toInstance(loader);
         bind(CustomerApi.class).toInstance(authenticatedRetrofit.create(CustomerApi.class));
         bind(UploadApi.class).toInstance(authenticatedRetrofit.create(UploadApi.class));
+        bind(OrderApi.class).toInstance(authenticatedRetrofit.create(OrderApi.class));
         bind(ImageUploadService.class).to(RetrofitImageUploadService.class);
     }
 }

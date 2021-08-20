@@ -16,6 +16,7 @@ import org.rrcat.arpf.ui.service.ImageUploadService;
 import retrofit2.Call;
 import retrofit2.Response;
 
+import javax.inject.Inject;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -76,7 +77,8 @@ public final class OrderRegController implements Initializable {
 
     private final OrderApi api;
 
-    public OrderRegController(ImageUploadService uploadService, final @ImageFileSupplier Supplier<File> uploadFileSupplier, final @AlertingExceptionConsumer Consumer<Throwable> exceptionHandler, OrderApi api) {
+    @Inject
+    public OrderRegController(final ImageUploadService uploadService, final @ImageFileSupplier Supplier<File> uploadFileSupplier, final @AlertingExceptionConsumer Consumer<Throwable> exceptionHandler, final OrderApi api) {
         this.uploadService = uploadService;
         this.uploadFileSupplier = uploadFileSupplier;
         this.exceptionHandler = exceptionHandler;
@@ -91,7 +93,7 @@ public final class OrderRegController implements Initializable {
 
     @FXML
     private void onClickUpload() {
-        CompletableFuture.supplyAsync(uploadFileSupplier)
+        CompletableFuture.completedFuture(uploadFileSupplier.get())
                 .thenApply((file) -> {
                     final UploadedImageDTO dto = uploadService.upload(file);
                     onUploadFileSuccessfully(file);

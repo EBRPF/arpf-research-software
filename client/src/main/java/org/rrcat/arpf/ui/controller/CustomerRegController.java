@@ -101,7 +101,7 @@ public final class CustomerRegController implements Initializable {
 
     @FXML
     private void onClickUpload() throws IOException {
-        CompletableFuture.supplyAsync(uploadFileSupplier)
+        CompletableFuture.completedFuture(uploadFileSupplier.get())
                 .thenApply((file) -> {
                     final UploadedImageDTO dto = uploadService.upload(file);
                     onUploadFileSuccessfully(file);

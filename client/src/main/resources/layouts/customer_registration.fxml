@@ -7,7 +7,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.CustomerRegController">
+<BorderPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.CustomerRegController">
     <top>
         <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: rgb(190,220,255);">
             <Label styleClass="form-title" text="Customer Registration">
@@ -61,7 +61,7 @@
             <JFXTextField fx:id="researchHeadEmail" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
             <Label text="Office Address" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="6" />
-            <JFXTextField fx:id="officeAddress" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.fillWidth="true" />
+            <JFXTextField fx:id="officeAddress" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.fillWidth="true" GridPane.rowIndex="6" />
 
             <Label text="City" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="7" />
             <JFXTextField fx:id="addressCity" maxHeight="Infinity" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="7" />
@@ -81,7 +81,7 @@
             <Label text="Research Officer/Scientist name" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="12" />
             <JFXTextField fx:id="researchOfficerName" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="12" />
 
-            <Label text="Research Officer/Scientist mobile no." wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="13" GridPane.fillHeight="true" GridPane.fillWidth="true" />
+            <Label text="Research Officer/Scientist mobile no." wrapText="true" GridPane.columnIndex="0" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.rowIndex="13" />
             <JFXTextField fx:id="researchOfficerMobNo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="13" />
 
             <Label text="Any other information" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="14" />

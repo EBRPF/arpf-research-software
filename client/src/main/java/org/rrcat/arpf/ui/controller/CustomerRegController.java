@@ -29,8 +29,6 @@ import java.util.regex.Pattern;
 
 public class CustomerRegController implements Initializable {
     @FXML
-    private Label customerRegNo;
-    @FXML
     private TextField organizationName;
     @FXML
     private ComboBox<String> instituteType;
@@ -147,22 +145,6 @@ public class CustomerRegController implements Initializable {
             alert.setContentText("Kindly select an image to be uploaded. Try again after selecting an image.");
             alert.show();
             return;
-        }
-        final Integer regNumber;
-        if (!customerRegNo.getText().isEmpty()) {
-            try {
-                regNumber = Integer.parseInt(customerRegNo.getText());
-            } catch (final NumberFormatException exception) {
-                final Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Submit Failed");
-                alert.setHeaderText("Invalid registration number.");
-                alert.setContentText(exception.getMessage());
-                alert.show();
-                exception.printStackTrace();
-                return;
-            }
-        } else {
-            regNumber = null;
         }
         final CustomerDTO dto =
                 CustomerDTOBuilder.builder()

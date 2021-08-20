@@ -187,6 +187,7 @@ public final class Customer {
 
     public static Customer fromDTO(final CustomerDTO dto, final UploadedImage image) {
         final Customer customer = new Customer();
+        customer.setOrganization(Organization.fromDTO(dto.organization()));
         customer.setRegistrationNo(dto.registrationNo());
         customer.setAddress(Address.fromDTO(dto.address()));
         customer.setExtraInfo(dto.extraInfo());

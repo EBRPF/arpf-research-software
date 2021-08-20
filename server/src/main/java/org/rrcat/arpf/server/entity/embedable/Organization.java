@@ -1,5 +1,8 @@
 package org.rrcat.arpf.server.entity.embedable;
 
+import org.dae.arpf.dto.ContactInfoDTO;
+import org.dae.arpf.dto.OrganizationDTO;
+
 import javax.persistence.Embeddable;
 import java.util.Objects;
 
@@ -44,5 +47,12 @@ public class Organization {
                 "name='" + name + '\'' +
                 ", type='" + type + '\'' +
                 '}';
+    }
+
+    public static Organization fromDTO(final OrganizationDTO dto) {
+        final Organization org = new Organization();
+        org.setName(dto.name());
+        org.setType(dto.type());
+        return org;
     }
 }

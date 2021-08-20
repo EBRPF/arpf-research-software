@@ -25,25 +25,25 @@
             <ColumnConstraints />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints maxHeight="Infinity" percentHeight="6.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="6.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="6.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="6.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="6.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="6.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="6.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="16.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="6.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="6.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="6.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="6.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="6.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="6.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="6.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="0.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="11.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
             </rowConstraints>
 
-            <Label text="Registration Number" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-            <Label fx:id="customerRegNo"  GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <!-- <Label text="Registration Number" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <Label fx:id="customerRegNo"  GridPane.columnIndex="1" GridPane.rowIndex="0" /> !-->
 
             <Label text="Name of Organization/Institute" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="1" />
             <JFXTextField fx:id="organizationName" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -61,10 +61,10 @@
             <JFXTextField fx:id="researchHeadEmail" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
             <Label text="Office Address" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="6" />
-            <JFXTextField fx:id="officeAddress" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <JFXTextField fx:id="officeAddress" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.fillWidth="true" />
 
             <Label text="City" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="7" />
-            <JFXTextField fx:id="addressCity" maxHeight="Infinity" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.fillWidth="true" GridPane.rowIndex="7" />
+            <JFXTextField fx:id="addressCity" maxHeight="Infinity" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="7" />
 
             <Label text="State" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="8" />
             <JFXComboBox fx:id="addressState" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="8" />

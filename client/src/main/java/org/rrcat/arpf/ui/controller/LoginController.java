@@ -19,7 +19,7 @@ import org.dae.arpf.dto.LoginRequestDTOBuilder;
 import org.rrcat.arpf.ui.api.RetrofitFactory;
 import org.rrcat.arpf.ui.api.auth.JwtAuthenticator;
 import org.rrcat.arpf.ui.api.schema.AuthenticationApi;
-import org.rrcat.arpf.ui.di.AuthenticationModule;
+import org.rrcat.arpf.ui.di.PostAuthenticationGuiceModule;
 import retrofit2.Call;
 import retrofit2.Response;
 
@@ -90,12 +90,13 @@ public class LoginController implements Initializable {
     }
 
     private void onAuthenticated(final LoginRequestDTO dto) throws IOException {
+        final Window window = username.getScene().getWindow();
         final FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/navigation.fxml"));
         final Authenticator authenticator = new JwtAuthenticator(dto, Functions.compose(Response<AuthenticationTokenDTO>::body, this::authenticate));
-        final AuthenticationModule module = new AuthenticationModule(authenticator, loader);
+        final PostAuthenticationGuiceModule module = new PostAuthenticationGuiceModule(authenticator, loader, window);
         final Injector injector = Guice.createInjector(module);
         loader.setControllerFactory(injector::getInstance);
-        final Stage stage = (Stage) username.getScene().getWindow();
+        final Stage stage = (Stage) window;
         stage.setScene(new Scene(loader.load()));
     }
 }

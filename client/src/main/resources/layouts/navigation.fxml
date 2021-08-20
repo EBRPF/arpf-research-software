@@ -86,7 +86,7 @@
                 <Insets bottom="20.0" left="20.0" right="20.0" />
             </VBox.margin>
         </Text>
-        <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
+        <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150" onMouseClicked="#navigate">
             New Order Registration
             <font>
                 <Font name="Times New Roman" size="15.0" />
@@ -141,7 +141,7 @@
             </VBox.margin>
         </Text>
     </VBox>
-    <StackPane GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="1" GridPane.rowSpan="1">
+    <StackPane fx:id="pageView" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="1" GridPane.rowSpan="1">
         <fx:include source="customer_registration.fxml" />
     </StackPane>
     <stylesheets>

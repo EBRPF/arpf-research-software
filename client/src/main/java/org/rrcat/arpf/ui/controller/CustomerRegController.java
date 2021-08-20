@@ -6,28 +6,31 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
-import javafx.stage.FileChooser;
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 import org.dae.arpf.dto.*;
 import org.rrcat.arpf.ui.api.schema.CustomerApi;
 import org.rrcat.arpf.ui.api.schema.UploadApi;
 import org.rrcat.arpf.ui.constants.CustomerFormData;
-import org.rrcat.arpf.ui.constants.UploadDirectory;
+import org.rrcat.arpf.ui.di.annotations.AlertingExceptionConsumer;
+import org.rrcat.arpf.ui.di.annotations.ImageFileSupplier;
+import org.rrcat.arpf.ui.service.ImageUploadService;
 import retrofit2.Call;
 import retrofit2.Response;
 
 import javax.inject.Inject;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class CustomerRegController implements Initializable {
+public final class CustomerRegController implements Initializable {
     @FXML
     private TextField organizationName;
     @FXML
@@ -65,15 +68,19 @@ public class CustomerRegController implements Initializable {
     @FXML
     private Button saveRecordCustomer;
 
-    private UploadedImageDTO currentUploadedImage;
+    private final AtomicReference<UploadedImageDTO> currentUploadedImageReference = new AtomicReference<>();
 
-    private final UploadApi uploadApi;
     private final CustomerApi customerApi;
+    private final ImageUploadService uploadService;
+    private final Supplier<File> uploadFileSupplier;
+    private final Consumer<Throwable> exceptionHandler;
 
     @Inject
-    public CustomerRegController(final UploadApi uploadApi, final CustomerApi customerApi) {
-        this.uploadApi = uploadApi;
+    public CustomerRegController(final CustomerApi customerApi, final ImageUploadService uploadService, final @ImageFileSupplier Supplier<File> uploadFileSupplier, final @AlertingExceptionConsumer Consumer<Throwable> exceptionHandler) {
         this.customerApi = customerApi;
+        this.uploadService = uploadService;
+        this.uploadFileSupplier = uploadFileSupplier;
+        this.exceptionHandler = exceptionHandler;
     }
 
     @Override
@@ -94,49 +101,19 @@ public class CustomerRegController implements Initializable {
 
     @FXML
     private void onClickUpload() throws IOException {
-        final FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Upload Image");
-        final File selectedFile = fileChooser.showOpenDialog(uploadRegScanned.getScene().getWindow());
-        if (selectedFile == null) {
-            final Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Upload File");
-            alert.setHeaderText("Invalid file selected!");
-            alert.setContentText("Received null value as selected file. Please try again");
-            alert.show();
-            return;
-        }
-        final RequestBody fileBody =  RequestBody.create(MediaType.parse("image/*"), selectedFile);
-        final MultipartBody.Part part = MultipartBody.Part.createFormData("file", selectedFile.getName(), fileBody);
-        final Call<UploadedImageDTO> uploadCall = uploadApi.upload(UploadDirectory.REGISTRATION, part);
-        try {
-            final Response<UploadedImageDTO> response = uploadCall.execute();
-            final UploadedImageDTO imageDTO = response.body();
-            this.currentUploadedImage = imageDTO;
-            if (imageDTO == null) {
-                final Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Upload File");
-                alert.setHeaderText("Failed to upload file");
-                alert.setContentText("Upload failed. Kindly try again/contact system administrator");
-                alert.show();
-                registrationScannedImg.setImage(null);
-            } else {
-                registrationScannedImg.setImage(new Image(new FileInputStream(selectedFile)));
-            }
-        } catch (final Exception exception) {
-            final Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Upload File");
-            alert.setHeaderText("Failed to upload file");
-            alert.setContentText("Upload failed (" + exception.getMessage() + "). Kindly try again/contact system administrator");
-            alert.show();
-            registrationScannedImg.setImage(null);
-            this.currentUploadedImage = null;
-            exception.printStackTrace();
-        }
+        CompletableFuture.supplyAsync(uploadFileSupplier)
+        .thenApply((file) -> {
+            final UploadedImageDTO dto = uploadService.upload(file);
+            onUploadFileSuccessfully(file);
+            return dto;
+        })
+        .thenAccept(this.currentUploadedImageReference::set)
+        .exceptionally(this::onUploadFileFailure);
     }
 
     @FXML
     private void onClickSubmit() throws IOException {
-        if (this.currentUploadedImage == null) {
+        if (this.currentUploadedImageReference.get() == null) {
             final Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Submit Failed");
             alert.setHeaderText("Image not selected.");
@@ -170,7 +147,7 @@ public class CustomerRegController implements Initializable {
                         .build()
                 )
                 .extraInfo(extraInfo.getText())
-                .imageKey(currentUploadedImage.id())
+                .imageKey(currentUploadedImageReference.get().id())
                 .organization(
                         OrganizationDTOBuilder.builder()
                         .type(instituteType.getValue())
@@ -203,6 +180,20 @@ public class CustomerRegController implements Initializable {
             alert.setContentText("Exception: " + exception.getClass().getName() + " " + exception.getMessage());
             alert.show();
         }
+    }
+
+    private void onUploadFileSuccessfully(final File file) {
+        try {
+            registrationScannedImg.setImage(new Image(new FileInputStream(file)));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private <T> T onUploadFileFailure(final Throwable exception) {
+        registrationScannedImg.imageProperty().set(null);
+        exceptionHandler.accept(exception);
+        return null;
     }
 
 }

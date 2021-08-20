@@ -89,6 +89,8 @@ public final class OrderRegController implements Initializable {
     public void initialize(final URL location, final ResourceBundle resources) {
         irradiationMode.setItems(OrderFormData.INSTITUTE_TYPES);
         confirmationCheckbox.selectedProperty().addListener(this::onCheckboxUpdate);
+        submitOrder.setDisable(!confirmationCheckbox.isSelected());
+
     }
 
     @FXML

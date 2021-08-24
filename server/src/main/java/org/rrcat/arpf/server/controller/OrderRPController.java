@@ -31,13 +31,13 @@ public final class OrderRPController {
 
     @PostMapping("/register")
     @ResponseBody
-    public ResponseEntity<Void> registerORP(@RequestBody final OrderRadiationProcessingDTO orderDTO, final HttpServletRequest request) {
+    public ResponseEntity<OrderRadiationProcessingDTO> registerORP(@RequestBody final OrderRadiationProcessingDTO orderDTO, final HttpServletRequest request) {
         final OrderRadiationProcessingData preRegistered = orderRPRepository.findOrderRadiationProcessingDataByRegistrationNo(orderDTO.registrationNo());
         if (preRegistered != null) {
             throw new IllegalArgumentException("OrderRadiationProcessingData with given registration number already registered");
         }
         final OrderRadiationProcessingData data = orderRPRepository.save(OrderRadiationProcessingData.fromDTO(orderDTO, orderRepository));
-        return ResponseEntity.created(URI.create(request.getRequestURI()).resolve("../fetch/" + orderDTO.registrationNo())).build();
+        return ResponseEntity.created(URI.create(request.getRequestURI()).resolve("../fetch/" + orderDTO.registrationNo())).body(OrderRadiationProcessingData.toDTO(data));
     }
 
     @GetMapping("/fetch/{registrationId}")

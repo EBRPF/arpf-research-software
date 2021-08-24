@@ -1,174 +1,202 @@
 package org.rrcat.arpf.ui.controller;
 
-import com.gluonhq.charm.glisten.control.AutoCompleteTextField;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import org.rrcat.arpf.ui.api.model.RadiationProcessing;
-import org.w3c.dom.Text;
+import org.dae.arpf.dto.*;
+import org.rrcat.arpf.ui.api.schema.OrderApi;
+import org.rrcat.arpf.ui.api.schema.OrderRPApi;
+import org.rrcat.arpf.ui.di.annotations.AlertingExceptionConsumer;
+import org.rrcat.arpf.ui.di.annotations.ImageFileSupplier;
+import org.rrcat.arpf.ui.service.ImageUploadService;
+import org.rrcat.arpf.ui.util.Dates;
+import retrofit2.Call;
+import retrofit2.Response;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public class RadiationProcessingController  implements Initializable {
     @FXML
-    private AutoCompleteTextField<String> OrderNumber;
+    private ComboBox<String> orderNumber;
     @FXML
-    private TextField DosimeterUsed;
+    private TextField dosimeterUsed;
     @FXML
-    private TextField DosimeterLocation;
+    private TextField dosimeterLocation;
     @FXML
-    private DatePicker RadProcessDate;
+    private DatePicker radProcessDate;
     @FXML
-    private TextField RadStartTime;
+    private TextField radStartTime;
     @FXML
-    private TextField CompletionTime;
+    private TextField completionTime;
     @FXML
-    private TextField BeamEnergy;
+    private TextField beamEnergy;
     @FXML
-    private TextField BeamCurrent;
+    private TextField beamCurrent;
     @FXML
     private TextField PRR;
     @FXML
-    private TextField ScanWidth;
+    private TextField scanWidth;
     @FXML
-    private TextField ScanCurrentTime;
+    private TextField scanCurrentTime;
     @FXML
-    private TextField ConveyorSpeed;
+    private TextField conveyorSpeed;
     @FXML
-    private TextField DoseRate;
+    private TextField doseRate;
     @FXML
-    private TextField StoSDistance;
+    private TextField stoSDistance;
     @FXML
-    private TextField OtherMacParameters;
+    private TextField otherMacParameters;
     @FXML
-    private TextField OperatorRemarks;
+    private TextField operatorRemarks;
     @FXML
-    private TextField OrgNameField;
+    private TextField orgNameField;
     @FXML
-    private TextField DescrOfProducts;
+    private TextField descrOfProducts;
     @FXML
-    private TextField MaterialOfProduct;
+    private TextField materialOfProduct;
     @FXML
-    private TextField DetailOfProduct;
+    private TextField detailOfProduct;
     @FXML
     private TextField PurposeOfIrrad;
     @FXML
-    private TextField ModeOfIrrad;
+    private TextField modeOfIrrad;
     @FXML
-    private TextField RequireDose;
+    private TextField requireDose;
     @FXML
-    private TextField DimenOfProduct;
+    private TextField dimenOfProduct;
     @FXML
-    private TextField WeightOfProduct;
+    private TextField weightOfProduct;
     @FXML
-    private TextField TotalSampleBoxes;
+    private TextField totalSampleBoxes;
     @FXML
-    private TextField AnyOrderInfo;
+    private TextField anyOrderInfo;
     @FXML
-    private DatePicker DateOfOrder;
+    private DatePicker dateOfOrder;
     @FXML
-    private ImageView RequestForm;
+    private ImageView requestForm;
     @FXML
-    private TextField FIComments;
+    private TextField fIComments;
     @FXML
-    private CheckBox OrderConfirmCB;
+    private CheckBox orderConfirmCB;
     @FXML
-    private CheckBox IrradiationProcessedCB;
+    private CheckBox irradiationProcessedCB;
     @FXML
-    private Button SaveRecord_ORP;
+    private Button saveRecordORP;
+
+    private final AtomicReference<UploadedImageDTO> currentUploadedImageReference = new AtomicReference<>();
 
 
+    private final OrderRPApi orderRPApi;
+    private final OrderApi orderApi;
 
+    private final ImageUploadService uploadService;
+    private final Supplier<File> uploadFileSupplier;
+    private final Consumer<Throwable> exceptionHandler;
+
+    public RadiationProcessingController(final OrderRPApi orderRPApi, final OrderApi orderApi, final ImageUploadService uploadService, final @ImageFileSupplier Supplier<File> uploadFileSupplier, final @AlertingExceptionConsumer Consumer<Throwable> exceptionHandler) {
+        this.orderRPApi = orderRPApi;
+        this.orderApi = orderApi;
+        this.uploadService = uploadService;
+        this.uploadFileSupplier = uploadFileSupplier;
+        this.exceptionHandler = exceptionHandler;
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        OrderNumber.setText("EBRPF-Research-Order-");
-        RadiationProcessing radiationProcessing = new RadiationProcessing();
 
-    //Data Retrieval
-        //Name of Organisation
-        OrgNameField.setText(radiationProcessing.getNameOfOrganisation());
-        //Description of Products
-        DescrOfProducts.setText(radiationProcessing.getDescrOfProducts());
-        //Material of Products
-        MaterialOfProduct.setText(radiationProcessing.getMaterialOfProduct());
-        //Detail of Products
-        DetailOfProduct.setText(radiationProcessing.getDetailOfProduct());
-        //Purpose of Irradiation
-        PurposeOfIrrad.setText(radiationProcessing.getPurposeOfIrradiation());
-        //Mode Of Irradiation
-        ModeOfIrrad.setText(radiationProcessing.getModeOfIrradiation());
-        //Required Dose
-        RequireDose.setText((radiationProcessing.getRequiredDose()));
-        //Dimension of Individual Product
-        DimenOfProduct.setText(radiationProcessing.getDimensionoOfProduct());
-        //Weight Of Product
-        WeightOfProduct.setText(radiationProcessing.getWeightOfProduct());
-        //Total Number Of Product
-        TotalSampleBoxes.setText(radiationProcessing.getTotalBoxes());
-        //Any Other Information
-        AnyOrderInfo.setText(radiationProcessing.getAnyOtherInfo_Order());
-        //Date of Order
-        DateOfOrder.show();
-        //Uploaded Image
-        RequestForm.getImage();
-        //Facility I/C Comments
-        FIComments.setText(radiationProcessing.getFicComments());
-        //Order Registered and Processed for Further Action CheckBox
+    }
 
-        //Radiation Processing Date
-        RadProcessDate.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                LocalDate date = RadProcessDate.getValue();
-                System.err.println("Selected date: " + date);
+    @FXML
+    private void onClickUpload() throws IOException {
+        CompletableFuture.completedFuture(uploadFileSupplier.get())
+                .thenApply((file) -> {
+                    final UploadedImageDTO dto = uploadService.upload(file);
+                    onUploadFileSuccessfully(file);
+                    return dto;
+                })
+                .thenAccept(this.currentUploadedImageReference::set)
+                .exceptionally(this::onUploadFileFailure);
+    }
+
+    @FXML
+    private void onClickSubmit() throws IOException {
+        if (this.currentUploadedImageReference.get() == null) {
+            final Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Submit Failed");
+            alert.setHeaderText("Image not selected.");
+            alert.setContentText("Kindly select an image to be uploaded. Try again after selecting an image.");
+            alert.show();
+            return;
+        }
+        final OrderRadiationProcessingDTO dto =
+                OrderRadiationProcessingDTOBuilder.builder()
+                        .registrationNo(Integer.parseInt(orderNumber.getValue()))
+                        .beamCurrent(beamCurrent.getText())
+                        .beamEnergy(beamEnergy.getText())
+                        .conveyorSpeed(conveyorSpeed.getText())
+                        .doseRate(doseRate.getText())
+                        .dosimeterLocation(dosimeterLocation.getText())
+                        .dosimeterUsed(dosimeterUsed.getText())
+                        .processingDate(Dates.localToEpoch(radProcessDate.getValue()))
+                        .startTime(radStartTime.getText())
+                        .endTime(completionTime.getText())
+                        .operatorRemarks(operatorRemarks.getText())
+                        .PRR(PRR.getText())
+                        .relatedMachineParams(otherMacParameters.getText())
+                        .scanWidth(Float.parseFloat(scanWidth.getText()))
+                        .scanCurrentAndTime(scanCurrentTime.getText())
+                        .sourceToSurfaceDimension(stoSDistance.getText())
+                        .build();
+        try {
+            final Call<OrderRadiationProcessingDTO> call = orderRPApi.registerORP(dto);
+            final Response<OrderRadiationProcessingDTO> response = call.execute();
+            final Alert alert;
+            if (response.code() == 201 && response.body() != null) {
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Customer Registration");
+                alert.setHeaderText("Customer has been successfully registered with ID: " + response.body().registrationNo());
+                alert.setContentText(null);
+
+            } else {
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Customer Registration");
+                alert.setHeaderText("Customer registration attempt failed.");
+                alert.setContentText("Response: " + response.code() + " Message:" + response.message() + " Body:" + response.body());
             }
-        });
+            alert.show();
+        } catch (final Exception exception) {
+            exception.printStackTrace();
+            final Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Customer Registration");
+            alert.setHeaderText("Customer registration attempt failed.");
+            alert.setContentText("Exception: " + exception.getClass().getName() + " " + exception.getMessage());
+            alert.show();
+        }
+    }
 
-        //Save Record Button
-        SaveRecord_ORP.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                //Dosimeter Used
-                radiationProcessing.setDosimeterUsed(DosimeterUsed.getText().trim());
-                //Dosimeter Location
-                radiationProcessing.setDosimeterLocation(DosimeterLocation.getText().trim());
+    private void onUploadFileSuccessfully(final File file) {
+        try {
+            requestForm.setImage(new Image(new FileInputStream(file)));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
-                //Radiation Processing Start Time
-                radiationProcessing.setStartTime(RadStartTime.getText().trim());
-                //Completion Time
-                radiationProcessing.setCompletionTime(CompletionTime.getText().trim());
-                //Beam Energy
-                BeamEnergy.setText("   MeV");
-                radiationProcessing.setBeamEnergy(BeamEnergy.getText().trim());
-                //Beam Current
-                BeamCurrent.setText("   mA");
-                radiationProcessing.setBeamCurrent(BeamCurrent.getText().trim());
-                //PRR
-                PRR.setText("   Hz");
-                radiationProcessing.setPrr(PRR.getText().trim());
-                //Scan Width
-                ScanWidth.setText("  A   msec");
-                radiationProcessing.setScanWidth(ScanWidth.getText().trim());
-                //Conveyor Speed
-                radiationProcessing.setConveyorSpeed(ConveyorSpeed.getText().trim());
-                //Dose Rate
-                radiationProcessing.setDoseRate(DoseRate.getText().trim());
-                //Surface to Surface Distance
-                radiationProcessing.setsTosDistance(StoSDistance.getText().trim());
-                //Other Machine Related Parameters
-                radiationProcessing.setOtherParamaters(OtherMacParameters.getText().trim());
-                //Operator Remarks
-                radiationProcessing.setOperatorRemarks(OperatorRemarks.getText().trim());
-
-            }
-        });
-
-
+    private <T> T onUploadFileFailure(final Throwable exception) {
+        requestForm.imageProperty().set(null);
+        exceptionHandler.accept(exception);
+        return null;
     }
 }

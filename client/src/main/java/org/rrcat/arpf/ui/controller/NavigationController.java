@@ -46,7 +46,7 @@ public final class NavigationController implements Initializable {
     @FXML
     public void navigate(final MouseEvent mouseEvent) throws IOException {
         final ObservableList<Node> children = pageView.getChildren();
-        final FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/order_registration.fxml"));
+        final FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/order_radiation_processing.fxml"));
         loader.setControllerFactory(fxmlLoader.getControllerFactory());
         children.clear();
         children.add(loader.load());

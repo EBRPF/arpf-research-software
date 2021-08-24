@@ -22,7 +22,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="Infinity" maxWidth="Infinity" prefHeight="766.0" prefWidth="1364.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.NavigationController">
+<GridPane maxHeight="Infinity" maxWidth="Infinity" prefHeight="766.0" prefWidth="1364.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.ShippingDetailController">
     <columnConstraints>
         <ColumnConstraints hgrow="ALWAYS" percentWidth="15.0" />
         <ColumnConstraints hgrow="ALWAYS" percentWidth="85.0" />
@@ -248,6 +248,7 @@
          </ImageView>
          <Button layoutX="970.0" layoutY="792.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Upload Scanned Report" textAlignment="CENTER" textFill="#051690" />
          <CheckBox fx:id="ShippingDoneCB" layoutX="330.0" layoutY="569.0" mnemonicParsing="false" />
+         <Button fx:id="saveRecordShipping" layoutX="303.0" layoutY="667.0" mnemonicParsing="false" onAction="#onClickSubmit" text="Save Record" />
         </children>
     </AnchorPane>
 </GridPane>

@@ -9,7 +9,7 @@ package org.rrcat.arpf.ui.api.schema;
 
 public interface ShippingDetailsApi {
     @POST("/api/v1/shipping/register")
-    Call<Void> registerShippingDetails(@Body final ShippingDetailsDTO orderDTO);
+    Call<Void> registerShippingDetails(@Body final ShippingDetailsDTO shippingDTO);
 
     @GET("/api/v1/shipping/fetch/{registrationId}")
     Call<ShippingDetailsDTO> fetchShippingDetails(@Path("registrationId") final String registrationId);

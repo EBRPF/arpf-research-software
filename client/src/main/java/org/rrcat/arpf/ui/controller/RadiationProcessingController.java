@@ -165,22 +165,22 @@ public class RadiationProcessingController  implements Initializable {
             final Alert alert;
             if (response.code() == 201 && response.body() != null) {
                 alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Customer Registration");
-                alert.setHeaderText("Customer has been successfully registered with ID: " + response.body().registrationNo());
+                alert.setTitle("Order Radiation Processing");
+                alert.setHeaderText("Order Radiation Processing has been successfully registered with ID: " + response.body().registrationNo());
                 alert.setContentText(null);
 
             } else {
                 alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Customer Registration");
-                alert.setHeaderText("Customer registration attempt failed.");
+                alert.setTitle("Order Radiation Processing");
+                alert.setHeaderText("Radiation Processing attempt failed.");
                 alert.setContentText("Response: " + response.code() + " Message:" + response.message() + " Body:" + response.body());
             }
             alert.show();
         } catch (final Exception exception) {
             exception.printStackTrace();
             final Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Customer Registration");
-            alert.setHeaderText("Customer registration attempt failed.");
+            alert.setTitle("Order Radiation Processing");
+            alert.setHeaderText("Order Radiation Processing attempt failed.");
             alert.setContentText("Exception: " + exception.getClass().getName() + " " + exception.getMessage());
             alert.show();
         }

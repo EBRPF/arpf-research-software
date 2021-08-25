@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class ArpfApplication extends Application {
-    public static final String APPLICATION_TITLE = "A.R.P.F, Indore (Research Products)";
+    public static final String APPLICATION_TITLE = "A.R.P.F, Indore (Research Customer Software)";
     public static final int MIN_WIDTH = 1400;
     public static final int MIN_HEIGHT = 800;
 

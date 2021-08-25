@@ -1,6 +1,8 @@
 package org.rrcat.arpf.ui.controller;
 
 import com.gluonhq.charm.glisten.control.AutoCompleteTextField;
+import javafx.beans.Observable;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -12,6 +14,7 @@ import org.dae.arpf.dto.*;
 import org.rrcat.arpf.ui.api.schema.OrderApi;
 import org.rrcat.arpf.ui.api.schema.ShippingDetailsApi;
 import org.rrcat.arpf.ui.constants.CustomerFormData;
+import org.rrcat.arpf.ui.constants.OrderFormData;
 import org.rrcat.arpf.ui.di.annotations.AlertingExceptionConsumer;
 import org.rrcat.arpf.ui.di.annotations.ImageFileSupplier;
 import org.rrcat.arpf.ui.service.ImageUploadService;
@@ -24,6 +27,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.atomic.AtomicReference;
@@ -63,6 +68,8 @@ public class ShippingDetailController implements Initializable {
     private ImageView DosimetryReport;
     @FXML
     private CheckBox ShippingDoneCB;
+    @FXML
+    private Button saveRecordShipping;
 
     private final AtomicReference<UploadedImageDTO> currentUploadedImageReference = new AtomicReference<>();
 
@@ -86,12 +93,18 @@ public class ShippingDetailController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ShipState.setItems(CustomerFormData.STATES);
+        ShippingDoneCB.selectedProperty().addListener(this::onCheckboxUpdate);
+        saveRecordShipping.setDisable(!ShippingDoneCB.isSelected());
         ScannedGatePass.setPreserveRatio(true);
         ScannedGatePass.fitWidthProperty().bind(imageOuterPane.widthProperty());
 
         DosimetryReport.setPreserveRatio(true);
         DosimetryReport.fitWidthProperty().bind(imageOuterPane.widthProperty());
 
+    }
+
+    private void onCheckboxUpdate(final ObservableValue<? extends Boolean> observable, final Boolean oldValue, final Boolean newValue) {
+        saveRecordShipping.setDisable(!newValue);
     }
 
     @FXML
@@ -107,10 +120,6 @@ public class ShippingDetailController implements Initializable {
     }
 
 
-
-
-
-
     @FXML
     public void onClickSubmit() throws IOException {
         if (this.currentUploadedImageReference.get() == null) {
@@ -120,6 +129,8 @@ public class ShippingDetailController implements Initializable {
             alert.setContentText("Kindly select an image to be uploaded. Try again after selecting an image.");
             alert.show();
             return;
+
+            /*
             final ShippingDetailsDTO dto =
                     ShippingDetailsDTOBuilder.builder()
                             .shippingAddress(
@@ -136,6 +147,23 @@ public class ShippingDetailController implements Initializable {
                                             .build()
                             )
                             .build();
+
+             */
+
+            final ShippingDetailsDTO shippingDTO = ShippingDetailsDTOBuilder.builder()
+                    .shippingDate(Date.from(ShippedDate.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()))
+                    .shippingMedium(ShippedName.getText())
+                    .gatePassImageKey(currentUploadedImageReference.get().id())
+                    .dosimetryReportImageKey(currentUploadedImageReference.get().id())
+                    .shippingAddress(ShippedAddress.getText())
+                    .shippingCity(ShipCity.getText())
+                    .ShipState(ShipState.getValue())
+                    .shippingPostalCode(ShipPostalCode.getText())
+                    .shippedPackets(TotalProdShipped.getText())
+                    .registered(ShippingDoneCB.isSelected())
+                    .build();
+
+
             try {
                 final Call<ShippingDetailsDTO> call = shippingDetailsApi.registerShippingDetails(shippingDTO);
                 final Response<ShippingDetailsDTO> response = call.execute();

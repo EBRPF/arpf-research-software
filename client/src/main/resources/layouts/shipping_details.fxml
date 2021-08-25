@@ -248,7 +248,10 @@
          </ImageView>
          <Button layoutX="970.0" layoutY="792.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Upload Scanned Report" textAlignment="CENTER" textFill="#051690" />
          <CheckBox fx:id="ShippingDoneCB" layoutX="330.0" layoutY="569.0" mnemonicParsing="false" />
-         <Button fx:id="saveRecordShipping" layoutX="303.0" layoutY="667.0" mnemonicParsing="false" onAction="#onClickSubmit" text="Save Record" />
+         <Button fx:id="saveRecordShipping" layoutX="303.0" layoutY="667.0" mnemonicParsing="false" onAction="#onClickSubmit" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Save Record" textFill="#051690">
+            <font>
+               <Font size="16.0" />
+            </font></Button>
         </children>
     </AnchorPane>
 </GridPane>

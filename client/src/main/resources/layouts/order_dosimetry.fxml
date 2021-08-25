@@ -143,7 +143,7 @@
          </font>
       </Text>
     </VBox>
-    <AnchorPane disable="true" prefHeight="990.0" prefWidth="1662.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+    <AnchorPane prefHeight="990.0" prefWidth="1662.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
         <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c3e3ff" height="86.0" layoutX="-3.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1827.0" AnchorPane.bottomAnchor="904.0" />
             <Text fill="#051690" layoutX="590.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Radiation Processing Date">
@@ -211,7 +211,7 @@
                     <Font name="Times New Roman" size="38.0" />
                 </font>
             </Text>
-            <Button fx:id="BeforeImgBtn" layoutX="1384.0" layoutY="493.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Upload Image" textAlignment="CENTER" textFill="#051690" />
+            <Button fx:id="BeforeImgBtn" layoutX="1384.0" layoutY="493.0" mnemonicParsing="false" onAction="#onClickUpload" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Upload Image" textAlignment="CENTER" textFill="#051690" />
             <Text fill="#051690" layoutX="20.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Order Number">
                 <font>
                     <Font size="15.0" />
@@ -292,7 +292,7 @@
                <Font size="15.0" />
             </font>
          </Text>
-         <Button fx:id="AfterImgBtn" layoutX="1384.0" layoutY="759.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Upload Image" textAlignment="CENTER" textFill="#051690" />
+         <Button fx:id="AfterImgBtn" layoutX="1384.0" layoutY="759.0" mnemonicParsing="false" onAction="#onClickUpload" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Upload Image" textAlignment="CENTER" textFill="#051690" />
          <AutoCompleteTextField fx:id="OrderNumber" layoutX="330.0" layoutY="161.0" prefHeight="25.0" prefWidth="202.0" />
          <TextField fx:id="OrgNameField" disable="true" layoutX="330.0" layoutY="193.0" prefHeight="25.0" prefWidth="202.0" />
          <TextField fx:id="DescrOfProducts" disable="true" layoutX="330.0" layoutY="233.0" prefHeight="25.0" prefWidth="202.0" />
@@ -327,7 +327,7 @@
          <ImageView fx:id="BeforeIrradImage" fitHeight="150.0" fitWidth="425.0" layoutX="1246.0" layoutY="321.0" pickOnBounds="true" preserveRatio="true" />
          <ImageView fx:id="AfterIrradImage" fitHeight="150.0" fitWidth="425.0" layoutX="1224.0" layoutY="595.0" pickOnBounds="true" preserveRatio="true" />
             <CheckBox fx:id="DosimetryDoneCB" layoutX="931.0" layoutY="734.0" mnemonicParsing="false" />
-            <Button layoutX="826.0" layoutY="778.0" mnemonicParsing="false" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Save Record" textAlignment="CENTER" textFill="#051690" />
+            <Button fx:id="SaveRecord_Dosimetry" layoutX="826.0" layoutY="778.0" mnemonicParsing="false" onAction="#onClickSubmit" style="-fx-background-color: #c3e3ff#c3e3ff;" text="Save Record" textAlignment="CENTER" textFill="#051690" />
          <Label layoutX="707.0" layoutY="113.0" text="Radiation Processing Data" textFill="#051690">
             <font>
                <Font name="Times New Roman" size="26.0" />

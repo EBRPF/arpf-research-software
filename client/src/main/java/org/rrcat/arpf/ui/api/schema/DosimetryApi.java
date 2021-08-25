@@ -9,7 +9,7 @@ import retrofit2.http.Path;
 
 public interface DosimetryApi {
     @POST("/api/v1/dosimetry/register")
-    Call<Void> registerDosimetry(@Body final DosimetryDTO dto);
+    Call<Void> registerDosimetry(@Body final DosimetryDTO dosimetryDTO);
 
     @GET("/api/v1/dosimetry/fetch/{registrationId}")
     Call<DosimetryDTO> fetchDosimetry(@Path("registrationId") final String registrationId);

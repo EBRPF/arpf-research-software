@@ -12,7 +12,7 @@ public interface ShippingDetailsApi {
     Call<Void> registerShippingDetails(@Body final ShippingDetailsDTO shippingDTO);
 
     @GET("/api/v1/shipping/fetch/{registrationId}")
-    Call<ShippingDetailsDTO> fetchShippingDetails(@Path("registrationId") final String registrationId);
+    Call<ShippingDetailsDTO> fetchShippingDetails(@Path("registrationId") final Integer registrationId);
 }
 
 

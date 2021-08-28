@@ -12,6 +12,6 @@ public interface DosimetryApi {
     Call<Void> registerDosimetry(@Body final DosimetryDTO dosimetryDTO);
 
     @GET("/api/v1/dosimetry/fetch/{registrationId}")
-    Call<DosimetryDTO> fetchDosimetry(@Path("registrationId") final String registrationId);
+    Call<DosimetryDTO> fetchDosimetry(@Path("registrationId") final Integer registrationId);
 
 }

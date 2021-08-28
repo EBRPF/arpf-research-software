@@ -12,5 +12,5 @@ public interface OrderRPApi {
     Call<OrderRadiationProcessingDTO> registerORP(@Body final OrderRadiationProcessingDTO orderDTO);
 
     @GET("/api/v1/order/rp/fetch/{registrationId}")
-    Call<OrderRadiationProcessingDTO> fetchORP(@Path("registrationId") final String registrationId);
+    Call<OrderRadiationProcessingDTO> fetchORP(@Path("registrationId") final Integer registrationId);
 }

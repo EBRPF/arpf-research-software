@@ -12,5 +12,5 @@ public interface OrderApi {
     Call<OrderDTO> registerOrder(@Body final OrderDTO dto);
 
     @GET("/api/v1/order/fetch/{registrationId}")
-    Call<OrderDTO> fetchOrder(@Path("registrationId") final String registrationId);
+    Call<OrderDTO> fetchOrder(@Path("registrationId") final Integer registrationId);
 }

@@ -13,7 +13,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="525.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="525.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16"
+            xmlns:fx="http://javafx.com/fxml/1">
     <top>
         <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: rgb(190,220,255);">
             <Label styleClass="form-title" text="Check Order Status">
@@ -24,97 +25,137 @@
     <center>
         <GridPane minHeight="400.0" minWidth="600.0" prefHeight="350.0" prefWidth="600.0">
             <columnConstraints>
-                <ColumnConstraints hgrow="ALWAYS" percentWidth="30" />
-                <ColumnConstraints hgrow="ALWAYS" percentWidth="20" />
-                <ColumnConstraints hgrow="ALWAYS" percentWidth="30" />
-                <ColumnConstraints hgrow="ALWAYS" percentWidth="20" />
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="30"/>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="20"/>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="30"/>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="20"/>
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints maxHeight="Infinity" percentHeight="11" />
-                <RowConstraints maxHeight="Infinity" percentHeight="18" />
-                <RowConstraints maxHeight="Infinity" percentHeight="15" />
-                <RowConstraints maxHeight="Infinity" percentHeight="14" />
-                <RowConstraints maxHeight="Infinity" percentHeight="14" />
-                <RowConstraints maxHeight="Infinity" percentHeight="14" />
-                <RowConstraints maxHeight="Infinity" percentHeight="14" />
+                <RowConstraints maxHeight="Infinity" percentHeight="11"/>
+                <RowConstraints maxHeight="Infinity" percentHeight="18"/>
+                <RowConstraints maxHeight="Infinity" percentHeight="15"/>
+                <RowConstraints maxHeight="Infinity" percentHeight="14"/>
+                <RowConstraints maxHeight="Infinity" percentHeight="14"/>
+                <RowConstraints maxHeight="Infinity" percentHeight="14"/>
+                <RowConstraints maxHeight="Infinity" percentHeight="14"/>
             </rowConstraints>
-            <HBox alignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1">
+            <HBox alignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.halignment="CENTER"
+                  GridPane.rowIndex="0" GridPane.rowSpan="1">
                 <Label styleClass="field-label" text="Enter Order Number :">
                     <font>
-                        <Font size="10.0" />
+                        <Font size="10.0"/>
                     </font>
                 </Label>
-                <TextField id="orderNumberField" fx:id="OrderNumber" prefHeight="16.0" prefWidth="164.0" promptText="ARPF-Research-Order-0001">
+                <TextField fx:id="orderNumber" prefHeight="16.0" prefWidth="164.0"
+                           promptText="ARPF-Research-Order-0001">
                     <font>
-                        <Font size="10.0" />
-                    </font></TextField>
+                        <Font size="10.0"/>
+                    </font>
+                </TextField>
             </HBox>
-            <VBox alignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="1">
+            <VBox alignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.halignment="CENTER"
+                  GridPane.rowIndex="1" GridPane.rowSpan="1">
                 <Label styleClass="field-label" text="Name of Organization / Institutions" textAlignment="CENTER">
                 </Label>
-                <Label fx:id="OrgNameField" text="BARC-NABTD" textAlignment="CENTER">
+                <Label fx:id="organizationName" text="BARC-NABTD" textAlignment="CENTER">
                 </Label>
-                <Label styleClass="field-label" text="Description of Product(s) to be Irradiated" textAlignment="CENTER">
+                <Label styleClass="field-label" text="Description of Product(s) to be Irradiated"
+                       textAlignment="CENTER">
                 </Label>
-                <Label fx:id="DescrOfProducts" text="Rice Samples" textAlignment="CENTER">
+                <Label fx:id="productDescription" text="Rice Samples" textAlignment="CENTER">
                 </Label>
             </VBox>
-            <HBox alignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.rowSpan="1">
-                <Label alignment="CENTER" styleClass="field-label" text="Purpose of Irradiation" textAlignment="CENTER" wrapText="true">
+            <HBox alignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER"
+                  GridPane.rowIndex="2" GridPane.rowSpan="1">
+                <Label alignment="CENTER" styleClass="field-label" text="Purpose of Irradiation" textAlignment="CENTER"
+                       wrapText="true">
                     <HBox.margin>
-                        <Insets right="10.0" />
-                    </HBox.margin></Label>
-                <Label fx:id="PurposeOfirrad" text="Mutation Breeding" textAlignment="CENTER" wrapText="true">
+                        <Insets right="10.0"/>
+                    </HBox.margin>
+                </Label>
+                <Label fx:id="irradiationPurpose" text="Mutation Breeding" textAlignment="CENTER" wrapText="true">
                 </Label>
             </HBox>
-            <HBox alignment="CENTER" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.rowSpan="1">
-                <Label alignment="CENTER" styleClass="field-label" text="Mode of Irradiation" textAlignment="CENTER" wrapText="true">
+            <HBox alignment="CENTER" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER"
+                  GridPane.rowIndex="2" GridPane.rowSpan="1">
+                <Label alignment="CENTER" styleClass="field-label" text="Mode of Irradiation" textAlignment="CENTER"
+                       wrapText="true">
                     <HBox.margin>
-                        <Insets right="10.0" />
-                    </HBox.margin></Label>
-                <Label fx:id="ModeOfIrrad" text="Electron Mode" textAlignment="CENTER" wrapText="true">
+                        <Insets right="10.0"/>
+                    </HBox.margin>
+                </Label>
+                <Label fx:id="irradiationMode" text="Electron Mode" textAlignment="CENTER" wrapText="true">
                 </Label>
             </HBox>
 
-            <Label alignment="CENTER" styleClass="field-label" text="Order Registered and Processed for Further Action" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.rowSpan="1">
+            <Label alignment="CENTER" styleClass="field-label" text="Order Registered and Processed for Further Action"
+                   textAlignment="CENTER" wrapText="true" GridPane.columnIndex="0" GridPane.columnSpan="1"
+                   GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.rowSpan="1">
             </Label>
-            <CheckBox fx:id="OrderConfirmCB" disable="true" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.rowSpan="1">
+            <CheckBox fx:id="orderConfirmed" disable="true" GridPane.columnIndex="1" GridPane.columnSpan="1"
+                      GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.rowSpan="1">
 
             </CheckBox>
 
-            <Label alignment="CENTER" styleClass="field-label" text="Irradiation Processed" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.rowSpan="1">
+            <Label alignment="CENTER" styleClass="field-label" text="Irradiation Processed" textAlignment="CENTER"
+                   wrapText="true" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.halignment="CENTER"
+                   GridPane.rowIndex="4" GridPane.rowSpan="1">
             </Label>
-            <Label fx:id="IrradiationProcessedCB" text="Yes" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.rowSpan="1">
+            <Label fx:id="irradiationProcessed" text="Yes" textAlignment="CENTER" wrapText="true"
+                   GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="4"
+                   GridPane.rowSpan="1">
             </Label>
-            <Label alignment="CENTER" styleClass="field-label" text="Dosimeter Done" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.rowSpan="1">
+            <Label alignment="CENTER" styleClass="field-label" text="Dosimeter Done" textAlignment="CENTER"
+                   wrapText="true" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.halignment="CENTER"
+                   GridPane.rowIndex="5" GridPane.rowSpan="1">
             </Label>
-            <Label fx:id="DosimetryDoneCB" text="Yes" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.rowSpan="1">
+            <Label fx:id="dosimetryDone" text="Yes" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1"
+                   GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.rowSpan="1">
             </Label>
-            <Label alignment="CENTER" styleClass="field-label" text="Irradiated Sample Shipped" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.rowSpan="1">
+            <Label alignment="CENTER" styleClass="field-label" text="Irradiated Sample Shipped" textAlignment="CENTER"
+                   wrapText="true" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.halignment="CENTER"
+                   GridPane.rowIndex="6" GridPane.rowSpan="1">
             </Label>
-            <Label fx:id="ShippingDoneCB" text="Yes" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.rowSpan="1">
+            <Label fx:id="shippingDone" text="Yes" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1"
+                   GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.rowSpan="1">
             </Label>
-            <Label alignment="CENTER" styleClass="field-label" text="Date of Receipt of Samples" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.rowSpan="1">
+            <Label alignment="CENTER" styleClass="field-label" text="Date of Receipt of Samples" textAlignment="CENTER"
+                   wrapText="true" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="CENTER"
+                   GridPane.rowIndex="3" GridPane.rowSpan="1">
             </Label>
-            <Label fx:id="DateOfOrder" text="01-May-2021" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="3" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.rowSpan="1">
+            <Label fx:id="dateOfOrder" text="01-May-2021" textAlignment="CENTER" wrapText="true"
+                   GridPane.columnIndex="3" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="3"
+                   GridPane.rowSpan="1">
             </Label>
 
-            <Label alignment="CENTER" styleClass="field-label" text="Radiation Processing Date" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.rowSpan="1">
+            <Label alignment="CENTER" styleClass="field-label" text="Radiation Processing Date" textAlignment="CENTER"
+                   wrapText="true" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="CENTER"
+                   GridPane.rowIndex="4" GridPane.rowSpan="1">
             </Label>
-            <Label fx:id="RadProcessDate" text="02-May-2021" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="3" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.rowSpan="1">
+            <Label fx:id="radProcessingDate" text="02-May-2021" textAlignment="CENTER" wrapText="true"
+                   GridPane.columnIndex="3" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="4"
+                   GridPane.rowSpan="1">
             </Label>
-            <Label alignment="CENTER" styleClass="field-label" text="Date of Dosimetry Measurement" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.rowSpan="1">
+            <Label alignment="CENTER" styleClass="field-label" text="Date of Dosimetry Measurement"
+                   textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2" GridPane.columnSpan="1"
+                   GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.rowSpan="1">
             </Label>
-            <Label fx:id="DosimetryDate" text="04-May-2021" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="3" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.rowSpan="1">
+            <Label fx:id="dosimetryDate" text="04-May-2021" textAlignment="CENTER" wrapText="true"
+                   GridPane.columnIndex="3" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="5"
+                   GridPane.rowSpan="1">
             </Label>
-            <Label alignment="CENTER" styleClass="field-label" text="Shipped date" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.rowSpan="1">
+            <Label alignment="CENTER" styleClass="field-label" text="Shipped date" textAlignment="CENTER"
+                   wrapText="true" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="CENTER"
+                   GridPane.rowIndex="6" GridPane.rowSpan="1">
             </Label>
-            <Label fx:id="ShippedDate" text="06-May-2021" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="3" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.rowSpan="1">
+            <Label fx:id="shippedDate" text="06-May-2021" textAlignment="CENTER" wrapText="true"
+                   GridPane.columnIndex="3" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="6"
+                   GridPane.rowSpan="1">
             </Label>
         </GridPane>
     </center>
     <stylesheets>
-        <URL value="@../styles/font.css" />
-        <URL value="@../styles/form.css" />
+        <URL value="@../styles/font.css"/>
+        <URL value="@../styles/form.css"/>
     </stylesheets>
 </BorderPane>

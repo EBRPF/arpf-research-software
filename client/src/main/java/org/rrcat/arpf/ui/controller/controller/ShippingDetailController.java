@@ -1,9 +1,7 @@
-package org.rrcat.arpf.ui.controller;
+package org.rrcat.arpf.ui.controller.controller;
 
 import com.gluonhq.charm.glisten.control.AutoCompleteTextField;
-import javafx.beans.Observable;
 import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -11,13 +9,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import org.dae.arpf.dto.*;
-import org.rrcat.arpf.ui.api.schema.OrderApi;
-import org.rrcat.arpf.ui.api.schema.ShippingDetailsApi;
-import org.rrcat.arpf.ui.constants.CustomerFormData;
-import org.rrcat.arpf.ui.constants.OrderFormData;
-import org.rrcat.arpf.ui.di.annotations.AlertingExceptionConsumer;
-import org.rrcat.arpf.ui.di.annotations.ImageFileSupplier;
-import org.rrcat.arpf.ui.service.ImageUploadService;
+import org.rrcat.arpf.ui.controller.api.schema.ShippingDetailsApi;
+import org.rrcat.arpf.ui.controller.constants.CustomerFormData;
+import org.rrcat.arpf.ui.controller.di.annotations.AlertingExceptionConsumer;
+import org.rrcat.arpf.ui.controller.di.annotations.ImageFileSupplier;
+import org.rrcat.arpf.ui.controller.service.ImageUploadService;
 import retrofit2.Call;
 import retrofit2.Response;
 
@@ -34,8 +30,6 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
-
-import static javafx.scene.input.KeyCode.T;
 
 public class ShippingDetailController implements Initializable {
     @FXML
@@ -75,7 +69,6 @@ public class ShippingDetailController implements Initializable {
 
     private final ImageUploadService uploadService;
 
-    private final ShippingDetailsApi shippingDetailsApi;
     private final Consumer<Throwable> exceptionHandler;
     private final ShippingDetailsApi api;
     private final Supplier<File> uploadFileSupplier;
@@ -129,6 +122,7 @@ public class ShippingDetailController implements Initializable {
             alert.setContentText("Kindly select an image to be uploaded. Try again after selecting an image.");
             alert.show();
             return;
+        }
 
             /*
             final ShippingDetailsDTO dto =
@@ -155,7 +149,8 @@ public class ShippingDetailController implements Initializable {
                     .shippingMedium(ShippedName.getText())
                     .gatePassImageKey(currentUploadedImageReference.get().id())
                     .dosimetryReportImageKey(currentUploadedImageReference.get().id())
-                    .shippingAddress(ShippedAddress.getText())
+                    .shippingAddress(ShippingDetailsDTOBuilder.builder().shippingAddress(ShippedAddress.getText()).
+                                                                shippingDate(ShippedDate.getValue()).shippingMedium(Ship))
                     .shippingCity(ShipCity.getText())
                     .ShipState(ShipState.getValue())
                     .shippingPostalCode(ShipPostalCode.getText())
@@ -165,13 +160,13 @@ public class ShippingDetailController implements Initializable {
 
 
             try {
-                final Call<ShippingDetailsDTO> call = shippingDetailsApi.registerShippingDetails(shippingDTO);
+                final Call<ShippingDetailsDTO> call = api.registerShippingDetails(shippingDTO);
                 final Response<ShippingDetailsDTO> response = call.execute();
                 final Alert alert;
                 if (response.code() == 201 && response.body() != null) {
                     alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Shipping Details");
-                    alert.setHeaderText("Shipping Deatils for Customer with ID: " + response.body().registrationNo());
+                    alert.setHeaderText("Shipping Deatils for Order with ID: " + response.body().registrationNo());
                     alert.setContentText(null);
 
                 } else {
@@ -180,10 +175,14 @@ public class ShippingDetailController implements Initializable {
                     alert.setHeaderText("Shipping Details Update failed.");
                     alert.setContentText("Response: " + response.code() + " Message:" + response.message() + " Body:" + response.body());
                 }
+                try{
+                    api call
+                }
+
                 alert.show();
             } catch (final Exception exception) {
                 exception.printStackTrace();
-                final Alert alert = new Alert(Alert.AlertType.ERROR);
+     final Alert      alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Shipping Details");
                 alert.setHeaderText("Shipping Details Update failed.");
                 alert.setContentText("Exception: " + exception.getClass().getName() + " " + exception.getMessage());
@@ -205,7 +204,7 @@ public class ShippingDetailController implements Initializable {
         private Void onUploadFileFailure(Throwable throwable) {
             ScannedGatePass.imageProperty().set(null);
             DosimetryReport.imageProperty().set(null);
-            exceptionHandler.accept(exception);
+            exceptionHandler.accept(throwable);
             return null;
         }
 
@@ -218,6 +217,6 @@ public class ShippingDetailController implements Initializable {
 
 
 
-}
+
 
 

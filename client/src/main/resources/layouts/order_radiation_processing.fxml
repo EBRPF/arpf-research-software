@@ -10,9 +10,7 @@
 <BorderPane prefHeight="1400.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.RadiationProcessingController">
     <top>
         <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: rgb(190,220,255);">
-            <Label styleClass="form-title" text="Order Radiation Processing">
-
-            </Label>
+            <Label styleClass="form-title" text="Order Radiation Processing"/>
         </HBox>
     </top>
     <center>
@@ -59,109 +57,109 @@
                 <JFXComboBox fx:id="orderNumber" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.fillWidth="true" GridPane.rowIndex="1" />
 
                 <Label text="Dosimeter Used" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                <JFXComboBox fx:id="instituteType" maxWidth="Infinity" promptText="Select one..." GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <JFXTextField fx:id="dosimeterUsed" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
                 <Label text="Dosimeter Location on Product" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-                <JFXTextField fx:id="researchHeadName" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <JFXTextField fx:id="dosimeterLocation" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
                 <Label text="Radiation Processing Date" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-                <JFXTextField fx:id="researchHeadMobileNo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <JFXDatePicker fx:id="radProcessDate" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
                 <Label text="Radiation Processing Start Time" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="5" />
-                <JFXTextField fx:id="researchHeadEmail" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <JFXTextField fx:id="radStartTime" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
                 <Label text="Completion Time" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="6" />
-                <JFXTextField fx:id="officeAddress" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.fillWidth="true" GridPane.rowIndex="6" />
+                <JFXTextField fx:id="radCompletionTime" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.fillWidth="true" GridPane.rowIndex="6" />
 
                 <Label text="Beam Energy (MeV)" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="7" />
-                <JFXTextField fx:id="addressCity" maxHeight="Infinity" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                <JFXTextField fx:id="beamEnergy" maxHeight="Infinity" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="7" />
 
                 <Label text="Beam Current (MeV)" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="8" />
-                <JFXComboBox fx:id="addressState" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                <JFXTextField fx:id="beamCurrent" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="8" />
 
                 <Label text="PRR (Hz)" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="9" />
-                <JFXTextField fx:id="email" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                <JFXTextField fx:id="PRR" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="9" />
 
                 <Label text="Scan Width (cm)" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="10" />
-                <JFXTextField fx:id="researchOfficerName" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                <JFXTextField fx:id="scanWidth" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="10" />
 
                 <Label text="Scan Current (A) Time (m.sec) " wrapText="true" GridPane.columnIndex="0" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.rowIndex="11" />
-                <JFXTextField fx:id="researchOfficerMobNo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                <JFXTextField fx:id="scanCurrentTime" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="11" />
 
                 <Label text="Conveyor Speed" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="12" />
-                <JFXTextField fx:id="extraInfo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                <JFXTextField fx:id="conveyorSpeed" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="12" />
 
                 <Label text="Dose Rate" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="13" />
-                <JFXTextField fx:id="extraInfo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="13" />
+                <JFXTextField fx:id="doseRate" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="13" />
 
                 <Label text="Source to Surface Distance (cm)" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="14" />
-                <JFXTextField fx:id="extraInfo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="14" />
+                <JFXTextField fx:id="sourceToSurfaceDistance" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="14" />
 
                 <Label text="Other Related Machine Parameters" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="15" />
-                <JFXTextField fx:id="extraInfo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="15" />
+                <JFXTextField fx:id="machineParameters" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="15" />
 
                 <Label text="Operator remarks if any" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="16" />
-                <JFXTextField fx:id="extraInfo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="16" />
+                <JFXTextField fx:id="operatorRemarks" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="16" />
 
                 <Label text="Name of Organization" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <padding>
                   <Insets left="10.0" />
                </padding></Label>
-                <JFXTextField fx:id="extraInfo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                <JFXTextField fx:id="orgName" maxWidth="Infinity" promptText="..." GridPane.columnIndex="3" GridPane.rowIndex="1" />
 
                 <Label text="Product Description" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <padding>
                   <Insets left="10.0" />
                </padding></Label>
-                <JFXTextField fx:id="extraInfo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                <JFXTextField fx:id="productDesc" maxWidth="Infinity" promptText="..." GridPane.columnIndex="3" GridPane.rowIndex="2" />
 
                 <Label text="Product Material" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <padding>
                   <Insets left="10.0" />
                </padding></Label>
-                <JFXTextField fx:id="extraInfo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                <JFXTextField fx:id="productMaterial" maxWidth="Infinity" promptText="..." GridPane.columnIndex="3" GridPane.rowIndex="3" />
 
                 <Label text="Product Detail" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <padding>
                   <Insets left="10.0" />
                </padding></Label>
-                <JFXTextField fx:id="extraInfo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                <JFXTextField fx:id="productDetail" maxWidth="Infinity" promptText="..." GridPane.columnIndex="3" GridPane.rowIndex="4" />
 
                 <Label text="Irradiation Purpose" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="5">
                <padding>
                   <Insets left="10.0" />
                </padding></Label>
-                <JFXTextField fx:id="extraInfo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                <JFXTextField fx:id="irradiationPurpose" maxWidth="Infinity" promptText="..." GridPane.columnIndex="3" GridPane.rowIndex="5" />
 
                 <Label text="Irradiation Mode" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="6">
                <padding>
                   <Insets left="10.0" />
                </padding></Label>
-                <JFXTextField fx:id="extraInfo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                <JFXTextField fx:id="irradiationMode" maxWidth="Infinity" promptText="..." GridPane.columnIndex="3" GridPane.rowIndex="6" />
 
                 <Label text="Required Dose[xGy]" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="7">
                <padding>
                   <Insets left="10.0" />
                </padding></Label>
-                <JFXTextField fx:id="extraInfo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="3" GridPane.rowIndex="7" />
+                <JFXTextField fx:id="requireDose" maxWidth="Infinity" promptText="..." GridPane.columnIndex="3" GridPane.rowIndex="7" />
 
                 <Label text="Product Dimensions" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="8">
                <padding>
                   <Insets left="10.0" />
                </padding></Label>
-                <JFXTextField fx:id="extraInfo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="3" GridPane.rowIndex="8" />
+                <JFXTextField fx:id="productDimensions" maxWidth="Infinity" promptText="..." GridPane.columnIndex="3" GridPane.rowIndex="8" />
 
                 <Label text="Product Weight" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="9">
                <padding>
                   <Insets left="10.0" />
                </padding></Label>
-                <JFXTextField fx:id="extraInfo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="3" GridPane.rowIndex="9" />
+                <JFXTextField fx:id="productWeight" maxWidth="Infinity" promptText="..." GridPane.columnIndex="3" GridPane.rowIndex="9" />
 
                 <Label text="Total Sample Boxes" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="10">
                <padding>
                   <Insets left="10.0" />
                </padding></Label>
-                <JFXTextField fx:id="extraInfo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="3" GridPane.rowIndex="10" />
+                <JFXTextField fx:id="totalSampleBoxes" maxWidth="Infinity" promptText="..." GridPane.columnIndex="3" GridPane.rowIndex="10" />
 
                 <Label text="Extra Info" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="11">
                <padding>
@@ -173,7 +171,7 @@
                <padding>
                   <Insets left="10.0" />
                </padding></Label>
-                <JFXTextField fx:id="extraInfo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="3" GridPane.rowIndex="12" />
+                <JFXDatePicker fx:id="dateOfReceipt" maxWidth="Infinity" promptText="..." GridPane.columnIndex="3" GridPane.rowIndex="12" />
 
                 <GridPane maxHeight="Infinity" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.rowIndex="18">
                     <columnConstraints>
@@ -194,7 +192,7 @@
                     </Label>
                     <StackPane fx:id="imageOuterPane" style="-fx-border-color: black;" GridPane.columnIndex="2"  GridPane.fillHeight="true" GridPane.fillWidth="true">
                         <ScrollPane>
-                            <ImageView fx:id="registrationScannedImg">
+                            <ImageView fx:id="requestForm">
                             </ImageView>
                         </ScrollPane>
                         <GridPane.margin>
@@ -206,16 +204,16 @@
 
 
                     <Label text="Facility In-Charge Comments, If any" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-                    <JFXTextField fx:id="extraInfo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                    <JFXTextField fx:id="facilityICComments" maxWidth="Infinity" promptText="..." GridPane.columnIndex="2" GridPane.rowIndex="2" />
                 </GridPane>
 
-                <JFXCheckBox GridPane.rowIndex="21" GridPane.halignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="4"
+                <JFXCheckBox fx:id="orderConfirmCB" GridPane.rowIndex="21" GridPane.halignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="4"
                              text="Order Registered and Processed for Further Action"/>
 
-                <JFXCheckBox GridPane.rowIndex="22" GridPane.halignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="4"
+                <JFXCheckBox fx:id="irradiationProcessedCB" GridPane.rowIndex="22" GridPane.halignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="4"
                              text="Irradiation Processed"/>
 
-                <JFXButton fx:id="saveRecordCustomer" onAction="#onClickSubmit" style="-fx-background-color: rgb(190,220,255);" text="Submit" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="23" />
+                <JFXButton fx:id="saveORP" onAction="#onClickSubmit" style="-fx-background-color: rgb(190,220,255);" text="Submit" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="23" />
 
                 <padding>
                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

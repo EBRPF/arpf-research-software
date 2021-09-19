@@ -90,7 +90,6 @@ public final class OrderRegController implements Initializable {
         irradiationMode.setItems(OrderFormData.INSTITUTE_TYPES);
         confirmationCheckbox.selectedProperty().addListener(this::onCheckboxUpdate);
         submitOrder.setDisable(!confirmationCheckbox.isSelected());
-
     }
 
     @FXML

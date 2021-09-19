@@ -1,6 +1,6 @@
 package org.rrcat.arpf.ui.controller;
 
-import javafx.event.ActionEvent;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -39,7 +39,7 @@ public class RadiationProcessingController  implements Initializable {
     @FXML
     private TextField radStartTime;
     @FXML
-    private TextField completionTime;
+    private TextField radCompletionTime;
     @FXML
     private TextField beamEnergy;
     @FXML
@@ -55,39 +55,39 @@ public class RadiationProcessingController  implements Initializable {
     @FXML
     private TextField doseRate;
     @FXML
-    private TextField stoSDistance;
+    private TextField sourceToSurfaceDistance;
     @FXML
-    private TextField otherMacParameters;
+    private TextField machineParameters;
     @FXML
     private TextField operatorRemarks;
     @FXML
-    private TextField orgNameField;
+    private TextField orgName;
     @FXML
-    private TextField descrOfProducts;
+    private TextField productDesc;
     @FXML
-    private TextField materialOfProduct;
+    private TextField productMaterial;
     @FXML
-    private TextField detailOfProduct;
+    private TextField productDetail;
     @FXML
-    private TextField PurposeOfIrrad;
+    private TextField irradiationPurpose;
     @FXML
-    private TextField modeOfIrrad;
+    private TextField irradiationMode;
     @FXML
     private TextField requireDose;
     @FXML
-    private TextField dimenOfProduct;
+    private TextField productDimensions;
     @FXML
-    private TextField weightOfProduct;
+    private TextField productWeight;
     @FXML
     private TextField totalSampleBoxes;
     @FXML
-    private TextField anyOrderInfo;
+    private TextField extraInfo;
     @FXML
-    private DatePicker dateOfOrder;
+    private DatePicker dateOfReceipt;
     @FXML
     private ImageView requestForm;
     @FXML
-    private TextField fIComments;
+    private TextField facilityICComments;
     @FXML
     private CheckBox orderConfirmCB;
     @FXML
@@ -115,7 +115,8 @@ public class RadiationProcessingController  implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        irradiationProcessedCB.selectedProperty().addListener(this::onCheckboxUpdate);
+        saveRecordORP.setDisable(!irradiationProcessedCB.isSelected());
     }
 
     @FXML
@@ -151,13 +152,13 @@ public class RadiationProcessingController  implements Initializable {
                         .dosimeterUsed(dosimeterUsed.getText())
                         .processingDate(Dates.localToEpoch(radProcessDate.getValue()))
                         .startTime(radStartTime.getText())
-                        .endTime(completionTime.getText())
+                        .endTime(radCompletionTime.getText())
                         .operatorRemarks(operatorRemarks.getText())
                         .PRR(PRR.getText())
-                        .relatedMachineParams(otherMacParameters.getText())
+                        .relatedMachineParams(machineParameters.getText())
                         .scanWidth(Float.parseFloat(scanWidth.getText()))
                         .scanCurrentAndTime(scanCurrentTime.getText())
-                        .sourceToSurfaceDimension(stoSDistance.getText())
+                        .sourceToSurfaceDimension(sourceToSurfaceDistance.getText())
                         .build();
         try {
             final Call<OrderRadiationProcessingDTO> call = orderRPApi.registerORP(dto);
@@ -166,13 +167,13 @@ public class RadiationProcessingController  implements Initializable {
             if (response.code() == 201 && response.body() != null) {
                 alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Order Radiation Processing");
-                alert.setHeaderText("Order Radiation Processing has been successfully registered with ID: " + response.body().registrationNo());
+                alert.setHeaderText("Order Radiation Processing has been successfully registered for ID: " + response.body().registrationNo());
                 alert.setContentText(null);
 
             } else {
                 alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Order Radiation Processing");
-                alert.setHeaderText("Radiation Processing attempt failed.");
+                alert.setHeaderText("Order Radiation Processing attempt failed.");
                 alert.setContentText("Response: " + response.code() + " Message:" + response.message() + " Body:" + response.body());
             }
             alert.show();
@@ -198,5 +199,9 @@ public class RadiationProcessingController  implements Initializable {
         requestForm.imageProperty().set(null);
         exceptionHandler.accept(exception);
         return null;
+    }
+
+    private void onCheckboxUpdate(final ObservableValue<? extends Boolean> observable, final Boolean oldValue, final Boolean newValue) {
+        saveRecordORP.setDisable(!newValue);
     }
 }

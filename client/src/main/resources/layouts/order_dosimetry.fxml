@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.control.Label?>
-<?import java.net.URL?>
-<?import com.jfoenix.controls.JFXComboBox?>
-<BorderPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.CustomerRegController">
+<?import com.jfoenix.controls.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.CustomerRegController">
     <top>
         <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: rgb(190,220,255);">
             <Label styleClass="form-title" text="Customer Registration">
@@ -19,8 +16,8 @@
     <center>
         <GridPane>
             <columnConstraints>
-                <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
-                <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="16.0" />
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="17.200000000000003" />
                 <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
                 <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
                 <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
@@ -45,14 +42,36 @@
                 <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
                 <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
                 <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
+            <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
+            <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
+            <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
+            <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
+            <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
+            <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
             </rowConstraints>
 
-            <Label text="Order Detail" GridPane.rowIndex="0" GridPane.rowSpan="1" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER"/>
-            <Label text="Radiation Processing Data" GridPane.rowIndex="0" GridPane.rowSpan="1" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER"/>
-            <Label text="Dosimetry Data" GridPane.rowIndex="0" GridPane.rowSpan="1" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER"/>
+            <Label text="Order Detail" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1" GridPane.valignment="CENTER" />
+            <Label text="Radiation Processing Data" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1" GridPane.valignment="CENTER" />
+            <Label text="Dosimetry Data" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1" GridPane.valignment="CENTER" />
 
-            <Label text="Order Detail" GridPane.rowIndex="1" GridPane.rowSpan="1" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER"/>
-            <JFXComboBox GridPane.rowIndex="1" GridPane.rowSpan="1" GridPane.columnIndex="1" GridPane.columnSpan="1" maxWidth="Infinity" GridPane.fillWidth="True" GridPane.fillHeight="True" GridPane.halignment="CENTER" GridPane.valignment="CENTER"/>
+            <Label text="Order Detail" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="1" GridPane.valignment="CENTER" />
+            <JFXComboBox maxWidth="Infinity" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="1" GridPane.valignment="CENTER" />
+            <Label text="Name of Organisation" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.rowSpan="1" GridPane.valignment="CENTER" />
+            <JFXComboBox maxWidth="Infinity" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <Label text="Description of products to be irradated" wrapText="true" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.rowSpan="2" GridPane.valignment="CENTER" />
+            <JFXComboBox maxWidth="Infinity" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.rowSpan="3" GridPane.valignment="CENTER" />
+            <Label prefHeight="66.0" prefWidth="160.0" text="Details about the product/sample" wrapText="true" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.rowSpan="2" GridPane.valignment="CENTER" />
+            <JFXTextArea maxWidth="Infinity" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.rowSpan="2" GridPane.valignment="CENTER" />
+            <Label text="pourpose of irradation of products" wrapText="true" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.rowSpan="3" GridPane.valignment="CENTER" />
+            <JFXComboBox maxWidth="Infinity" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.rowSpan="3" GridPane.valignment="CENTER" />
+            <Label text="Mode of irradation" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.rowSpan="2" GridPane.valignment="CENTER" />
+            <JFXComboBox maxWidth="Infinity" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.rowSpan="2" GridPane.valignment="CENTER" />
+            <Label text="Requruired dose [xGy]" wrapText="true" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.rowSpan="2" GridPane.valignment="CENTER" />
+            <JFXComboBox maxWidth="Infinity" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.rowSpan="3" GridPane.valignment="CENTER" />
+            <Label text="Dosimetory used" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.rowSpan="3" GridPane.valignment="CENTER" />
+            <JFXComboBox maxWidth="Infinity" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.rowSpan="3" GridPane.valignment="CENTER" />
+            <Label text="Dosimetory Location on the Product Sample" wrapText="true" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.rowSpan="4" GridPane.valignment="CENTER" />
+            <JFXComboBox maxWidth="Infinity" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.rowSpan="5" GridPane.valignment="CENTER" />
 
         </GridPane>
     </center>

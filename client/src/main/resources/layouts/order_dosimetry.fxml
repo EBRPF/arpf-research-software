@@ -3,9 +3,9 @@
 <?import com.jfoenix.controls.*?>
 <?import java.net.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<?import javafx.scene.image.ImageView?>
 <BorderPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.CustomerRegController">
     <top>
         <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: rgb(190,220,255);">
@@ -23,6 +23,8 @@
                 <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
                 <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
                 <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
             </columnConstraints>
             <rowConstraints>
                 <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
@@ -105,7 +107,12 @@
             <Label text="Date of Dosimetry measurement" wrapText="true" GridPane.columnIndex="4" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
             <JFXTextArea maxWidth="Infinity" prefHeight="67.0" prefWidth="307.0" GridPane.columnIndex="5" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
             <JFXTextArea maxWidth="Infinity" prefHeight="67.0" prefWidth="307.0" GridPane.columnIndex="5" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <Label text="Dosimetry Data" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.rowSpan="1" GridPane.valignment="CENTER" />
+            <Label text="Before Iradation product/sample Picture" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.rowSpan="1" GridPane.valignment="CENTER" />
+         <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="4" GridPane.rowSpan="3" />
+         <Button mnemonicParsing="false" text="Upload Image" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+            <Label text="Before Iradation product/sample Picture" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.rowSpan="2" GridPane.valignment="CENTER" />
+            <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="9" GridPane.rowSpan="4" />
+            <Button mnemonicParsing="false" text="Upload Image" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.rowSpan="2" GridPane.valignment="CENTER" />
 
         </GridPane>
     </center>

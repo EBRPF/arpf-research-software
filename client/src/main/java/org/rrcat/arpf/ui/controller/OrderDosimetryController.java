@@ -119,7 +119,7 @@ public class OrderDosimetryController implements Initializable {
 
 
     @Inject
-    public OrderRegController(final ImageUploadService uploadService, final @ImageFileSupplier Supplier<File> uploadFileSupplier, final @AlertingExceptionConsumer Consumer<Throwable> exceptionHandler, final DosimetryApi dosimetryApi) {
+    public OrderDosimetryController(final ImageUploadService uploadService, final @ImageFileSupplier Supplier<File> uploadFileSupplier, final @AlertingExceptionConsumer Consumer<Throwable> exceptionHandler, final DosimetryApi dosimetryApi) {
         this.uploadService = uploadService;
         this.uploadFileSupplier = uploadFileSupplier;
         this.exceptionHandler = exceptionHandler;
@@ -157,7 +157,7 @@ public class OrderDosimetryController implements Initializable {
         }
 
         final DosimetryDTO dosimetryDTO = DosimetryDTOBuilder.builder()
-                .registrationNo(Integer.parseInt(OrderNumber.getValue()))
+                .registrationNo(Integer.parseInt(OrderNumber.getText()))
                 .measurementDate(Date.from(DosimetryDate.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .measurement(DosimetryResult.getText())
                 .beforeImageKey(currentUploadedImageReference.get().id())

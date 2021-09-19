@@ -14,9 +14,9 @@ public interface CustomerApi {
     @POST("/api/v1/customer/register")
     Call<CustomerDTO>  register(@Body final CustomerDTO dto);
 
-    @GET("/fetch/{registrationId}")
-    Call<CustomerDTO> fetchCustomer(@Path("registrationId") final int registrationNo);
+    @GET("/fetch/{customerId}")
+    Call<CustomerDTO> fetchCustomer(@Path("customerId") final int customerId);
 
-    @GET("/search/{registrationId}")
-    Call<Collection<CustomerDTO>> searchCustomer(@Path("registrationId") final String registrationNo);
+    @GET("/search/{customerId}")
+    Call<Collection<CustomerDTO>> searchCustomer(@Path("customerId") final String customerId);
 }

@@ -207,7 +207,7 @@ public class OrderDosimetryController implements Initializable {
 
         BeforeIrradImage.imageProperty().set(null);
         AfterIrradImage.imageProperty().set(null);
-        exceptionHandler.accept(exception);
+        exceptionHandler.accept(throwable);
         return null;
 
     }

@@ -7,7 +7,7 @@ import retrofit2.http.POST;
 
 public interface UserApi {
     @POST("/api/v1/user/register")
-    Call<Void> registerUser(@Body final UserDTO userDTO);
+    Call<UserDTO> registerUser(@Body final UserDTO userDTO);
 
     @POST("/api/v1/user/update/role")
     Call<Void> setRole(@Body final UserDTO userDTO);

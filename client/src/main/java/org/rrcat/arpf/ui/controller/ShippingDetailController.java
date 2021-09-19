@@ -1,4 +1,4 @@
-package org.rrcat.arpf.ui.controller.controller;
+package org.rrcat.arpf.ui.controller;
 
 import com.gluonhq.charm.glisten.control.AutoCompleteTextField;
 import javafx.beans.value.ObservableValue;

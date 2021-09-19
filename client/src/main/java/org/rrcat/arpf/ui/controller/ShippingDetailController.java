@@ -9,11 +9,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import org.dae.arpf.dto.*;
-import org.rrcat.arpf.ui.controller.api.schema.ShippingDetailsApi;
-import org.rrcat.arpf.ui.controller.constants.CustomerFormData;
-import org.rrcat.arpf.ui.controller.di.annotations.AlertingExceptionConsumer;
-import org.rrcat.arpf.ui.controller.di.annotations.ImageFileSupplier;
-import org.rrcat.arpf.ui.controller.service.ImageUploadService;
+import org.rrcat.arpf.ui.api.schema.ShippingDetailsApi;
+import org.rrcat.arpf.ui.di.annotations.AlertingExceptionConsumer;
+import org.rrcat.arpf.ui.di.annotations.ImageFileSupplier;
+import org.rrcat.arpf.ui.service.ImageUploadService;
 import retrofit2.Call;
 import retrofit2.Response;
 

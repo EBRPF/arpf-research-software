@@ -7,7 +7,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="2000.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.RadiationProcessingController">
+<BorderPane prefHeight="1400.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.RadiationProcessingController">
     <top>
         <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: rgb(190,220,255);">
             <Label styleClass="form-title" text="Order Radiation Processing">

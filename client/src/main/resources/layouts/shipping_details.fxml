@@ -12,7 +12,7 @@
             fx:controller="org.rrcat.arpf.ui.controller.CustomerRegController">
     <top>
         <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: rgb(190,220,255);">
-            <Label styleClass="form-title" text="Customer Registration">
+            <Label styleClass="form-title" text="Shipping Details">
 
             </Label>
         </HBox>

@@ -5,6 +5,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.image.ImageView?>
 <BorderPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.CustomerRegController">
     <top>
         <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: rgb(190,220,255);">
@@ -101,6 +102,10 @@
             <JFXTextArea maxWidth="Infinity" prefHeight="67.0" prefWidth="307.0" GridPane.columnIndex="3" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="RIGHT" GridPane.rowIndex="12" GridPane.valignment="CENTER" />
             <Label text="Operator remarks if any" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
             <JFXTextArea maxWidth="Infinity" prefHeight="67.0" prefWidth="307.0" GridPane.columnIndex="3" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="RIGHT" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
+            <Label text="Date of Dosimetry measurement" wrapText="true" GridPane.columnIndex="4" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <JFXTextArea maxWidth="Infinity" prefHeight="67.0" prefWidth="307.0" GridPane.columnIndex="5" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <JFXTextArea maxWidth="Infinity" prefHeight="67.0" prefWidth="307.0" GridPane.columnIndex="5" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <Label text="Dosimetry Data" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.rowSpan="1" GridPane.valignment="CENTER" />
 
         </GridPane>
     </center>

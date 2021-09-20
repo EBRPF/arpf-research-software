@@ -1,10 +1,14 @@
 package org.rrcat.arpf.ui.controller;
 
+import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent;
+import org.rrcat.arpf.ui.api.schema.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -62,9 +66,27 @@ public class SampleIrradReportController implements Initializable {
     private Label dosimeterLocation;
     @FXML
     private Label dosimetryResult;
+        private  final OrderApi orderApi;
+        private  final CustomerApi customerApi;
+        private  final OrderRPApi orderRPApi;
+        private final DosimetryApi dosimetryApi;
+        private  final ShippingDetailsApi shippingDetailsApi;
+
+    public SampleIrradReportController(OrderApi orderApi, CustomerApi customerApi, OrderRPApi orderRPApi, DosimetryApi dosimetryApi, ShippingDetailsApi shippingDetailsApi) {
+        this.orderApi = orderApi;
+        this.customerApi = customerApi;
+        this.orderRPApi = orderRPApi;
+        this.dosimetryApi = dosimetryApi;
+        this.shippingDetailsApi = shippingDetailsApi;
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+  orderNumber.setOnKeyTyped(new EventHandler<KeyEvent>() {
+      @Override
+      public void handle(KeyEvent event) {
+          if (orderNumber.)
+      }
+  });
     }
 }

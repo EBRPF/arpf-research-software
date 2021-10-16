@@ -65,9 +65,6 @@
                 <Label text="Radiation Processing Date" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="4" />
                 <JFXDatePicker fx:id="radProcessDate" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
-                <Label text="Radiation Processing Start Time" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="5" />
-                <JFXTextField fx:id="radStartTime" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="5" />
-
                 <Label text="Completion Time" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="6" />
                 <JFXTextField fx:id="radCompletionTime" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.fillWidth="true" GridPane.rowIndex="6" />
 
@@ -207,8 +204,7 @@
                     <JFXTextField fx:id="facilityICComments" maxWidth="Infinity" promptText="..." GridPane.columnIndex="2" GridPane.rowIndex="2" />
                 </GridPane>
 
-                <JFXCheckBox fx:id="orderConfirmCB" GridPane.rowIndex="21" GridPane.halignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="4"
-                             text="Order Registered and Processed for Further Action"/>
+
 
                 <JFXCheckBox fx:id="irradiationProcessedCB" GridPane.rowIndex="22" GridPane.halignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="4"
                              text="Irradiation Processed"/>

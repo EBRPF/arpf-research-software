@@ -31,7 +31,7 @@
             <Image url="@../assets/images/rrcat_logo.png" />
         </ImageView>
         <VBox alignment="CENTER" GridPane.columnIndex="1">
-            <Text layoutX="121.0" layoutY="65.0" text="ELECTRON BEAM RADIATION PROCESSING FACILITY, INDORE" textAlignment="CENTER">
+            <Text layoutX="121.0" layoutY="65.0" text="ELECTRON BEAM RADIATION PROCESSING FACILITY (ARPF), INDORE" textAlignment="CENTER">
                 <font>
                     <Font name="System Bold" size="17.0" />
                 </font>

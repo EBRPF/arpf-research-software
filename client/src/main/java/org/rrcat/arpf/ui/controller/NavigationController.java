@@ -50,7 +50,7 @@ public final class NavigationController implements Initializable {
 
     @FXML
     public void navigateOrderReg(final MouseEvent mouseEvent) throws IOException {
-        navigate("order_radiation_processing");
+        navigate("order_registration");
     }
 
     @FXML

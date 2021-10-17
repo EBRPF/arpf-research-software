@@ -66,11 +66,11 @@ public class SampleIrradReportController implements Initializable {
     private Label dosimeterLocation;
     @FXML
     private Label dosimetryResult;
-        private  final OrderApi orderApi;
-        private  final CustomerApi customerApi;
-        private  final OrderRPApi orderRPApi;
-        private final DosimetryApi dosimetryApi;
-        private  final ShippingDetailsApi shippingDetailsApi;
+    private final OrderApi orderApi;
+    private final CustomerApi customerApi;
+    private final OrderRPApi orderRPApi;
+    private final DosimetryApi dosimetryApi;
+    private final ShippingDetailsApi shippingDetailsApi;
 
     public SampleIrradReportController(OrderApi orderApi, CustomerApi customerApi, OrderRPApi orderRPApi, DosimetryApi dosimetryApi, ShippingDetailsApi shippingDetailsApi) {
         this.orderApi = orderApi;
@@ -82,11 +82,6 @@ public class SampleIrradReportController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-  orderNumber.setOnKeyTyped(new EventHandler<KeyEvent>() {
-      @Override
-      public void handle(KeyEvent event) {
-          if (orderNumber.)
-      }
-  });
+
     }
 }

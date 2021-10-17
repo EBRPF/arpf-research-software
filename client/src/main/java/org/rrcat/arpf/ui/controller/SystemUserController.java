@@ -40,7 +40,4 @@ public class SystemUserController implements Initializable {
         addBtn.setDisable(!confirmPassword.getText().equalsIgnoreCase(password.getText()));
     }
 
-    private boolean verifyPassword() {
-        userRole.setOnk
-    }
 }

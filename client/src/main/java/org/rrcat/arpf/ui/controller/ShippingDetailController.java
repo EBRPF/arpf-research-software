@@ -108,18 +108,22 @@ public class ShippingDetailController implements Initializable {
             alert.show();
             return;
         }
-
-        final  ShippingDetailsDTO dto =
-                ShippingDetailsDTOBuilder.builder()
-                    .registrationNo(Integer.parseInt(orderNumber.getValue()))
-                    .shippingDate(Dates.localToEpoch(shippedDate.getValue()))
-                    .shippingMedium(shippingMedium.getText())
-                    .shippingAddress(shippingAdd.getText())
-                    .shippingAddress(shippingCity.getText())
-                    .shippingAddress(postalCode.getText())
-                    .shippedPackets(productCount.getText())
-                    .build();
         try {
+            final  ShippingDetailsDTO dto =
+                    ShippingDetailsDTOBuilder.builder()
+                            .registrationNo(Integer.parseInt(orderNumber.getValue()))
+                            .shippingDate(Dates.localToEpoch(shippedDate.getValue()))
+                            .shippingMedium(shippingMedium.getText())
+                            .shippingAddress(
+                                    AddressDTOBuilder.builder()
+                                            .addressText(shippingAdd.getText())
+                                            .city(shippingCity.getText())
+                                            .pinCode(postalCode.getText())
+                                            .build()
+                            )
+                            .shippedPackets(Integer.parseInt(productCount.getText()))
+                            .build();
+
             final Call<ShippingDetailsDTO> call = shippingDetailsApi.registerShippingDetails(dto);
             final Response<ShippingDetailsDTO> response = call.execute();
             final Alert alert;

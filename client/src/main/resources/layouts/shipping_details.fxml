@@ -9,7 +9,7 @@
 
 <BorderPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: white;"
             xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="org.rrcat.arpf.ui.controller.CustomerRegController">
+            fx:controller="org.rrcat.arpf.ui.controller.ShippingDetailController">
     <top>
         <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: rgb(190,220,255);">
             <Label styleClass="form-title" text="Shipping Details">
@@ -75,7 +75,10 @@
             <Label text="No. of Product shipped" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="10"/>
             <JFXTextField fx:id="shippedCount" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="10"/>
 
-            <JFXCheckBox  text="Dosimetry Done" fx:id="dosimetryDoneCB"  GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="11"/>
+            <Label text="Shipment processed by" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="11"/>
+            <JFXTextField fx:id="processedBy" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="11"/>
+
+            <JFXCheckBox text="Irradiation sample shipped" fx:id="irradiationSampleShippedCB" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="12"/>
 
 
             <Label text="Scanned Gate Pass" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1"

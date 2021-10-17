@@ -16,6 +16,7 @@ public record ShippingDetailsDTO(
         AddressDTO shippingAddress,
         Integer shippedPackets,
         Integer gatePassImageKey,
-        Integer dosimetryReportImageKey
+        Integer dosimetryReportImageKey,
+        String processedBy
 ) {
 }

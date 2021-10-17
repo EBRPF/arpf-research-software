@@ -1,5 +1,6 @@
 package org.rrcat.arpf.ui.controller;
 
+import com.jfoenix.controls.JFXTextField;
 import javafx.beans.Observable;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -57,6 +58,9 @@ public class ShippingDetailController implements Initializable {
     private CheckBox dosimetryDoneCB;
     @FXML
     private Button saveRecordCustomer;
+    @FXML
+    public TextField processedBy;
+
 
 
     private final AtomicReference<UploadedImageDTO> currentUploadedImageReference = new AtomicReference<>();
@@ -81,8 +85,6 @@ public class ShippingDetailController implements Initializable {
         dosimetryDoneCB.selectedProperty().addListener(this::onCheckboxUpdate);
         shippingState.setItems(CustomerFormData.STATES);
         gatePassScannedImg.setPreserveRatio(true);
-
-
     }
 
     @FXML
@@ -122,6 +124,7 @@ public class ShippingDetailController implements Initializable {
                                             .build()
                             )
                             .shippedPackets(Integer.parseInt(productCount.getText()))
+                            .processedBy(processedBy.getText())
                             .build();
 
             final Call<ShippingDetailsDTO> call = shippingDetailsApi.registerShippingDetails(dto);

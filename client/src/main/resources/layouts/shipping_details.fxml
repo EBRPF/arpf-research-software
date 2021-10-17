@@ -43,7 +43,7 @@
             </rowConstraints>
 
             <Label text="Order Number" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-            <JFXTextField fx:id="orderNumber" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            <JFXComboBox fx:id="orderNumber" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="0"/>
 
             <Label text="Name of Organization" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
             <JFXTextField fx:id="organizationName" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="1"/>
@@ -58,16 +58,16 @@
             <JFXDatePicker fx:id="shippedDate" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="4"/>
 
             <Label text="Shipping Type" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
-            <JFXTextField fx:id="shippingType" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+            <JFXTextField fx:id="shippingMedium" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="5"/>
 
             <Label text="Shipping Address" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
-            <JFXTextField fx:id="shippingAddress" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+            <JFXTextField fx:id="shippingAdd" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="6"/>
 
             <Label text="Shipping City" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
             <JFXTextField fx:id="shippingCity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="7"/>
 
             <Label text="Shipping State" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
-            <JFXTextField fx:id="shippingState" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+            <JFXComboBox fx:id="shippingState" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="8"/>
 
             <Label text="Shipping Postal Code" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="9"/>
             <JFXTextField fx:id="postalCode" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="9"/>

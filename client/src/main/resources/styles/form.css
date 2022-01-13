@@ -5,7 +5,7 @@
 .form-title {
     -fx-font-weight: bold;
     -fx-text-fill: rgb(0, 60, 170);
-    -fx-font-size: 20;
+    -fx-font-size: 25;
 }
 
 .form-button {
@@ -17,4 +17,9 @@
 .blue-border {
     -fx-border-width: 2;
     -fx-border-color: rgb(100, 100, 100);
+}
+
+.iso-title {
+    -fx-font-style : italic;
+    -fx-font-size: 20;
 }

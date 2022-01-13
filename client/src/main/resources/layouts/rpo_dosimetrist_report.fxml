@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<GridPane prefHeight="1920.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+    <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" percentWidth="14.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="ALWAYS" maxWidth="619.4677124023438" minWidth="10.0" prefWidth="245.3238525390625" />
+      <ColumnConstraints hgrow="ALWAYS" maxWidth="483.6761474609375" minWidth="10.0" prefWidth="483.6761474609375" />
+      <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints />
+      <ColumnConstraints />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
+      <RowConstraints maxHeight="Infinity" percentHeight="2.0" />
+      <RowConstraints maxHeight="Infinity" percentHeight="15.0" />
+      <RowConstraints maxHeight="Infinity" percentHeight="2.0" />
+      <RowConstraints maxHeight="Infinity" percentHeight="35.0" />
+      <RowConstraints maxHeight="Infinity" percentHeight="5.0" />
+      <RowConstraints maxHeight="Infinity" percentHeight="2.0" />
+      <RowConstraints maxHeight="Infinity" percentHeight="10.0" />
+      <RowConstraints maxHeight="Infinity" minHeight="10.0" prefHeight="1585.0" vgrow="ALWAYS" />
+    <RowConstraints maxHeight="Infinity" minHeight="10.0" prefHeight="1585.0" vgrow="ALWAYS" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <stylesheets>
+      <URL value="@../styles/form.css" />
+      <URL value="@../styles/report.css" />
+   </stylesheets>
+   <children>
+      <HBox prefHeight="134.0" prefWidth="810.0" style="-fx-background-color: rgb(190, 220, 255) rgb(190, 220, 255);" GridPane.columnSpan="5" />
+      <ImageView fitHeight="113.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/images/rrcat_logo.png" />
+         </image>
+      </ImageView>
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.columnSpan="3">
+         <children>
+            <Label layoutX="450.0" layoutY="23.0" styleClass="report-title" text="Agricultural Radiation Processing Facility">
+               <VBox.margin>
+                  <Insets left="237.0" top="41.0" />
+               </VBox.margin>
+            </Label>
+            <Label styleClass="report-title" text="Radiation Processing Operator and Dosimetrist Report">
+               <opaqueInsets>
+                  <Insets left="21.0" />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="180.0" top="9.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+      <Label styleClass="report-label" text="Order Number" GridPane.columnIndex="2" GridPane.columnSpan="5" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </Label>
+      <Label fx:id="OrderNumber" text="EBRPF-Research-Order-0005" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets left="100.0" />
+         </GridPane.margin>
+      </Label>
+      <GridPane styleClass="report-padding" GridPane.columnSpan="5" GridPane.rowIndex="2">
+         <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="33.33" />
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="8.33" />
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="8.33" />
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="8.33" />
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="8.33" />
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="33.33" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="Infinity" percentHeight="33.33" />
+            <RowConstraints maxHeight="Infinity" percentHeight="33.33" />
+            <RowConstraints maxHeight="Infinity" percentHeight="33.33" />
+         </rowConstraints>
+         <children>
+            <VBox alignment="CENTER" styleClass="boxed" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1">
+               <children>
+                  <HBox alignment="CENTER" styleClass="vertical-title-box" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label styleClass="report-label" text="Name of Organization / Institutions" />
+                     </children>
+                  </HBox>
+                  <Separator />
+                  <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="OrgNameField" text="BARC - Food Technology Division (FTD)" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" styleClass="boxed" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1">
+               <children>
+                  <HBox alignment="CENTER" styleClass="vertical-title-box" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label styleClass="report-label" text="Date of Receipt of Sample" />
+                     </children>
+                  </HBox>
+                  <Separator />
+                  <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="DateOfOrder" text="26-May-2021" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" styleClass="boxed" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="1">
+               <children>
+                  <HBox alignment="CENTER" styleClass="vertical-title-box" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label styleClass="report-label" text="Description of product(s) to be Irradiated" />
+                     </children>
+                  </HBox>
+                  <Separator />
+                  <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="DescrOfProducts" text="Garlic Powder" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" styleClass="boxed" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="1">
+               <children>
+                  <HBox alignment="CENTER" styleClass="vertical-title-box" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label styleClass="report-label" text="Detail about the Product / Sample" />
+                     </children>
+                  </HBox>
+                  <Separator />
+                  <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="DetailOfProduct" text="Different type of Garlic Powder (Dehydrated)" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" styleClass="boxed" GridPane.columnIndex="5" GridPane.columnSpan="1" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="1">
+               <children>
+                  <HBox alignment="CENTER" styleClass="vertical-title-box" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label styleClass="report-label" text="Purpose of Irradiation" />
+                     </children>
+                  </HBox>
+                  <Separator />
+                  <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="PurposeOfIrrad" text="Microbial Decontamination" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" styleClass="boxed" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.rowSpan="1">
+               <children>
+                  <HBox alignment="CENTER" styleClass="vertical-title-box" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label styleClass="report-label" text="Mode of Irradiation" />
+                     </children>
+                  </HBox>
+                  <Separator />
+                  <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="ModeOfirrad" text="Electron Mode" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="72.0" prefWidth="100.0" styleClass="boxed" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.rowSpan="1">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="20.0" prefWidth="258.0" styleClass="vertical-title-box" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label styleClass="report-label" text="Required Dosage (kGv)" />
+                     </children>
+                  </HBox>
+                  <Separator />
+                  <HBox alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="177.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="RequiredDose" text="5.0, 7.5, 10.0, 12.5" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="72.0" prefWidth="100.0" styleClass="boxed" GridPane.columnIndex="5" GridPane.rowIndex="2">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="20.0" prefWidth="258.0" styleClass="vertical-title-box" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label styleClass="report-label" text="Total Number of Product / Sample Boxes" />
+                     </children>
+                  </HBox>
+                  <Separator />
+                  <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="RequiredDose1" text="9" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </GridPane>
+      <Separator styleClass="report-separator" GridPane.columnSpan="5" GridPane.rowIndex="3">
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </Separator>
+      <GridPane GridPane.columnSpan="5" GridPane.rowIndex="4">
+         <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="45" />
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="55" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="Infinity" percentHeight="10" />
+            <RowConstraints maxHeight="Infinity" percentHeight="90" />
+         </rowConstraints>
+         <children>
+            <Label styleClass="report-label" text="Machine Parameters During Irradiation" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1" />
+            <Label styleClass="report-label" text="Dosimetric Measurement Results" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1" />
+            <GridPane styleClass="report-padding" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.rowIndex="1" GridPane.rowSpan="1">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="ALWAYS" percentWidth="100" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+               </rowConstraints>
+               <children>
+                  <HBox styleClass="boxed" GridPane.fillWidth="true" GridPane.rowIndex="0">
+                     <children>
+                        <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="report-label" text="Date of Irradiation" />
+                           </children>
+                        </VBox>
+                        <Separator orientation="VERTICAL" />
+                        <VBox HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox styleClass="boxed" GridPane.fillWidth="true" GridPane.rowIndex="1">
+                     <children>
+                        <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="report-label" text="Beam Energy (MeV)" />
+                           </children>
+                        </VBox>
+                        <Separator orientation="VERTICAL" />
+                        <VBox HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox styleClass="boxed" GridPane.fillWidth="true" GridPane.rowIndex="2">
+                     <children>
+                        <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="report-label" text="Beam Current (mA)" />
+                           </children>
+                        </VBox>
+                        <Separator orientation="VERTICAL" />
+                        <VBox HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox styleClass="boxed" GridPane.fillWidth="true" GridPane.rowIndex="3">
+                     <children>
+                        <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="report-label" text="PRR (Hz)" />
+                           </children>
+                        </VBox>
+                        <Separator orientation="VERTICAL" />
+                        <VBox HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox styleClass="boxed" GridPane.fillWidth="true" GridPane.rowIndex="4">
+                     <children>
+                        <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="report-label" text="Scan Width (cm)" />
+                           </children>
+                        </VBox>
+                        <Separator orientation="VERTICAL" />
+                        <VBox HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox styleClass="boxed" GridPane.fillWidth="true" GridPane.rowIndex="5">
+                     <children>
+                        <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="report-label" text="Scan Current (A) and Time (msec)" />
+                           </children>
+                        </VBox>
+                        <Separator orientation="VERTICAL" />
+                        <VBox HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox styleClass="boxed" GridPane.fillWidth="true" GridPane.rowIndex="6" GridPane.rowSpan="2">
+                     <children>
+                        <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="report-label" text="Conveyor Speed (m/min)" />
+                           </children>
+                        </VBox>
+                        <Separator orientation="VERTICAL" />
+                        <VBox HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox styleClass="boxed" GridPane.fillWidth="true" GridPane.rowIndex="8" GridPane.rowSpan="2">
+                     <children>
+                        <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="report-label" text="Dose Rate" />
+                           </children>
+                        </VBox>
+                        <Separator orientation="VERTICAL" />
+                        <VBox HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox styleClass="boxed" GridPane.fillWidth="true" GridPane.rowIndex="10" GridPane.rowSpan="1">
+                     <children>
+                        <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="report-label" text="Source to Surface Distance (cm)" />
+                           </children>
+                        </VBox>
+                        <Separator orientation="VERTICAL" />
+                        <VBox HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox styleClass="boxed" GridPane.fillWidth="true" GridPane.rowIndex="11" GridPane.rowSpan="2">
+                     <children>
+                        <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="report-label" text="Others related Machine Parameters" />
+                           </children>
+                        </VBox>
+                        <Separator orientation="VERTICAL" />
+                        <VBox HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox styleClass="boxed" GridPane.fillWidth="true" GridPane.rowIndex="13" GridPane.rowSpan="2">
+                     <children>
+                        <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="report-label" text="Operators remarks, if any" />
+                           </children>
+                        </VBox>
+                        <Separator orientation="VERTICAL" />
+                        <VBox HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+            <GridPane styleClass="report-padding" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="1" GridPane.rowSpan="1">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="ALWAYS" percentWidth="100" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                  <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+               </rowConstraints>
+               <children>
+                  <HBox styleClass="boxed" GridPane.fillWidth="true" GridPane.rowIndex="0">
+                     <children>
+                        <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="report-label" text="Date of Dosimetry Measurement" />
+                           </children>
+                        </VBox>
+                        <Separator orientation="VERTICAL" />
+                        <VBox HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox styleClass="boxed" GridPane.fillWidth="true" GridPane.rowIndex="1">
+                     <children>
+                        <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="report-label" text="Dosimeter Used" />
+                           </children>
+                        </VBox>
+                        <Separator orientation="VERTICAL" />
+                        <VBox HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <VBox alignment="CENTER" styleClass="boxed" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.rowSpan="5">
+                     <children>
+                        <HBox alignment="CENTER" styleClass="vertical-title-box" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="report-label" text="Dosimeter Location on the Product / Sample" />
+                           </children>
+                        </HBox>
+                        <Separator />
+                        <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" styleClass="boxed" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.rowSpan="8">
+                     <children>
+                        <HBox alignment="CENTER" styleClass="vertical-title-box" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="report-label" text="Dosimetry Results" />
+                           </children>
+                        </HBox>
+                        <Separator />
+                        <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS" />
+                     </children>
+                  </VBox>
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+      <Label styleClass="report-padding" text="You are requested to kindly acknowledge the receipt of sample and send the brief report after evaluation of irradiation sample" GridPane.columnSpan="5" GridPane.rowIndex="6" />
+      <BorderPane styleClass="report-padding" GridPane.columnSpan="5" GridPane.rowIndex="8">
+         <left>
+            <Label text="Signature of QC Officer">
+               <padding>
+                  <Insets left="150.0" />
+               </padding>
+            </Label>
+         </left>
+         <right>
+            <Label text="Signature of Facility In-Charge">
+               <padding>
+                  <Insets right="150.0" />
+               </padding>
+            </Label>
+         </right>
+      </BorderPane>
+   </children>
+</GridPane>

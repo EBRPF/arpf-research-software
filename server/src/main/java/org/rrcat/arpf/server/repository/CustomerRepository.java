@@ -8,6 +8,12 @@ import java.util.Collection;
 
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
     Customer findCustomerByRegistrationNo(final Integer registrationNo);
+
     @Query("FROM Customer WHERE concat(registrationNo, '') LIKE :registrationNo%")
     Collection<Customer> findCustomersByRegistrationNoFuzzy(final String registrationNo);
+
+    @Query("FROM Customer WHERE organization.name LIKE :organizationName%")
+    Collection<Customer> findCustomersByOrganizationNameFuzzy(final String organizationName);
+
+    Customer findCustomerByOrganizationName(final String organizationName);
 }

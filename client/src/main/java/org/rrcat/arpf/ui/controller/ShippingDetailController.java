@@ -59,7 +59,7 @@ public class ShippingDetailController implements Initializable {
     @FXML
     private Button saveRecordCustomer;
     @FXML
-    public TextField processedBy;
+    private TextField processedBy;
 
 
 

@@ -1,5 +1,6 @@
 package org.rrcat.arpf.ui.controller;
 
+import com.jfoenix.controls.JFXTextField;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -59,6 +60,8 @@ public final class CustomerRegController implements Initializable {
     private TextField researchOfficerName;
     @FXML
     private TextField researchOfficerMobNo;
+    @FXML
+    private TextField researchOfficerEmail;
     @FXML
     private TextField extraInfo;
     @FXML
@@ -137,6 +140,7 @@ public final class CustomerRegController implements Initializable {
                                 ContactInfoDTOBuilder.builder()
                                         .name(researchOfficerName.getText())
                                         .mobileNo(researchOfficerMobNo.getText())
+                                        .email(researchHeadEmail.getText())
                                         .build()
                         )
                         .email(email.getText())

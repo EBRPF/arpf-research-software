@@ -17,6 +17,12 @@ public interface CustomerApi {
     @GET("/fetch/{customerId}")
     Call<CustomerDTO> fetchCustomer(@Path("customerId") final int customerId);
 
+    @GET("/fetch/org/{organizationName}")
+    Call<CustomerDTO> fetchCustomerByOrganization(@Path("organizationName") final String organizationName);
+
     @GET("/search/{customerId}")
     Call<Collection<CustomerDTO>> searchCustomer(@Path("customerId") final String customerId);
+
+    @GET("/search/org/{organizationName}")
+    Call<Collection<CustomerDTO>> searchCustomerByOrganization(@Path("organizationName") final String organizationName);
 }

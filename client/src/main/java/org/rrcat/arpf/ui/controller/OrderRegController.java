@@ -1,5 +1,7 @@
 package org.rrcat.arpf.ui.controller;
 
+import com.gluonhq.charm.glisten.control.AutoCompleteTextField;
+import com.jfoenix.controls.JFXComboBox;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -8,6 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import org.dae.arpf.dto.*;
+import org.rrcat.arpf.ui.api.schema.CustomerApi;
 import org.rrcat.arpf.ui.api.schema.OrderApi;
 import org.rrcat.arpf.ui.constants.OrderFormData;
 import org.rrcat.arpf.ui.di.annotations.AlertingExceptionConsumer;
@@ -20,20 +23,21 @@ import javax.inject.Inject;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.time.ZoneId;
+import java.util.Collections;
 import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 public final class OrderRegController implements Initializable {
     @FXML
-    private ComboBox<String> customerRegisterNo;
-    @FXML
-    private TextField organizationName;
+    private AutoCompleteTextField<String> organizationName;
     @FXML
     private TextField productDescription;
     @FXML
@@ -76,13 +80,15 @@ public final class OrderRegController implements Initializable {
     private final Consumer<Throwable> exceptionHandler;
 
     private final OrderApi api;
+    private final CustomerApi customerApi;
 
     @Inject
-    public OrderRegController(final ImageUploadService uploadService, final @ImageFileSupplier Supplier<File> uploadFileSupplier, final @AlertingExceptionConsumer Consumer<Throwable> exceptionHandler, final OrderApi api) {
+    public OrderRegController(final ImageUploadService uploadService, final @ImageFileSupplier Supplier<File> uploadFileSupplier, final @AlertingExceptionConsumer Consumer<Throwable> exceptionHandler, final OrderApi api, CustomerApi customerApi) {
         this.uploadService = uploadService;
         this.uploadFileSupplier = uploadFileSupplier;
         this.exceptionHandler = exceptionHandler;
         this.api = api;
+        this.customerApi = customerApi;
     }
 
     @Override
@@ -90,6 +96,17 @@ public final class OrderRegController implements Initializable {
         irradiationMode.setItems(OrderFormData.INSTITUTE_TYPES);
         confirmationCheckbox.selectedProperty().addListener(this::onCheckboxUpdate);
         submitOrder.setDisable(!confirmationCheckbox.isSelected());
+        organizationName.setCompleter(string -> {
+            if (string.trim().isEmpty()) {
+                return Collections.emptyList();
+            }
+            try {
+                return customerApi.searchCustomerByOrganization(string).execute().body().stream().map(CustomerDTO::organization).map(OrganizationDTO::name).collect(Collectors.toList());
+            } catch (IOException exception) {
+                exception.printStackTrace();
+                return Collections.emptyList();
+            }
+        });
     }
 
     @FXML
@@ -114,10 +131,25 @@ public final class OrderRegController implements Initializable {
             alert.show();
             return;
         }
+        final Integer customerRegNo;
+        final Call<CustomerDTO> customerCall = customerApi.fetchCustomerByOrganization(organizationName.getText());
+        try {
+            final Response<CustomerDTO> customerResponse = customerCall.execute();
+            final CustomerDTO customerDTO = customerResponse.body();
+            customerRegNo = customerDTO.registrationNo();
+        } catch (IOException exception) {
+            exception.printStackTrace();
+            final Alert customerRegAlert = new Alert(Alert.AlertType.ERROR);
+            customerRegAlert.setTitle("Order Registration");
+            customerRegAlert.setHeaderText("Invalid Organization Name");
+            customerRegAlert.setContentText(null);
+            customerRegAlert.show();
+            return;
+        }
         final OrderDTO dto = OrderDTOBuilder.builder()
                 .comments(inchargeComments.getText())
                 .extraInfo(extraInfo.getText())
-                .customerId(Integer.parseInt(customerRegisterNo.getValue()))
+                .customerId(customerRegNo)
                 .imageKey(currentUploadedImageReference.get().id())
                 .irradiationMode(irradiationMode.getValue())
                 .irradiationPurpose(irradiationPurpose.getText())

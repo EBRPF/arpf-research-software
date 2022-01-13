@@ -3,11 +3,13 @@ package org.rrcat.arpf.server.entity.embedable;
 import org.dae.arpf.dto.ContactInfoDTO;
 import org.dae.arpf.dto.OrganizationDTO;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import java.util.Objects;
 
 @Embeddable
 public class Organization {
+    @Column(unique = true)
     private String name;
     private String type;
 

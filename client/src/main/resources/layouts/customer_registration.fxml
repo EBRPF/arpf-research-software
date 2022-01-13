@@ -22,24 +22,25 @@
                 <ColumnConstraints hgrow="ALWAYS" percentWidth="25.0" />
                 <ColumnConstraints hgrow="ALWAYS" percentWidth="15.0" />
                 <ColumnConstraints hgrow="ALWAYS" percentWidth="35.0" />
-            <ColumnConstraints />
+            <ColumnConstraints/>
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints maxHeight="Infinity" percentHeight="0.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="11.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
+                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
             </rowConstraints>
 
             <!-- <Label text="Registration Number" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="0" />
@@ -84,8 +85,12 @@
             <Label text="Research Officer/Scientist mobile no." wrapText="true" GridPane.columnIndex="0" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.rowIndex="13" />
             <JFXTextField fx:id="researchOfficerMobNo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="13" />
 
-            <Label text="Any other information" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="14" />
-            <JFXTextField fx:id="extraInfo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="14" />
+            <Label text="Research Officer/Scientist email" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="14" />
+            <JFXTextField fx:id="researchOfficerEmail" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="14" />
+
+            <Label text="Any other information" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="15" />
+            <JFXTextField fx:id="extraInfo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="15" />
+
 
             <Label text="Registration Filled Form Scan Copy, If any" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
             <GridPane.margin>

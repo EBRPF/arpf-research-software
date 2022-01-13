@@ -26,27 +26,27 @@
             </columnConstraints>
             <rowConstraints>
                 <RowConstraints maxHeight="Infinity" percentHeight="0.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="0.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="7.4" />
+                <RowConstraints maxHeight="Infinity" percentHeight="7.4" />
+                <RowConstraints maxHeight="Infinity" percentHeight="7.4" />
+                <RowConstraints maxHeight="Infinity" percentHeight="7.4" />
                 <RowConstraints maxHeight="Infinity" percentHeight="11.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
-                <RowConstraints maxHeight="Infinity" percentHeight="7.0" />
+                <RowConstraints maxHeight="Infinity" percentHeight="7.4" />
+                <RowConstraints maxHeight="Infinity" percentHeight="7.4" />
+                <RowConstraints maxHeight="Infinity" percentHeight="7.4" />
+                <RowConstraints maxHeight="Infinity" percentHeight="7.4" />
+                <RowConstraints maxHeight="Infinity" percentHeight="7.4" />
+                <RowConstraints maxHeight="Infinity" percentHeight="7.4" />
+                <RowConstraints maxHeight="Infinity" percentHeight="7.4" />
+                <RowConstraints maxHeight="Infinity" percentHeight="7.4" />
             </rowConstraints>
 
             <!-- <Label text="Registration Number" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="0" />
             <Label fx:id="customerRegNo"  GridPane.columnIndex="1" GridPane.rowIndex="0" /> !-->
 
-            <Label text="Customer Registration No." wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-            <JFXComboBox fx:id="customerRegisterNo" editable="true" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.fillWidth="true" GridPane.rowIndex="1" />
+            <!--Label text="Customer Registration No." wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <JFXComboBox fx:id="customerRegisterNo" editable="true" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.fillWidth="true" GridPane.rowIndex="1" /-->
 
             <Label text="Name of Organization" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="2" />
             <JFXTextField fx:id="organizationName" editable="false" maxWidth="Infinity"  GridPane.columnIndex="1" GridPane.rowIndex="2" />

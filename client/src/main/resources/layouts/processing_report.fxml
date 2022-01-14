@@ -213,16 +213,16 @@
                     <Label fx:id="BeamEnergy" text="9.30" />
                 </VBox>
             </HBox>
-            <HBox styleClass="boxed" GridPane.fillWidth="true" GridPane.rowIndex="2">
+            <HBox styleClass="boxed"  GridPane.fillWidth="true" GridPane.rowIndex="2">
                 <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
-                    <Label styleClass="report-label" text="Beam Current (mA)" />
+                    <Label styleClass="report-label"  text="Beam Current (mA)" />
                 </VBox>
                 <Separator orientation="VERTICAL" />
                 <VBox HBox.hgrow="ALWAYS">
                     <Label fx:id="BeamCurrent" text="280.00" />
                 </VBox>
             </HBox>
-         <HBox styleClass="boxed" GridPane.rowIndex="3">
+         <HBox styleClass="boxed"  GridPane.rowIndex="3">
             <children>
                <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
                   <children>
@@ -246,9 +246,9 @@
                     <Label fx:id="DoseRate" text="30-May-2021" />
                 </VBox>
             </HBox>
-            <HBox styleClass="boxed" GridPane.fillWidth="true" GridPane.rowIndex="6" GridPane.rowSpan="2">
+            <HBox styleClass="boxed" stylesheets="@../styles/report.css" GridPane.fillWidth="true" GridPane.rowIndex="6" GridPane.rowSpan="2">
                 <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
-                    <Label styleClass="report-label" text="Others related Machine Parameters" />
+                    <Label styleClass="report-label" stylesheets="@../styles/report.css" text="Others related Machine Parameters" />
                 </VBox>
                 <Separator orientation="VERTICAL" />
                 <VBox HBox.hgrow="ALWAYS">
@@ -362,7 +362,7 @@
                <RowConstraints maxHeight="Infinity" percentHeight="6.66" />
             </rowConstraints>
             <children>
-               <HBox layoutX="25.0" layoutY="10.0" styleClass="boxed" GridPane.rowIndex="1">
+               <HBox styleClass="boxed" GridPane.rowIndex="1">
                   <children>
                      <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
                         <children>

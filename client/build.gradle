@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'application'
     id 'org.openjfx.javafxplugin' version '0.0.10'
+    id 'org.beryx.jlink' version '2.23.6'
 }
 
 application {
@@ -13,10 +14,17 @@ repositories {
     maven { url = "https://nexus.gluonhq.com/nexus/content/repositories/releases/" }
 }
 
+compileJava.targetCompatibility = JavaVersion.VERSION_16
+compileJava.sourceCompatibility = JavaVersion.VERSION_16
+
 compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
 
 dependencies {
+    implementation('org.controlsfx:controlsfx:11.1.1') {
+        exclude group: 'org.openjfx'
+    }
+    implementation group: 'com.gluonhq.attach', name: 'util', version: '4.0.13'
     implementation project(":common")
     implementation 'com.jfoenix:jfoenix:9.0.10'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.3'
@@ -26,12 +34,24 @@ dependencies {
     implementation  'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.retrofit2:converter-jackson:2.9.0'
+    implementation 'org.jetbrains:annotations:20.1.0'
     testImplementation group: 'junit', name: 'junit', version: '4.12'
 }
 
 javafx {
     version = '16'
-    modules = [ 'javafx.controls', 'javafx.fxml' ]
+    modules = ['javafx.controls', 'javafx.fxml' ]
+}
+
+jlink {
+    targetPlatform("win") {
+        jdkHome = jdkDownload("https://github.com/AdoptOpenJDK/openjdk14-binaries/releases/download/jdk-14.0.1%2B7.1/OpenJDK14U-jdk_x64_windows_hotspot_14.0.1_7.zip")
+    }
+    options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
+    launcher{
+        name = 'ebrpf'
+        jvmArgs = args
+    }
 }
 
 def args = [

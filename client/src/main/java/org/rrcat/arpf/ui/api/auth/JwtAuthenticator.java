@@ -7,7 +7,7 @@ import okhttp3.Route;
 import org.dae.arpf.dto.AuthenticationTokenDTO;
 import org.dae.arpf.dto.LoginRequestDTO;
 
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
 import java.io.IOException;
 import java.util.function.Function;
 

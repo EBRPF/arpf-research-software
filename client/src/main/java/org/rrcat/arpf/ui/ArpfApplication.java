@@ -13,7 +13,7 @@ public class ArpfApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/layouts/login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/layouts/dashboard.fxml"));
 
         Scene scene = new Scene(root, MIN_WIDTH, MIN_HEIGHT);
         primaryStage.setMinWidth(MIN_WIDTH);

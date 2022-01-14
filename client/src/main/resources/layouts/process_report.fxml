@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane prefHeight="842.0" prefWidth="595.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane prefHeight="842.0" prefWidth="595.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.ProcessingReportController">
   <columnConstraints>
       <ColumnConstraints hgrow="ALWAYS" percentWidth="14.0" />
       <ColumnConstraints hgrow="ALWAYS" percentWidth="19.0" />

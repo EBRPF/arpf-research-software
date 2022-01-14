@@ -57,7 +57,7 @@
             </Button>
             <ScrollPane fitToWidth="true" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="1" GridPane.valignment="CENTER">
                 <StackPane>
-                    <fx:include source="processing_report.fxml" />
+                    <fx:include source="process_report.fxml" />
                 </StackPane>
             </ScrollPane>
         </GridPane>

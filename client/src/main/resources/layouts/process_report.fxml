@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane prefHeight="842.0" prefWidth="595.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+      <ColumnConstraints hgrow="ALWAYS" percentWidth="14.0" />
+      <ColumnConstraints hgrow="ALWAYS" percentWidth="19.0" />
+      <ColumnConstraints hgrow="ALWAYS" percentWidth="38.0" />
+      <ColumnConstraints hgrow="ALWAYS" percentWidth="19.0" />
+      <ColumnConstraints hgrow="ALWAYS" percentWidth="14.0" />
+  </columnConstraints>
+  <rowConstraints>
+        <RowConstraints maxHeight="Infinity" percentHeight="40.0" />
+        <RowConstraints maxHeight="Infinity" percentHeight="10.0" />
+        <RowConstraints maxHeight="Infinity" percentHeight="10.0" />
+        <RowConstraints maxHeight="Infinity" percentHeight="60.0" />
+        <RowConstraints maxHeight="Infinity" percentHeight="5.0" />
+        <RowConstraints maxHeight="Infinity" percentHeight="80.0" />
+        <RowConstraints maxHeight="Infinity" percentHeight="5.0" />
+        <RowConstraints maxHeight="Infinity" percentHeight="26.0" />
+        <RowConstraints maxHeight="Infinity" percentHeight="5.0" />
+        <RowConstraints maxHeight="Infinity" percentHeight="5.0" />
+        <RowConstraints maxHeight="Infinity" percentHeight="10.0" />
+      <RowConstraints maxHeight="Infinity" minHeight="10.0" percentHeight="5.0" prefHeight="30.0" />
+      <RowConstraints maxHeight="Infinity" minHeight="10.0" percentHeight="3.0" prefHeight="30.0" />
+        <RowConstraints maxHeight="Infinity" percentHeight="3.0" />
+      <RowConstraints maxHeight="Infinity" minHeight="10.0" percentHeight="3.0" prefHeight="30.0" />
+  </rowConstraints>
+    <HBox style="-fx-background-color: rgb(190, 220, 255);" GridPane.columnSpan="5" GridPane.rowSpan="1">
+        <GridPane.margin>
+            <Insets />
+        </GridPane.margin>
+    </HBox>
+    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../assets/images/govt_of_ind_logo.png" />
+        </image>
+        <GridPane.margin>
+            <Insets left="20.0" />
+        </GridPane.margin>
+    </ImageView>
+    <ImageView fitHeight="100.0" fitWidth="100.0" preserveRatio="true" GridPane.columnIndex="4" GridPane.columnSpan="1" GridPane.rowSpan="1">
+        <Image url="@../assets/images/rrcat_logo.png" />
+        <GridPane.margin>
+            <Insets left="20.0" />
+        </GridPane.margin>
+    </ImageView>
+    <VBox alignment="CENTER" prefHeight="134.0" prefWidth="758.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowSpan="1">
+        <Label text="Electron Beam Radiation Processing Facility, Indore">
+            <font>
+                <Font size="9.0" />
+            </font>
+         <stylesheets>
+            <URL value="@../styles/form.css" />
+            <URL value="@../styles/report.css" />
+         </stylesheets>
+         <styleClass>
+            <String fx:value="form-title" />
+            <String fx:value="report-title" />
+         </styleClass></Label>
+        <Label layoutX="172.0" layoutY="57.0" styleClass="iso-title" text="An FDA licensed and ISO 9001:2015 ISO12485:2016 Certified Facility">
+            <font>
+                <Font name="System Italic" size="16.0" />
+            </font>
+         <stylesheets>
+            <URL value="@../styles/form.css" />
+            <URL value="@../styles/report.css" />
+         </stylesheets>
+        </Label>
+        <Label styleClass="report-label" stylesheets="@../styles/report.css" text="Raja Ramanna Centre for Advanced Technology" textFill="#003ba7">
+            <font>
+                <Font name="System Bold" size="25.0" />
+            </font>
+        </Label>
+        <Label layoutX="251.0" layoutY="92.0" styleClass="report-label" stylesheets="@../styles/report.css" text="Department of Atomic Energy, Government of India" textFill="#003ba7">
+            <font>
+                <Font name="System Bold" size="25.0" />
+            </font>
+        </Label>
+        <Label layoutX="239.0" layoutY="101.0" styleClass="report-label" stylesheets="@../styles/report.css" text="Indore, Madhya Pradesh" textFill="#003ba7">
+            <font>
+                <Font name="System Bold" size="25.0" />
+            </font>
+        </Label>
+        <Label styleClass="report-title" text="Research Sample Radiation Processing Report">
+         <stylesheets>
+            <URL value="@../styles/form.css" />
+            <URL value="@../styles/report.css" />
+         </stylesheets></Label>
+    </VBox>
+    <Label styleClass="report-label" stylesheets="@../styles/report.css" text="Order Number" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="1" />
+    <Label fx:id="OrderNumber" text="EBRPF-Research-Order-0005" GridPane.columnSpan="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.rowSpan="1" />
+   <GridPane styleClass="report-padding" stylesheets="@../styles/report.css" GridPane.columnSpan="5" GridPane.rowIndex="3">
+     <columnConstraints>
+       <ColumnConstraints hgrow="ALWAYS" percentWidth="33.33" />
+       <ColumnConstraints hgrow="ALWAYS" percentWidth="8.33" />
+         <ColumnConstraints hgrow="ALWAYS" percentWidth="8.33" />
+         <ColumnConstraints hgrow="ALWAYS" percentWidth="8.33" />
+         <ColumnConstraints hgrow="ALWAYS" percentWidth="8.33" />
+         <ColumnConstraints hgrow="ALWAYS" percentWidth="33.33" />
+     </columnConstraints>
+     <rowConstraints>
+       <RowConstraints minHeight="10.0" percentHeight="30.0" />
+       <RowConstraints minHeight="10.0" percentHeight="30.0" />
+       <RowConstraints minHeight="10.0" percentHeight="30.0" />
+     </rowConstraints>
+       <VBox alignment="CENTER" styleClass="boxed" stylesheets="@../styles/report.css" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1">
+           <HBox alignment="CENTER" styleClass="vertical-title-box" VBox.vgrow="ALWAYS">
+               <Label styleClass="report-label" text="Name of Organization / Institutions" />
+           </HBox>
+           <Separator />
+           <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
+               <Label fx:id="OrgNameField" text="BARC - Food Technology Division (FTD)" />
+           </HBox>
+       </VBox>
+
+       <VBox alignment="CENTER" styleClass="boxed" stylesheets="@../styles/report.css" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1">
+           <HBox alignment="CENTER" styleClass="vertical-title-box" VBox.vgrow="ALWAYS">
+               <Label styleClass="report-label" text="Date of Receipt of Sample" />
+           </HBox>
+           <Separator />
+           <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
+               <Label fx:id="DateOfOrder" text="26-May-2021" />
+           </HBox>
+       </VBox>
+       <VBox alignment="CENTER" styleClass="boxed" stylesheets="@../styles/report.css" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="1">
+           <HBox alignment="CENTER" styleClass="vertical-title-box" VBox.vgrow="ALWAYS">
+               <Label styleClass="report-label" text="Description of product(s) to be Irradiated" />
+           </HBox>
+           <Separator />
+           <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
+               <Label fx:id="DescrOfProducts" text="Garlic Powder" />
+           </HBox>
+       </VBox>
+       <VBox alignment="CENTER" styleClass="boxed" stylesheets="@../styles/report.css" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="1">
+           <HBox alignment="CENTER" styleClass="vertical-title-box" VBox.vgrow="ALWAYS">
+               <Label styleClass="report-label" text="Detail about the Product / Sample" />
+           </HBox>
+           <Separator />
+           <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
+               <Label fx:id="DetailOfProduct" text="Different type of Garlic Powder (Dehydrated)" />
+           </HBox>
+       </VBox>
+       <VBox alignment="CENTER" styleClass="boxed" stylesheets="@../styles/report.css" GridPane.columnIndex="5" GridPane.columnSpan="1" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="1">
+           <HBox alignment="CENTER" styleClass="vertical-title-box" VBox.vgrow="ALWAYS">
+               <Label styleClass="report-label" text="Purpose of Irradiation" />
+           </HBox>
+           <Separator />
+           <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
+               <Label fx:id="PurposeOfIrrad" text="Microbial Decontamination" />
+           </HBox>
+       </VBox>
+       <VBox alignment="CENTER" styleClass="boxed" stylesheets="@../styles/report.css" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.rowSpan="1">
+           <HBox alignment="CENTER" styleClass="vertical-title-box" VBox.vgrow="ALWAYS">
+               <Label styleClass="report-label" text="Mode of Irradiation" />
+           </HBox>
+           <Separator />
+           <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
+               <Label fx:id="ModeOfirrad" text="Electron Mode" />
+           </HBox>
+       </VBox>
+       <VBox alignment="CENTER" styleClass="boxed" stylesheets="@../styles/report.css" GridPane.columnIndex="2" GridPane.columnSpan="4" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.rowSpan="1">
+           <HBox alignment="CENTER" styleClass="vertical-title-box" VBox.vgrow="ALWAYS">
+               <Label styleClass="report-label" text="Required Dosage (kGv)" />
+           </HBox>
+           <Separator />
+           <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
+               <Label fx:id="RequiredDose" text="5.0, 7.5, 10.0, 12.5" />
+           </HBox>
+       </VBox>
+   </GridPane>
+    <Separator styleClass="report-separator" stylesheets="@../styles/report.css" GridPane.columnSpan="5" GridPane.rowIndex="4" GridPane.rowSpan="1" />
+   <GridPane styleClass="report-padding" stylesheets="@../styles/report.css" GridPane.columnSpan="5" GridPane.rowIndex="5" GridPane.rowSpan="1">
+     <columnConstraints>
+       <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+       <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+     </columnConstraints>
+     <rowConstraints>
+       <RowConstraints maxHeight="Infinity" percentHeight="20.0" />
+       <RowConstraints maxHeight="Infinity" percentHeight="91.0" prefHeight="30.0" />
+     </rowConstraints>
+      <children>
+         <Label styleClass="report-label" stylesheets="@../styles/report.css" text="Machine Parameters During Irradiation" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1" />
+         <Label styleClass="report-label" stylesheets="@../styles/report.css" text="Dosimeteric Measurement Results" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1" />
+         <GridPane GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.rowIndex="1" GridPane.rowSpan="1">
+           <columnConstraints>
+             <ColumnConstraints hgrow="ALWAYS" percentWidth="100" />
+           </columnConstraints>
+           <rowConstraints>
+             <RowConstraints maxHeight="Infinity" percentHeight="13.0" />
+               <RowConstraints maxHeight="Infinity" percentHeight="13.0" />
+               <RowConstraints maxHeight="Infinity" percentHeight="13.0" />
+               <RowConstraints maxHeight="Infinity" percentHeight="13.0" />
+               <RowConstraints maxHeight="Infinity" percentHeight="13.0" />
+               <RowConstraints maxHeight="Infinity" percentHeight="13.0" />
+             <RowConstraints maxHeight="Infinity" percentHeight="13.0" />
+             <RowConstraints maxHeight="Infinity" percentHeight="13.0" />
+           </rowConstraints>
+            <children>
+               <HBox styleClass="boxed" stylesheets="@../styles/report.css" GridPane.fillWidth="true" GridPane.rowIndex="0">
+                  <children>
+                     <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
+                         <Label styleClass="report-label" stylesheets="@../styles/report.css" text="Date of Radiation Processing" />
+                     </VBox>
+                     <Separator orientation="VERTICAL" />
+                     <VBox HBox.hgrow="ALWAYS">
+                         <Label fx:id="RadProcessDate" text="30-May-2021" />
+                     </VBox>
+                  </children>
+               </HBox>
+                <HBox styleClass="boxed" stylesheets="@../styles/report.css" GridPane.fillWidth="true" GridPane.rowIndex="1">
+                    <children>
+                        <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
+                            <Label styleClass="report-label" stylesheets="@../styles/report.css" text="Beam Energy (MeV)" />
+                        </VBox>
+                        <Separator orientation="VERTICAL" />
+                        <VBox HBox.hgrow="ALWAYS">
+                            <Label fx:id="BeamEnergy" text="9.30" />
+                        </VBox>
+                    </children>
+                </HBox>
+                <HBox styleClass="boxed" stylesheets="@../styles/report.css" GridPane.fillWidth="true" GridPane.rowIndex="2">
+                    <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
+                        <Label styleClass="report-label" stylesheets="@../styles/report.css" text="Beam Current (mA)" />
+                    </VBox>
+                    <Separator orientation="VERTICAL" />
+                    <VBox HBox.hgrow="ALWAYS">
+                        <Label fx:id="BeamCurrent" text="280.00" />
+                    </VBox>
+                </HBox>
+                <HBox styleClass="boxed" stylesheets="@../styles/report.css" GridPane.rowIndex="3">
+                    <children>
+                        <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label styleClass="report-label" stylesheets="@../styles/report.css" text="Conveyor Speed (m/min)" />
+                            </children>
+                        </VBox>
+                        <Separator orientation="VERTICAL" />
+                        <VBox HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label fx:id="BeamCurrent1" text="off" />
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+                <HBox styleClass="boxed" stylesheets="@../styles/report.css" GridPane.fillWidth="true" GridPane.rowIndex="4" GridPane.rowSpan="2">
+                    <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
+                        <Label styleClass="report-label" stylesheets="@../styles/report.css" text="Dose Rate" />
+                    </VBox>
+                    <Separator orientation="VERTICAL" />
+                    <VBox HBox.hgrow="ALWAYS">
+                        <Label fx:id="DoseRate" text="30-May-2021" />
+                    </VBox>
+                </HBox>
+                <HBox styleClass="boxed" GridPane.fillWidth="true" GridPane.rowIndex="6" GridPane.rowSpan="2">
+                    <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
+                        <Label styleClass="report-label" text="Others related Machine Parameters" />
+                    </VBox>
+                    <Separator orientation="VERTICAL" />
+                    <VBox HBox.hgrow="ALWAYS">
+                        <Label />
+                        <Label fx:id="OtherMacParameters" text="Other Parameters" />
+                    </VBox>
+                </HBox>
+
+            </children>
+         </GridPane>
+         <GridPane styleClass="report-padding" stylesheets="@../styles/report.css" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="1" GridPane.rowSpan="1">
+           <columnConstraints>
+             <ColumnConstraints hgrow="ALWAYS" percentWidth="100" />
+           </columnConstraints>
+           <rowConstraints>
+               <RowConstraints maxHeight="Infinity" percentHeight="13.0" />
+               <RowConstraints maxHeight="Infinity" percentHeight="13.0" />
+               <RowConstraints maxHeight="Infinity" percentHeight="13.0" />
+               <RowConstraints maxHeight="Infinity" percentHeight="13.0" />
+               <RowConstraints maxHeight="Infinity" percentHeight="13.0" />
+             <RowConstraints maxHeight="Infinity" percentHeight="13.0" />
+             <RowConstraints maxHeight="Infinity" percentHeight="13.0" />
+             <RowConstraints maxHeight="Infinity" percentHeight="13.0" />
+           </rowConstraints>
+             <VBox alignment="CENTER" styleClass="boxed" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.halignment="CENTER" GridPane.rowSpan="8">
+                 <HBox alignment="CENTER" styleClass="vertical-title-box" VBox.vgrow="ALWAYS">
+                     <Label styleClass="report-label" text="Dosimetry Results" />
+                 </HBox>
+                 <Separator />
+                 <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
+                     <Label fx:id="DosimetryResult" text="T-5.0 (M-5.1)" />
+                 </HBox>
+             </VBox>
+         </GridPane>
+      </children>
+   </GridPane>
+   <Separator layoutX="10.0" layoutY="606.0" styleClass="report-separator" stylesheets="@../styles/report.css" GridPane.columnSpan="5" GridPane.rowIndex="6" />
+   <GridPane styleClass="report-padding" stylesheets="@../styles/report.css" GridPane.columnSpan="5" GridPane.rowIndex="7">
+     <columnConstraints>
+       <ColumnConstraints hgrow="ALWAYS" percentWidth="100" />
+       <ColumnConstraints hgrow="ALWAYS" percentWidth="100" />
+     </columnConstraints>
+     <rowConstraints>
+       <RowConstraints maxHeight="Infinity" percentHeight="100.0" />
+     </rowConstraints>
+      <children>
+         <GridPane stylesheets="@../styles/report.css">
+           <columnConstraints>
+             <ColumnConstraints hgrow="ALWAYS" percentWidth="100" />
+           </columnConstraints>
+           <rowConstraints>
+             <RowConstraints maxHeight="Infinity" percentHeight="25.0" />
+             <RowConstraints maxHeight="Infinity" percentHeight="25.0" />
+           </rowConstraints>
+            <children>
+                <HBox styleClass="boxed" stylesheets="@../styles/report.css" GridPane.fillWidth="true" GridPane.rowIndex="0">
+                    <children>
+                        <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label styleClass="report-label" text="Ship Date" />
+                            </children>
+                        </VBox>
+                        <Separator orientation="VERTICAL" />
+                        <VBox HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label fx:id="shippedDate" text="30-May-2021" />
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+                <HBox styleClass="boxed" stylesheets="@../styles/report.css" GridPane.fillWidth="true" GridPane.rowIndex="1">
+                    <children>
+                        <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label styleClass="report-label" text="Ship Address" />
+                            </children>
+                        </VBox>
+                        <Separator orientation="VERTICAL" />
+                        <VBox HBox.hgrow="ALWAYS">
+                            <children>
+                                <Label fx:id="shippingAdd" text="ICAR - VPKAS, Almora, Uttarakhand" />
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+            </children>
+         </GridPane>
+         <GridPane layoutX="10.0" layoutY="10.0" GridPane.columnIndex="1">
+            <columnConstraints>
+               <ColumnConstraints hgrow="ALWAYS" percentWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints maxHeight="Infinity" percentHeight="25.0" />
+               <RowConstraints maxHeight="Infinity" percentHeight="25.0" />
+               <RowConstraints maxHeight="Infinity" percentHeight="25.0" />
+               <RowConstraints maxHeight="Infinity" percentHeight="25.0" />
+            </rowConstraints>
+
+             <HBox styleClass="boxed" stylesheets="@../styles/report.css" GridPane.fillWidth="true" GridPane.rowIndex="0">
+                 <children>
+                     <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
+                         <children>
+                             <Label styleClass="report-label" text="Ship Address" />
+                         </children>
+                     </VBox>
+                     <Separator orientation="VERTICAL" />
+                     <VBox HBox.hgrow="ALWAYS">
+                         <children>
+                             <Label fx:id="shippingAdd" text="ICAR-VPKAS, Almora, Uttarakhand" />
+                         </children>
+                     </VBox>
+                 </children>
+             </HBox>
+             <HBox styleClass="boxed" stylesheets="@../styles/report.css" GridPane.fillWidth="true" GridPane.rowIndex="1">
+                 <children>
+                     <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
+                         <children>
+                             <Label styleClass="report-label" text="Ship City" />
+                         </children>
+                     </VBox>
+                     <Separator orientation="VERTICAL" />
+                     <VBox HBox.hgrow="ALWAYS">
+                         <children>
+                             <Label fx:id="shippingCity" text="Almora" />
+                         </children>
+                     </VBox>
+                 </children>
+             </HBox>
+             <HBox styleClass="boxed" stylesheets="@../styles/report.css" GridPane.fillWidth="true" GridPane.rowIndex="2">
+                 <children>
+                     <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
+                         <children>
+                             <Label styleClass="report-label" text="Ship State" />
+                         </children>
+                     </VBox>
+                     <Separator orientation="VERTICAL" />
+                     <VBox HBox.hgrow="ALWAYS">
+                         <children>
+                             <Label fx:id="shippingState" text="Uttarakhand" />
+                         </children>
+                     </VBox>
+                 </children>
+             </HBox>
+             <HBox styleClass="boxed" stylesheets="@../styles/report.css" GridPane.fillWidth="true" GridPane.rowIndex="3">
+                 <children>
+                     <VBox maxWidth="225.0" prefWidth="225.0" HBox.hgrow="ALWAYS">
+                         <children>
+                             <Label styleClass="report-label" text="Ship Postal Code" />
+                         </children>
+                     </VBox>
+                     <Separator orientation="VERTICAL" />
+                     <VBox HBox.hgrow="ALWAYS">
+                         <children>
+                             <Label fx:id="postalCode" text="263601" />
+                         </children>
+                     </VBox>
+                 </children>
+             </HBox>
+
+
+         </GridPane>
+      </children>
+   </GridPane>
+   <Separator layoutX="10.0" layoutY="1284.0" styleClass="report-separator" stylesheets="@../styles/report.css" GridPane.columnSpan="5" GridPane.rowIndex="8" />
+   <Label stylesheets="@../styles/report.css" text="You are requested to kindly acknoledge the recipet of sample and send the brief report after evaluation of irradiated sample" GridPane.columnSpan="4" GridPane.rowIndex="9">
+      <styleClass>
+         <String fx:value="report-label" />
+         <String fx:value="report-padding" />
+      </styleClass>
+   </Label>
+   <Label styleClass="report-label" stylesheets="@../styles/report.css" text="Approved By" GridPane.columnIndex="3" GridPane.rowIndex="10" />
+   <Label layoutX="130.0" layoutY="1607.0" styleClass="report-label" stylesheets="@../styles/report.css" text="Checked By" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+   <Separator layoutX="10.0" layoutY="1475.0" styleClass="report-separator" stylesheets="@../styles/report.css" GridPane.columnSpan="5" GridPane.rowIndex="11" />
+   <Label text="Address : Electron Beam Radiation Processing Facility (ARPF), Adjacent to Phool Mandi, Devi Ahilyabai" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="12">
+      <font>
+         <Font name="System Bold" size="15.0" />
+      </font>
+   </Label>
+   <Label layoutX="137.0" layoutY="1622.0" text="Holkar Fruit and Vegetable Mandi Complex, Nirbhay Singh Patel Marg, Indore - 452001" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="13">
+      <font>
+         <Font name="System Bold" size="15.0" />
+      </font>
+   </Label>
+   <Label layoutX="184.0" layoutY="1653.0" text="Website : www.rrcat.gov.in  |  Phone No: 0731 23332001" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="14">
+      <font>
+         <Font name="System Bold" size="15.0" />
+      </font>
+   </Label>
+
+</GridPane>

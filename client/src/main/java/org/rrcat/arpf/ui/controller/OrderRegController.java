@@ -93,7 +93,7 @@ public final class OrderRegController implements Initializable {
 
     @Override
     public void initialize(final URL location, final ResourceBundle resources) {
-        irradiationMode.setItems(OrderFormData.INSTITUTE_TYPES);
+        irradiationMode.setItems(OrderFormData.IRRADIATION_MODE);
         confirmationCheckbox.selectedProperty().addListener(this::onCheckboxUpdate);
         submitOrder.setDisable(!confirmationCheckbox.isSelected());
         organizationName.setCompleter(string -> {

@@ -14,4 +14,9 @@ public final class OrderFormData {
             "Research Institute",
             "Research University"
     );
+    public static final ObservableList<String> IRRADIATION_MODE = FXCollections.observableArrayList(
+            "Electron Mode",
+            "Photon Mode",
+            "X-Ray Mode"
+    );
 }

@@ -107,7 +107,7 @@
                 <Insets bottom="20.0" left="20.0" right="20.0" />
             </VBox.margin>
         </Text>
-        <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
+        <Text fill="#051690" onMouseClicked="#navigateOrderDosi" textAlignment="CENTER" wrappingWidth="150">
             Order Dosimetry
             <font>
                 <Font name="Times New Roman" size="15.0" />
@@ -116,7 +116,7 @@
                 <Insets bottom="20.0" left="20.0" right="20.0" />
             </VBox.margin>
         </Text>
-        <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
+        <Text fill="#051690" onMouseClicked="#navigateShippingDetails" textAlignment="CENTER" wrappingWidth="150">
             Shipping Details
             <font>
                 <Font name="Times New Roman" size="15.0" />
@@ -125,7 +125,7 @@
                 <Insets bottom="20.0" left="20.0" right="20.0" />
             </VBox.margin>
         </Text>
-        <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
+        <Text fill="#051690" onMouseClicked="#navigateOrderStatus" textAlignment="CENTER" wrappingWidth="150">
             Check Order Status
             <font>
                 <Font name="Times New Roman" size="15.0" />
@@ -134,7 +134,7 @@
                 <Insets bottom="20.0" left="20.0" right="20.0" />
             </VBox.margin>
         </Text>
-        <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
+        <Text fill="#051690" onMouseClicked="#navigateSampleIrradRepo" textAlignment="CENTER" wrappingWidth="150">
             Sample Irradiation Report
             <font>
                 <Font name="Times New Roman" size="15.0" />

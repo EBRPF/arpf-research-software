@@ -58,6 +58,25 @@ public final class NavigationController implements Initializable {
         navigate("customer_registration");
     }
 
+    @FXML
+    public void navigateOrderDosi(final MouseEvent mouseEvent) throws IOException {
+        navigate("order_dosimetry.fxml");
+    }
+
+    @FXML
+    public void navigateShippingDetails(final MouseEvent mouseEvent) throws IOException {
+        navigate("shipping_details.fxml");
+    }
+
+    @FXML
+    public void navigateOrderStatus(final MouseEvent mouseEvent) throws IOException {
+        navigate("check_order_status.fxml");
+    }
+
+    @FXML
+    public void navigateSampleIrradRepo(final MouseEvent mouseEvent) throws IOException {
+        navigate("sample_irradiation_report.fxml");
+    }
 
 
     public void navigate(final String resourceName) throws IOException {

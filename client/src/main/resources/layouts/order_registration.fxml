@@ -7,6 +7,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
+<?import com.gluonhq.charm.glisten.control.AutoCompleteTextField?>
 <BorderPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.OrderRegController">
     <top>
         <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: rgb(190,220,255);">
@@ -49,7 +50,7 @@
             <JFXComboBox fx:id="customerRegisterNo" editable="true" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.fillWidth="true" GridPane.rowIndex="1" /-->
 
             <Label text="Name of Organization" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-            <JFXTextField fx:id="organizationName" editable="false" maxWidth="Infinity"  GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <AutoCompleteTextField maxHeight="Infinity" GridPane.fillWidth="true" GridPane.valignment="CENTER" fx:id="organizationName" maxWidth="Infinity"  GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
             <Label text="Product Description" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="3" />
             <JFXTextField fx:id="productDescription" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="3" />

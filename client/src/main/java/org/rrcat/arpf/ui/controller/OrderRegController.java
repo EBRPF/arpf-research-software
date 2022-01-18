@@ -101,7 +101,9 @@ public final class OrderRegController implements Initializable {
                 return Collections.emptyList();
             }
             try {
-                return customerApi.searchCustomerByOrganization(string).execute().body().stream().map(CustomerDTO::organization).map(OrganizationDTO::name).collect(Collectors.toList());
+                final var result = customerApi.searchCustomerByOrganization(string).execute().body().stream().map(CustomerDTO::organization).map(OrganizationDTO::name).collect(Collectors.toList());
+                System.out.println(String.join(" ", result));
+                return result;
             } catch (IOException exception) {
                 exception.printStackTrace();
                 return Collections.emptyList();

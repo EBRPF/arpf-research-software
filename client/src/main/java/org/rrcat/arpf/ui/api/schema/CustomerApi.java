@@ -14,15 +14,15 @@ public interface CustomerApi {
     @POST("/api/v1/customer/register")
     Call<CustomerDTO>  register(@Body final CustomerDTO dto);
 
-    @GET("/fetch/{customerId}")
+    @GET("/api/v1/customer/fetch/{customerId}")
     Call<CustomerDTO> fetchCustomer(@Path("customerId") final int customerId);
 
-    @GET("/fetch/org/{organizationName}")
+    @GET("/api/v1/customer/fetch/org/{organizationName}")
     Call<CustomerDTO> fetchCustomerByOrganization(@Path("organizationName") final String organizationName);
 
-    @GET("/search/{customerId}")
+    @GET("/api/v1/customer/search/{customerId}")
     Call<Collection<CustomerDTO>> searchCustomer(@Path("customerId") final String customerId);
 
-    @GET("/search/org/{organizationName}")
+    @GET("/api/v1/customer/search/org/{organizationName}")
     Call<Collection<CustomerDTO>> searchCustomerByOrganization(@Path("organizationName") final String organizationName);
 }

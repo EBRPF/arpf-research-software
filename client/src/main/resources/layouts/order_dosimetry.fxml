@@ -11,6 +11,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <BorderPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.CustomerRegController">
     <top>
         <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: rgb(190,220,255);">
@@ -28,11 +30,11 @@
                 <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
                 <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
                 <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
-            <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
-            <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
-            <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
-            <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
-            <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
             </columnConstraints>
             <rowConstraints>
                 <RowConstraints maxHeight="Infinity" percentHeight="5.5" />

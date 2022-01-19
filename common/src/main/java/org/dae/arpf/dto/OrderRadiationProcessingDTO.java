@@ -25,5 +25,5 @@ public record OrderRadiationProcessingDTO(
         String doseRate,
         String sourceToSurfaceDimension,
         String relatedMachineParams,
-        String operatorRemarks
-) { }
+        String operatorRemarks,
+        String nameOfOperator) { }

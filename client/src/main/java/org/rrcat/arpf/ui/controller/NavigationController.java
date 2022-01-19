@@ -90,6 +90,7 @@ public final class NavigationController implements Initializable {
         final FXMLLoader loader = new FXMLLoader(getClass().getResource("/layouts/" + resourceName + ".fxml"));
         loader.setControllerFactory(fxmlLoader.getControllerFactory());
         children.clear();
+        // Temporary
         children.add(loader.load());
     }
 }

@@ -71,7 +71,7 @@
                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </VBox.margin>
         </Text>
-        <Text fill="#051690" textAlignment="CENTER" wrappingWidth="150">
+        <Text fill="#051690" onMouseClicked="#navigateDashboard" textAlignment="CENTER" wrappingWidth="150">
             Dashboard
             <font>
                 <Font name="Times New Roman" size="15.0" />
@@ -145,7 +145,7 @@
         </Text>
     </VBox>
     <StackPane fx:id="pageView" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.rowIndex="1" GridPane.rowSpan="1">
-        <fx:include source="customer_registration.fxml" />
+        <fx:include source="Dashboard.fxml" />
     </StackPane>
     <stylesheets>
         <URL value="@../styles/font.css" />

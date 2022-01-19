@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
+import org.controlsfx.control.textfield.TextFields;
 import org.dae.arpf.dto.*;
 import org.rrcat.arpf.ui.api.schema.CustomerApi;
 import org.rrcat.arpf.ui.api.schema.OrderApi;
@@ -28,6 +29,7 @@ import java.net.URL;
 import java.time.ZoneId;
 import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.atomic.AtomicReference;
@@ -37,7 +39,7 @@ import java.util.stream.Collectors;
 
 public final class OrderRegController implements Initializable {
     @FXML
-    private AutoCompleteTextField<String> organizationName;
+    private TextField organizationName;
     @FXML
     private TextField productDescription;
     @FXML
@@ -96,12 +98,12 @@ public final class OrderRegController implements Initializable {
         irradiationMode.setItems(OrderFormData.IRRADIATION_MODE);
         confirmationCheckbox.selectedProperty().addListener(this::onCheckboxUpdate);
         submitOrder.setDisable(!confirmationCheckbox.isSelected());
-        organizationName.setCompleter(string -> {
-            if (string.trim().isEmpty()) {
+        TextFields.bindAutoCompletion(organizationName, string -> {
+            if (string.getUserText().trim().isEmpty()) {
                 return Collections.emptyList();
             }
             try {
-                final var result = customerApi.searchCustomerByOrganization(string).execute().body().stream().map(CustomerDTO::organization).map(OrganizationDTO::name).collect(Collectors.toList());
+                final var result = customerApi.searchCustomerByOrganization(string.getUserText()).execute().body().stream().map(CustomerDTO::organization).map(OrganizationDTO::name).collect(Collectors.toList());
                 System.out.println(String.join(" ", result));
                 return result;
             } catch (IOException exception) {
@@ -157,6 +159,7 @@ public final class OrderRegController implements Initializable {
                 .irradiationPurpose(irradiationPurpose.getText())
                 .productCount(Integer.parseInt(totalSampleBoxes.getText()))
                 .productDescription(productDescription.getText())
+                .productDetails(productDetail.getText())
                 .productDimensions(productDimensions.getText())
                 .productMaterial(productMaterial.getText())
                 .receiptDate(Date.from(receiptDatePicker.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()))

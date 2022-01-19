@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "order")
+@Table(name = "productorder")
 public final class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -252,6 +252,7 @@ public final class Order {
         order.setIrradiationPurpose(dto.irradiationPurpose());
         order.setProductCount(dto.productCount());
         order.setProductDescription(dto.productDescription());
+        order.setProductMaterial(dto.productMaterial());
         order.setProductDetails(dto.productDetails());
         order.setProductDimensions(dto.productDimensions());
         order.setRequiredDose(dto.requiredDose());

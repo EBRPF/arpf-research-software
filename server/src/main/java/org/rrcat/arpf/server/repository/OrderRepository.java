@@ -10,5 +10,5 @@ import java.util.Collection;
 public interface OrderRepository extends JpaRepository<Order, Long> {
     Order findOrderByRegistrationNo(final Integer registrationNo);
     @Query("FROM Order WHERE concat(registrationNo, '') LIKE :registrationNo%")
-    Collection<Order> findOrderByRegistrationNoFuzzy(final String registrationNo);
+    Collection<Order> findOrdersByRegistrationNoFuzzy(final String registrationNo);
 }

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.Objects;
 
 @Controller
@@ -32,13 +33,9 @@ public final class OrderController {
 
     @PostMapping("/register")
     @ResponseBody
-    public ResponseEntity<Void> registerOrder(@RequestBody final OrderDTO orderDTO, final HttpServletRequest request) {
-        final Order preRegistered = orderRepository.findOrderByRegistrationNo(orderDTO.registrationNo());
-        if (preRegistered != null) {
-            throw new IllegalArgumentException("Order with given registration number already registered");
-        }
-        final Order customer = orderRepository.save(Order.fromDTO(orderDTO, customerRepository, imageRepository));
-        return ResponseEntity.created(URI.create(request.getRequestURI()).resolve("../fetch/" + customer.getRegistrationNo())).build();
+    public ResponseEntity<OrderDTO> registerOrder(@RequestBody final OrderDTO orderDTO, final HttpServletRequest request) {
+        final Order order = orderRepository.save(Order.fromDTO(orderDTO, customerRepository, imageRepository));
+        return ResponseEntity.created(URI.create(request.getRequestURI()).resolve("../fetch/" + order.getRegistrationNo())).body(Order.toDTO(order));
     }
 
     @GetMapping("/fetch/{registrationId}")

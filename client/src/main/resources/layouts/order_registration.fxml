@@ -50,7 +50,7 @@
             <JFXComboBox fx:id="customerRegisterNo" editable="true" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.fillWidth="true" GridPane.rowIndex="1" /-->
 
             <Label text="Name of Organization" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-            <AutoCompleteTextField maxHeight="Infinity" GridPane.fillWidth="true" GridPane.valignment="CENTER" fx:id="organizationName" maxWidth="Infinity"  GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <JFXTextField  fx:id="organizationName" maxWidth="Infinity"  GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
             <Label text="Product Description" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="3" />
             <JFXTextField fx:id="productDescription" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="3" />
@@ -100,7 +100,7 @@
                 </GridPane.margin>
             </StackPane>
 
-            <JFXButton fx:id="uploadRegScanned" onAction="#onClickUpload" style="-fx-background-color: rgb(190,220,255);" text="Upload Image" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
+            <JFXButton onAction="#onClickUpload" style="-fx-background-color: rgb(190,220,255);" text="Upload Image" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="9" />
 
             <Label text="Facility In-Charge Comments" wrapText="true" GridPane.columnIndex="2" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.rowIndex="10" GridPane.rowSpan="2">
                 <GridPane.margin>
@@ -108,7 +108,7 @@
                 </GridPane.margin>
             </Label>
 
-            <JFXTextField fx:id="receiptDate" maxWidth="Infinity" promptText="..." GridPane.columnIndex="3" GridPane.rowIndex="10" GridPane.rowSpan="2" />
+            <JFXTextField fx:id="inchargeComments" maxWidth="Infinity" promptText="..." GridPane.columnIndex="3" GridPane.rowIndex="10" GridPane.rowSpan="2" />
 
             <JFXCheckBox fx:id="confirmationCheckbox" text="Order Registered and proceeded for further action" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER">
                 <GridPane.margin>

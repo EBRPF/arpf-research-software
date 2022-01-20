@@ -1,6 +1,7 @@
 package org.rrcat.arpf.ui.controller;
 
-import com.jfoenix.controls.JFXTextField;
+import com.gluonhq.charm.glisten.control.AutoCompleteTextField;
+import com.jfoenix.controls.*;
 import javafx.beans.Observable;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -32,35 +33,41 @@ import java.util.function.Supplier;
 
 public class ShippingDetailController implements Initializable {
     @FXML
-    private ComboBox<String> orderNumber;
+    private AutoCompleteTextField orderNumber;
     @FXML
-    private TextField organizationName;
+    private JFXComboBox<String> orgName;
     @FXML
-    private TextField productDescription;
+    private JFXTextField productDesc;
     @FXML
-    private TextField productCount;
+    private JFXTextField productCount;
     @FXML
-    private DatePicker shippedDate;
+    private JFXDatePicker shippedDate;
     @FXML
-    private TextField shippingMedium;
+    private JFXTextField shippingMedium;
     @FXML
-    private TextField shippingAdd;
+    private JFXTextField shippingAdd;
     @FXML
-    private TextField shippingCity;
+    private JFXTextField shippingCity;
     @FXML
-    private ComboBox<String> shippingState;
+    private JFXComboBox<String> shippingState;
     @FXML
-    private TextField postalCode;
+    private JFXTextField postalCode;
     @FXML
-    private TextField shippedCount;
+    private JFXTextField shippedCount;
     @FXML
     private ImageView gatePassScannedImg;
     @FXML
-    private CheckBox dosimetryDoneCB;
+    private ImageView dosiReportImg;
     @FXML
-    private Button saveRecordCustomer;
+    private JFXCheckBox shippedCB;
     @FXML
-    private TextField processedBy;
+    private JFXButton saveRecordShip;
+    @FXML
+    private JFXTextField processedBy;
+    @FXML
+    private JFXButton scanGatePassBtn;
+    @FXML
+    private JFXButton scanDosiRepoBtn;
 
 
 
@@ -84,9 +91,11 @@ public class ShippingDetailController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        dosimetryDoneCB.selectedProperty().addListener(this::onCheckboxUpdate);
+        shippedCB.selectedProperty().addListener(this::onCheckboxUpdate);
         shippingState.setItems(CustomerFormData.STATES);
         gatePassScannedImg.setPreserveRatio(true);
+        dosiReportImg.setPreserveRatio(true);
+
     }
 
     @FXML
@@ -115,7 +124,7 @@ public class ShippingDetailController implements Initializable {
         try {
             final  ShippingDetailsDTO dto =
                     ShippingDetailsDTOBuilder.builder()
-                            .registrationNo(Integer.parseInt(orderNumber.getValue()))
+                            .registrationNo(Integer.parseInt((String) orderNumber.getValue()))
                             .shippingDate(Dates.localToEpoch(shippedDate.getValue()))
                             .shippingMedium(shippingMedium.getText())
                             .shippingAddress(
@@ -171,7 +180,7 @@ public class ShippingDetailController implements Initializable {
     }
 
     private void onCheckboxUpdate(final ObservableValue<? extends Boolean> observable, final Boolean oldValue, final Boolean newValue) {
-        saveRecordCustomer.setDisable(!newValue);
+        saveRecordShip.setDisable(!newValue);
     }
 }
 

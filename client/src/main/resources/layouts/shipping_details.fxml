@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.gluonhq.charm.glisten.control.AutoCompleteTextField?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
+
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
+
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -17,7 +15,12 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 
-<BorderPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.ShippingDetailController">
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<BorderPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.ShippingDetailController">
     <top>
         <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: rgb(190,220,255);">
             <Label styleClass="form-title" text="Shipping Details">
@@ -30,6 +33,7 @@
             <columnConstraints>
                 <ColumnConstraints hgrow="ALWAYS" percentWidth="25.0" />
                 <ColumnConstraints hgrow="ALWAYS" percentWidth="25.0" />
+            <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" percentWidth="1.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="ALWAYS" percentWidth="15.0" />
                 <ColumnConstraints hgrow="ALWAYS" percentWidth="35.0" />
                 <ColumnConstraints />
@@ -51,45 +55,53 @@
             </rowConstraints>
 
             <Label text="Order Number" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-         <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-         <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         <AutoCompleteTextField fx:id="orderNumber" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <padding>
+               <Insets top="10.0" />
+            </padding>
+         </AutoCompleteTextField>
+         <JFXComboBox fx:id="orgName" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
             <Label text="Name of Organization" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-         <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
             <Label text="Product Description" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-         <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="4" />
-         <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
-         <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
+         <JFXTextField fx:id="productDesc" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-            <Label text="Total number of Products" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-         <TextField GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label text="Total Number of Products" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+         <JFXTextField fx:id="productCount" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
             <Label text="Shipped Date" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+         <JFXDatePicker fx:id="shippedDate" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
             <Label text="Shipping Type" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="5" />
-         <TextField GridPane.columnIndex="1" GridPane.rowIndex="9" />
+         <JFXTextField fx:id="shippedMedium" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
             <Label text="Shipping Address" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+         <JFXTextField fx:id="shippingAdd" GridPane.columnIndex="1" GridPane.rowIndex="6" />
 
             <Label text="Shipping City" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+         <JFXTextField fx:id="shippingCity" GridPane.columnIndex="1" GridPane.rowIndex="7" />
 
             <Label text="Shipping State" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+         <JFXComboBox fx:id="shippingState" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
 
             <Label text="Shipping Postal Code" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="9" />
+         <JFXTextField fx:id="postalCode" GridPane.columnIndex="1" GridPane.rowIndex="9" />
 
-            <Label text="No. of Product shipped" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="10" />
+            <Label text="No. of Product Shipped" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="10" />
+         <JFXTextField fx:id="shippedCount" GridPane.columnIndex="1" GridPane.rowIndex="10" />
 
-            <Label text="Shipment processed by" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="11" />
+            <Label text="Shipment Processed by" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="11" />
+         <JFXTextField fx:id="processedBy" GridPane.columnIndex="1" GridPane.rowIndex="11" />
 
 
-            <Label text="Scanned Gate Pass" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
+            <Label text="Scanned Gate Pass" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="1" GridPane.rowSpan="2">
                 <GridPane.margin>
                     <Insets left="10.0" />
                 </GridPane.margin>
             </Label>
-            <StackPane fx:id="imageOuterPane" style="-fx-border-color: black;" GridPane.columnIndex="3" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.rowIndex="0" GridPane.rowSpan="5">
-                <ScrollPane>
+            <StackPane fx:id="imageOuterPane" style="-fx-border-color: black;" GridPane.columnIndex="4" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.rowIndex="0" GridPane.rowSpan="5">
+                <ScrollPane >
                     <ImageView fx:id="gatePassScannedImg">
                     </ImageView>
                 </ScrollPane>
@@ -97,15 +109,16 @@
                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                 </GridPane.margin>
             </StackPane>
+         <JFXButton fx:id="scanGatePassBtn" mnemonicParsing="false" onAction="#onClickUpload" styleClass="form-button" stylesheets="@../styles/form.css" text="Upload Gate Pass" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
 
-            <Label text="Dosimetry Report" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="6" GridPane.rowSpan="2">
+            <Label text="Dosimetry Report" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="6" GridPane.rowSpan="2">
                 <GridPane.margin>
                     <Insets left="10.0" />
                 </GridPane.margin>
             </Label>
 
-            <StackPane fx:id="dosimetryImageOuterPane" style="-fx-border-color: black;" GridPane.columnIndex="3" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.rowIndex="6" GridPane.rowSpan="5">
-                <ScrollPane>
+            <StackPane fx:id="dosimetryImageOuterPane" style="-fx-border-color: black;" GridPane.columnIndex="4" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.rowIndex="6" GridPane.rowSpan="5">
+                <ScrollPane >
                     <ImageView fx:id="registrationScannedImg">
                     </ImageView>
                 </ScrollPane>
@@ -113,12 +126,9 @@
                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                 </GridPane.margin>
             </StackPane>
-         <ComboBox fx:id="shippingState" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-         <TextField GridPane.columnIndex="1" GridPane.rowIndex="11" />
-         <TextField GridPane.columnIndex="1" GridPane.rowIndex="10" />
-         <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-         <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="11" />
-         <CheckBox fx:id="dosimetryDoneCB" mnemonicParsing="false" text="CheckBox" GridPane.columnIndex="2" GridPane.rowIndex="11" />
+         <JFXButton fx:id="scanDosiRepoBtn" mnemonicParsing="false" onAction="#onClickUpload" styleClass="form-button" text="Upload Dosimetry Report" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="11" />
+         <JFXCheckBox fx:id="shippedCB" mnemonicParsing="false" text="Irradiated Sample Shipped" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="12" />
+         <JFXButton fx:id="saveRecordShip" mnemonicParsing="false" onAction="#onClickSubmit" styleClass="form-button" stylesheets="@../styles/form.css" text="Submit" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="12" />
 
 
             <padding>

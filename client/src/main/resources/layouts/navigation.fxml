@@ -43,13 +43,13 @@
         </center>
         <right>
             <VBox alignment="CENTER_RIGHT" prefHeight="36.0" prefWidth="159.0" BorderPane.alignment="CENTER">
-                <Text>
+                <Text fx:id="currentDate" text="Monday, May 24, 2021">
                     Monday, May 24, 2021
                     <font>
                         <Font name="Times New Roman Bold" />
                     </font>
                 </Text>
-                <Text wrappingWidth="107.0">
+                <Text fx:id="currentTime" wrappingWidth="107.0">
                     11:36:56 PM
                     <font>
                         <Font name="Times New Roman Bold" size="8.0" />

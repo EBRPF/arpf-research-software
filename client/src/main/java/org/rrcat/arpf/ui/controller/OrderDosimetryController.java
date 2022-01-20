@@ -1,6 +1,7 @@
 package org.rrcat.arpf.ui.controller;
 
 import com.gluonhq.charm.glisten.control.AutoCompleteTextField;
+import com.jfoenix.controls.*;
 import javafx.beans.Observable;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -42,72 +43,69 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class OrderDosimetryController implements Initializable {
+
     @FXML
     private AutoCompleteTextField OrderNumber;
     @FXML
-    private TextField OrgNameField;
+    private JFXComboBox orgName;
     @FXML
-    private TextField DescrOfProducts;
+    private JFXTextField productDesc;
     @FXML
-    private TextField MaterialOfProduct;
+    private JFXTextField MaterialOfProduct;
     @FXML
-    private TextField DetailOfProduct;
+    private JFXTextField productDetail;
     @FXML
-    private TextField PurposeOfIrrad;
+    private JFXComboBox irradiationPurpose;
     @FXML
-    private TextField ModeOfIrrad;
+    private JFXComboBox irradiationMode;
     @FXML
-    private TextField RequiredDose;
+    private JFXTextField requireDose;
     @FXML
-    private TextField DosimeterUsed;
+    private JFXTextField dosimeterUsed;
     @FXML
-    private TextField DosimeterLocation;
+    private JFXTextField dosimeterLocation;
     @FXML
-    private DatePicker DateOfOrder;
+    private JFXDatePicker receiptDatePicker;
     @FXML
-    private DatePicker RadProcessDate;
+    private JFXDatePicker radProcessDate;
     @FXML
-    private TextField RadStartTime;
+    private JFXTextField beamEnergy;
     @FXML
-    private TextField CompletionTime;
+    private JFXTextField beamCurrent;
     @FXML
-    private TextField BeamEnergy;
+    private JFXTextField PRR;
     @FXML
-    private TextField BeamCurrent;
+    private JFXTextField scanWidth;
     @FXML
-    private TextField PRR;
+    private JFXTextField scanCurrentTime;
     @FXML
-    private TextField ScanWidth;
+    private JFXTextField conveyorSpeed;
     @FXML
-    private TextField ScanCurrentTime;
+    private JFXTextField doseRate;
     @FXML
-    private TextField ConveyorSpeed;
+    private JFXTextField sourceToSurfaceDistance;
     @FXML
-    private TextField DoseRate;
+    private JFXTextField machineParameters;
     @FXML
-    private TextField StoSDistance;
+    private JFXTextField operatorRemarks;
     @FXML
-    private TextField OtherMacParameters;
+    private JFXDatePicker measurementDate;
     @FXML
-    private TextField OperatorRemarks;
+    private  JFXTextField measurement;
     @FXML
-    private DatePicker DosimetryDate;
+    private ImageView beforeImageKey;
     @FXML
-    private  TextField DosimetryResult;
+    private JFXButton BeforeImgBtn;
     @FXML
-    private ImageView BeforeIrradImage;
+    private ImageView afterImageKey;
     @FXML
-    private Button BeforeImgBtn;
+    private JFXButton AfterImgBtn;
     @FXML
-    private ImageView AfterIrradImage;
+    private JFXCheckBox DosimetryDoneCB;
     @FXML
-    private Button AfterImgBtn;
+    private JFXButton SaveRecord_Dosimetry;
     @FXML
-    private CheckBox DosimetryDoneCB;
-    @FXML
-    private Button SaveRecord_Dosimetry;
-    @FXML
-    private TextField dosimetryDoneBy;
+    private JFXTextField dosimetryDoneBy;
 
     private final AtomicReference<UploadedImageDTO> currentUploadedImageReference = new AtomicReference<>();
 
@@ -160,8 +158,8 @@ public class OrderDosimetryController implements Initializable {
 
         final DosimetryDTO dosimetryDTO = DosimetryDTOBuilder.builder()
                 .registrationNo(Integer.parseInt(OrderNumber.getText()))
-                .measurementDate(Date.from(DosimetryDate.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()))
-                .measurement(DosimetryResult.getText())
+                .measurementDate(Date.from(measurementDate.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()))
+                .measurement(measurement.getText())
                 .beforeImageKey(currentUploadedImageReference.get().id())
                 .afterImageKey(currentUploadedImageReference.get().id())
                 .dosimetryDoneBy(dosimetryDoneBy.getText())
@@ -200,16 +198,16 @@ public class OrderDosimetryController implements Initializable {
 
     private void onUploadFileSuccessfully(File file) {
         try {
-            BeforeIrradImage.setImage(new Image(new FileInputStream(file)));
-            AfterIrradImage.setImage(new Image(new FileInputStream(file)));
+            beforeImageKey.setImage(new Image(new FileInputStream(file)));
+            afterImageKey.setImage(new Image(new FileInputStream(file)));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
     private Void onUploadFileFailure(Throwable throwable) {
 
-        BeforeIrradImage.imageProperty().set(null);
-        AfterIrradImage.imageProperty().set(null);
+        beforeImageKey.imageProperty().set(null);
+        afterImageKey.imageProperty().set(null);
         exceptionHandler.accept(throwable);
         return null;
 

@@ -24,5 +24,8 @@ public class ArpfApplication extends Application {
         primaryStage.setTitle(APPLICATION_TITLE);
         primaryStage.setScene(scene);
         primaryStage.show();
+
+
     }
+
 }

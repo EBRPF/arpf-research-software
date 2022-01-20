@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
+
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -14,6 +11,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.gluonhq.charm.glisten.control.AutoCompleteTextField?>
 <BorderPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.OrderDosimetryController">
    <top>
       <HBox prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: rgb(190,220,255)rgb(190,220,255);" BorderPane.alignment="CENTER">
@@ -56,99 +59,99 @@
             <RowConstraints maxHeight="Infinity" percentHeight="6" />
             <RowConstraints maxHeight="Infinity" percentHeight="16.0" />
         </rowConstraints>
-         <children>
+
             <Label styleClass="report-label" stylesheets="@../styles/report.css" text="Order Detail" GridPane.columnSpan="2" GridPane.halignment="CENTER" />
             <Label layoutX="122.0" layoutY="23.0" styleClass="report-label" stylesheets="@../styles/report.css" text="Radiation Processing Data" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="CENTER" />
             <Label layoutX="390.0" layoutY="23.0" styleClass="report-label" stylesheets="@../styles/report.css" text="Dosimetery Data" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.halignment="CENTER" />
             <Label text="Order Number" GridPane.rowIndex="1" />
-            <ComboBox fx:id="orderNumber" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <AutoCompleteTextField fx:id="orderNumber" promptText="ARPF-Research-Order-0005" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label layoutX="25.0" layoutY="67.0" text="Name of Organisation" GridPane.rowIndex="2" />
-            <ComboBox fx:id="orgName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label layoutX="25.0" layoutY="110.0" text="Product Description" GridPane.rowIndex="3" />
-            <TextField fx:id="productDesc" layoutX="171.0" layoutY="105.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <JFXComboBox fx:id="orgName" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label layoutX="171.0" layoutY="110.0" text="Product Description" GridPane.rowIndex="3" />
+            <JFXTextField fx:id="productDesc" promptText="..." layoutX="171.0" layoutY="105.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
-            </TextField>
+            </JFXTextField>
             <Label layoutX="25.0" layoutY="154.0" text="Product Detail" GridPane.rowIndex="4" />
-            <TextField fx:id="productDetail" layoutX="171.0" layoutY="149.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <JFXTextField fx:id="productDetail" promptText="..." layoutX="171.0" layoutY="149.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
-            </TextField>
+            </JFXTextField>
             <Label layoutX="25.0" layoutY="197.0" text="Irradiation Purpose" GridPane.rowIndex="5" />
-            <ComboBox fx:id="irradiationPurpose" layoutX="171.0" layoutY="192.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <JFXComboBox fx:id="irradiationPurpose" promptText="..." layoutX="171.0" layoutY="192.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
-            </ComboBox>
+            </JFXComboBox>
             <Label layoutX="25.0" layoutY="241.0" text="Irradiation Mode" GridPane.rowIndex="6" />
-            <ComboBox fx:id="irradiationMode" layoutX="171.0" layoutY="236.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <JFXComboBox fx:id="irradiationMode" promptText="..." layoutX="171.0" layoutY="236.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
-            </ComboBox>
+            </JFXComboBox>
             <Label layoutX="25.0" layoutY="284.0" text="Required Dose" GridPane.rowIndex="7" />
-            <TextField fx:id="requireDose" layoutX="171.0" layoutY="279.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <JFXTextField fx:id="requireDose" promptText="..." layoutX="171.0" layoutY="279.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
-            </TextField>
+            </JFXTextField>
             <Label layoutX="25.0" layoutY="328.0" text="Dosimeter Used" GridPane.rowIndex="8" />
-            <TextField fx:id="dosimeterUsed" layoutX="171.0" layoutY="323.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+            <JFXTextField fx:id="dosimeterUsed" promptText="..." layoutX="171.0" layoutY="323.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
-            </TextField>
+            </JFXTextField>
             <Label layoutX="25.0" layoutY="371.0" text="Dosimeter Location" GridPane.rowIndex="9" />
-            <TextField fx:id="dosimeterLocation" layoutX="171.0" layoutY="366.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+            <JFXTextField fx:id="dosimeterLocation" promptText="..." layoutX="171.0" layoutY="366.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
-            </TextField>
+            </JFXTextField>
             <Label layoutX="25.0" layoutY="415.0" text="Date of Reciept of Sample" GridPane.rowIndex="10" />
-            <TextField fx:id="receiptDatePicker" layoutX="171.0" layoutY="410.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
+            <JFXDatePicker fx:id="receiptDatePicker" promptText="dd/mm/yyyy" layoutX="171.0" layoutY="410.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
-            </TextField>
+            </JFXDatePicker>
             <Label layoutX="25.0" layoutY="110.0" text="Radiation Processing Date" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <DatePicker fx:id="radProcessDate" layoutX="171.0" layoutY="105.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <JFXDatePicker fx:id="radProcessDate" promptText="dd/mm/yyyy" layoutX="171.0" layoutY="105.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
             <Label layoutX="326.0" layoutY="57.0" text="Beam Energy" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <TextField fx:id="beamEnergy" layoutX="471.0" layoutY="62.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <JFXTextField fx:id="beamEnergy" promptText="..." layoutX="471.0" layoutY="62.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
             <Label layoutX="326.0" layoutY="110.0" text="Beam Current" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <TextField fx:id="beamCurrent" layoutX="471.0" layoutY="105.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <JFXTextField fx:id="beamCurrent" promptText="..." layoutX="471.0" layoutY="105.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
             <Label layoutX="326.0" layoutY="154.0" text="PRR (Hz)" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <TextField fx:id="PRR" layoutX="471.0" layoutY="149.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <JFXTextField fx:id="PRR" promptText="..." layoutX="471.0" layoutY="149.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
             <Label layoutX="326.0" layoutY="197.0" text="Scan Width" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-            <TextField fx:id="scanWidth" layoutX="471.0" layoutY="192.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <JFXTextField fx:id="scanWidth" promptText="..." layoutX="471.0" layoutY="192.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
             <Label layoutX="326.0" layoutY="241.0" text="Scan Current Time" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-            <TextField fx:id="scanCurrentTime" layoutX="471.0" layoutY="236.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+            <JFXTextField fx:id="scanCurrentTime" promptText="..." layoutX="471.0" layoutY="236.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
             <Label layoutX="326.0" layoutY="284.0" text="Conveyor Speed" GridPane.columnIndex="3" GridPane.rowIndex="7" />
-            <TextField fx:id="conveyorSpeed" layoutX="471.0" layoutY="279.0" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+            <JFXTextField fx:id="conveyorSpeed" promptText="..." layoutX="471.0" layoutY="279.0" GridPane.columnIndex="4" GridPane.rowIndex="7" />
             <Label layoutX="326.0" layoutY="328.0" text="Dose Rate" GridPane.columnIndex="3" GridPane.rowIndex="8" />
-            <TextField fx:id="doseRate" layoutX="471.0" layoutY="323.0" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+            <JFXTextField fx:id="doseRate" promptText="..." layoutX="471.0" layoutY="323.0" GridPane.columnIndex="4" GridPane.rowIndex="8" />
             <Label layoutX="326.0" layoutY="371.0" text="SSD" GridPane.columnIndex="3" GridPane.rowIndex="9" />
-            <TextField fx:id="sourceToSurfaceDistance" layoutX="471.0" layoutY="366.0" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+            <JFXTextField fx:id="sourceToSurfaceDistance" promptText="..." layoutX="471.0" layoutY="366.0" GridPane.columnIndex="4" GridPane.rowIndex="9" />
             <Label layoutX="326.0" layoutY="415.0" text="Other Machine Related Parameters" GridPane.columnIndex="3" GridPane.rowIndex="10" GridPane.rowSpan="2" />
-            <TextField fx:id="machineParameters" layoutX="471.0" layoutY="410.0" prefHeight="56.0" GridPane.columnIndex="4" GridPane.rowIndex="10" GridPane.rowSpan="2" />
+            <JFXTextField fx:id="machineParameters" promptText="..." layoutX="471.0" layoutY="410.0" prefHeight="56.0" GridPane.columnIndex="4" GridPane.rowIndex="10" GridPane.rowSpan="2" />
             <Label layoutX="326.0" layoutY="470.0" text="Operator Remarks, if any" GridPane.columnIndex="3" GridPane.rowIndex="12" GridPane.rowSpan="2" />
-            <TextField fx:id="operatorRemarks" layoutX="471.0" layoutY="461.0" prefHeight="56.0" GridPane.columnIndex="4" GridPane.rowIndex="12" GridPane.rowSpan="2" />
+            <JFXTextField fx:id="operatorRemarks" promptText="..." layoutX="471.0" layoutY="461.0" prefHeight="56.0" GridPane.columnIndex="4" GridPane.rowIndex="12" GridPane.rowSpan="2" />
             <Label layoutX="326.0" layoutY="57.0" text="Date of Dosimetry Measurement" GridPane.columnIndex="6" GridPane.rowIndex="1" />
-            <DatePicker fx:id="measurementDate" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+            <JFXDatePicker fx:id="measurementDate" promptText="dd/mm/yyyy" GridPane.columnIndex="7" GridPane.rowIndex="1" />
             <Label layoutX="626.0" layoutY="57.0" text="Dosimetry Results" GridPane.columnIndex="6" GridPane.rowIndex="2" />
-            <TextField fx:id="measurement" layoutX="471.0" layoutY="105.0" prefHeight="72.0" GridPane.columnIndex="7" GridPane.rowIndex="2" GridPane.rowSpan="2" />
+            <JFXTextField fx:id="measurement" layoutX="471.0" promptText="..." layoutY="105.0" prefHeight="72.0" GridPane.columnIndex="7" GridPane.rowIndex="2" GridPane.rowSpan="2" />
             <Label layoutX="626.0" layoutY="110.0" text="Before Irradiation Product Pictures" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
             <ImageView fx:id="beforeImageKey" fitHeight="80.0" fitWidth="362.0" pickOnBounds="true" preserveRatio="true" styleClass="line" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="5" GridPane.rowSpan="2" />
             <Label layoutX="705.0" layoutY="197.0" text="Before Irradiation Product Pictures" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
             <ImageView fx:id="afterImageKey" fitHeight="80.0" fitWidth="362.0" layoutX="626.0" layoutY="233.0" pickOnBounds="true" preserveRatio="true" styleClass="line" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="9" GridPane.rowSpan="2" />
             <Label layoutX="626.0" layoutY="110.0" text="Dosimetry Done By:" GridPane.columnIndex="6" GridPane.rowIndex="12" />
-            <TextField fx:id="dosimetryDoneBy" layoutX="471.0" layoutY="62.0" GridPane.columnIndex="7" GridPane.rowIndex="12" />
-            <CheckBox fx:id="DosimetryDoneCB" mnemonicParsing="false" text="Dosimetry Done" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="13" />
-            <Button fx:id="BeforeImgBtn" mnemonicParsing="false" onAction="#onClickUpload" styleClass="form-button" stylesheets="@../styles/form.css" text="Upload Before" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
-            <Button fx:id="AfterImgBtn" layoutX="780.0" layoutY="323.0" mnemonicParsing="false" onAction="#onClickUpload" styleClass="form-button" stylesheets="@../styles/form.css" text="Upload After" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="11" />
-            <Button fx:id="SaveRecord_Dosimetry" mnemonicParsing="false" onAction="#onClickSubmit" styleClass="form-button" stylesheets="@../styles/form.css" text="Submit" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="14" />
-         </children>
+            <JFXTextField fx:id="dosimetryDoneBy" promptText="..." layoutX="471.0" layoutY="62.0" GridPane.columnIndex="7" GridPane.rowIndex="12" />
+            <JFXCheckBox fx:id="DosimetryDoneCB" mnemonicParsing="false" text="Dosimetry Done" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="13" />
+            <JFXButton fx:id="BeforeImgBtn" mnemonicParsing="false" onAction="#onClickUpload" styleClass="form-button" stylesheets="@../styles/form.css" text="Upload Before" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+            <JFXButton fx:id="AfterImgBtn" layoutX="780.0" layoutY="323.0" mnemonicParsing="false" onAction="#onClickUpload" styleClass="form-button" stylesheets="@../styles/form.css" text="Upload After" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="11" />
+            <JFXButton fx:id="SaveRecord_Dosimetry" mnemonicParsing="false" onAction="#onClickSubmit" styleClass="form-button" stylesheets="@../styles/form.css" text="Submit" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="14" />
+
       </GridPane>
    </center>
 </BorderPane>

@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -12,6 +13,9 @@ import javafx.scene.layout.StackPane;
 import javax.inject.Inject;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.ResourceBundle;
 
 
@@ -22,6 +26,8 @@ public final class NavigationController implements Initializable {
     private ImageView logoImage;
     @FXML
     private StackPane pageView;
+
+
 
     private final FXMLLoader fxmlLoader;
 

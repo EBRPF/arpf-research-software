@@ -19,4 +19,10 @@ public final class OrderFormData {
             "Photon Mode",
             "X-Ray Mode"
     );
+    public static final ObservableList<String> IRRADIATION_PURPOSE = FXCollections.observableArrayList(
+            "Mutation Breeding",
+            "2",
+            "3",
+            "4"
+    );
 }

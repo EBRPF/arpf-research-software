@@ -14,6 +14,7 @@ public record DosimetryDTO(
         Date measurementDate,
         String measurement,
         Integer beforeImageKey,
-        Integer afterImageKey
+        Integer afterImageKey,
+        String dosimetryDoneBy
 ) {
 }

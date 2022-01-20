@@ -9,6 +9,8 @@ import javafx.scene.image.ImageView;
 import org.dae.arpf.dto.*;
 import org.rrcat.arpf.ui.api.schema.OrderApi;
 import org.rrcat.arpf.ui.api.schema.OrderRPApi;
+import org.rrcat.arpf.ui.constants.CustomerFormData;
+import org.rrcat.arpf.ui.constants.OrderFormData;
 import org.rrcat.arpf.ui.di.annotations.AlertingExceptionConsumer;
 import org.rrcat.arpf.ui.di.annotations.ImageFileSupplier;
 import org.rrcat.arpf.ui.service.ImageUploadService;
@@ -38,10 +40,6 @@ public class RadiationProcessingController  implements Initializable {
     @FXML
     private DatePicker radProcessDate;
     @FXML
-    private TextField radStartTime;
-    @FXML
-    private TextField radCompletionTime;
-    @FXML
     private TextField beamEnergy;
     @FXML
     private TextField beamCurrent;
@@ -62,7 +60,7 @@ public class RadiationProcessingController  implements Initializable {
     @FXML
     private TextField operatorRemarks;
     @FXML
-    private TextField orgName;
+    private ComboBox orgName;
     @FXML
     private TextField productDesc;
     @FXML
@@ -70,9 +68,9 @@ public class RadiationProcessingController  implements Initializable {
     @FXML
     private TextField productDetail;
     @FXML
-    private TextField irradiationPurpose;
+    private ComboBox irradiationPurpose;
     @FXML
-    private TextField irradiationMode;
+    private ComboBox irradiationMode;
     @FXML
     private TextField requireDose;
     @FXML
@@ -95,6 +93,8 @@ public class RadiationProcessingController  implements Initializable {
     private CheckBox irradiationProcessedCB;
     @FXML
     private Button saveRecordORP;
+    @FXML
+    private TextField nameOfOperator;
 
     private final AtomicReference<UploadedImageDTO> currentUploadedImageReference = new AtomicReference<>();
 
@@ -116,9 +116,12 @@ public class RadiationProcessingController  implements Initializable {
     }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(final URL location, final ResourceBundle resources) {
         irradiationProcessedCB.selectedProperty().addListener(this::onCheckboxUpdate);
         saveRecordORP.setDisable(!irradiationProcessedCB.isSelected());
+        irradiationMode.setItems(OrderFormData.IRRADIATION_MODE);
+        irradiationPurpose.setItems(OrderFormData.IRRADIATION_PURPOSE);
+
     }
 
     @FXML
@@ -153,8 +156,6 @@ public class RadiationProcessingController  implements Initializable {
                         .dosimeterLocation(dosimeterLocation.getText())
                         .dosimeterUsed(dosimeterUsed.getText())
                         .processingDate(Dates.localToEpoch(radProcessDate.getValue()))
-                        .startTime(radStartTime.getText())
-                        .endTime(radCompletionTime.getText())
                         .operatorRemarks(operatorRemarks.getText())
                         .PRR(PRR.getText())
                         .relatedMachineParams(machineParameters.getText())

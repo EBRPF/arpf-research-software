@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import org.rrcat.arpf.ui.api.schema.*;
 
+import javax.inject.Inject;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -72,6 +73,7 @@ public class SampleIrradReportController implements Initializable {
     private final DosimetryApi dosimetryApi;
     private final ShippingDetailsApi shippingDetailsApi;
 
+    @Inject
     public SampleIrradReportController(OrderApi orderApi, CustomerApi customerApi, OrderRPApi orderRPApi, DosimetryApi dosimetryApi, ShippingDetailsApi shippingDetailsApi) {
         this.orderApi = orderApi;
         this.customerApi = customerApi;

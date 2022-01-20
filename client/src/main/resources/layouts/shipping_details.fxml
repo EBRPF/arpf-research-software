@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 
-<BorderPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.ShippingDetailController">
+<BorderPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.ShippingDetailController">
     <top>
         <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: rgb(190,220,255);">
             <Label styleClass="form-title" text="Shipping Details">
@@ -113,12 +113,12 @@
                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                 </GridPane.margin>
             </StackPane>
-         <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+         <ComboBox fx:id="shippingState" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="8" />
          <TextField GridPane.columnIndex="1" GridPane.rowIndex="11" />
          <TextField GridPane.columnIndex="1" GridPane.rowIndex="10" />
          <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="5" />
          <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="11" />
-         <CheckBox mnemonicParsing="false" text="CheckBox" GridPane.columnIndex="2" GridPane.rowIndex="11" />
+         <CheckBox fx:id="dosimetryDoneCB" mnemonicParsing="false" text="CheckBox" GridPane.columnIndex="2" GridPane.rowIndex="11" />
 
 
             <padding>

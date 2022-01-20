@@ -8,10 +8,7 @@ import javafx.stage.Window;
 import okhttp3.Authenticator;
 import org.dae.arpf.dto.AuthenticationTokenDTO;
 import org.rrcat.arpf.ui.api.RetrofitFactory;
-import org.rrcat.arpf.ui.api.schema.CustomerApi;
-import org.rrcat.arpf.ui.api.schema.OrderApi;
-import org.rrcat.arpf.ui.api.schema.OrderRPApi;
-import org.rrcat.arpf.ui.api.schema.UploadApi;
+import org.rrcat.arpf.ui.api.schema.*;
 import org.rrcat.arpf.ui.di.annotations.AlertingExceptionConsumer;
 import org.rrcat.arpf.ui.di.annotations.ImageFileSupplier;
 import org.rrcat.arpf.ui.service.ImageUploadService;
@@ -46,6 +43,8 @@ public final class PostAuthenticationGuiceModule extends AbstractModule {
         bind(UploadApi.class).toInstance(authenticatedRetrofit.create(UploadApi.class));
         bind(OrderApi.class).toInstance(authenticatedRetrofit.create(OrderApi.class));
         bind(OrderRPApi.class).toInstance(authenticatedRetrofit.create(OrderRPApi.class));
+        bind(DosimetryApi.class).toInstance(authenticatedRetrofit.create(DosimetryApi.class));
+        bind(ShippingDetailsApi.class).toInstance(authenticatedRetrofit.create(ShippingDetailsApi.class));
         bind(ImageUploadService.class).to(RetrofitImageUploadService.class);
     }
 }

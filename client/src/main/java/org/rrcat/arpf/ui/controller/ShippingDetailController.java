@@ -18,6 +18,7 @@ import org.rrcat.arpf.ui.util.Dates;
 import retrofit2.Call;
 import retrofit2.Response;
 
+import javax.inject.Inject;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -72,6 +73,7 @@ public class ShippingDetailController implements Initializable {
     private final Supplier<File> uploadFileSupplier;
     private final Consumer<Throwable> exceptionHandler;
 
+    @Inject
     public ShippingDetailController(ShippingDetailsApi shippingDetailsApi, ImageUploadService uploadService, @ImageFileSupplier Supplier<File> uploadFileSupplier, final @AlertingExceptionConsumer Consumer<Throwable> exceptionHandler) {
         this.shippingDetailsApi = shippingDetailsApi;
         this.uploadService = uploadService;

@@ -16,6 +16,7 @@ import org.rrcat.arpf.ui.util.Dates;
 import retrofit2.Call;
 import retrofit2.Response;
 
+import javax.inject.Inject;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -105,6 +106,7 @@ public class RadiationProcessingController  implements Initializable {
     private final Supplier<File> uploadFileSupplier;
     private final Consumer<Throwable> exceptionHandler;
 
+    @Inject
     public RadiationProcessingController(final OrderRPApi orderRPApi, final OrderApi orderApi, final ImageUploadService uploadService, final @ImageFileSupplier Supplier<File> uploadFileSupplier, final @AlertingExceptionConsumer Consumer<Throwable> exceptionHandler) {
         this.orderRPApi = orderRPApi;
         this.orderApi = orderApi;

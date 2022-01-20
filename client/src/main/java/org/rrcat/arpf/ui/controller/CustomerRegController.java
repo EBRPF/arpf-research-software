@@ -94,9 +94,7 @@ public final class CustomerRegController implements Initializable {
         addressState.setItems(CustomerFormData.STATES);
         registrationScannedImg.setPreserveRatio(true);
         registrationScannedImg.fitWidthProperty().bind(imageOuterPane.widthProperty());
-        //organizationName.widthProperty().addListener((observable, oldValue, newValue) -> System.out.println("width = " + newValue));
         organizationName.heightProperty().addListener((observable, oldValue, newValue) -> System.out.println("height = " + newValue));
-
     }
 
     public static final Pattern VALID_EMAIL_ADDRESS_REGEX =

@@ -209,7 +209,7 @@
                 <JFXCheckBox fx:id="irradiationProcessedCB" GridPane.rowIndex="22" GridPane.halignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="4"
                              text="Irradiation Processed"/>
 
-                <JFXButton fx:id="saveORP" onAction="#onClickSubmit" style="-fx-background-color: rgb(190,220,255);" text="Submit" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="23" />
+                <JFXButton fx:id="saveRecordORP" onAction="#onClickSubmit" style="-fx-background-color: rgb(190,220,255);" text="Submit" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="23" />
 
                 <padding>
                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

@@ -60,6 +60,7 @@
                     <RowConstraints maxHeight="Infinity" prefHeight="35" />
                     <RowConstraints maxHeight="Infinity" prefHeight="35" />
                 </rowConstraints>
+            <Label styleClass="report-label" stylesheets="@../styles/report.css" text="Order Detail" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
 
                 <!-- <Label text="Registration Number" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="0" />
                 <Label fx:id="customerRegNo"  GridPane.columnIndex="1" GridPane.rowIndex="0" /> !-->
@@ -71,83 +72,116 @@
             <TextField fx:id="dosimeterUsed" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
 
                 <Label text="Dosimeter Location on Product" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+            <TextField fx:id="dosimeterLocation" layoutX="270.0" layoutY="67.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
                 <Label text="Radiation Processing Date" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+            <DatePicker fx:id="radProcessDate" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
                 <Label text="Beam Energy (MeV)" wrapText="true" GridPane.rowIndex="6" />
+            <TextField fx:id="beamEnergy" promptText="          MeV" GridPane.columnIndex="1" GridPane.rowIndex="6" />
 
                 <Label text="Beam Current (mA)" wrapText="true" GridPane.rowIndex="7" />
+            <TextField fx:id="beamCurrent" promptText="          mA" GridPane.columnIndex="1" GridPane.rowIndex="7" />
 
                 <Label text="PRR (Hz)" wrapText="true" GridPane.rowIndex="8" />
+            <TextField fx:id="PRR" promptText="          Hz" GridPane.columnIndex="1" GridPane.rowIndex="8" />
 
                 <Label text="Scan Width (cm)" wrapText="true" GridPane.rowIndex="9" />
+            <TextField fx:id="scanWidth" promptText="          cm" GridPane.columnIndex="1" GridPane.rowIndex="9" />
 
                 <Label text="Scan Current (A) Time (m.sec) " wrapText="true" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.rowIndex="10" />
+            <TextField fx:id="scanCurrentTime" GridPane.columnIndex="1" GridPane.rowIndex="10" />
 
                 <Label text="Conveyor Speed (m/min)" wrapText="true" GridPane.rowIndex="11" />
+            <TextField fx:id="conveyorSpeed" promptText="          m/min" GridPane.columnIndex="1" GridPane.rowIndex="11" />
 
                 <Label text="Dose Rate" wrapText="true" GridPane.rowIndex="12" />
+            <TextField fx:id="doseRate" promptText="          Gy/pulse" GridPane.columnIndex="1" GridPane.rowIndex="12" />
 
                 <Label text="Source to Surface Distance (cm)" wrapText="true" GridPane.rowIndex="13" />
+            <TextField fx:id="sourceToSurfaceDistance" GridPane.columnIndex="1" GridPane.rowIndex="13" />
 
                 <Label text="Other Related Machine Parameters" wrapText="true" GridPane.rowIndex="14" GridPane.rowSpan="2" />
+            <TextField fx:id="machineParameters" prefHeight="64.0" GridPane.columnIndex="1" GridPane.rowIndex="14" GridPane.rowSpan="2" />
 
                 <Label text="Operator remarks if any" wrapText="true" GridPane.rowIndex="16" />
+            <TextField fx:id="operatorRemarks" GridPane.columnIndex="1" GridPane.rowIndex="16" />
+            <Label layoutX="30.0" layoutY="585.0" text="Name of Operator" wrapText="true" GridPane.rowIndex="17" />
+            <TextField fx:id="nameOfOperator" layoutX="270.0" layoutY="579.0" GridPane.columnIndex="1" GridPane.rowIndex="17" />
 
                 <Label text="Name of Organization" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <padding>
                   <Insets left="10.0" />
                </padding></Label>
+            <ComboBox fx:id="orgName" prefWidth="287.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
 
                 <Label text="Product Description" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <padding>
                   <Insets left="10.0" />
                </padding></Label>
+            <TextField fx:id="productDesc" GridPane.columnIndex="3" GridPane.rowIndex="3" />
 
                 <Label text="Product Material" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <padding>
                   <Insets left="10.0" />
                </padding></Label>
+            <TextField fx:id="productMaterial" GridPane.columnIndex="3" GridPane.rowIndex="4" />
 
                 <Label text="Product Detail" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="5">
                <padding>
                   <Insets left="10.0" />
                </padding></Label>
+            <TextField fx:id="productDetail" GridPane.columnIndex="3" GridPane.rowIndex="5" />
 
                 <Label text="Irradiation Purpose" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="6">
                <padding>
                   <Insets left="10.0" />
                </padding></Label>
+            <ComboBox fx:id="irradiationPurpose" prefWidth="287.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
 
                 <Label text="Irradiation Mode" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="7">
                <padding>
                   <Insets left="10.0" />
                </padding></Label>
+            <ComboBox fx:id="irradiationMode" prefWidth="287.0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
 
                 <Label text="Required Dose[kGy]" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="8">
                <padding>
                   <Insets left="10.0" />
                </padding></Label>
+            <TextField fx:id="requireDose" promptText="          kGy" GridPane.columnIndex="3" GridPane.rowIndex="8" />
 
                 <Label text="Product Dimensions" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="9">
                <padding>
                   <Insets left="10.0" />
                </padding></Label>
+            <TextField fx:id="productDimensions" GridPane.columnIndex="3" GridPane.rowIndex="9" />
 
                 <Label text="Product Weight" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="10">
                <padding>
                   <Insets left="10.0" />
                </padding></Label>
+            <TextField fx:id="productWeight" GridPane.columnIndex="3" GridPane.rowIndex="10" />
 
                 <Label text="Total Sample Boxes" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="11">
                <padding>
                   <Insets left="10.0" />
                </padding></Label>
+            <TextField fx:id="totalSampleBoxes" GridPane.columnIndex="3" GridPane.rowIndex="11" />
+            <Label layoutX="509.0" layoutY="388.0" text="Any Other Information" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="12">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="extraInfo" layoutX="701.0" layoutY="382.0" GridPane.columnIndex="3" GridPane.rowIndex="12" />
 
                 <Label text="Date of Receipt" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="13">
                <padding>
                   <Insets left="10.0" />
                </padding></Label>
+            <DatePicker fx:id="dateOfReceipt" prefWidth="287.0" GridPane.columnIndex="3" GridPane.rowIndex="13" />
+            <CheckBox mnemonicParsing="false" text="Irrdiation Processed" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="17" />
+            <Button fx:id="submitORP" mnemonicParsing="false" onAction="#onClickSubmit" styleClass="form-button" stylesheets="@../styles/report.css" text="Submit" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="22" />
 
                 <GridPane maxHeight="Infinity" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.rowIndex="19">
                     <columnConstraints>
@@ -167,7 +201,7 @@
                         </GridPane.margin>
                     </Label>
                     <StackPane fx:id="imageOuterPane" style="-fx-border-color: black;" GridPane.columnIndex="2" GridPane.fillHeight="true" GridPane.fillWidth="true">
-                        <ScrollPane >
+                        <ScrollPane>
                             <ImageView fx:id="requestForm">
                             </ImageView>
                         </ScrollPane>
@@ -181,40 +215,6 @@
                <TextField fx:id="facilityICCommentsfacilityICComments" prefHeight="100.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                <Button fx:id="uploadRegScanned" mnemonicParsing="false" onAction="#onClickUpload" styleClass="form-button" stylesheets="@../styles/report.css" text="Upload Form" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                 </GridPane>
-            <TextField fx:id="dosimeterLocation" layoutX="270.0" layoutY="67.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <DatePicker fx:id="radProcessDate" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <TextField fx:id="beamEnergy" promptText="          MeV" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <TextField fx:id="beamCurrent" promptText="          mA" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <TextField fx:id="PRR" promptText="          Hz" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <TextField fx:id="scanWidth" promptText="          cm" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-            <TextField fx:id="scanCurrentTime" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-            <TextField fx:id="conveyorSpeed" promptText="          m/min" GridPane.columnIndex="1" GridPane.rowIndex="11" />
-            <TextField fx:id="doseRate" promptText="          Gy/pulse" GridPane.columnIndex="1" GridPane.rowIndex="12" />
-            <TextField fx:id="sourceToSurfaceDistance" GridPane.columnIndex="1" GridPane.rowIndex="13" />
-            <TextField fx:id="machineParameters" prefHeight="64.0" GridPane.columnIndex="1" GridPane.rowIndex="14" GridPane.rowSpan="2" />
-            <TextField fx:id="operatorRemarks" GridPane.columnIndex="1" GridPane.rowIndex="16" />
-            <ComboBox fx:id="orgName" prefWidth="287.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <TextField fx:id="productDesc" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <TextField fx:id="productMaterial" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <TextField fx:id="productDetail" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-            <TextField fx:id="requireDose" promptText="          kGy" GridPane.columnIndex="3" GridPane.rowIndex="8" />
-            <TextField fx:id="productDimensions" GridPane.columnIndex="3" GridPane.rowIndex="9" />
-            <TextField fx:id="productWeight" GridPane.columnIndex="3" GridPane.rowIndex="10" />
-            <TextField fx:id="totalSampleBoxes" GridPane.columnIndex="3" GridPane.rowIndex="11" />
-            <DatePicker fx:id="dateOfReceipt" prefWidth="287.0" GridPane.columnIndex="3" GridPane.rowIndex="13" />
-            <CheckBox mnemonicParsing="false" text="Irrdiation Processed" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="17" />
-            <Label layoutX="30.0" layoutY="585.0" text="Name of Operator" wrapText="true" GridPane.rowIndex="17" />
-            <TextField fx:id="nameOfOperator" layoutX="270.0" layoutY="579.0" GridPane.columnIndex="1" GridPane.rowIndex="17" />
-            <Label styleClass="report-label" stylesheets="@../styles/report.css" text="Order Detail" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <ComboBox fx:id="irradiationPurpose" prefWidth="287.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-            <ComboBox fx:id="irradiationMode" prefWidth="287.0" GridPane.columnIndex="3" GridPane.rowIndex="7" />
-            <Label layoutX="509.0" layoutY="388.0" text="Any Other Information" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="12">
-               <padding>
-                  <Insets left="10.0" />
-               </padding>
-            </Label>
-            <TextField fx:id="extraInfo" layoutX="701.0" layoutY="382.0" GridPane.columnIndex="3" GridPane.rowIndex="12" />
-            <Button fx:id="submitORP" mnemonicParsing="false" onAction="#onClickSubmit" styleClass="form-button" stylesheets="@../styles/report.css" text="Submit" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="22" />
 
                 <padding>
                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

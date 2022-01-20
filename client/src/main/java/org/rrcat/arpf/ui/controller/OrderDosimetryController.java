@@ -106,6 +106,8 @@ public class OrderDosimetryController implements Initializable {
     private CheckBox DosimetryDoneCB;
     @FXML
     private Button SaveRecord_Dosimetry;
+    @FXML
+    private TextField dosimetryDoneBy;
 
     private final AtomicReference<UploadedImageDTO> currentUploadedImageReference = new AtomicReference<>();
 
@@ -162,6 +164,7 @@ public class OrderDosimetryController implements Initializable {
                 .measurement(DosimetryResult.getText())
                 .beforeImageKey(currentUploadedImageReference.get().id())
                 .afterImageKey(currentUploadedImageReference.get().id())
+                .dosimetryDoneBy(dosimetryDoneBy.getText())
                 .build();
 
         try {

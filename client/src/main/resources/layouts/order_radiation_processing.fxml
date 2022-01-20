@@ -19,10 +19,6 @@
 <BorderPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.RadiationProcessingController">
    <top>
       <HBox prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: rgb(190,220,255)rgb(190,220,255);" BorderPane.alignment="CENTER">
-         <stylesheets>
-            <URL value="@../styles/form.css" />
-         </stylesheets>
-         <children>
             <Label prefHeight="94.0" prefWidth="1050.0" styleClass="form-title" stylesheets="@../styles/report.css" text="Order Radiation Processing">
                <HBox.margin>
                   <Insets />
@@ -32,8 +28,8 @@
                </padding>
                <font>
                   <Font size="38.0" />
-               </font></Label>
-         </children>
+               </font>
+            </Label>
       </HBox>
    </top>
 

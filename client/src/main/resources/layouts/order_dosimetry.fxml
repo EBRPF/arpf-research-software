@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
@@ -11,154 +14,141 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<?import com.jfoenix.controls.JFXTextArea?>
-<?import com.jfoenix.controls.JFXComboBox?>
-<BorderPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.CustomerRegController">
-    <top>
-        <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: rgb(190,220,255);">
-            <Label styleClass="form-title" text="Order Dosimetry">
-
+<BorderPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.RadiationProcessingController">
+   <top>
+      <HBox prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: rgb(190,220,255)rgb(190,220,255);" BorderPane.alignment="CENTER">
+            <Label alignment="CENTER" styleClass="form-title" stylesheets="@../styles/form.css" text="Order Dosimetry" textAlignment="CENTER">
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+                <padding>
+                    <Insets left="400.0" top="23.5" />
+                </padding>
             </Label>
-        </HBox>
-    </top>
-    <center>
-        <GridPane>
-            <columnConstraints>
-                <ColumnConstraints hgrow="ALWAYS" percentWidth="16.0" />
-                <ColumnConstraints hgrow="ALWAYS" percentWidth="17.200000000000003" />
-                <ColumnConstraints hgrow="ALWAYS" percentWidth="17.200000000000003" />
-                <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
-                <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
-                <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
-                <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
-                <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
-                <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
-                <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
-                <ColumnConstraints hgrow="ALWAYS" percentWidth="16.6" />
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-                <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-                <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-                <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-                <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-                <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-                <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-                <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-                <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-                <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-                <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-                <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-                <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-                <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-                <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-                <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-                <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-                <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-                <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-                <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-                <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-                <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-                <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-                <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-            <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-            <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-            <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-            <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-            <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-            <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-            <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-            <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-            <RowConstraints maxHeight="Infinity" percentHeight="5.5" />
-            </rowConstraints>
-
-            <Label text="Order Detail" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowSpan="1" GridPane.valignment="CENTER" />
-            <Label text="Radiation Processing Data" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowSpan="1" GridPane.valignment="CENTER" />
-            <Label text="Dosimetry Data" GridPane.columnIndex="8" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowSpan="1" GridPane.valignment="CENTER" />
-            <Label prefHeight="20.0" prefWidth="126.0" text="Order Detail" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="1" GridPane.valignment="CENTER" />
-            <JFXComboBox maxWidth="Infinity" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="1" GridPane.valignment="CENTER" />
-            <Label prefHeight="20.0" prefWidth="263.0" text="Name of Organisation" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.rowSpan="1" GridPane.valignment="CENTER" />
-            <JFXComboBox maxWidth="Infinity" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <Label layoutX="100.0" prefHeight="45.0" prefWidth="253.0" text="Description of products to be irradated" wrapText="true" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.rowSpan="2" GridPane.valignment="CENTER" />
-            <JFXTextArea maxWidth="Infinity" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.rowSpan="2" GridPane.valignment="CENTER" />
-            <Label prefHeight="64.0" prefWidth="224.0" text="Details about the product/sample" wrapText="true" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.rowSpan="2" GridPane.valignment="CENTER" />
-            <JFXTextArea maxWidth="Infinity" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.rowSpan="2" GridPane.valignment="CENTER" />
-            <Label prefHeight="64.0" prefWidth="242.0" text="purpose of Iradation of product(s)" wrapText="true" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.rowSpan="2" GridPane.valignment="CENTER" />
-            <JFXComboBox maxWidth="Infinity" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.rowSpan="3" GridPane.valignment="CENTER" />
-            <Label prefHeight="20.0" prefWidth="234.0" text="Mode of irradation" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
-            <JFXComboBox maxWidth="Infinity" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.rowSpan="2" GridPane.valignment="CENTER" />
-            <Label prefHeight="20.0" prefWidth="236.0" text="Requruired dose [xGy]" wrapText="true" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.valignment="CENTER" />
-            <JFXTextArea maxWidth="Infinity" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.rowSpan="2" GridPane.valignment="CENTER" />
-            <Label prefHeight="20.0" prefWidth="234.0" text="Dosimetory Used" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="CENTER" />
-            <JFXComboBox maxWidth="Infinity" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.rowSpan="3" GridPane.valignment="CENTER" />
-            <Label prefHeight="41.0" prefWidth="168.0" text="Dosimetory Location on the Product/Sample" wrapText="true" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.rowSpan="2" GridPane.valignment="CENTER" />
-            <JFXTextArea maxWidth="Infinity" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="CENTER" GridPane.rowIndex="18" GridPane.rowSpan="3" GridPane.valignment="CENTER" />
-            <JFXTextArea maxWidth="Infinity" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="CENTER" GridPane.rowIndex="15" GridPane.rowSpan="3" GridPane.valignment="CENTER" />
-            <Label prefHeight="20.0" prefWidth="314.0" text="date of receipt of sample" wrapText="true" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
-            <JFXTextArea maxWidth="Infinity" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="CENTER" GridPane.rowIndex="15" GridPane.rowSpan="3" GridPane.valignment="CENTER" />
-             <Label prefHeight="32.0" prefWidth="197.0" text="Radiation Processing Date" wrapText="true" GridPane.columnIndex="4" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <JFXTextArea maxWidth="Infinity" prefHeight="67.0" prefWidth="307.0" GridPane.columnIndex="4" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Label prefHeight="32.0" prefWidth="273.0" text="Radiation Processing Start Time" wrapText="true" GridPane.columnIndex="4" GridPane.columnSpan="4" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <JFXTextArea maxWidth="Infinity" prefHeight="67.0" prefWidth="307.0" GridPane.columnIndex="4" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <Label text="Completion Time" wrapText="true" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-            <JFXTextArea maxWidth="Infinity" prefHeight="67.0" prefWidth="307.0" GridPane.columnIndex="4" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-            <Label text="Beam Energy(MeV)" wrapText="true" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-            <JFXTextArea maxWidth="Infinity" prefHeight="67.0" prefWidth="307.0" GridPane.columnIndex="4" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-            <Label text="Beam Current(mA)" wrapText="true" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
-            <JFXTextArea maxWidth="Infinity" prefHeight="67.0" prefWidth="307.0" GridPane.columnIndex="4" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
-            <Label text="PRR(Hz)" wrapText="true" GridPane.columnIndex="4" GridPane.halignment="LEFT" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
-            <JFXTextArea maxWidth="Infinity" prefHeight="67.0" prefWidth="307.0" GridPane.columnIndex="4" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="RIGHT" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
-            <Label text="Scan Width(cm)" wrapText="true" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
-            <JFXTextArea maxWidth="Infinity" prefHeight="67.0" prefWidth="307.0" GridPane.columnIndex="4" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="RIGHT" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
-            <Label text="Scan Current (A)  Time(msec)" wrapText="true" GridPane.columnIndex="4" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
-            <JFXTextArea maxWidth="Infinity" prefHeight="67.0" prefWidth="307.0" GridPane.columnIndex="4" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="RIGHT" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
-            <Label text="conveyor Speed" wrapText="true" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowIndex="10" GridPane.valignment="CENTER" />
-            <JFXTextArea maxWidth="Infinity" prefHeight="67.0" prefWidth="307.0" GridPane.columnIndex="4" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="RIGHT" GridPane.rowIndex="10" GridPane.valignment="CENTER" />
-            <Label text="Dose Rate" wrapText="true" GridPane.columnIndex="4" GridPane.halignment="LEFT" GridPane.rowIndex="11" GridPane.valignment="CENTER" />
-            <JFXTextArea maxWidth="Infinity" prefHeight="67.0" prefWidth="307.0" GridPane.columnIndex="4" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="RIGHT" GridPane.rowIndex="11" GridPane.valignment="CENTER" />
-            <Label text="Source to surface Distance" wrapText="true" GridPane.columnIndex="4" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.rowIndex="12" GridPane.valignment="CENTER" />
-            <JFXTextArea maxWidth="Infinity" prefHeight="67.0" prefWidth="307.0" GridPane.columnIndex="4" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="RIGHT" GridPane.rowIndex="12" GridPane.valignment="CENTER" />
-            <Label text="Order Related Machine Parameters" wrapText="true" GridPane.columnIndex="4" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
-            <JFXTextArea maxWidth="Infinity" prefHeight="67.0" prefWidth="307.0" GridPane.columnIndex="4" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="RIGHT" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
-            <Label text="Operator remarks if any" wrapText="true" GridPane.columnIndex="4" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
-            <JFXTextArea maxWidth="Infinity" prefHeight="67.0" prefWidth="307.0" GridPane.columnIndex="4" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="RIGHT" GridPane.rowIndex="15" GridPane.valignment="CENTER" />
-            <Label text="Date of Dosimetry measurement" wrapText="true" GridPane.columnIndex="8" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <JFXTextArea maxWidth="Infinity" prefHeight="67.0" prefWidth="307.0" GridPane.columnIndex="6" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <JFXTextArea maxWidth="Infinity" prefHeight="67.0" prefWidth="307.0" GridPane.columnIndex="6" GridPane.fillHeight="True" GridPane.fillWidth="True" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <Label text="Before Iradation product/sample Picture" GridPane.columnIndex="8" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.rowSpan="1" GridPane.valignment="CENTER" />
-         <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.columnSpan="2" GridPane.rowIndex="5" GridPane.rowSpan="3" />
-         <Button mnemonicParsing="false" text="Upload Image" GridPane.columnIndex="8" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
-            <Label text="Before Iradation product/sample Picture" GridPane.columnIndex="8" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.rowSpan="2" GridPane.valignment="CENTER" />
-            <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.columnSpan="2" GridPane.rowIndex="12" GridPane.rowSpan="4" />
-            <Button mnemonicParsing="false" text="Upload Image" GridPane.columnIndex="8" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="17" GridPane.rowSpan="2" GridPane.valignment="CENTER" />
-         <TextField GridPane.columnIndex="2" GridPane.rowIndex="1" />
-         <TextField GridPane.columnIndex="2" GridPane.rowIndex="2" />
-         <TextField GridPane.columnIndex="2" GridPane.rowIndex="3" />
-         <TextField GridPane.columnIndex="2" GridPane.rowIndex="5" />
-         <TextField GridPane.columnIndex="2" GridPane.rowIndex="7" />
-         <TextField GridPane.columnIndex="2" GridPane.rowIndex="9" />
-         <TextField GridPane.columnIndex="2" GridPane.rowIndex="10" />
-         <TextField GridPane.columnIndex="2" GridPane.rowIndex="11" GridPane.rowSpan="2" />
-         <TextField GridPane.columnIndex="2" GridPane.rowIndex="13" />
-         <TextField GridPane.columnIndex="2" GridPane.rowIndex="14" />
-         <TextField prefHeight="32.0" prefWidth="205.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
-         <TextField GridPane.columnIndex="6" GridPane.rowIndex="2" />
-         <TextField GridPane.columnIndex="6" GridPane.rowIndex="4" />
-         <TextField GridPane.columnIndex="6" GridPane.rowIndex="5" />
-         <TextField GridPane.columnIndex="6" GridPane.rowIndex="6" />
-         <TextField GridPane.columnIndex="6" GridPane.rowIndex="7" />
-         <TextField GridPane.columnIndex="6" GridPane.rowIndex="8" />
-         <TextField GridPane.columnIndex="6" GridPane.rowIndex="9" />
-         <TextField GridPane.columnIndex="6" GridPane.rowIndex="10" />
-         <TextField GridPane.columnIndex="6" GridPane.rowIndex="11" />
-         <TextField GridPane.columnIndex="6" GridPane.rowIndex="12" />
-         <TextField GridPane.columnIndex="6" GridPane.rowIndex="13" />
-         <TextField GridPane.columnIndex="6" GridPane.rowIndex="14" />
-
-        </GridPane>
-    </center>
-    <stylesheets>
-        <URL value="@../styles/form.css" />
-        <URL value="@../styles/font.css" />
-    </stylesheets>
+      </HBox>
+   </top>
+   <center>
+      <GridPane styleClass="report-padding" stylesheets="@../styles/report.css" BorderPane.alignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="15.0" />
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="15.0" />
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="1.0" />
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="15.0" />
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="15.0" />
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="1.0" />
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="15.0" />
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="23.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="Infinity" percentHeight="6" />
+            <RowConstraints maxHeight="Infinity" percentHeight="6" />
+            <RowConstraints maxHeight="Infinity" percentHeight="6" />
+            <RowConstraints maxHeight="Infinity" percentHeight="6" />
+            <RowConstraints maxHeight="Infinity" percentHeight="6" />
+            <RowConstraints maxHeight="Infinity" percentHeight="6" />
+            <RowConstraints maxHeight="Infinity" percentHeight="6" />
+            <RowConstraints maxHeight="Infinity" percentHeight="6" />
+            <RowConstraints maxHeight="Infinity" percentHeight="6" />
+            <RowConstraints maxHeight="Infinity" percentHeight="6" />
+            <RowConstraints maxHeight="Infinity" percentHeight="6" />
+            <RowConstraints maxHeight="Infinity" percentHeight="6" />
+            <RowConstraints maxHeight="Infinity" percentHeight="6" />
+            <RowConstraints maxHeight="Infinity" percentHeight="6" />
+            <RowConstraints maxHeight="Infinity" percentHeight="16.0" />
+        </rowConstraints>
+         <children>
+            <Label styleClass="report-label" stylesheets="@../styles/report.css" text="Order Detail" GridPane.columnSpan="2" GridPane.halignment="CENTER" />
+            <Label layoutX="122.0" layoutY="23.0" styleClass="report-label" stylesheets="@../styles/report.css" text="Radiation Processing Data" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="CENTER" />
+            <Label layoutX="390.0" layoutY="23.0" styleClass="report-label" stylesheets="@../styles/report.css" text="Dosimetery Data" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.halignment="CENTER" />
+            <Label text="Order Number" GridPane.rowIndex="1" />
+            <ComboBox fx:id="orderNumber" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label layoutX="25.0" layoutY="67.0" text="Name of Organisation" GridPane.rowIndex="2" />
+            <ComboBox fx:id="orgName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label layoutX="25.0" layoutY="110.0" text="Product Description" GridPane.rowIndex="3" />
+            <TextField fx:id="productDesc" layoutX="171.0" layoutY="105.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TextField>
+            <Label layoutX="25.0" layoutY="154.0" text="Product Detail" GridPane.rowIndex="4" />
+            <TextField fx:id="productDetail" layoutX="171.0" layoutY="149.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TextField>
+            <Label layoutX="25.0" layoutY="197.0" text="Irradiation Purpose" GridPane.rowIndex="5" />
+            <ComboBox fx:id="irradiationPurpose" layoutX="171.0" layoutY="192.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </ComboBox>
+            <Label layoutX="25.0" layoutY="241.0" text="Irradiation Mode" GridPane.rowIndex="6" />
+            <ComboBox fx:id="irradiationMode" layoutX="171.0" layoutY="236.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </ComboBox>
+            <Label layoutX="25.0" layoutY="284.0" text="Required Dose" GridPane.rowIndex="7" />
+            <TextField fx:id="requireDose" layoutX="171.0" layoutY="279.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TextField>
+            <Label layoutX="25.0" layoutY="328.0" text="Dosimeter Used" GridPane.rowIndex="8" />
+            <TextField fx:id="dosimeterUsed" layoutX="171.0" layoutY="323.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TextField>
+            <Label layoutX="25.0" layoutY="371.0" text="Dosimeter Location" GridPane.rowIndex="9" />
+            <TextField fx:id="dosimeterLocation" layoutX="171.0" layoutY="366.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TextField>
+            <Label layoutX="25.0" layoutY="415.0" text="Date of Reciept of Sample" GridPane.rowIndex="10" />
+            <TextField fx:id="receiptDatePicker" layoutX="171.0" layoutY="410.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TextField>
+            <Label layoutX="25.0" layoutY="110.0" text="Radiation Processing Date" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <DatePicker fx:id="radProcessDate" layoutX="171.0" layoutY="105.0" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Label layoutX="326.0" layoutY="57.0" text="Beam Energy" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <TextField fx:id="beamEnergy" layoutX="471.0" layoutY="62.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <Label layoutX="326.0" layoutY="110.0" text="Beam Current" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <TextField fx:id="beamCurrent" layoutX="471.0" layoutY="105.0" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <Label layoutX="326.0" layoutY="154.0" text="PRR (Hz)" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <TextField fx:id="PRR" layoutX="471.0" layoutY="149.0" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <Label layoutX="326.0" layoutY="197.0" text="Scan Width" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <TextField fx:id="scanWidth" layoutX="471.0" layoutY="192.0" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <Label layoutX="326.0" layoutY="241.0" text="Scan Current Time" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <TextField fx:id="scanCurrentTime" layoutX="471.0" layoutY="236.0" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+            <Label layoutX="326.0" layoutY="284.0" text="Conveyor Speed" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+            <TextField fx:id="conveyorSpeed" layoutX="471.0" layoutY="279.0" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+            <Label layoutX="326.0" layoutY="328.0" text="Dose Rate" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+            <TextField fx:id="doseRate" layoutX="471.0" layoutY="323.0" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+            <Label layoutX="326.0" layoutY="371.0" text="SSD" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+            <TextField fx:id="sourceToSurfaceDistance" layoutX="471.0" layoutY="366.0" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+            <Label layoutX="326.0" layoutY="415.0" text="Other Machine Related Parameters" GridPane.columnIndex="3" GridPane.rowIndex="10" GridPane.rowSpan="2" />
+            <TextField fx:id="machineParameters" layoutX="471.0" layoutY="410.0" prefHeight="56.0" GridPane.columnIndex="4" GridPane.rowIndex="10" GridPane.rowSpan="2" />
+            <Label layoutX="326.0" layoutY="470.0" text="Operator Remarks, if any" GridPane.columnIndex="3" GridPane.rowIndex="12" GridPane.rowSpan="2" />
+            <TextField fx:id="operatorRemarks" layoutX="471.0" layoutY="461.0" prefHeight="56.0" GridPane.columnIndex="4" GridPane.rowIndex="12" GridPane.rowSpan="2" />
+            <Label layoutX="326.0" layoutY="57.0" text="Date of Dosimetry Measurement" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+            <DatePicker fx:id="measurementDate" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+            <Label layoutX="626.0" layoutY="57.0" text="Dosimetry Results" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+            <TextField fx:id="measurement" layoutX="471.0" layoutY="105.0" prefHeight="72.0" GridPane.columnIndex="7" GridPane.rowIndex="2" GridPane.rowSpan="2" />
+            <Label layoutX="626.0" layoutY="110.0" text="Before Irradiation Product Pictures" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+            <ImageView fx:id="beforeImageKey" fitHeight="80.0" fitWidth="362.0" pickOnBounds="true" preserveRatio="true" styleClass="line" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="5" GridPane.rowSpan="2" />
+            <Label layoutX="705.0" layoutY="197.0" text="Before Irradiation Product Pictures" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
+            <ImageView fx:id="afterImageKey" fitHeight="80.0" fitWidth="362.0" layoutX="626.0" layoutY="233.0" pickOnBounds="true" preserveRatio="true" styleClass="line" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="9" GridPane.rowSpan="2" />
+            <Label layoutX="626.0" layoutY="110.0" text="Dosimetry Done By:" GridPane.columnIndex="6" GridPane.rowIndex="12" />
+            <TextField fx:id="dosimetryDoneBy" layoutX="471.0" layoutY="62.0" GridPane.columnIndex="7" GridPane.rowIndex="12" />
+            <CheckBox fx:id="DosimetryDoneCB" mnemonicParsing="false" text="Dosimetry Done" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="13" />
+            <Button fx:id="BeforeImgBtn" mnemonicParsing="false" onAction="#onClickUpload" styleClass="form-button" stylesheets="@../styles/form.css" text="Upload Before" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+            <Button fx:id="AfterImgBtn" layoutX="780.0" layoutY="323.0" mnemonicParsing="false" onAction="#onClickUpload" styleClass="form-button" stylesheets="@../styles/form.css" text="Upload After" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="11" />
+            <Button fx:id="SaveRecord_Dosimetry" mnemonicParsing="false" onAction="#onClickSubmit" styleClass="form-button" stylesheets="@../styles/form.css" text="Submit" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="14" />
+         </children>
+      </GridPane>
+   </center>
 </BorderPane>

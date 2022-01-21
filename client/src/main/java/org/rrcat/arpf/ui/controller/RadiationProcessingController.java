@@ -1,5 +1,6 @@
 package org.rrcat.arpf.ui.controller;
 
+import com.jfoenix.controls.*;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -32,69 +33,71 @@ import java.util.function.Supplier;
 
 public class RadiationProcessingController  implements Initializable {
     @FXML
-    private ComboBox<String> orderNumber;
+    private JFXComboBox<String> orderNumber;
     @FXML
-    private TextField dosimeterUsed;
+    private JFXTextField dosimeterUsed;
     @FXML
-    private TextField dosimeterLocation;
+    private JFXTextField dosimeterLocation;
     @FXML
-    private DatePicker radProcessDate;
+    private JFXDatePicker radProcessDate;
     @FXML
-    private TextField beamEnergy;
+    private JFXTextField beamEnergy;
     @FXML
-    private TextField beamCurrent;
+    private JFXTextField beamCurrent;
     @FXML
-    private TextField PRR;
+    private JFXTextField PRR;
     @FXML
-    private TextField scanWidth;
+    private JFXTextField scanWidth;
     @FXML
-    private TextField scanCurrentTime;
+    private JFXTextField scanCurrentTime;
     @FXML
-    private TextField conveyorSpeed;
+    private JFXTextField conveyorSpeed;
     @FXML
-    private TextField doseRate;
+    private JFXTextField doseRate;
     @FXML
-    private TextField sourceToSurfaceDistance;
+    private JFXTextField sourceToSurfaceDistance;
     @FXML
-    private TextField machineParameters;
+    private JFXTextField machineParameters;
     @FXML
-    private TextField operatorRemarks;
+    private JFXTextField operatorRemarks;
     @FXML
-    private ComboBox orgName;
+    private JFXComboBox<String> orgName;
     @FXML
-    private TextField productDesc;
+    private JFXTextField productDesc;
     @FXML
-    private TextField productMaterial;
+    private JFXTextField productMaterial;
     @FXML
-    private TextField productDetail;
+    private JFXTextField productDetail;
     @FXML
-    private ComboBox irradiationPurpose;
+    private JFXComboBox<String> irradiationPurpose;
     @FXML
-    private ComboBox irradiationMode;
+    private JFXComboBox<String> irradiationMode;
     @FXML
-    private TextField requireDose;
+    private JFXTextField requireDose;
     @FXML
-    private TextField productDimensions;
+    private JFXTextField productDimensions;
     @FXML
-    private TextField productWeight;
+    private JFXTextField productWeight;
     @FXML
-    private TextField totalSampleBoxes;
+    private JFXTextField totalSampleBoxes;
     @FXML
-    private TextField extraInfo;
+    private JFXTextField extraInfo;
     @FXML
-    private DatePicker dateOfReceipt;
+    private JFXDatePicker dateOfReceipt;
     @FXML
     private ImageView requestForm;
     @FXML
-    private TextField facilityICComments;
+    private JFXTextField facilityICComments;
     @FXML
-    private CheckBox orderConfirmCB;
+    private JFXCheckBox orderConfirmCB;
     @FXML
-    private CheckBox irradiationProcessedCB;
+    private JFXCheckBox irradiationProcessedCB;
     @FXML
-    private Button saveRecordORP;
+    private JFXButton saveRecordORP;
     @FXML
-    private TextField nameOfOperator;
+    private JFXTextField nameOfOperator;
+    @FXML
+    private JFXButton uploadRegScanned;
 
     private final AtomicReference<UploadedImageDTO> currentUploadedImageReference = new AtomicReference<>();
 

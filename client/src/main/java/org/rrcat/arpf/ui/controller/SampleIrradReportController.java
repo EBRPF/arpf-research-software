@@ -1,5 +1,7 @@
 package org.rrcat.arpf.ui.controller;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import javafx.event.EventHandler;
 import javafx.event.EventType;
 import javafx.fxml.FXML;
@@ -16,9 +18,9 @@ import java.util.ResourceBundle;
 
 public class SampleIrradReportController implements Initializable {
     @FXML
-    private ComboBox<String> orderNumber;
+    private JFXComboBox<String> orderNumber;
     @FXML
-    private Button print;
+    private JFXButton print;
     @FXML
     private Label orgNameField;
     @FXML

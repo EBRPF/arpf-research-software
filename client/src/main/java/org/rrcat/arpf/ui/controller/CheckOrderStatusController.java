@@ -1,5 +1,7 @@
 package org.rrcat.arpf.ui.controller;
 
+import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXTextField;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,9 +24,9 @@ import java.util.concurrent.ExecutionException;
 public class CheckOrderStatusController implements Initializable {
     private static final String PREFIX = "ARPF-Research-Order";
     @FXML
-    private TextField orderNumber;
+    private JFXTextField orderNumber;
     @FXML
-    private Label organizationName;
+    private Label orgName;
     @FXML
     private Label productDescription;
     @FXML
@@ -32,7 +34,7 @@ public class CheckOrderStatusController implements Initializable {
     @FXML
     private Label irradiationMode;
     @FXML
-    private CheckBox orderConfirmed;
+    private JFXCheckBox orderConfirmed;
     @FXML
     private Label irradiationProcessed;
     @FXML
@@ -158,9 +160,9 @@ public class CheckOrderStatusController implements Initializable {
     private void updateForm(final OrderDTO orderDTO, final CustomerDTO customerDTO, final OrderRadiationProcessingDTO radiationProcessingDTO, final DosimetryDTO dosimetryDTO, final ShippingDetailsDTO shippingDetailsDTO) {
         final DateFormat dateFormat = DateFormat.getDateInstance();
         if (customerDTO != null) {
-            organizationName.setText(customerDTO.organization().name());
+            orgName.setText(customerDTO.organization().name());
         } else {
-            organizationName.setText("-");
+            orgName.setText("-");
         }
         if (orderDTO != null) {
             productDescription.setText(orderDTO.productDescription());

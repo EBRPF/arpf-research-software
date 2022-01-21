@@ -17,12 +17,12 @@ public interface CustomerApi {
     @GET("/api/v1/customer/fetch/{customerId}")
     Call<CustomerDTO> fetchCustomer(@Path("customerId") final int customerId);
 
-    @GET("/api/v1/customer/fetch/org/{organizationName}")
-    Call<CustomerDTO> fetchCustomerByOrganization(@Path("organizationName") final String organizationName);
+    @GET("/api/v1/customer/fetch/org/{orgName}")
+    Call<CustomerDTO> fetchCustomerByOrganization(@Path("orgName") final String orgName);
 
     @GET("/api/v1/customer/search/{customerId}")
     Call<Collection<CustomerDTO>> searchCustomer(@Path("customerId") final String customerId);
 
-    @GET("/api/v1/customer/search/org/{organizationName}")
-    Call<Collection<CustomerDTO>> searchCustomerByOrganization(@Path("organizationName") final String organizationName);
+    @GET("/api/v1/customer/search/org/{orgName}")
+    Call<Collection<CustomerDTO>> searchCustomerByOrganization(@Path("orgName") final String orgName);
 }

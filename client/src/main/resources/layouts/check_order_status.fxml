@@ -13,6 +13,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXTextField?>
 <BorderPane prefHeight="525.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller= "org.rrcat.arpf.ui.controller.CheckOrderStatusController" >
     <top>
@@ -46,18 +48,18 @@
                         <Font size="10.0"/>
                     </font>
                 </Label>
-                <TextField fx:id="orderNumber" prefHeight="16.0" prefWidth="164.0"
-                           promptText="ARPF-Research-Order-0001">
+                <JFXTextField fx:id="orderNumber" prefHeight="16.0" prefWidth="164.0"
+                              promptText="ARPF-Research-Order-0001">
                     <font>
                         <Font size="10.0"/>
                     </font>
-                </TextField>
+                </JFXTextField>
             </HBox>
             <VBox alignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.halignment="CENTER"
                   GridPane.rowIndex="1" GridPane.rowSpan="1">
                 <Label styleClass="field-label" text="Name of Organization / Institutions" textAlignment="CENTER">
                 </Label>
-                <Label fx:id="organizationName" text="BARC-NABTD" textAlignment="CENTER">
+                <Label fx:id="orgName" text="BARC-NABTD" textAlignment="CENTER">
                 </Label>
                 <Label styleClass="field-label" text="Description of Product(s) to be Irradiated"
                        textAlignment="CENTER">
@@ -92,10 +94,10 @@
                    textAlignment="CENTER" wrapText="true" GridPane.columnIndex="0" GridPane.columnSpan="1"
                    GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.rowSpan="1">
             </Label>
-            <CheckBox fx:id="orderConfirmed" disable="true" GridPane.columnIndex="1" GridPane.columnSpan="1"
-                      GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.rowSpan="1">
+            <JFXCheckBox fx:id="orderConfirmed" disable="true" GridPane.columnIndex="1" GridPane.columnSpan="1"
+                         GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.rowSpan="1">
 
-            </CheckBox>
+            </JFXCheckBox>
 
             <Label alignment="CENTER" styleClass="field-label" text="Irradiation Processed" textAlignment="CENTER"
                    wrapText="true" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.halignment="CENTER"

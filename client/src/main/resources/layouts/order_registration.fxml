@@ -83,7 +83,7 @@
             <JFXTextField fx:id="extraInfo" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="12" />
 
             <Label text="Receipt Date" wrapText="true" GridPane.columnIndex="0" GridPane.fillHeight="true" GridPane.fillWidth="true" GridPane.rowIndex="13" />
-            <DatePicker fx:id="receiptDatePicker" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="13" />
+            <JFXDatePicker fx:id="receiptDatePicker" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="13" />
 
             <Label text="Radiation Processing Request Form" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
                 <GridPane.margin>

@@ -1,7 +1,7 @@
 package org.rrcat.arpf.ui.controller;
 
 import com.gluonhq.charm.glisten.control.AutoCompleteTextField;
-import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.*;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -39,39 +39,39 @@ import java.util.stream.Collectors;
 
 public final class OrderRegController implements Initializable {
     @FXML
-    private TextField orgName;
+    private JFXTextField orgName;
     @FXML
-    private TextField productDescription;
+    private JFXTextField productDescription;
     @FXML
-    private TextField productMaterial;
+    private JFXTextField productMaterial;
     @FXML
-    private TextField productDetail;
+    private JFXTextField productDetail;
     @FXML
-    private TextField irradiationPurpose;
+    private JFXTextField irradiationPurpose;
     @FXML
-    private ComboBox<String> irradiationMode;
+    private JFXComboBox<String> irradiationMode;
     @FXML
-    private TextField doseRequired;
+    private JFXTextField doseRequired;
     @FXML
-    private TextField productDimensions;
+    private JFXTextField productDimensions;
     @FXML
-    private TextField productWeight;
+    private JFXTextField productWeight;
     @FXML
-    private TextField totalSampleBoxes;
+    private JFXTextField totalSampleBoxes;
     @FXML
-    private TextField extraInfo;
+    private JFXTextField extraInfo;
     @FXML
-    private DatePicker receiptDatePicker;
+    private JFXDatePicker receiptDatePicker;
     @FXML
     private ImageView registrationScannedImg;
     @FXML
     private StackPane imageOuterPane;
     @FXML
-    private TextField inchargeComments;
+    private JFXTextField inchargeComments;
     @FXML
-    private CheckBox confirmationCheckbox;
+    private JFXCheckBox confirmationCheckbox;
     @FXML
-    private Button submitOrder;
+    private JFXButton submitOrder;
 
     private final AtomicReference<UploadedImageDTO> currentUploadedImageReference = new AtomicReference<>();
 

@@ -3,6 +3,7 @@ package org.rrcat.arpf.ui.controller;
 import com.gluonhq.charm.glisten.control.AutoCompleteTextField;
 import com.jfoenix.controls.*;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -70,7 +71,8 @@ public class ShippingDetailController implements Initializable {
 
 
 
-    private final AtomicReference<UploadedImageDTO> currentUploadedImageReference = new AtomicReference<>();
+    private final AtomicReference<UploadedImageDTO> currentGatePassUploadedImageReference = new AtomicReference<>();
+    private final AtomicReference<UploadedImageDTO> currentDosiReportUploadedImageReference = new AtomicReference<>();
 
 
     private final ShippingDetailsApi shippingDetailsApi;
@@ -98,24 +100,24 @@ public class ShippingDetailController implements Initializable {
     }
 
     @FXML
-    private void onClickUpload() throws IOException {
+    private void onClickUpload(final AtomicReference<UploadedImageDTO> imageReference, ImageView view) {
         CompletableFuture.completedFuture(uploadFileSupplier.get())
                 .thenApply((file) -> {
                     final UploadedImageDTO dto = uploadService.upload(file);
-                    onUploadFileSuccessfully(file);
+                    onUploadFileSuccessfully(file, view);
                     return dto;
                 })
-                .thenAccept(this.currentUploadedImageReference::set)
-                .exceptionally(this::onUploadFileFailure);
+                .thenAccept(imageReference::set)
+                .exceptionally(throwable -> onUploadFileFailure(throwable, view));
     }
 
 
     @FXML
     private void onClickSubmit() {
-        if (this.currentUploadedImageReference.get() == null) {
+        if (this.currentGatePassUploadedImageReference.get() == null || this.currentDosiReportUploadedImageReference.get() == null) {
             final Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Submit Failed");
-            alert.setHeaderText("Image not selected.");
+            alert.setHeaderText(String.format("%s image is not selected", this.currentGatePassUploadedImageReference.get() == null ? "Gate Pass":"Dosimetry Report"));
             alert.setContentText("Kindly select an image to be uploaded. Try again after selecting an image.");
             alert.show();
             return;
@@ -135,6 +137,8 @@ public class ShippingDetailController implements Initializable {
                             )
                             .shippedPackets(Integer.parseInt(productCount.getText()))
                             .processedBy(processedBy.getText())
+                            .dosimetryReportImageKey(currentDosiReportUploadedImageReference.get().id())
+                            .gatePassImageKey(currentGatePassUploadedImageReference.get().id())
                             .build();
 
             final Call<ShippingDetailsDTO> call = shippingDetailsApi.registerShippingDetails(dto);
@@ -164,22 +168,30 @@ public class ShippingDetailController implements Initializable {
 
     }
 
-    private void onUploadFileSuccessfully(final File file) {
+    private void onUploadFileSuccessfully(final File file, ImageView view) {
         try {
-            gatePassScannedImg.setImage(new Image(new FileInputStream(file)));
+            view.setImage(new Image(new FileInputStream(file)));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-    private <T> T onUploadFileFailure(final Throwable exception) {
-        gatePassScannedImg.imageProperty().set(null);
+    private <T> T onUploadFileFailure(final Throwable exception, ImageView view) {
+        view.imageProperty().set(null);
         exceptionHandler.accept(exception);
         return null;
     }
 
     private void onCheckboxUpdate(final ObservableValue<? extends Boolean> observable, final Boolean oldValue, final Boolean newValue) {
         saveRecordShip.setDisable(!newValue);
+    }
+
+    public void uploadGatePass(ActionEvent actionEvent) {
+        onClickUpload(currentGatePassUploadedImageReference, gatePassScannedImg);
+    }
+
+    public void uploadDosiReport(ActionEvent actionEvent) {
+        onClickUpload(currentDosiReportUploadedImageReference, registrationScannedImg);
     }
 }
 

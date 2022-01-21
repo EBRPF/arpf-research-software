@@ -109,7 +109,7 @@
                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                 </GridPane.margin>
             </StackPane>
-         <JFXButton fx:id="scanGatePassBtn" mnemonicParsing="false" onAction="#onClickUpload" styleClass="form-button" stylesheets="@../styles/form.css" text="Upload Gate Pass" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+         <JFXButton fx:id="scanGatePassBtn" mnemonicParsing="false" onAction="#uploadGatePass" styleClass="form-button" stylesheets="@../styles/form.css" text="Upload Gate Pass" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
 
             <Label text="Dosimetry Report" wrapText="true" GridPane.columnIndex="3" GridPane.rowIndex="6" GridPane.rowSpan="2">
                 <GridPane.margin>
@@ -126,7 +126,7 @@
                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                 </GridPane.margin>
             </StackPane>
-         <JFXButton fx:id="scanDosiRepoBtn" mnemonicParsing="false" onAction="#onClickUpload" styleClass="form-button" text="Upload Dosimetry Report" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="11" />
+         <JFXButton fx:id="scanDosiRepoBtn" mnemonicParsing="false" onAction="#uploadDosiReport" styleClass="form-button" text="Upload Dosimetry Report" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="11" />
          <JFXCheckBox fx:id="shippedCB" mnemonicParsing="false" text="Irradiated Sample Shipped" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="12" />
          <JFXButton fx:id="saveRecordShip" mnemonicParsing="false" onAction="#onClickSubmit" styleClass="form-button" stylesheets="@../styles/form.css" text="Submit" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="12" />
 

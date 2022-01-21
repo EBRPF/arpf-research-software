@@ -5,6 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
+<?import com.jfoenix.controls.JFXTextField?>
 <BorderPane prefHeight="525.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
     <top>
         <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: rgb(190,220,255);">
@@ -31,11 +32,11 @@
                         <Font size="10.0" />
                     </font>
                 </Label>
-                <TextField fx:id="orderNumber" prefHeight="16.0" prefWidth="164.0" promptText="ARPF-Research-Order-">
+                <JFXTextField fx:id="orderNumber" prefHeight="16.0" prefWidth="164.0" promptText="ARPF-Research-Order-">
                     <font>
                         <Font size="10.0" />
                     </font>
-                </TextField>
+                </JFXTextField>
             </HBox>
             <VBox alignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="1">
                 <Label styleClass="field-label" text="Search Records of Customer" textAlignment="CENTER">

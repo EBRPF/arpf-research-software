@@ -1,5 +1,6 @@
 package org.rrcat.arpf.ui.controller;
 
+import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
@@ -13,7 +14,7 @@ import java.util.concurrent.CompletableFuture;
 public class DashboardController implements Initializable {
     private static final String PREFIX = "ARPF-Research-Order-";
     @FXML
-    private TextField orderNumber;
+    private JFXTextField orderNumber;
     @FXML
     private TableColumn orgName;
     @FXML

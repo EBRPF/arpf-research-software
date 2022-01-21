@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import org.rrcat.arpf.ui.api.schema.*;
 
 import javax.inject.Inject;
@@ -20,7 +21,7 @@ public class SampleIrradReportController implements Initializable {
     @FXML
     private JFXComboBox<String> orderNumber;
     @FXML
-    private JFXButton print;
+    private JFXButton printSIR;
     @FXML
     private Label orgNameField;
     @FXML
@@ -86,6 +87,10 @@ public class SampleIrradReportController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+    }
+
+    public void printSIReport(MouseEvent mouseEvent) {
 
     }
 }

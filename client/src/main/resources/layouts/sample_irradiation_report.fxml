@@ -50,7 +50,7 @@
                 </JFXButton>
 
             </HBox>
-            <JFXButton graphicTextGap="1.0" styleClass="form-button" text="Print" GridPane.columnIndex="4" GridPane.columnSpan="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.rowSpan="1">
+            <JFXButton graphicTextGap="1.0" fx:id="printSIR" onMouseClicked="#printSIReport"  styleClass="form-button" text="Print" GridPane.columnIndex="4" GridPane.columnSpan="1" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.rowSpan="1">
                 <graphic>
                     <ImageView fitHeight="23.0" fitWidth="22.0">
                         <Image url="@../assets/icons/print.png" />
@@ -59,7 +59,7 @@
             </JFXButton>
             <ScrollPane fitToWidth="true" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="1" GridPane.valignment="CENTER">
                 <StackPane>
-                    <fx:include source="process_report.fxml" />
+                    <fx:include source="processing_report.fxml" />
                 </StackPane>
             </ScrollPane>
         </GridPane>

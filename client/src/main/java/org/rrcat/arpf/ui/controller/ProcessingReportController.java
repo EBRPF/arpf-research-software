@@ -1,6 +1,10 @@
 package org.rrcat.arpf.ui.controller;
 
 import com.gluonhq.charm.glisten.control.AutoCompleteTextField;
+import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -77,59 +81,59 @@ public class ProcessingReportController implements Initializable {
         @FXML
         private AutoCompleteTextField<String> OrderNumber;
         @FXML
-        private TextField OrgNameField;
+        private JFXTextField OrgNameField;
         @FXML
-        private TextField DescrOfProducts;
+        private JFXTextField DescrOfProducts;
         @FXML
-        private TextField MaterialOfProduct;
+        private JFXTextField MaterialOfProduct;
         @FXML
-        private TextField DetailOfProduct;
+        private JFXTextField DetailOfProduct;
         @FXML
-        private ComboBox<String> PurposeOfIrrad;
+        private JFXComboBox<String> PurposeOfIrrad;
         @FXML
-        private ComboBox<String> ModeOfIrrad;
+        private JFXComboBox<String> ModeOfIrrad;
         @FXML
-        private TextField RequiredDose;
+        private JFXTextField RequiredDose;
         @FXML
-        private TextField DosimeterUsed;
+        private JFXTextField DosimeterUsed;
         @FXML
-        private TextField DosimeterLocation;
+        private JFXTextField DosimeterLocation;
         @FXML
-        private DatePicker DateOfOrder;
+        private JFXDatePicker DateOfOrder;
 
         //Radiation Processing Data
         @FXML
-        private DatePicker RadProcessDate;
+        private JFXDatePicker RadProcessDate;
         @FXML
-        private TextField RadStartTime;
+        private JFXTextField RadStartTime;
         @FXML
-        private TextField CompletionTime;
+        private JFXTextField CompletionTime;
         @FXML
-        private TextField BeamEnergy;
+        private JFXTextField BeamEnergy;
         @FXML
-        private TextField BeamCurrent;
+        private JFXTextField BeamCurrent;
         @FXML
-        private TextField PRR;
+        private JFXTextField PRR;
         @FXML
-        private TextField ScanWidth;
+        private JFXTextField ScanWidth;
         @FXML
-        private TextField ScanCurrentTime;
+        private JFXTextField ScanCurrentTime;
         @FXML
-        private TextField ConveyorSpeed;
+        private JFXTextField ConveyorSpeed;
         @FXML
-        private TextField DoseRate;
+        private JFXTextField DoseRate;
         @FXML
-        private TextField StoSDistance;
+        private JFXTextField StoSDistance;
         @FXML
-        private TextField OtherMacParameters;
+        private JFXTextField OtherMacParameters;
         @FXML
-        private TextField OperatorRemarks;
+        private JFXTextField OperatorRemarks;
 
         //Dosimetry Data
         @FXML
-        private DatePicker DosimetryDate;
+        private JFXDatePicker DosimetryDate;
         @FXML
-        private TextField DosimetryResult;
+        private JFXTextField DosimetryResult;
 
         //Before Irradiation Image
         @FXML
@@ -141,7 +145,7 @@ public class ProcessingReportController implements Initializable {
 
         //DosimetryDone CheckBox
         @FXML
-        private CheckBox DosimetryDoneCB;
+        private JFXCheckBox DosimetryDoneCB;
 
         @Override
         public void initialize(URL location, ResourceBundle resources) {

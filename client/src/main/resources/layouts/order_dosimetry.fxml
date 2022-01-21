@@ -17,6 +17,8 @@
 <?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.gluonhq.charm.glisten.control.AutoCompleteTextField?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.ScrollPane?>
 <BorderPane prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.OrderDosimetryController">
    <top>
       <HBox prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: rgb(190,220,255)rgb(190,220,255);" BorderPane.alignment="CENTER">
@@ -142,14 +144,24 @@
             <Label layoutX="626.0" layoutY="57.0" text="Dosimetry Results" GridPane.columnIndex="6" GridPane.rowIndex="2" />
             <JFXTextField fx:id="measurement" layoutX="471.0" promptText="..." layoutY="105.0" prefHeight="72.0" GridPane.columnIndex="7" GridPane.rowIndex="2" GridPane.rowSpan="2" />
             <Label layoutX="626.0" layoutY="110.0" text="Before Irradiation Product Pictures" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-            <ImageView fx:id="beforeImageKey" fitHeight="80.0" fitWidth="362.0" pickOnBounds="true" preserveRatio="true" styleClass="line" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="5" GridPane.rowSpan="2" />
+            <StackPane style="-fx-border-color: black;" GridPane.columnIndex="6" GridPane.fillHeight="true" GridPane.columnSpan="2" GridPane.fillWidth="true" GridPane.rowIndex="5" GridPane.rowSpan="2">
+                <ScrollPane>
+                <ImageView fx:id="beforeImageKey" pickOnBounds="true" preserveRatio="true" >
+                </ImageView>
+                </ScrollPane>
+            </StackPane>
             <Label layoutX="705.0" layoutY="197.0" text="Before Irradiation Product Pictures" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
-            <ImageView fx:id="afterImageKey" fitHeight="80.0" fitWidth="362.0" layoutX="626.0" layoutY="233.0" pickOnBounds="true" preserveRatio="true" styleClass="line" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.rowIndex="9" GridPane.rowSpan="2" />
+            <StackPane style="-fx-border-color: black;" GridPane.columnIndex="6" GridPane.fillHeight="true" GridPane.columnSpan="2" GridPane.fillWidth="true" GridPane.rowIndex="9" GridPane.rowSpan="2">
+                <ScrollPane>
+                    <ImageView fx:id="afterImageKey" pickOnBounds="true" preserveRatio="true" styleClass="line">
+                    </ImageView>
+                </ScrollPane>
+            </StackPane>
             <Label layoutX="626.0" layoutY="110.0" text="Dosimetry Done By:" GridPane.columnIndex="6" GridPane.rowIndex="12" />
             <JFXTextField fx:id="dosimetryDoneBy" promptText="..." layoutX="471.0" layoutY="62.0" GridPane.columnIndex="7" GridPane.rowIndex="12" />
             <JFXCheckBox fx:id="DosimetryDoneCB" mnemonicParsing="false" text="Dosimetry Done" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="13" />
-            <JFXButton fx:id="BeforeImgBtn" mnemonicParsing="false" onAction="#onClickUpload" styleClass="form-button" stylesheets="@../styles/form.css" text="Upload Before" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
-            <JFXButton fx:id="AfterImgBtn" layoutX="780.0" layoutY="323.0" mnemonicParsing="false" onAction="#onClickUpload" styleClass="form-button" stylesheets="@../styles/form.css" text="Upload After" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="11" />
+            <JFXButton fx:id="BeforeImgBtn" mnemonicParsing="false" onAction="#onClickUploadBefore" styleClass="form-button" stylesheets="@../styles/form.css" text="Upload Before" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+            <JFXButton fx:id="AfterImgBtn" layoutX="780.0" layoutY="323.0" mnemonicParsing="false" onAction="#onClickUploadAfter" styleClass="form-button" stylesheets="@../styles/form.css" text="Upload After" GridPane.columnIndex="6" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="11" />
             <JFXButton fx:id="SaveRecord_Dosimetry" mnemonicParsing="false" onAction="#onClickSubmit" styleClass="form-button" stylesheets="@../styles/form.css" text="Submit" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="14" />
 
       </GridPane>

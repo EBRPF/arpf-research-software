@@ -107,7 +107,11 @@ public class OrderDosimetryController implements Initializable {
     @FXML
     private JFXTextField dosimetryDoneBy;
 
-    private final AtomicReference<UploadedImageDTO> currentUploadedImageReference = new AtomicReference<>();
+    private final AtomicReference<UploadedImageDTO> currentBeforeUploadedImageReference = new AtomicReference<>();
+    private final AtomicReference<UploadedImageDTO> currentAfterUploadedImageReference = new AtomicReference<>();
+
+
+
 
 
     private final ImageUploadService uploadService;
@@ -133,35 +137,36 @@ public class OrderDosimetryController implements Initializable {
         SaveRecord_Dosimetry.setDisable(!DosimetryDoneCB.isSelected());
     }
 
-    @FXML
-    private void onClickUpload() {
+
+    private void onClickUpload(final AtomicReference<UploadedImageDTO> imageReference, ImageView view) {
         CompletableFuture.completedFuture(uploadFileSupplier.get())
                 .thenApply((file) -> {
                     final UploadedImageDTO dto = uploadService.upload(file);
-                    onUploadFileSuccessfully(file);
+                    onUploadFileSuccessfully(file, view);
                     return dto;
                 })
-                .thenAccept(this.currentUploadedImageReference::set)
-                .exceptionally(this::onUploadFileFailure);
+                .thenAccept(imageReference::set)
+                .exceptionally(throwable -> onUploadFileFailure(throwable, view));
     }
 
     @FXML
     private void onClickSubmit() {
-        if (this.currentUploadedImageReference.get() == null) {
+        if (this.currentBeforeUploadedImageReference.get() == null || this.currentAfterUploadedImageReference.get() == null) {
             final Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Submit Failed");
-            alert.setHeaderText("Image not selected.");
+            alert.setHeaderText(String.format("%s image not selected",this.currentBeforeUploadedImageReference.get() == null ? "Before":"After"));
             alert.setContentText("Kindly select an image to be uploaded. Try again after selecting an image.");
             alert.show();
             return;
         }
 
+
         final DosimetryDTO dosimetryDTO = DosimetryDTOBuilder.builder()
                 .registrationNo(Integer.parseInt(OrderNumber.getText()))
                 .measurementDate(Date.from(measurementDate.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant()))
                 .measurement(measurement.getText())
-                .beforeImageKey(currentUploadedImageReference.get().id())
-                .afterImageKey(currentUploadedImageReference.get().id())
+                .beforeImageKey(currentBeforeUploadedImageReference.get().id())
+                .afterImageKey(currentAfterUploadedImageReference.get().id())
                 .dosimetryDoneBy(dosimetryDoneBy.getText())
                 .build();
 
@@ -196,18 +201,16 @@ public class OrderDosimetryController implements Initializable {
     }
 
 
-    private void onUploadFileSuccessfully(File file) {
+    private void onUploadFileSuccessfully(File file, ImageView view) {
         try {
-            beforeImageKey.setImage(new Image(new FileInputStream(file)));
-            afterImageKey.setImage(new Image(new FileInputStream(file)));
+            view.setImage(new Image(new FileInputStream(file)));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
-    private Void onUploadFileFailure(Throwable throwable) {
+    private Void onUploadFileFailure(Throwable throwable, ImageView view) {
 
-        beforeImageKey.imageProperty().set(null);
-        afterImageKey.imageProperty().set(null);
+        view.imageProperty().set(null);
         exceptionHandler.accept(throwable);
         return null;
 
@@ -216,6 +219,14 @@ public class OrderDosimetryController implements Initializable {
 
 
     private void onCheckboxUpdate(final ObservableValue<? extends Boolean> observable, final Boolean oldValue, final Boolean newValue) {
-            DosimetryDoneCB.setDisable(!newValue);
+        SaveRecord_Dosimetry.setDisable(!newValue);
+    }
+
+    public void onClickUploadAfter(ActionEvent actionEvent) {
+        onClickUpload(currentAfterUploadedImageReference, afterImageKey );
+    }
+
+    public void onClickUploadBefore(ActionEvent actionEvent) {
+        onClickUpload(currentBeforeUploadedImageReference, beforeImageKey);
     }
 }

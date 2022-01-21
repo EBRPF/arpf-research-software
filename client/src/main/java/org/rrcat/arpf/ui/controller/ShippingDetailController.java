@@ -2,7 +2,6 @@ package org.rrcat.arpf.ui.controller;
 
 import com.gluonhq.charm.glisten.control.AutoCompleteTextField;
 import com.jfoenix.controls.*;
-import javafx.beans.Observable;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -57,7 +56,7 @@ public class ShippingDetailController implements Initializable {
     @FXML
     private ImageView gatePassScannedImg;
     @FXML
-    private ImageView dosiReportImg;
+    private ImageView registrationScannedImg;
     @FXML
     private JFXCheckBox shippedCB;
     @FXML
@@ -94,7 +93,7 @@ public class ShippingDetailController implements Initializable {
         shippedCB.selectedProperty().addListener(this::onCheckboxUpdate);
         shippingState.setItems(CustomerFormData.STATES);
         gatePassScannedImg.setPreserveRatio(true);
-        dosiReportImg.setPreserveRatio(true);
+        registrationScannedImg.setPreserveRatio(true);
 
     }
 

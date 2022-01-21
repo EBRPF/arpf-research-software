@@ -39,7 +39,7 @@ import java.util.stream.Collectors;
 
 public final class OrderRegController implements Initializable {
     @FXML
-    private TextField organizationName;
+    private TextField orgName;
     @FXML
     private TextField productDescription;
     @FXML
@@ -98,7 +98,7 @@ public final class OrderRegController implements Initializable {
         irradiationMode.setItems(OrderFormData.IRRADIATION_MODE);
         confirmationCheckbox.selectedProperty().addListener(this::onCheckboxUpdate);
         submitOrder.setDisable(!confirmationCheckbox.isSelected());
-        TextFields.bindAutoCompletion(organizationName, string -> {
+        TextFields.bindAutoCompletion(orgName, string -> {
             if (string.getUserText().trim().isEmpty()) {
                 return Collections.emptyList();
             }
@@ -136,7 +136,7 @@ public final class OrderRegController implements Initializable {
             return;
         }
         final Integer customerRegNo;
-        final Call<CustomerDTO> customerCall = customerApi.fetchCustomerByOrganization(organizationName.getText());
+        final Call<CustomerDTO> customerCall = customerApi.fetchCustomerByOrganization(orgName.getText());
         try {
             final Response<CustomerDTO> customerResponse = customerCall.execute();
             final CustomerDTO customerDTO = customerResponse.body();

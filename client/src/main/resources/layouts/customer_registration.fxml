@@ -47,7 +47,7 @@
             <Label fx:id="customerRegNo"  GridPane.columnIndex="1" GridPane.rowIndex="0" /> !-->
 
             <Label text="Name of Organization/Institute" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-            <JFXTextField fx:id="organizationName" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <JFXTextField fx:id="orgName" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
             <Label text="Type of Organization" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="2" />
             <JFXComboBox fx:id="instituteType" maxWidth="Infinity" promptText="Select one..." GridPane.columnIndex="1" GridPane.rowIndex="2" />

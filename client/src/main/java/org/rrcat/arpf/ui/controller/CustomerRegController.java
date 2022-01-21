@@ -35,7 +35,7 @@ import java.util.regex.Pattern;
 
 public final class CustomerRegController implements Initializable {
     @FXML
-    private TextField organizationName;
+    private TextField orgName;
     @FXML
     private ComboBox<String> instituteType;
     @FXML
@@ -94,7 +94,7 @@ public final class CustomerRegController implements Initializable {
         addressState.setItems(CustomerFormData.STATES);
         registrationScannedImg.setPreserveRatio(true);
         registrationScannedImg.fitWidthProperty().bind(imageOuterPane.widthProperty());
-        organizationName.heightProperty().addListener((observable, oldValue, newValue) -> System.out.println("height = " + newValue));
+        orgName.heightProperty().addListener((observable, oldValue, newValue) -> System.out.println("height = " + newValue));
     }
 
     public static final Pattern VALID_EMAIL_ADDRESS_REGEX =
@@ -154,7 +154,7 @@ public final class CustomerRegController implements Initializable {
                         .organization(
                                 OrganizationDTOBuilder.builder()
                                         .type(instituteType.getValue())
-                                        .name(organizationName.getText())
+                                        .name(orgName.getText())
                                         .build()
                         )
                         .build();

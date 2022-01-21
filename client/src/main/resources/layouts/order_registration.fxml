@@ -50,7 +50,7 @@
             <JFXComboBox fx:id="customerRegisterNo" editable="true" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.fillWidth="true" GridPane.rowIndex="1" /-->
 
             <Label text="Name of Organization" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-            <JFXTextField  fx:id="organizationName" maxWidth="Infinity"  GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <JFXTextField  fx:id="orgName" maxWidth="Infinity"  GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
             <Label text="Product Description" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="3" />
             <JFXTextField fx:id="productDescription" maxWidth="Infinity" promptText="..." GridPane.columnIndex="1" GridPane.rowIndex="3" />

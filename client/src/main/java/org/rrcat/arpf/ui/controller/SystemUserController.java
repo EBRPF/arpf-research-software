@@ -1,5 +1,8 @@
 package org.rrcat.arpf.ui.controller;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextField;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -23,17 +26,17 @@ import java.util.ResourceBundle;
 public class SystemUserController implements Initializable {
 
     @FXML
-    private TextField name;
+    private JFXTextField name;
     @FXML
-    private TextField username;
+    private JFXTextField username;
     @FXML
-    private TextField password;
+    private JFXTextField password;
     @FXML
-    private TextField confirmPassword;
+    private JFXTextField confirmPassword;
     @FXML
-    private ComboBox<String> userRole;
+    private JFXComboBox<String> userRole;
     @FXML
-    private Button addBtn;
+    private JFXButton addBtn;
 
     private final UserApi api;
 

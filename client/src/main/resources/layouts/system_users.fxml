@@ -16,6 +16,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXButton?>
 <BorderPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.rrcat.arpf.ui.controller.SystemUserController">
     <top>
         <HBox alignment="CENTER" prefHeight="75.0" prefWidth="600.0" style="-fx-background-color: rgb(190,220,255);">
@@ -49,28 +52,28 @@
             </rowConstraints>
             <Label text="Name" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="LEFT" GridPane.rowIndex="0" GridPane.rowSpan="1">
             </Label>
-            <TextField fx:id="NameOfUser" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.rowSpan="1">
-            </TextField>
+            <JFXTextField fx:id="NameOfUser" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.rowSpan="1">
+            </JFXTextField>
             <Label text="Username" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.rowSpan="1">
             </Label>
-            <TextField fx:id="UsernameField" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.rowSpan="1">
-            </TextField>
+            <JFXTextField fx:id="UsernameField" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.rowSpan="1">
+            </JFXTextField>
             <Label text="Password" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.rowSpan="1">
             </Label>
-            <TextField fx:id="PasswordField" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.rowSpan="1">
-            </TextField>
+            <JFXTextField fx:id="PasswordField" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.rowSpan="1">
+            </JFXTextField>
             <Label text="Confirm Password" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="LEFT" GridPane.rowIndex="6" GridPane.rowSpan="1">
             </Label>
-            <TextField fx:id="ConfirmPassword" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="LEFT" GridPane.rowIndex="7" GridPane.rowSpan="1">
-            </TextField>
+            <JFXTextField fx:id="ConfirmPassword" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="LEFT" GridPane.rowIndex="7" GridPane.rowSpan="1">
+            </JFXTextField>
             <Label text="Role" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="LEFT" GridPane.rowIndex="8" GridPane.rowSpan="1">
             </Label>
-            <ComboBox fx:id="UserRoles" promptText="Choose..." GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="9" GridPane.rowSpan="1">
+            <JFXComboBox fx:id="UserRoles" promptText="Choose..." GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="9" GridPane.rowSpan="1">
 
-            </ComboBox>
-            <Button fx:id="addBtn" onMouseClicked="#onButtonClick" styleClass="form-button" text="ADD" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.rowSpan="1">
+            </JFXComboBox>
+            <JFXButton fx:id="addBtn" onMouseClicked="#onButtonClick" styleClass="form-button" text="ADD" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.rowSpan="1">
 
-            </Button>
+            </JFXButton>
             <VBox alignment="TOP_CENTER" maxHeight="Infinity" styleClass="blue-border" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.rowSpan="1">
                 <GridPane.margin>
                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

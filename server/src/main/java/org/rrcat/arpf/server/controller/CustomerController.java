@@ -46,10 +46,10 @@ public final class CustomerController {
         return Customer.toDTO(customer);
     }
 
-    @GetMapping("/fetch/org/{organizationName}")
+    @GetMapping("/fetch/org/{orgName}")
     @ResponseBody
-    public CustomerDTO fetchCustomerByOrganization(@PathVariable final String organizationName) {
-        final Customer customer = Objects.requireNonNull(repository.findCustomerByOrganizationName(organizationName), "Customer must already have been registered");
+    public CustomerDTO fetchCustomerByOrganization(@PathVariable final String orgName) {
+        final Customer customer = Objects.requireNonNull(repository.findCustomerByorgName(orgName), "Customer must already have been registered");
         return Customer.toDTO(customer);
     }
 
@@ -60,10 +60,10 @@ public final class CustomerController {
         return customer.stream().map(Customer::toDTO).collect(Collectors.toSet());
     }
 
-    @GetMapping("/search/org/{organizationName}")
+    @GetMapping("/search/org/{orgName}")
     @ResponseBody
-    public Collection<CustomerDTO> searchCustomerByOrganization(@PathVariable final String organizationName) {
-        final Collection<Customer> customer = repository.findCustomersByOrganizationNameFuzzy(organizationName);
+    public Collection<CustomerDTO> searchCustomerByOrganization(@PathVariable final String orgName) {
+        final Collection<Customer> customer = repository.findCustomersByorgNameFuzzy(orgName);
         return customer.stream().map(Customer::toDTO).collect(Collectors.toSet());
     }
 }

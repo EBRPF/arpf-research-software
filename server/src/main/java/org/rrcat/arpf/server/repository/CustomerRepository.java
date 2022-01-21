@@ -12,8 +12,8 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
     @Query("FROM Customer WHERE concat(registrationNo, '') LIKE :registrationNo%")
     Collection<Customer> findCustomersByRegistrationNoFuzzy(final String registrationNo);
 
-    @Query("FROM Customer WHERE organization.name LIKE :organizationName%")
-    Collection<Customer> findCustomersByOrganizationNameFuzzy(final String organizationName);
+    @Query("FROM Customer WHERE organization.name LIKE :orgName%")
+    Collection<Customer> findCustomersByorgNameFuzzy(final String orgName);
 
-    Customer findCustomerByOrganizationName(final String organizationName);
+    Customer findCustomerByorgName(final String orgName);
 }

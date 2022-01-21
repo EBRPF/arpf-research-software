@@ -26,12 +26,12 @@
                 <RowConstraints maxHeight="Infinity" percentHeight="18.0" />
             </rowConstraints>
             <HBox alignment="CENTER" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1">
-                <Label styleClass="field-label" text="Registration Number">
+                <Label styleClass="field-label" text="Order Number">
                     <font>
                         <Font size="10.0" />
                     </font>
                 </Label>
-                <TextField fx:id="orderNumber" prefHeight="16.0" prefWidth="164.0" promptText="registration number">
+                <TextField fx:id="orderNumber" prefHeight="16.0" prefWidth="164.0" promptText="ARPF-Research-Order-">
                     <font>
                         <Font size="10.0" />
                     </font>
@@ -42,12 +42,11 @@
                 </Label>
             <TableView prefHeight="185.0" prefWidth="600.0">
               <columns>
-                <TableColumn prefWidth="104.0" text="Registration Number" />
-                  <TableColumn prefWidth="96.0" text="Name of organisation" />
-                  <TableColumn prefWidth="75.0" text="Type of organisation" />
-                  <TableColumn prefWidth="75.0" text="office address" />
-                  <TableColumn prefWidth="75.0" text="Phone no./Mobile No." />
-                  <TableColumn prefWidth="75.0" text="Description of product to be Irradiated" />
+                  <TableColumn prefWidth="96.0" text="Name of Organisation" fx:id="orgName" />
+                  <TableColumn prefWidth="75.0" text="Type of Organisation" fx:id="instituteType"/>
+                  <TableColumn prefWidth="75.0" text="Office Address" fx:id="officeAddress"/>
+                  <TableColumn prefWidth="75.0" text="Phone No." fx:id="phoneNo"/>
+                  <TableColumn prefWidth="75.0" text="Product Description" fx:id="productDesc" />
    
               </columns>
                <columnResizePolicy>

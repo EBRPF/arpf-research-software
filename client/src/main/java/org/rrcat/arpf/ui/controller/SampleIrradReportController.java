@@ -6,6 +6,7 @@ import javafx.event.EventHandler;
 import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.print.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -91,6 +92,16 @@ public class SampleIrradReportController implements Initializable {
     }
 
     public void printSIReport(MouseEvent mouseEvent) {
+        Printer printer = Printer.getDefaultPrinter();
+        PageLayout pageLayout = printer.createPageLayout(Paper.A4,
+                PageOrientation.PORTRAIT, Printer.MarginType.HARDWARE_MINIMUM);
+        PrinterJob job = PrinterJob.createPrinterJob();
+        if (job != null && job.showPrintDialog(this.dosimetryResult.getScene().getWindow())) {
+            boolean success = job.printPage(pageLayout, this.dosimetryResult.getScene().getRoot());
+            if (success) {
+                job.endJob();
+            }
+        }
 
     }
 }

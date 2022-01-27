@@ -20,7 +20,7 @@ public final class Customer {
 
     @Embedded
     @Column(name = "organization")
-    private Organization organization;
+    private Organization orgName;
 
     @Embedded
     @AttributeOverrides({
@@ -62,12 +62,10 @@ public final class Customer {
         this.registrationNo = registrationNo;
     }
 
-    public Organization getOrganization() {
-        return organization;
-    }
+    public Organization getOrganization() {return orgName;}
 
     public void setOrganization(final Organization organization) {
-        this.organization = organization;
+        this.orgName = orgName;
     }
 
     public ContactInfo getResearchHeadInfo() {
@@ -141,7 +139,7 @@ public final class Customer {
     public String toString() {
         return "Customer{" +
                 "registrationNo=" + registrationNo +
-                ", organization=" + organization +
+                ", organization=" + orgName +
                 ", researchHeadInfo=" + researchHeadInfo +
                 ", address=" + address +
                 ", researchOfficerInfo=" + researchOfficerInfo +
@@ -153,7 +151,7 @@ public final class Customer {
     public static CustomerDTO toDTO(final Customer customer) {
         if (customer == null) return null;
         final Address address = customer.getAddress();
-        final Organization organization = customer.getOrganization();
+        final Organization orgName = customer.getOrganization();
         final ContactInfo researchHead = customer.getResearchHeadInfo();
         final ContactInfo researchOfficer = customer.getResearchOfficerInfo();
         return CustomerDTOBuilder.builder()
@@ -163,8 +161,8 @@ public final class Customer {
                 .imageKey(customer.getImage().getId())
                 .organization(
                         OrganizationDTOBuilder.builder()
-                                .name(organization.getName())
-                                .type(organization.getType())
+                                .name(orgName.getName())
+                                .type(orgName.getType())
                                 .build()
                 )
                 .researchHeadInfo(
